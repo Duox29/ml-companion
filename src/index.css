@@ -59,38 +59,14 @@ input, textarea {
   scrollbar-width: none;  /* Firefox */
 }
 
-/* Global Custom Scrollbar (Auto-hide, faded thumb) */
+/* Custom Scrollbar configuration removed to hide it across the project */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
-*:hover {
-  scrollbar-color: rgba(156, 163, 175, 0.4) transparent;
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border-radius: 10px;
-}
-
-/* Show faded thumb only when hovering over the scrollable element */
-*:hover::-webkit-scrollbar-thumb {
-  background-color: rgba(156, 163, 175, 0.4); /* Faded gray */
-}
-
-/* Darker thumb when interacting with it */
-*:hover::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(156, 163, 175, 0.8);
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 @media (prefers-color-scheme: dark) {
