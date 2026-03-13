@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1a3c6b;
+  --color-accent: #f0a500;
+  --color-secondary: #4a90c4;
+  --color-bg-light: #f5f5f5;
+  --color-bg-dark: #121212;
+  --color-success: #27ae60;
+  --color-error: #e74c3c;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-game: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  @apply bg-bg-light text-gray-900 antialiased;
+  /* Prevent overscroll bounce on mobile */
+  overscroll-behavior-y: none;
+  /* Disable text selection for app-like feel */
+  user-select: none;
+  -webkit-user-select: none;
+  /* Prevent tap highlight color on mobile */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Allow text selection in inputs and textareas */
+input, textarea {
+  user-select: auto;
+  -webkit-user-select: auto;
+}
+
+/* Safe area padding for notches and home indicators (Capacitor/Ionic) */
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.pl-safe {
+  padding-left: env(safe-area-inset-left);
+}
+
+.pr-safe {
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Global Custom Scrollbar (Auto-hide, faded thumb) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+*:hover {
+  scrollbar-color: rgba(156, 163, 175, 0.4) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+/* Show faded thumb only when hovering over the scrollable element */
+*:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.4); /* Faded gray */
+}
+
+/* Darker thumb when interacting with it */
+*:hover::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(156, 163, 175, 0.8);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-bg-dark text-gray-100;
+  }
+}
