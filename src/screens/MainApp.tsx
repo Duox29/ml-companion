@@ -60,15 +60,15 @@ export default function MainApp({ isGuest, onLogout, onRequireAuth }: MainAppPro
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex flex-col items-center justify-center w-full h-full space-y-1 ${
+                className={`group flex flex-col items-center justify-center w-full h-full space-y-1 transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-800/50 active:scale-95 ${
                   isActive
                     ? "text-primary dark:text-accent"
-                    : "text-gray-500 dark:text-gray-400"
+                    : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                 }`}
               >
                 <Icon
                   size={24}
-                  className={isActive ? "fill-current opacity-20" : ""}
+                  className={`transition-transform duration-200 ${isActive ? "fill-current opacity-20 scale-110" : "group-hover:scale-110"}`}
                   strokeWidth={isActive ? 2.5 : 2}
                 />
                 <span className="text-[10px] font-medium">{tab.label}</span>
