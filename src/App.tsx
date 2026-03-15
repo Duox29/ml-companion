@@ -76,6 +76,17 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleForcedLogout = () => {
+      setIsAuthenticated(false);
+      setIsGuest(false);
+      setAuthInitialStep("login");
+    };
+
+    window.addEventListener("auth:logout", handleForcedLogout);
+    return () => window.removeEventListener("auth:logout", handleForcedLogout);
+  }, []);
+
   const handleLogin = async (guest = false) => {
     await storage.set(APP_KEYS.ONBOARDING_DONE, "true");
     await storage.set(AUTH_KEYS.GUEST_MODE, guest ? "true" : "false");

@@ -1,10 +1,12 @@
-import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, Fragment, useEffect, useMemo, useRef, useState } from "react";
 import {
   Hash,
   Users,
   ChevronLeft,
   Send,
   Smile,
+  Sticker,
+  X,
   Image as ImageIcon,
   Info,
 } from "lucide-react";
@@ -12,9 +14,182 @@ import { Channel, ChannelMessage } from "../types";
 import {
   fetchGlobalChannelMessages,
   fetchGlobalChannels,
-  sendGlobalChannelMessageRealtime,
+  sendGlobalChannelMessage,
   subscribeToGlobalChannel,
 } from "../services/globalChat";
+import { AUTH_KEYS, storage } from "../services/storage";
+import {
+  ChatAsset,
+  loadCustomChatAssets,
+  mergeChatAssets,
+  normalizeAssetCode,
+  upsertCustomChatAsset,
+  isValidAssetCode,
+  isValidImageSource,
+} from "../services/chatAssets";
+
+const ASSET_TOKEN_REGEX = /(\[img\](.*?)\[\/img\]|:[a-z0-9_+-]+:)/gi;
+const INLINE_IMAGE_DATA_REGEX = /\[img\]\s*data:image\/[a-zA-Z0-9.+-]+;base64,[\s\S]*?\[\/img\]/i;
+const MAX_INLINE_IMAGE_MESSAGE_LENGTH = 800_000;
+
+async function compressImageFile(file: File): Promise<string> {
+  const image = await new Promise<HTMLImageElement>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result !== "string") {
+        reject(new Error("Could not read image file."));
+        return;
+      }
+
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error("Could not decode selected image."));
+      img.src = reader.result;
+    };
+    reader.onerror = () => reject(new Error("Could not read image file."));
+    reader.readAsDataURL(file);
+  });
+
+  const maxWidth = 1280;
+  const maxHeight = 1280;
+  const widthRatio = maxWidth / image.width;
+  const heightRatio = maxHeight / image.height;
+  const ratio = Math.min(1, widthRatio, heightRatio);
+
+  const targetWidth = Math.max(1, Math.round(image.width * ratio));
+  const targetHeight = Math.max(1, Math.round(image.height * ratio));
+
+  const canvas = document.createElement("canvas");
+  canvas.width = targetWidth;
+  canvas.height = targetHeight;
+
+  const context = canvas.getContext("2d");
+  if (!context) {
+    throw new Error("Could not process image.");
+  }
+
+  context.drawImage(image, 0, 0, targetWidth, targetHeight);
+
+  const preferPng = file.type.toLowerCase().includes("png");
+  const outputType = preferPng ? "image/png" : "image/jpeg";
+  const quality = preferPng ? 0.92 : 0.78;
+
+  return canvas.toDataURL(outputType, quality);
+}
+
+function isAdminFromStoredUser(raw: string | null): boolean {
+  if (!raw) return false;
+
+  try {
+    const parsed = JSON.parse(raw) as Record<string, unknown>;
+    if (parsed.isAdmin === true) return true;
+    if (typeof parsed.role === "string" && parsed.role.toLowerCase() === "admin") return true;
+    if (Array.isArray(parsed.roles)) {
+      return parsed.roles.some(
+        (item) => typeof item === "string" && item.toLowerCase() === "admin"
+      );
+    }
+  } catch {
+    return false;
+  }
+
+  return false;
+}
+
+function renderMessageContent(content: string, assetsByCode: Map<string, ChatAsset>) {
+  const text = content || "";
+  const parts: Array<{
+    type: "text" | "emoji" | "sticker" | "image";
+    value: string;
+  }> = [];
+
+  let lastIndex = 0;
+  text.replace(ASSET_TOKEN_REGEX, (fullMatch, _token, imageValue, offset) => {
+    if (offset > lastIndex) {
+      parts.push({ type: "text", value: text.slice(lastIndex, offset) });
+    }
+
+    if (fullMatch.toLowerCase().startsWith("[img]")) {
+      const imageSrc = typeof imageValue === "string" ? imageValue.trim() : "";
+      if (isValidImageSource(imageSrc)) {
+        parts.push({ type: "image", value: imageSrc });
+      } else {
+        parts.push({ type: "text", value: fullMatch });
+      }
+    } else {
+      const normalizedCode = normalizeAssetCode(fullMatch);
+      const asset = assetsByCode.get(normalizedCode);
+      if (!asset) {
+        parts.push({ type: "text", value: fullMatch });
+      } else if (asset.type === "emoji") {
+        parts.push({ type: "emoji", value: asset.value });
+      } else {
+        parts.push({ type: "sticker", value: asset.value });
+      }
+    }
+
+    lastIndex = offset + fullMatch.length;
+    return fullMatch;
+  });
+
+  if (lastIndex < text.length) {
+    parts.push({ type: "text", value: text.slice(lastIndex) });
+  }
+
+  if (parts.length === 0) {
+    parts.push({ type: "text", value: text });
+  }
+
+  return (
+    <div className="space-y-2">
+      {parts.map((part, index) => {
+        if (part.type === "emoji") {
+          return (
+            <span key={`${part.type}-${index}`} className="text-lg align-middle">
+              {part.value}
+            </span>
+          );
+        }
+
+        if (part.type === "sticker") {
+          return (
+            <img
+              key={`${part.type}-${index}`}
+              src={part.value}
+              alt="sticker"
+              className="max-w-[180px] max-h-[180px] rounded-xl border border-gray-200 dark:border-gray-700 object-cover"
+            />
+          );
+        }
+
+        if (part.type === "image") {
+          return (
+            <img
+              key={`${part.type}-${index}`}
+              src={part.value}
+              alt="chat upload"
+              className="max-w-[220px] max-h-[220px] rounded-xl border border-gray-200 dark:border-gray-700 object-cover"
+            />
+          );
+        }
+
+        return (
+          <Fragment key={`${part.type}-${index}`}>
+            {(() => {
+              const lines = part.value.split("\n");
+              return lines.map((line, lineIndex) => (
+                <Fragment key={`line-${lineIndex}`}>
+                  {line}
+                  {lineIndex < lines.length - 1 ? <br /> : null}
+                </Fragment>
+              ));
+            })()}
+          </Fragment>
+        );
+      })}
+    </div>
+  );
+}
 
 export default function ChatTab({
   isGuest,
@@ -126,10 +301,6 @@ export default function ChatTab({
                   <p className="text-xs text-gray-500">{channel.description}</p>
                 </div>
               </div>
-              <div className="flex items-center text-xs text-success font-medium">
-                <div className="w-2 h-2 bg-success rounded-full mr-1.5"></div>
-                {channel.onlineCount}
-              </div>
             </button>
           ))}
         </div>
@@ -152,7 +323,34 @@ function ChatRoom({
   const [isSending, setIsSending] = useState(false);
   const [messagesError, setMessagesError] = useState<string | null>(null);
   const [isSocketConnected, setIsSocketConnected] = useState(false);
+  const [initialConnectionNotice, setInitialConnectionNotice] = useState<string | null>(null);
+  const [isEmojiPickerOpen, setIsEmojiPickerOpen] = useState(false);
+  const [isStickerPickerOpen, setIsStickerPickerOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [customAssets, setCustomAssets] = useState<ChatAsset[]>([]);
+  const [assetsError, setAssetsError] = useState<string | null>(null);
+  const [newEmojiCode, setNewEmojiCode] = useState("");
+  const [newEmojiValue, setNewEmojiValue] = useState("");
+  const [newStickerCode, setNewStickerCode] = useState("");
+  const [newStickerUrl, setNewStickerUrl] = useState("");
+  const [pendingImageDataUrl, setPendingImageDataUrl] = useState<string | null>(null);
   const subscriptionRef = useRef<{ unsubscribe: () => void } | null>(null);
+  const imageInputRef = useRef<HTMLInputElement | null>(null);
+
+  const allAssets = useMemo(() => mergeChatAssets(customAssets), [customAssets]);
+  const emojiAssets = useMemo(
+    () => allAssets.filter((asset) => asset.type === "emoji"),
+    [allAssets]
+  );
+  const stickerAssets = useMemo(
+    () => allAssets.filter((asset) => asset.type === "sticker"),
+    [allAssets]
+  );
+  const assetsByCode = useMemo(() => {
+    const map = new Map<string, ChatAsset>();
+    allAssets.forEach((asset) => map.set(asset.code, asset));
+    return map;
+  }, [allAssets]);
 
   useEffect(() => {
     let isMounted = true;
@@ -162,6 +360,8 @@ function ChatRoom({
         setIsLoadingMessages(true);
         setMessagesError(null);
         setIsSocketConnected(false);
+        setInitialConnectionNotice(null);
+        setPendingImageDataUrl(null);
 
         const [channels, page] = await Promise.all([
           fetchGlobalChannels(),
@@ -191,6 +391,12 @@ function ChatRoom({
           onConnectionChange: (connected) => {
             if (!isMounted) return;
             setIsSocketConnected(connected);
+            setInitialConnectionNotice((prev) => {
+              if (prev !== null) return prev;
+              return connected
+                ? "Realtime connected."
+                : "Realtime disconnected. You can still send by API.";
+            });
           },
           onError: (error) => {
             if (!isMounted) return;
@@ -225,6 +431,33 @@ function ChatRoom({
     };
   }, [channelId]);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadChatSettings = async () => {
+      try {
+        const [storedUser, storedCustomAssets] = await Promise.all([
+          storage.get(AUTH_KEYS.USER_DATA),
+          loadCustomChatAssets(),
+        ]);
+        if (!isMounted) return;
+        setIsAdmin(isAdminFromStoredUser(storedUser));
+        setCustomAssets(storedCustomAssets);
+      } catch (error) {
+        console.error("Failed to load chat asset settings:", error);
+        if (isMounted) {
+          setAssetsError("Could not load chat assets.");
+        }
+      }
+    };
+
+    loadChatSettings();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const sortedMessages = useMemo(() => {
     return [...messages].sort((a, b) => {
       const aTime = Number.isNaN(new Date(a.timestamp).getTime())
@@ -239,14 +472,34 @@ function ChatRoom({
 
   const onSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    const content = input.trim();
+    const textContent = input.trim();
+    const content = pendingImageDataUrl
+      ? `${textContent}${textContent ? " " : ""}[img]${pendingImageDataUrl}[/img]`
+      : textContent;
     if (!content || isSending) return;
 
     try {
       setIsSending(true);
       setMessagesError(null);
-      await sendGlobalChannelMessageRealtime(channelId, content);
+      const hasInlineImageData = INLINE_IMAGE_DATA_REGEX.test(content);
+
+      if (hasInlineImageData && content.length > MAX_INLINE_IMAGE_MESSAGE_LENGTH) {
+        setMessagesError("Image is too large. Please choose a smaller image.");
+        return;
+      }
+
+      const created = await sendGlobalChannelMessage(channelId, content);
+      setMessages((prev) => {
+        const next = [created, ...prev];
+        const deduped = new Map<string, ChannelMessage>();
+        for (const item of next) {
+          deduped.set(item.id, item);
+        }
+        return Array.from(deduped.values());
+      });
+
       setInput("");
+      setPendingImageDataUrl(null);
     } catch (error) {
       console.error("Failed to send message:", error);
       setMessagesError("Failed to send message. Please try again.");
@@ -255,38 +508,154 @@ function ChatRoom({
     }
   };
 
+  const addCodeToInput = (code: string) => {
+    setInput((prev) => `${prev}${prev.endsWith(" ") || !prev ? "" : " "}${code} `);
+  };
+
+  const handleSendStickerCode = async (code: string) => {
+    try {
+      setIsSending(true);
+      setMessagesError(null);
+      const created = await sendGlobalChannelMessage(channelId, code);
+      setMessages((prev) => {
+        const next = [created, ...prev];
+        const deduped = new Map<string, ChannelMessage>();
+        for (const item of next) {
+          deduped.set(item.id, item);
+        }
+        return Array.from(deduped.values());
+      });
+      setIsStickerPickerOpen(false);
+    } catch (error) {
+      console.error("Failed to send sticker:", error);
+      setMessagesError("Failed to send sticker. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
+  };
+
+  const handleImageButtonClick = () => {
+    const manualUrl = window.prompt("Paste image URL, or leave blank to pick a local file.");
+    if (manualUrl === null) return;
+    if (manualUrl && manualUrl.trim()) {
+      const url = manualUrl.trim();
+      if (!isValidImageSource(url)) {
+        setMessagesError("Invalid image URL.");
+        return;
+      }
+      addCodeToInput(`[img]${url}[/img]`);
+      return;
+    }
+    imageInputRef.current?.click();
+  };
+
+  const handleImageFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+      setMessagesError("Only image files are supported.");
+      return;
+    }
+
+    void (async () => {
+      try {
+        setMessagesError(null);
+        const compressedImage = await compressImageFile(file);
+        setPendingImageDataUrl(compressedImage);
+      } catch (error) {
+        console.error("Failed to process selected image:", error);
+        setMessagesError("Could not process selected image.");
+      }
+    })();
+  };
+
+  const handleCreateCustomEmoji = async () => {
+    if (!isAdmin) return;
+    const code = normalizeAssetCode(newEmojiCode);
+    const value = newEmojiValue.trim();
+    if (!isValidAssetCode(code)) {
+      setAssetsError("Emoji code must look like :my_code: (letters/numbers/_/+/ - only).");
+      return;
+    }
+    if (!value) {
+      setAssetsError("Emoji value must not be empty.");
+      return;
+    }
+
+    try {
+      setAssetsError(null);
+      const next = await upsertCustomChatAsset({ code, type: "emoji", value, isCustom: true });
+      setCustomAssets(next);
+      setNewEmojiCode("");
+      setNewEmojiValue("");
+    } catch (error) {
+      console.error("Failed to create custom emoji:", error);
+      setAssetsError("Failed to save custom emoji.");
+    }
+  };
+
+  const handleCreateCustomSticker = async () => {
+    if (!isAdmin) return;
+    const code = normalizeAssetCode(newStickerCode);
+    const value = newStickerUrl.trim();
+    if (!isValidAssetCode(code)) {
+      setAssetsError("Sticker code must look like :my_sticker:.");
+      return;
+    }
+    if (!isValidImageSource(value)) {
+      setAssetsError("Sticker URL must be a valid image URL/data URL.");
+      return;
+    }
+
+    try {
+      setAssetsError(null);
+      const next = await upsertCustomChatAsset({ code, type: "sticker", value, isCustom: true });
+      setCustomAssets(next);
+      setNewStickerCode("");
+      setNewStickerUrl("");
+    } catch (error) {
+      console.error("Failed to create custom sticker:", error);
+      setAssetsError("Failed to save custom sticker.");
+    }
+  };
+
   return (
     <div className="flex flex-col h-full bg-bg-light dark:bg-bg-dark absolute inset-0 z-20">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-900 px-4 pt-6 pb-3 flex items-center justify-between shadow-sm border-b border-gray-200 dark:border-gray-800">
+      <div className="bg-white dark:bg-gray-900 px-3 py-2.5 flex items-center justify-between shadow-sm border-b border-gray-200 dark:border-gray-800">
         <div className="flex items-center">
           <button
             onClick={onBack}
-            className="mr-3 text-gray-600 dark:text-gray-300"
+            className="mr-2 text-gray-600 dark:text-gray-300"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={20} />
           </button>
           <div>
-            <h2 className="font-bold text-lg dark:text-white flex items-center">
-              <Hash size={18} className="text-gray-400 mr-1" />
+            <h2 className="font-bold text-base dark:text-white flex items-center">
+              <Hash size={16} className="text-gray-400 mr-1" />
               {channel?.name ?? channelId}
             </h2>
-            <p className="text-xs text-success flex items-center">
-              <span className="w-1.5 h-1.5 bg-success rounded-full mr-1"></span>
-              {channel?.onlineCount ?? 0} online
+            <p
+              className={`text-xs flex items-center ${isSocketConnected ? "text-success" : "text-error"}`}
+            >
+              <span
+                className={`w-1.5 h-1.5 rounded-full mr-1 ${isSocketConnected ? "bg-success" : "bg-error"}`}
+              ></span>
+              {isSocketConnected ? "Connected" : "Disconnected"}
             </p>
           </div>
         </div>
         <button className="text-gray-500">
-          <Users size={20} />
+          <Users size={18} />
         </button>
       </div>
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4 flex flex-col-reverse">
-        <div className="text-center text-[11px] text-gray-400">
-          {isSocketConnected ? "Realtime connected" : "Connecting to realtime chat..."}
-        </div>
+        {initialConnectionNotice && (
+          <div className="text-center text-[11px] text-gray-400">{initialConnectionNotice}</div>
+        )}
 
         {messagesError && (
           <div className="text-sm text-error text-center">{messagesError}</div>
@@ -322,13 +691,13 @@ function ChatRoom({
                     {Number.isNaN(new Date(message.timestamp).getTime())
                       ? "--:--"
                       : new Date(message.timestamp).toLocaleTimeString([], {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
                   </span>
                 </div>
                 <div className="bg-white dark:bg-gray-800 p-3 rounded-2xl rounded-tl-none text-sm text-gray-800 dark:text-gray-200 shadow-sm border border-gray-100 dark:border-gray-700 inline-block">
-                  {message.content || ""}
+                  {renderMessageContent(message.content || "", assetsByCode)}
                 </div>
               </div>
             </div>
@@ -347,11 +716,140 @@ function ChatRoom({
 
       {/* Input */}
       <div className="bg-white dark:bg-gray-900 p-3 border-t border-gray-200 dark:border-gray-800 pb-safe">
+        <input
+          ref={imageInputRef}
+          type="file"
+          accept="image/*"
+          onChange={handleImageFileChange}
+          className="hidden"
+        />
+
+        {isEmojiPickerOpen && (
+          <div className="mb-2 bg-gray-100 dark:bg-gray-800 rounded-2xl p-3 flex flex-wrap gap-2">
+            {emojiAssets.map((asset) => (
+              <button
+                key={asset.code}
+                type="button"
+                onClick={() => {
+                  addCodeToInput(asset.code);
+                  setIsEmojiPickerOpen(false);
+                }}
+                className="px-2 py-1 bg-white dark:bg-gray-700 rounded-lg text-lg"
+                title={asset.code}
+              >
+                {asset.value}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {isStickerPickerOpen && (
+          <div className="mb-2 bg-gray-100 dark:bg-gray-800 rounded-2xl p-3 grid grid-cols-4 gap-2">
+            {stickerAssets.map((asset) => (
+              <button
+                key={asset.code}
+                type="button"
+                onClick={() => void handleSendStickerCode(asset.code)}
+                className="bg-white dark:bg-gray-700 rounded-lg p-1"
+                title={`${asset.code} (tap to send code)`}
+              >
+                <img
+                  src={asset.value}
+                  alt={asset.code}
+                  className="w-full h-16 object-cover rounded-md"
+                />
+              </button>
+            ))}
+          </div>
+        )}
+
+        {isAdmin && (
+          <div className="mb-2 bg-gray-100 dark:bg-gray-800 rounded-2xl p-3">
+            <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 mb-2">
+              Admin: Custom emoji/sticker
+            </div>
+
+            {assetsError && <div className="text-xs text-error mb-2">{assetsError}</div>}
+
+            <div className="grid grid-cols-1 gap-2 mb-2">
+              <input
+                type="text"
+                value={newEmojiCode}
+                onChange={(event) => setNewEmojiCode(event.target.value)}
+                placeholder="Emoji code (example: :ml_hype:)"
+                className="px-3 py-2 rounded-lg bg-white dark:bg-gray-700 text-sm dark:text-white"
+              />
+              <input
+                type="text"
+                value={newEmojiValue}
+                onChange={(event) => setNewEmojiValue(event.target.value)}
+                placeholder="Emoji char/text (example: 🔥)"
+                className="px-3 py-2 rounded-lg bg-white dark:bg-gray-700 text-sm dark:text-white"
+              />
+              <button
+                type="button"
+                onClick={() => void handleCreateCustomEmoji()}
+                className="px-3 py-2 rounded-lg bg-primary text-white text-sm font-semibold"
+              >
+                Save Emoji
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 gap-2">
+              <input
+                type="text"
+                value={newStickerCode}
+                onChange={(event) => setNewStickerCode(event.target.value)}
+                placeholder="Sticker code (example: :ml_win:)"
+                className="px-3 py-2 rounded-lg bg-white dark:bg-gray-700 text-sm dark:text-white"
+              />
+              <input
+                type="text"
+                value={newStickerUrl}
+                onChange={(event) => setNewStickerUrl(event.target.value)}
+                placeholder="Sticker image URL"
+                className="px-3 py-2 rounded-lg bg-white dark:bg-gray-700 text-sm dark:text-white"
+              />
+              <button
+                type="button"
+                onClick={() => void handleCreateCustomSticker()}
+                className="px-3 py-2 rounded-lg bg-primary text-white text-sm font-semibold"
+              >
+                Save Sticker
+              </button>
+            </div>
+          </div>
+        )}
+
+        {pendingImageDataUrl && (
+          <div className="mb-2 bg-gray-100 dark:bg-gray-800 rounded-2xl p-2 flex items-center gap-3">
+            <img
+              src={pendingImageDataUrl}
+              alt="Selected preview"
+              className="w-16 h-16 rounded-lg object-cover border border-gray-200 dark:border-gray-700"
+            />
+
+            <button
+              type="button"
+              onClick={() => setPendingImageDataUrl(null)}
+              className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 p-1"
+              title="Remove selected image"
+              aria-label="Remove selected image"
+            >
+              <X size={16} />
+            </button>
+          </div>
+        )}
+
         <form
           onSubmit={onSubmit}
-          className="flex items-center bg-gray-100 dark:bg-gray-800 rounded-full px-4 py-2"
+          className="flex min-w-0 items-center gap-1 bg-gray-100 dark:bg-gray-800 rounded-full px-2 py-1.5"
         >
-          <button type="button" className="text-gray-400 mr-2">
+          <button
+            type="button"
+            className="text-gray-400 shrink-0 p-1"
+            onClick={handleImageButtonClick}
+          >
             <ImageIcon size={20} />
           </button>
           <input
@@ -359,15 +857,34 @@ function ChatRoom({
             value={input}
             onChange={(event) => setInput(event.target.value)}
             placeholder={`Message #${channel?.name ?? channelId}...`}
-            className="flex-1 bg-transparent border-none focus:outline-none text-sm dark:text-white"
+            className="flex-1 min-w-0 bg-transparent border-none focus:outline-none text-sm dark:text-white"
             disabled={isSending}
           />
-          <button type="button" className="text-gray-400 mx-2">
+          <button
+            type="button"
+            className="text-gray-400 shrink-0 p-1"
+            onClick={() => {
+              setIsEmojiPickerOpen((prev) => !prev);
+              setIsStickerPickerOpen(false);
+            }}
+          >
             <Smile size={20} />
           </button>
           <button
+            type="button"
+            className="text-gray-400 shrink-0 p-1"
+            title="Open sticker picker"
+            aria-label="Open sticker picker"
+            onClick={() => {
+              setIsStickerPickerOpen((prev) => !prev);
+              setIsEmojiPickerOpen(false);
+            }}
+          >
+            <Sticker size={16} />
+          </button>
+          <button
             type="submit"
-            disabled={isSending || !input.trim()}
+            disabled={isSending || (!input.trim() && !pendingImageDataUrl)}
             className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white shrink-0 disabled:opacity-60"
           >
             <Send size={14} className="ml-0.5" />

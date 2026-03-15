@@ -1,5 +1,5 @@
 /// <reference types="vite/client" />
-import axios from 'axios';
+import axios, { AxiosHeaders } from 'axios';
 import { storage, AUTH_KEYS } from './storage';
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -22,18 +22,92 @@ export const api = axios.create({
   },
 });
 
+const AUTH_ENDPOINTS = [
+  '/auth/login',
+  '/auth/register',
+  '/auth/refresh',
+  '/auth/forgot-password',
+  '/auth/reset-password',
+];
+
+let refreshPromise: Promise<string> | null = null;
+
+function isPublicAuthEndpoint(url: string): boolean {
+  return AUTH_ENDPOINTS.some((endpoint) => url.includes(endpoint));
+}
+
+function extractTokenPayload(responseData: any): {
+  accessToken?: string;
+  refreshToken?: string;
+} {
+  const payload = responseData?.data ?? responseData;
+  return {
+    accessToken: payload?.accessToken,
+    refreshToken: payload?.refreshToken,
+  };
+}
+
+async function clearAuthStorage() {
+  await Promise.all([
+    storage.remove(AUTH_KEYS.ACCESS_TOKEN),
+    storage.remove(AUTH_KEYS.REFRESH_TOKEN),
+    storage.remove(AUTH_KEYS.USER_DATA),
+  ]);
+}
+
+async function refreshAccessToken(): Promise<string> {
+  if (refreshPromise) {
+    return refreshPromise;
+  }
+
+  refreshPromise = (async () => {
+    const currentRefreshToken = await storage.get(AUTH_KEYS.REFRESH_TOKEN);
+
+    if (!currentRefreshToken) {
+      throw new Error('No refresh token available');
+    }
+
+    const response = await axios.post(
+      `${api.defaults.baseURL}/auth/refresh`,
+      { refreshToken: currentRefreshToken },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    const { accessToken, refreshToken: nextRefreshToken } = extractTokenPayload(
+      response.data
+    );
+
+    if (!accessToken) {
+      throw new Error('Missing access token in refresh response');
+    }
+
+    await storage.set(AUTH_KEYS.ACCESS_TOKEN, accessToken);
+    if (nextRefreshToken) {
+      await storage.set(AUTH_KEYS.REFRESH_TOKEN, nextRefreshToken);
+    }
+
+    api.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+
+    return accessToken;
+  })();
+
+  try {
+    return await refreshPromise;
+  } finally {
+    refreshPromise = null;
+  }
+}
+
 // Request Interceptor: Attach the access token to every request
 api.interceptors.request.use(
   async (config) => {
-    const url = config.url ?? "";
-    const isPublicAuthEndpoint =
-      url.includes("/auth/login") ||
-      url.includes("/auth/register") ||
-      url.includes("/auth/refresh") ||
-      url.includes("/auth/forgot-password") ||
-      url.includes("/auth/reset-password");
+    const url = config.url ?? '';
 
-    if (!isPublicAuthEndpoint) {
+    if (!isPublicAuthEndpoint(url)) {
       const token = await storage.get(AUTH_KEYS.ACCESS_TOKEN);
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
@@ -48,47 +122,35 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
-    const originalRequest = error.config;
+    const originalRequest = error.config as (typeof error.config & {
+      _retry?: boolean;
+    }) | null;
 
-    // If the error is 401 and we haven't retried yet
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    if (!originalRequest) {
+      return Promise.reject(error);
+    }
+
+    const requestUrl = originalRequest.url ?? '';
+    const shouldSkipRefresh =
+      originalRequest._retry || isPublicAuthEndpoint(requestUrl);
+
+    // If the error is 401 and we can retry with refresh token
+    if (error.response?.status === 401 && !shouldSkipRefresh) {
       originalRequest._retry = true;
 
       try {
-        const refreshToken = await storage.get(AUTH_KEYS.REFRESH_TOKEN);
-        
-        if (!refreshToken) {
-          // No refresh token, force logout
-          throw new Error('No refresh token available');
+        const newAccessToken = await refreshAccessToken();
+
+        if (!originalRequest.headers) {
+          originalRequest.headers = new AxiosHeaders();
         }
 
-        // Attempt to refresh the token
-        // Note: Use a separate axios instance or standard fetch to avoid interceptor loops
-        const response = await axios.post(`${api.defaults.baseURL}/auth/refresh`, {
-          refreshToken,
-        });
-
-        const { accessToken, refreshToken: newRefreshToken } = response.data;
-
-        // Save new tokens
-        await storage.set(AUTH_KEYS.ACCESS_TOKEN, accessToken);
-        if (newRefreshToken) {
-          await storage.set(AUTH_KEYS.REFRESH_TOKEN, newRefreshToken);
-        }
-
-        // Update the failed request's header and retry
-        originalRequest.headers.Authorization = `Bearer ${accessToken}`;
+        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
         return api(originalRequest);
-        
       } catch (refreshError) {
-        // Refresh failed (e.g., refresh token expired)
-        await storage.remove(AUTH_KEYS.ACCESS_TOKEN);
-        await storage.remove(AUTH_KEYS.REFRESH_TOKEN);
-        await storage.remove(AUTH_KEYS.USER_DATA);
-        
-        // Optional: Dispatch a custom event to trigger a logout in the UI
+        await clearAuthStorage();
         window.dispatchEvent(new Event('auth:logout'));
-        
+
         return Promise.reject(refreshError);
       }
     }
