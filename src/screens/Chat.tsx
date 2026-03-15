@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import {
   Hash,
   Users,
@@ -12,7 +12,8 @@ import { Channel, ChannelMessage } from "../types";
 import {
   fetchGlobalChannelMessages,
   fetchGlobalChannels,
-  sendGlobalChannelMessage,
+  sendGlobalChannelMessageRealtime,
+  subscribeToGlobalChannel,
 } from "../services/globalChat";
 
 export default function ChatTab({
@@ -150,35 +151,88 @@ function ChatRoom({
   const [isLoadingMessages, setIsLoadingMessages] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [messagesError, setMessagesError] = useState<string | null>(null);
+  const [isSocketConnected, setIsSocketConnected] = useState(false);
+  const subscriptionRef = useRef<{ unsubscribe: () => void } | null>(null);
 
   useEffect(() => {
+    let isMounted = true;
+
     const load = async () => {
       try {
         setIsLoadingMessages(true);
         setMessagesError(null);
+        setIsSocketConnected(false);
 
         const [channels, page] = await Promise.all([
           fetchGlobalChannels(),
           fetchGlobalChannelMessages(channelId, 1, 50),
         ]);
 
+        if (!isMounted) return;
+
         setChannel(channels.find((c) => c.id === channelId) ?? null);
-        setMessages(page.data ?? []);
+        setMessages(Array.isArray(page.data) ? page.data : []);
+
+        subscriptionRef.current?.unsubscribe();
+        const nextSubscription = await subscribeToGlobalChannel(channelId, {
+          onMessage: (message) => {
+            if (!isMounted) return;
+            setMessages((prev) => {
+              const next = [message, ...prev];
+              const deduped = new Map<string, ChannelMessage>();
+
+              for (const item of next) {
+                deduped.set(item.id, item);
+              }
+
+              return Array.from(deduped.values());
+            });
+          },
+          onConnectionChange: (connected) => {
+            if (!isMounted) return;
+            setIsSocketConnected(connected);
+          },
+          onError: (error) => {
+            if (!isMounted) return;
+            setMessagesError(error);
+          },
+        });
+
+        if (!isMounted) {
+          nextSubscription.unsubscribe();
+          return;
+        }
+
+        subscriptionRef.current = nextSubscription;
       } catch (error) {
         console.error("Failed to load channel messages:", error);
-        setMessagesError("Could not load messages. Please try again.");
+        if (isMounted) {
+          setMessagesError("Could not load messages. Please try again.");
+        }
       } finally {
-        setIsLoadingMessages(false);
+        if (isMounted) {
+          setIsLoadingMessages(false);
+        }
       }
     };
 
     load();
+
+    return () => {
+      isMounted = false;
+      subscriptionRef.current?.unsubscribe();
+      subscriptionRef.current = null;
+    };
   }, [channelId]);
 
   const sortedMessages = useMemo(() => {
     return [...messages].sort((a, b) => {
-      const aTime = new Date(a.timestamp).getTime();
-      const bTime = new Date(b.timestamp).getTime();
+      const aTime = Number.isNaN(new Date(a.timestamp).getTime())
+        ? 0
+        : new Date(a.timestamp).getTime();
+      const bTime = Number.isNaN(new Date(b.timestamp).getTime())
+        ? 0
+        : new Date(b.timestamp).getTime();
       return bTime - aTime;
     });
   }, [messages]);
@@ -190,8 +244,8 @@ function ChatRoom({
 
     try {
       setIsSending(true);
-      const sent = await sendGlobalChannelMessage(channelId, content);
-      setMessages((prev) => [sent, ...prev]);
+      setMessagesError(null);
+      await sendGlobalChannelMessageRealtime(channelId, content);
       setInput("");
     } catch (error) {
       console.error("Failed to send message:", error);
@@ -215,11 +269,11 @@ function ChatRoom({
           <div>
             <h2 className="font-bold text-lg dark:text-white flex items-center">
               <Hash size={18} className="text-gray-400 mr-1" />
-              {channel?.name}
+              {channel?.name ?? channelId}
             </h2>
             <p className="text-xs text-success flex items-center">
               <span className="w-1.5 h-1.5 bg-success rounded-full mr-1"></span>
-              {channel?.online} online
+              {channel?.onlineCount ?? 0} online
             </p>
           </div>
         </div>
@@ -230,6 +284,10 @@ function ChatRoom({
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4 flex flex-col-reverse">
+        <div className="text-center text-[11px] text-gray-400">
+          {isSocketConnected ? "Realtime connected" : "Connecting to realtime chat..."}
+        </div>
+
         {messagesError && (
           <div className="text-sm text-error text-center">{messagesError}</div>
         )}
@@ -239,47 +297,51 @@ function ChatRoom({
         )}
 
         {!isLoadingMessages &&
-          !messagesError &&
           sortedMessages.map((message) => (
             <div key={message.id} className="flex items-start">
               {message.sender.avatar ? (
                 <img
                   src={message.sender.avatar}
                   className="w-8 h-8 rounded-full mr-3 mt-1 object-cover"
-                  alt={message.sender.username}
+                  alt={message.sender.username || "User avatar"}
+                  onError={(event) => {
+                    event.currentTarget.style.display = "none";
+                  }}
                 />
               ) : (
                 <div className="w-8 h-8 rounded-full mr-3 mt-1 bg-gray-300 dark:bg-gray-700 flex items-center justify-center text-xs font-semibold text-gray-700 dark:text-gray-200">
-                  {message.sender.username.slice(0, 1).toUpperCase()}
+                  {(message.sender.username || "?").slice(0, 1).toUpperCase()}
                 </div>
               )}
               <div>
                 <div className="flex items-baseline mb-0.5">
                   <span className="font-bold text-sm dark:text-white mr-2">
-                    {message.sender.username}
+                    {message.sender.username || "Unknown"}
                   </span>
                   <span className="text-[10px] text-gray-400">
-                    {new Date(message.timestamp).toLocaleTimeString([], {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
+                    {Number.isNaN(new Date(message.timestamp).getTime())
+                      ? "--:--"
+                      : new Date(message.timestamp).toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
                   </span>
                 </div>
                 <div className="bg-white dark:bg-gray-800 p-3 rounded-2xl rounded-tl-none text-sm text-gray-800 dark:text-gray-200 shadow-sm border border-gray-100 dark:border-gray-700 inline-block">
-                  {message.content}
+                  {message.content || ""}
                 </div>
               </div>
             </div>
           ))}
 
-        {!isLoadingMessages && !messagesError && sortedMessages.length === 0 && (
+        {!isLoadingMessages && sortedMessages.length === 0 && (
           <div className="text-center text-sm text-gray-500 mt-6">
             No messages yet. Start the conversation.
           </div>
         )}
 
         <div className="text-center text-xs text-gray-400 my-4">
-          Welcome to #{channel?.name}!
+          Welcome to #{channel?.name ?? channelId}!
         </div>
       </div>
 
@@ -296,7 +358,7 @@ function ChatRoom({
             type="text"
             value={input}
             onChange={(event) => setInput(event.target.value)}
-            placeholder={`Message #${channel?.name}...`}
+            placeholder={`Message #${channel?.name ?? channelId}...`}
             className="flex-1 bg-transparent border-none focus:outline-none text-sm dark:text-white"
             disabled={isSending}
           />
