@@ -51,6 +51,7 @@ export const GLOBAL_CHAT_ENDPOINTS = {
 };
 
 const SOCKET_RECONNECT_DELAY_MS = 5000;
+const SOCKET_CONNECT_TIMEOUT_MS = 10000;
 
 let stompClient: Client | null = null;
 let activationPromise: Promise<Client> | null = null;
@@ -179,6 +180,7 @@ async function getAuthorizedStompClient(): Promise<Client> {
 
     const client = new Client({
       reconnectDelay: SOCKET_RECONNECT_DELAY_MS,
+      connectionTimeout: SOCKET_CONNECT_TIMEOUT_MS,
       connectHeaders: {
         Authorization: `Bearer ${token}`,
       },
@@ -218,6 +220,11 @@ async function getAuthorizedStompClient(): Promise<Client> {
 
       client.onWebSocketClose = () => {
         connectionListeners.forEach((listener) => listener(false));
+        if (!settled) {
+          settled = true;
+          activationPromise = null;
+          reject(new Error("WebSocket connection closed before STOMP CONNECT."));
+        }
         if (stompClient === client && !client.active) {
           stompClient = null;
         }
