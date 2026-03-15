@@ -3,6 +3,8 @@ import AuthFlow from "./screens/Auth";
 import MainApp from "./screens/MainApp";
 import { storage, AUTH_KEYS, APP_KEYS } from "./services/storage";
 
+const ONBOARDING_VERSION = "v2";
+
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isGuest, setIsGuest] = useState(false);
@@ -28,18 +30,19 @@ export default function App() {
 
     const restoreSession = async () => {
       try {
-        const [accessToken, userData, guestMode, onboardingDone] = await Promise.all([
+        const [accessToken, userData, guestMode, onboardingVersion] = await Promise.all([
           storage.get(AUTH_KEYS.ACCESS_TOKEN),
           storage.get(AUTH_KEYS.USER_DATA),
           storage.get(AUTH_KEYS.GUEST_MODE),
-          storage.get(APP_KEYS.ONBOARDING_DONE),
+          storage.get(APP_KEYS.ONBOARDING_VERSION),
         ]);
 
         if (!isMounted) {
           return;
         }
 
-        setAuthInitialStep(onboardingDone === "true" ? "login" : "splash");
+        const hasCompletedOnboarding = onboardingVersion === ONBOARDING_VERSION;
+        setAuthInitialStep(hasCompletedOnboarding ? "login" : "splash");
 
         if (accessToken && userData) {
           setIsGuest(false);
@@ -88,7 +91,10 @@ export default function App() {
   }, []);
 
   const handleLogin = async (guest = false) => {
-    await storage.set(APP_KEYS.ONBOARDING_DONE, "true");
+    await Promise.all([
+      storage.set(APP_KEYS.ONBOARDING_DONE, "true"),
+      storage.set(APP_KEYS.ONBOARDING_VERSION, ONBOARDING_VERSION),
+    ]);
     await storage.set(AUTH_KEYS.GUEST_MODE, guest ? "true" : "false");
     setIsGuest(guest);
     setIsAuthenticated(true);
@@ -108,7 +114,10 @@ export default function App() {
 
   const handleRequireAuth = async (step: "login" | "register") => {
     await storage.remove(AUTH_KEYS.GUEST_MODE);
-    await storage.set(APP_KEYS.ONBOARDING_DONE, "true");
+    await Promise.all([
+      storage.set(APP_KEYS.ONBOARDING_DONE, "true"),
+      storage.set(APP_KEYS.ONBOARDING_VERSION, ONBOARDING_VERSION),
+    ]);
     setIsAuthenticated(false);
     setIsGuest(false);
     setAuthInitialStep(step);

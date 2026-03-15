@@ -32,4 +32,5 @@ export const AUTH_KEYS = {
 
 export const APP_KEYS = {
   ONBOARDING_DONE: 'app_onboarding_done',
+  ONBOARDING_VERSION: 'app_onboarding_version',
 };

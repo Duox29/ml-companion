@@ -25,6 +25,7 @@ export const api = axios.create({
 const AUTH_ENDPOINTS = [
   '/auth/login',
   '/auth/register',
+  '/auth/google',
   '/auth/refresh',
   '/auth/forgot-password',
   '/auth/reset-password',

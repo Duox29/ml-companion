@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   User,
@@ -9,8 +9,25 @@ import {
   ChevronRight,
   ArrowLeft,
 } from "lucide-react";
+import { Capacitor } from "@capacitor/core";
+import { SocialLogin } from "@capgo/capacitor-social-login";
 import { api } from "../../services/api";
 import { storage, AUTH_KEYS, APP_KEYS } from "../../services/storage";
+
+const ONBOARDING_VERSION = "v2";
+const MAX_USERNAME_LENGTH = 30;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+const GOOGLE_GSI_SCRIPT_SRC = "https://accounts.google.com/gsi/client";
+const IS_NATIVE_ANDROID = Capacitor.getPlatform() === "android";
+
+type GoogleCredentialResponse = { credential?: string };
+
+declare global {
+  interface Window {
+    google?: any;
+  }
+}
 
 type AuthProps = {
   onLogin: (isGuest?: boolean) => void;
@@ -24,10 +41,7 @@ export default function AuthFlow({ onLogin, initialStep = "splash" }: AuthProps)
 
   useEffect(() => {
     if (step === "splash") {
-      const timer = setTimeout(async () => {
-        await storage.set(APP_KEYS.ONBOARDING_DONE, "true");
-        setStep("onboarding");
-      }, 2000);
+      const timer = setTimeout(() => setStep("onboarding"), 2000);
       return () => clearTimeout(timer);
     }
   }, [step]);
@@ -64,7 +78,8 @@ export default function AuthFlow({ onLogin, initialStep = "splash" }: AuthProps)
   if (step === "onboarding") {
     return (
       <Onboarding
-        onComplete={() => setStep("login")}
+        onCreateAccount={() => setStep("register")}
+        onLogin={() => setStep("login")}
         onGuest={() => onLogin(true)}
       />
     );
@@ -98,10 +113,12 @@ export default function AuthFlow({ onLogin, initialStep = "splash" }: AuthProps)
 }
 
 function Onboarding({
-  onComplete,
+  onCreateAccount,
+  onLogin,
   onGuest,
 }: {
-  onComplete: () => void;
+  onCreateAccount: () => void;
+  onLogin: () => void;
   onGuest: () => void;
 }) {
   const [slide, setSlide] = useState(0);
@@ -127,6 +144,13 @@ function Onboarding({
       icon: "🚀",
     },
   ];
+
+  const markOnboardingDone = async () => {
+    await Promise.all([
+      storage.set(APP_KEYS.ONBOARDING_DONE, "true"),
+      storage.set(APP_KEYS.ONBOARDING_VERSION, ONBOARDING_VERSION),
+    ]);
+  };
 
   return (
     <div className="flex flex-col h-full bg-bg-light dark:bg-bg-dark">
@@ -178,19 +202,28 @@ function Onboarding({
         ) : (
           <div className="w-full space-y-3">
             <button
-              onClick={onComplete}
+              onClick={async () => {
+                await markOnboardingDone();
+                onCreateAccount();
+              }}
               className="w-full bg-primary text-white py-3.5 rounded-xl font-semibold shadow-md"
             >
               Create Account
             </button>
             <button
-              onClick={onComplete}
+              onClick={async () => {
+                await markOnboardingDone();
+                onLogin();
+              }}
               className="w-full border-2 border-primary text-primary dark:border-accent dark:text-accent py-3.5 rounded-xl font-semibold"
             >
               Log In
             </button>
             <button
-              onClick={onGuest}
+              onClick={async () => {
+                await markOnboardingDone();
+                onGuest();
+              }}
               className="w-full py-3 text-gray-500 font-medium"
             >
               Continue as Guest
@@ -208,6 +241,153 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isGoogleReady, setIsGoogleReady] = useState(false);
+  const googleButtonRef = useRef<HTMLDivElement | null>(null);
+
+  const persistAuth = async (accessToken: string, refreshToken: string, user: unknown) => {
+    await storage.set(AUTH_KEYS.ACCESS_TOKEN, accessToken);
+    await storage.set(AUTH_KEYS.REFRESH_TOKEN, refreshToken);
+    await storage.set(AUTH_KEYS.USER_DATA, JSON.stringify(user));
+    onLogin(false);
+  };
+
+  const handleGoogleCredential = async (credentialResponse: GoogleCredentialResponse) => {
+    const credential = credentialResponse?.credential;
+    if (!credential) {
+      setError("Google sign-in failed. Missing credential.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setError(null);
+      await loginWithGoogleIdToken(credential);
+    } catch (err: any) {
+      setError(err.response?.data?.message || "Google login failed.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const loginWithGoogleIdToken = async (idToken: string) => {
+    const response = await api.post("/auth/google", { idToken });
+    const { accessToken, refreshToken, user } = response.data.data;
+    await persistAuth(accessToken, refreshToken, user);
+  };
+
+  const handleNativeGoogleLogin = async () => {
+    if (!GOOGLE_CLIENT_ID) {
+      setError("Missing VITE_GOOGLE_CLIENT_ID.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setError(null);
+      const loginResponse = await SocialLogin.login({
+        provider: "google",
+        options: {},
+      });
+
+      if (loginResponse.result.responseType !== "online" || !loginResponse.result.idToken) {
+        throw new Error("Google login did not return an ID token.");
+      }
+
+      await loginWithGoogleIdToken(loginResponse.result.idToken);
+    } catch (err: any) {
+      setError(err?.message || "Google login failed.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!GOOGLE_CLIENT_ID || !IS_NATIVE_ANDROID) {
+      return;
+    }
+
+    let cancelled = false;
+    const initNativeGoogle = async () => {
+      try {
+        await SocialLogin.initialize({
+          google: {
+            webClientId: GOOGLE_CLIENT_ID,
+            mode: "online",
+          },
+        });
+        if (!cancelled) {
+          setIsGoogleReady(true);
+        }
+      } catch (err) {
+        console.error("Failed to initialize native Google login:", err);
+        if (!cancelled) {
+          setError("Cannot initialize Google Sign-In on Android.");
+        }
+      }
+    };
+
+    initNativeGoogle();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!GOOGLE_CLIENT_ID || IS_NATIVE_ANDROID) {
+      return;
+    }
+
+    let cancelled = false;
+    let script = document.querySelector<HTMLScriptElement>(
+      `script[src="${GOOGLE_GSI_SCRIPT_SRC}"]`
+    );
+
+    const initializeGoogleButton = () => {
+      if (cancelled || !window.google?.accounts?.id || !googleButtonRef.current) {
+        return;
+      }
+
+      window.google.accounts.id.initialize({
+        client_id: GOOGLE_CLIENT_ID,
+        callback: handleGoogleCredential,
+      });
+
+      googleButtonRef.current.innerHTML = "";
+      window.google.accounts.id.renderButton(googleButtonRef.current, {
+        theme: "outline",
+        size: "large",
+        shape: "pill",
+        width: 320,
+      });
+
+      setIsGoogleReady(true);
+    };
+
+    if (window.google?.accounts?.id) {
+      initializeGoogleButton();
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    if (!script) {
+      script = document.createElement("script");
+      script.src = GOOGLE_GSI_SCRIPT_SRC;
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    script.onload = initializeGoogleButton;
+
+    return () => {
+      cancelled = true;
+      if (script) {
+        script.onload = null;
+      }
+    };
+  }, []);
 
   const handleLogin = async () => {
     if (!identifier || !password) {
@@ -225,13 +405,7 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
         
       const response = await api.post("/auth/login", reqData);
       const { accessToken, refreshToken, user } = response.data.data;
-      
-      // Save tokens and user data
-      await storage.set(AUTH_KEYS.ACCESS_TOKEN, accessToken);
-      await storage.set(AUTH_KEYS.REFRESH_TOKEN, refreshToken);
-      await storage.set(AUTH_KEYS.USER_DATA, JSON.stringify(user));
-      
-      onLogin(false); // trigger actual login
+      await persistAuth(accessToken, refreshToken, user);
     } catch (err: any) {
       setError(err.response?.data?.message || "Login failed. Check your credentials.");
     } finally {
@@ -327,14 +501,35 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
           </div>
 
           <div className="space-y-3">
-            <button className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 py-3 rounded-xl font-medium flex items-center justify-center">
-              <img
-                src="https://www.svgrepo.com/show/475656/google-color.svg"
-                className="w-5 h-5 mr-2"
-                alt="Google"
-              />
-              Continue with Google
-            </button>
+            {GOOGLE_CLIENT_ID ? (
+              IS_NATIVE_ANDROID ? (
+                <button
+                  onClick={handleNativeGoogleLogin}
+                  disabled={loading || !isGoogleReady}
+                  className={`w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 py-3 rounded-xl font-medium flex items-center justify-center ${loading || !isGoogleReady ? "opacity-70" : ""}`}
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/475656/google-color.svg"
+                    className="w-5 h-5 mr-2"
+                    alt="Google"
+                  />
+                  Continue with Google
+                </button>
+              ) : (
+                <div className="w-full flex justify-center">
+                  <div ref={googleButtonRef} className="min-h-10" />
+                </div>
+              )
+            ) : (
+              <div className="text-center text-xs text-amber-600 dark:text-amber-400">
+                Missing <code>VITE_GOOGLE_CLIENT_ID</code>. Google sign-in is disabled.
+              </div>
+            )}
+            {GOOGLE_CLIENT_ID && !isGoogleReady && (
+              <div className="text-center text-xs text-gray-500">
+                {IS_NATIVE_ANDROID ? "Initializing native Google sign-in..." : "Loading Google sign-in..."}
+              </div>
+            )}
           </div>
         </div>
 
@@ -364,19 +559,42 @@ function Register({ onBack, onComplete }: any) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleRegister = async () => {
-    if (!username || !email || !password) {
+    const normalizedUsername = username.trim();
+    const normalizedEmail = email.trim().toLowerCase();
+
+    if (!normalizedUsername || !normalizedEmail || !password || !confirmPassword) {
       setError("Please fill in all fields.");
+      return;
+    }
+
+    if (normalizedUsername.length > MAX_USERNAME_LENGTH) {
+      setError(`Username must be at most ${MAX_USERNAME_LENGTH} characters.`);
+      return;
+    }
+
+    if (!EMAIL_REGEX.test(normalizedEmail)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
       return;
     }
 
     try {
       setLoading(true);
       setError(null);
-      await api.post("/auth/register", { username, email, password });
+      await api.post("/auth/register", {
+        username: normalizedUsername,
+        email: normalizedEmail,
+        password,
+      });
       
       // Auto-login after registration is actually better UX, or we just go back to login 
       onComplete(); // we'll assume it just redirects to login successfully
@@ -423,6 +641,7 @@ function Register({ onBack, onComplete }: any) {
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              maxLength={MAX_USERNAME_LENGTH}
               className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-primary dark:text-white"
             />
           </div>
@@ -443,6 +662,16 @@ function Register({ onBack, onComplete }: any) {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-primary dark:text-white"
+            />
+          </div>
+          <div className="relative">
+            <Lock className="absolute left-4 top-3.5 text-gray-400" size={20} />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-primary dark:text-white"
             />
           </div>
