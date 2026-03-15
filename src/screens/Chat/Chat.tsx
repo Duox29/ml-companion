@@ -10,14 +10,14 @@ import {
   Image as ImageIcon,
   Info,
 } from "lucide-react";
-import { Channel, ChannelMessage } from "../types";
+import { Channel, ChannelMessage } from "../../types";
 import {
   fetchGlobalChannelMessages,
   fetchGlobalChannels,
   sendGlobalChannelMessage,
   subscribeToGlobalChannel,
-} from "../services/globalChat";
-import { AUTH_KEYS, storage } from "../services/storage";
+} from "../../services/globalChat";
+import { AUTH_KEYS, storage } from "../../services/storage";
 import {
   ChatAsset,
   loadCustomChatAssets,
@@ -26,7 +26,7 @@ import {
   upsertCustomChatAsset,
   isValidAssetCode,
   isValidImageSource,
-} from "../services/chatAssets";
+} from "../../services/chatAssets";
 
 const ASSET_TOKEN_REGEX = /(\[img\](.*?)\[\/img\]|:[a-z0-9_+-]+:)/gi;
 const INLINE_IMAGE_DATA_REGEX = /\[img\]\s*data:image\/[a-zA-Z0-9.+-]+;base64,[\s\S]*?\[\/img\]/i;

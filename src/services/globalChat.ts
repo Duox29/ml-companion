@@ -1,6 +1,5 @@
 import { Client, IMessage, StompSubscription } from "@stomp/stompjs";
-import { api } from "./api";
-import { storage, AUTH_KEYS } from "./storage";
+import { api, getValidAccessToken } from "./api";
 import { Channel, ChannelMessage, PagedData } from "../types";
 
 type ApiEnvelope<T> = {
@@ -173,7 +172,7 @@ async function getAuthorizedStompClient(): Promise<Client> {
   }
 
   activationPromise = (async () => {
-    const token = await storage.get(AUTH_KEYS.ACCESS_TOKEN);
+    const token = await getValidAccessToken();
     if (!token) {
       throw new Error("Missing access token for websocket connection.");
     }

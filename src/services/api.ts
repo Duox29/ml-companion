@@ -55,6 +55,30 @@ async function clearAuthStorage() {
   ]);
 }
 
+function decodeJwtPayload(token: string): Record<string, any> | null {
+  const parts = token.split('.');
+  if (parts.length < 2) return null;
+
+  try {
+    const base64 = parts[1].replace(/-/g, '+').replace(/_/g, '/');
+    const padded = base64.padEnd(Math.ceil(base64.length / 4) * 4, '=');
+    return JSON.parse(atob(padded));
+  } catch {
+    return null;
+  }
+}
+
+function isTokenExpired(token: string, skewSeconds = 15): boolean {
+  const payload = decodeJwtPayload(token);
+  const exp = payload?.exp;
+  if (typeof exp !== 'number') {
+    return false;
+  }
+
+  const nowSeconds = Math.floor(Date.now() / 1000);
+  return exp <= nowSeconds + skewSeconds;
+}
+
 async function refreshAccessToken(): Promise<string> {
   if (refreshPromise) {
     return refreshPromise;
@@ -102,13 +126,34 @@ async function refreshAccessToken(): Promise<string> {
   }
 }
 
+export async function getValidAccessToken(): Promise<string | null> {
+  const currentAccessToken = await storage.get(AUTH_KEYS.ACCESS_TOKEN);
+
+  if (currentAccessToken && !isTokenExpired(currentAccessToken)) {
+    return currentAccessToken;
+  }
+
+  const currentRefreshToken = await storage.get(AUTH_KEYS.REFRESH_TOKEN);
+  if (!currentRefreshToken) {
+    return currentAccessToken;
+  }
+
+  try {
+    return await refreshAccessToken();
+  } catch {
+    await clearAuthStorage();
+    window.dispatchEvent(new Event('auth:logout'));
+    return null;
+  }
+}
+
 // Request Interceptor: Attach the access token to every request
 api.interceptors.request.use(
   async (config) => {
     const url = config.url ?? '';
 
     if (!isPublicAuthEndpoint(url)) {
-      const token = await storage.get(AUTH_KEYS.ACCESS_TOKEN);
+      const token = await getValidAccessToken();
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
@@ -134,8 +179,10 @@ api.interceptors.response.use(
     const shouldSkipRefresh =
       originalRequest._retry || isPublicAuthEndpoint(requestUrl);
 
-    // If the error is 401 and we can retry with refresh token
-    if (error.response?.status === 401 && !shouldSkipRefresh) {
+    const status = error.response?.status;
+
+    // Some backends return 403 for expired access token, not only 401.
+    if ((status === 401 || status === 403) && !shouldSkipRefresh) {
       originalRequest._retry = true;
 
       try {

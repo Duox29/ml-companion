@@ -11,8 +11,8 @@ import {
   Database,
   WifiOff,
 } from "lucide-react";
-import { Hero, HeroDetailedInfo } from "../types";
-import { useHeroes, useHeroDetail } from "../hooks/useWikiData";
+import { Hero, HeroDetailedInfo } from "../../types";
+import { useHeroes, useHeroDetail } from "../../hooks/useWikiData";
 
 // ─────────────────────────────────────────────
 // Static mock data (events/news – not yet API-driven)
