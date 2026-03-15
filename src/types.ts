@@ -91,6 +91,22 @@ export type Channel = {
   onlineCount: number;
 };
 
+export type ChannelMessage = {
+  id: string;
+  type: "message" | "presence";
+  sender: User;
+  content: string;
+  timestamp: string;
+};
+
+export type PagedData<T> = {
+  data: T[];
+  page: number;
+  limit: number;
+  total: number;
+  hasNext: boolean;
+};
+
 export type Conversation = {
   id: string;
   name: string;
