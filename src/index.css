@@ -26,7 +26,8 @@ body {
 }
 
 /* Allow text selection in inputs and textareas */
-input, textarea {
+input,
+textarea {
   user-select: auto;
   -webkit-user-select: auto;
 }
@@ -55,22 +56,34 @@ input, textarea {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* Custom Scrollbar configuration removed to hide it across the project */
 * {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
 }
 
 *::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
+  display: none;
+  /* Chrome, Safari and Opera */
 }
 
 @media (prefers-color-scheme: dark) {
   body {
     @apply bg-bg-dark text-gray-100;
   }
+}
+
+
+html,
+body {
+  /* Bắt buộc dùng GPU layer riêng */
+  transform: translateZ(0);
 }
