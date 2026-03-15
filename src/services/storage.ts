@@ -27,4 +27,9 @@ export const AUTH_KEYS = {
   ACCESS_TOKEN: 'auth_access_token',
   REFRESH_TOKEN: 'auth_refresh_token',
   USER_DATA: 'auth_user_data',
+  GUEST_MODE: 'auth_guest_mode',
+};
+
+export const APP_KEYS = {
+  ONBOARDING_DONE: 'app_onboarding_done',
 };

@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import AuthFlow from "./screens/Auth";
 import MainApp from "./screens/MainApp";
+import { storage, AUTH_KEYS, APP_KEYS } from "./services/storage";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isGuest, setIsGuest] = useState(false);
   const [authInitialStep, setAuthInitialStep] = useState<"splash" | "login" | "register">("splash");
+  const [isBootstrapping, setIsBootstrapping] = useState(true);
 
   // Prevent default context menu (long press) on mobile to feel more like a native app
   useEffect(() => {
@@ -21,22 +23,96 @@ export default function App() {
     return () => document.removeEventListener('contextmenu', handleContextMenu);
   }, []);
 
-  const handleLogin = (guest = false) => {
+  useEffect(() => {
+    let isMounted = true;
+
+    const restoreSession = async () => {
+      try {
+        const [accessToken, userData, guestMode, onboardingDone] = await Promise.all([
+          storage.get(AUTH_KEYS.ACCESS_TOKEN),
+          storage.get(AUTH_KEYS.USER_DATA),
+          storage.get(AUTH_KEYS.GUEST_MODE),
+          storage.get(APP_KEYS.ONBOARDING_DONE),
+        ]);
+
+        if (!isMounted) {
+          return;
+        }
+
+        setAuthInitialStep(onboardingDone === "true" ? "login" : "splash");
+
+        if (accessToken && userData) {
+          setIsGuest(false);
+          setIsAuthenticated(true);
+          return;
+        }
+
+        if (guestMode === "true") {
+          setIsGuest(true);
+          setIsAuthenticated(true);
+          return;
+        }
+
+        setIsGuest(false);
+        setIsAuthenticated(false);
+      } catch (error) {
+        console.error("Failed to restore app session:", error);
+        if (isMounted) {
+          setIsGuest(false);
+          setIsAuthenticated(false);
+          setAuthInitialStep("splash");
+        }
+      } finally {
+        if (isMounted) {
+          setIsBootstrapping(false);
+        }
+      }
+    };
+
+    restoreSession();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const handleLogin = async (guest = false) => {
+    await storage.set(APP_KEYS.ONBOARDING_DONE, "true");
+    await storage.set(AUTH_KEYS.GUEST_MODE, guest ? "true" : "false");
     setIsGuest(guest);
     setIsAuthenticated(true);
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await Promise.all([
+      storage.remove(AUTH_KEYS.ACCESS_TOKEN),
+      storage.remove(AUTH_KEYS.REFRESH_TOKEN),
+      storage.remove(AUTH_KEYS.USER_DATA),
+      storage.remove(AUTH_KEYS.GUEST_MODE),
+    ]);
     setIsAuthenticated(false);
     setIsGuest(false);
-    setAuthInitialStep("splash");
+    setAuthInitialStep("login");
   };
 
-  const handleRequireAuth = (step: "login" | "register") => {
+  const handleRequireAuth = async (step: "login" | "register") => {
+    await storage.remove(AUTH_KEYS.GUEST_MODE);
+    await storage.set(APP_KEYS.ONBOARDING_DONE, "true");
     setIsAuthenticated(false);
     setIsGuest(false);
     setAuthInitialStep(step);
   };
+
+  if (isBootstrapping) {
+    return (
+      <div className="h-[100dvh] w-full bg-primary text-white flex items-center justify-center font-sans">
+        <div className="flex flex-col items-center">
+          <div className="w-8 h-8 border-4 border-secondary border-t-accent rounded-full animate-spin mb-4"></div>
+          <span className="text-sm text-secondary/90">Restoring session...</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="h-[100dvh] w-full bg-bg-light dark:bg-bg-dark text-gray-900 dark:text-gray-100 overflow-hidden flex flex-col font-sans pt-safe pb-safe">

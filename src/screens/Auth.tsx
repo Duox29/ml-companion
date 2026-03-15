@@ -9,6 +9,8 @@ import {
   ChevronRight,
   ArrowLeft,
 } from "lucide-react";
+import { api } from "../services/api";
+import { storage, AUTH_KEYS, APP_KEYS } from "../services/storage";
 
 type AuthProps = {
   onLogin: (isGuest?: boolean) => void;
@@ -22,7 +24,10 @@ export default function AuthFlow({ onLogin, initialStep = "splash" }: AuthProps)
 
   useEffect(() => {
     if (step === "splash") {
-      const timer = setTimeout(() => setStep("onboarding"), 2000);
+      const timer = setTimeout(async () => {
+        await storage.set(APP_KEYS.ONBOARDING_DONE, "true");
+        setStep("onboarding");
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [step]);
@@ -199,6 +204,40 @@ function Onboarding({
 
 function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
   const [showPwd, setShowPwd] = useState(false);
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleLogin = async () => {
+    if (!identifier || !password) {
+      setError("Please fill in all fields");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setError(null);
+      // Backend supports login via username or email
+      const reqData = identifier.includes("@") 
+        ? { email: identifier, password } 
+        : { username: identifier, password };
+        
+      const response = await api.post("/auth/login", reqData);
+      const { accessToken, refreshToken, user } = response.data.data;
+      
+      // Save tokens and user data
+      await storage.set(AUTH_KEYS.ACCESS_TOKEN, accessToken);
+      await storage.set(AUTH_KEYS.REFRESH_TOKEN, refreshToken);
+      await storage.set(AUTH_KEYS.USER_DATA, JSON.stringify(user));
+      
+      onLogin(false); // trigger actual login
+    } catch (err: any) {
+      setError(err.response?.data?.message || "Login failed. Check your credentials.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="flex flex-col h-full p-6 bg-bg-light dark:bg-bg-dark overflow-y-auto">
@@ -214,15 +253,23 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
         </div>
 
         <div className="space-y-4">
+          {error && (
+            <div className="bg-red-100 text-red-700 p-3 rounded-lg text-sm text-center">
+              {error}
+            </div>
+          )}
+          
           <div>
             <div className="relative">
-              <Mail
+              <User
                 className="absolute left-4 top-3.5 text-gray-400"
                 size={20}
               />
               <input
-                type="email"
-                placeholder="Email Address"
+                type="text"
+                placeholder="Username or Email"
+                value={identifier}
+                onChange={(e) => setIdentifier(e.target.value)}
                 className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-primary dark:text-white"
               />
             </div>
@@ -236,6 +283,8 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
               <input
                 type={showPwd ? "text" : "password"}
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl py-3.5 pl-12 pr-12 focus:outline-none focus:ring-2 focus:ring-primary dark:text-white"
               />
               <button
@@ -256,7 +305,7 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
               Remember Me
             </label>
             <button
-              onClick={onForgot}
+               onClick={onForgot}
               className="text-primary dark:text-accent font-medium"
             >
               Forgot password?
@@ -264,10 +313,11 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
           </div>
 
           <button
-            onClick={onLogin}
-            className="w-full bg-primary text-white py-3.5 rounded-xl font-semibold shadow-md mt-6"
+            onClick={handleLogin}
+            disabled={loading}
+            className={`w-full text-white py-3.5 rounded-xl font-semibold shadow-md mt-6 ${loading ? 'bg-primary/70' : 'bg-primary'}`}
           >
-            Log In
+            {loading ? "Logging in..." : "Log In"}
           </button>
 
           <div className="flex items-center my-6">
@@ -311,6 +361,39 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
 }
 
 function Register({ onBack, onComplete }: any) {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleRegister = async () => {
+    if (!username || !email || !password) {
+      setError("Please fill in all fields.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setError(null);
+      await api.post("/auth/register", { username, email, password });
+      
+      // Auto-login after registration is actually better UX, or we just go back to login 
+      onComplete(); // we'll assume it just redirects to login successfully
+    } catch (err: any) {
+      if (err.response?.data?.message) {
+        setError(err.response.data.message);
+      } else if (err.response?.data?.errors) {
+        // Validation errors array
+        setError(err.response.data.errors.map((e: any) => e.message).join(", "));
+      } else {
+        setError("Registration failed.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="flex flex-col h-full p-6 bg-bg-light dark:bg-bg-dark overflow-y-auto">
       <button
@@ -327,11 +410,19 @@ function Register({ onBack, onComplete }: any) {
         <p className="text-gray-500 mb-8">Join the ultimate ML community</p>
 
         <div className="space-y-4">
+          {error && (
+            <div className="bg-red-100 text-red-700 p-3 rounded-lg text-sm text-center">
+              {error}
+            </div>
+          )}
+
           <div className="relative">
             <User className="absolute left-4 top-3.5 text-gray-400" size={20} />
             <input
               type="text"
               placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-primary dark:text-white"
             />
           </div>
@@ -340,6 +431,8 @@ function Register({ onBack, onComplete }: any) {
             <input
               type="email"
               placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-primary dark:text-white"
             />
           </div>
@@ -348,6 +441,8 @@ function Register({ onBack, onComplete }: any) {
             <input
               type="password"
               placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-primary dark:text-white"
             />
           </div>
@@ -370,10 +465,11 @@ function Register({ onBack, onComplete }: any) {
           </label>
 
           <button
-            onClick={onComplete}
-            className="w-full bg-primary text-white py-3.5 rounded-xl font-semibold shadow-md mt-6"
+            onClick={handleRegister}
+            disabled={loading}
+            className={`w-full text-white py-3.5 rounded-xl font-semibold shadow-md mt-6 ${loading ? 'bg-primary/70' : 'bg-primary'}`}
           >
-            Create Account
+            {loading ? "Creating account..." : "Create Account"}
           </button>
         </div>
       </div>

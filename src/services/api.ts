@@ -2,9 +2,21 @@
 import axios from 'axios';
 import { storage, AUTH_KEYS } from './storage';
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Base URL
+// Set VITE_API_URL in your .env file:
+//   Development : VITE_API_URL=http://localhost:8080
+//   Production  : VITE_API_URL=https://api.your-domain.com
+// ─────────────────────────────────────────────────────────────────────────────
+const BASE_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:8080';
+
+if (import.meta.env.DEV) {
+  console.info(`[API] Backend URL → ${BASE_URL}`);
+}
+
 // Create an Axios instance
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://api.example.com', // Replace with your actual API URL
+  baseURL: BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -13,9 +25,19 @@ export const api = axios.create({
 // Request Interceptor: Attach the access token to every request
 api.interceptors.request.use(
   async (config) => {
-    const token = await storage.get(AUTH_KEYS.ACCESS_TOKEN);
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+    const url = config.url ?? "";
+    const isPublicAuthEndpoint =
+      url.includes("/auth/login") ||
+      url.includes("/auth/register") ||
+      url.includes("/auth/refresh") ||
+      url.includes("/auth/forgot-password") ||
+      url.includes("/auth/reset-password");
+
+    if (!isPublicAuthEndpoint) {
+      const token = await storage.get(AUTH_KEYS.ACCESS_TOKEN);
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
     }
     return config;
   },
