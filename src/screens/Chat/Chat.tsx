@@ -23,8 +23,6 @@ import {
   loadCustomChatAssets,
   mergeChatAssets,
   normalizeAssetCode,
-  upsertCustomChatAsset,
-  isValidAssetCode,
   isValidImageSource,
 } from "../../services/chatAssets";
 
@@ -75,25 +73,6 @@ async function compressImageFile(file: File): Promise<string> {
   const quality = preferPng ? 0.92 : 0.78;
 
   return canvas.toDataURL(outputType, quality);
-}
-
-function isAdminFromStoredUser(raw: string | null): boolean {
-  if (!raw) return false;
-
-  try {
-    const parsed = JSON.parse(raw) as Record<string, unknown>;
-    if (parsed.isAdmin === true) return true;
-    if (typeof parsed.role === "string" && parsed.role.toLowerCase() === "admin") return true;
-    if (Array.isArray(parsed.roles)) {
-      return parsed.roles.some(
-        (item) => typeof item === "string" && item.toLowerCase() === "admin"
-      );
-    }
-  } catch {
-    return false;
-  }
-
-  return false;
 }
 
 function renderMessageContent(content: string, assetsByCode: Map<string, ChatAsset>) {
@@ -326,13 +305,7 @@ function ChatRoom({
   const [initialConnectionNotice, setInitialConnectionNotice] = useState<string | null>(null);
   const [isEmojiPickerOpen, setIsEmojiPickerOpen] = useState(false);
   const [isStickerPickerOpen, setIsStickerPickerOpen] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
   const [customAssets, setCustomAssets] = useState<ChatAsset[]>([]);
-  const [assetsError, setAssetsError] = useState<string | null>(null);
-  const [newEmojiCode, setNewEmojiCode] = useState("");
-  const [newEmojiValue, setNewEmojiValue] = useState("");
-  const [newStickerCode, setNewStickerCode] = useState("");
-  const [newStickerUrl, setNewStickerUrl] = useState("");
   const [pendingImageDataUrl, setPendingImageDataUrl] = useState<string | null>(null);
   const subscriptionRef = useRef<{ unsubscribe: () => void } | null>(null);
   const imageInputRef = useRef<HTMLInputElement | null>(null);
@@ -436,18 +409,11 @@ function ChatRoom({
 
     const loadChatSettings = async () => {
       try {
-        const [storedUser, storedCustomAssets] = await Promise.all([
-          storage.get(AUTH_KEYS.USER_DATA),
-          loadCustomChatAssets(),
-        ]);
+        const storedCustomAssets = await loadCustomChatAssets();
         if (!isMounted) return;
-        setIsAdmin(isAdminFromStoredUser(storedUser));
         setCustomAssets(storedCustomAssets);
       } catch (error) {
         console.error("Failed to load chat asset settings:", error);
-        if (isMounted) {
-          setAssetsError("Could not load chat assets.");
-        }
       }
     };
 
@@ -568,56 +534,6 @@ function ChatRoom({
         setMessagesError("Could not process selected image.");
       }
     })();
-  };
-
-  const handleCreateCustomEmoji = async () => {
-    if (!isAdmin) return;
-    const code = normalizeAssetCode(newEmojiCode);
-    const value = newEmojiValue.trim();
-    if (!isValidAssetCode(code)) {
-      setAssetsError("Emoji code must look like :my_code: (letters/numbers/_/+/ - only).");
-      return;
-    }
-    if (!value) {
-      setAssetsError("Emoji value must not be empty.");
-      return;
-    }
-
-    try {
-      setAssetsError(null);
-      const next = await upsertCustomChatAsset({ code, type: "emoji", value, isCustom: true });
-      setCustomAssets(next);
-      setNewEmojiCode("");
-      setNewEmojiValue("");
-    } catch (error) {
-      console.error("Failed to create custom emoji:", error);
-      setAssetsError("Failed to save custom emoji.");
-    }
-  };
-
-  const handleCreateCustomSticker = async () => {
-    if (!isAdmin) return;
-    const code = normalizeAssetCode(newStickerCode);
-    const value = newStickerUrl.trim();
-    if (!isValidAssetCode(code)) {
-      setAssetsError("Sticker code must look like :my_sticker:.");
-      return;
-    }
-    if (!isValidImageSource(value)) {
-      setAssetsError("Sticker URL must be a valid image URL/data URL.");
-      return;
-    }
-
-    try {
-      setAssetsError(null);
-      const next = await upsertCustomChatAsset({ code, type: "sticker", value, isCustom: true });
-      setCustomAssets(next);
-      setNewStickerCode("");
-      setNewStickerUrl("");
-    } catch (error) {
-      console.error("Failed to create custom sticker:", error);
-      setAssetsError("Failed to save custom sticker.");
-    }
   };
 
   return (
@@ -760,64 +676,6 @@ function ChatRoom({
                 />
               </button>
             ))}
-          </div>
-        )}
-
-        {isAdmin && (
-          <div className="mb-2 bg-gray-100 dark:bg-gray-800 rounded-2xl p-3">
-            <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 mb-2">
-              Admin: Custom emoji/sticker
-            </div>
-
-            {assetsError && <div className="text-xs text-error mb-2">{assetsError}</div>}
-
-            <div className="grid grid-cols-1 gap-2 mb-2">
-              <input
-                type="text"
-                value={newEmojiCode}
-                onChange={(event) => setNewEmojiCode(event.target.value)}
-                placeholder="Emoji code (example: :ml_hype:)"
-                className="px-3 py-2 rounded-lg bg-white dark:bg-gray-700 text-sm dark:text-white"
-              />
-              <input
-                type="text"
-                value={newEmojiValue}
-                onChange={(event) => setNewEmojiValue(event.target.value)}
-                placeholder="Emoji char/text (example: 🔥)"
-                className="px-3 py-2 rounded-lg bg-white dark:bg-gray-700 text-sm dark:text-white"
-              />
-              <button
-                type="button"
-                onClick={() => void handleCreateCustomEmoji()}
-                className="px-3 py-2 rounded-lg bg-primary text-white text-sm font-semibold"
-              >
-                Save Emoji
-              </button>
-            </div>
-
-            <div className="grid grid-cols-1 gap-2">
-              <input
-                type="text"
-                value={newStickerCode}
-                onChange={(event) => setNewStickerCode(event.target.value)}
-                placeholder="Sticker code (example: :ml_win:)"
-                className="px-3 py-2 rounded-lg bg-white dark:bg-gray-700 text-sm dark:text-white"
-              />
-              <input
-                type="text"
-                value={newStickerUrl}
-                onChange={(event) => setNewStickerUrl(event.target.value)}
-                placeholder="Sticker image URL"
-                className="px-3 py-2 rounded-lg bg-white dark:bg-gray-700 text-sm dark:text-white"
-              />
-              <button
-                type="button"
-                onClick={() => void handleCreateCustomSticker()}
-                className="px-3 py-2 rounded-lg bg-primary text-white text-sm font-semibold"
-              >
-                Save Sticker
-              </button>
-            </div>
           </div>
         )}
 

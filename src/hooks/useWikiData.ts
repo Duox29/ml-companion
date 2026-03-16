@@ -90,7 +90,7 @@ async function setCachedBundle(bundle: HeroesBundle): Promise<void> {
 }
 
 async function fetchRemoteVersion(): Promise<string | null> {
-  const endpoints = ['/wiki/heroes/version', '/mlbb/wiki/heroes/version', '/heroes/version'];
+  const endpoints = ['/wiki/heroes/version', '/mlbb/wiki/heroes/version'];
   for (const endpoint of endpoints) {
     try {
       const { data } = await api.get(endpoint);
@@ -108,7 +108,7 @@ async function fetchRemoteVersion(): Promise<string | null> {
 }
 
 async function fetchRemoteBundle(): Promise<HeroesBundle | null> {
-  const endpoints = ['/wiki/heroes/bundle', '/mlbb/wiki/heroes/bundle', '/heroes/bundle'];
+  const endpoints = ['/wiki/heroes/bundle', '/mlbb/wiki/heroes/bundle'];
   for (const endpoint of endpoints) {
     try {
       const { data } = await api.get(endpoint);
