@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { Capacitor } from "@capacitor/core";
 import { App as CapacitorApp } from "@capacitor/app";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   BookOpen,
   Users,
@@ -48,7 +49,10 @@ type MainAppProps = {
 export default function MainApp({ isGuest, onLogout, onRequireAuth }: MainAppProps) {
   const navigate = useNavigate();
   const location = useLocation();
+  const shouldReduceMotion = useReducedMotion();
   const gestureAreaRef = useRef<HTMLDivElement>(null);
+  const previousTabIndexRef = useRef(-1);
+  const [transitionDirection, setTransitionDirection] = useState(0);
 
   const activeTabIndex = MAIN_TABS.findIndex(
     (tab) =>
@@ -56,6 +60,18 @@ export default function MainApp({ isGuest, onLogout, onRequireAuth }: MainAppPro
       location.pathname.startsWith(`${tab.path}/`),
   );
   const activeTabId = activeTabIndex >= 0 ? MAIN_TABS[activeTabIndex].id : undefined;
+  const routeTransitionKey = activeTabId ?? location.pathname;
+
+  useEffect(() => {
+    const previousIndex = previousTabIndexRef.current;
+    if (activeTabIndex >= 0 && previousIndex >= 0 && activeTabIndex !== previousIndex) {
+      setTransitionDirection(activeTabIndex > previousIndex ? 1 : -1);
+    } else {
+      setTransitionDirection(0);
+    }
+
+    previousTabIndexRef.current = activeTabIndex;
+  }, [activeTabIndex]);
 
   useEffect(() => {
     if (Capacitor.getPlatform() !== "android") {
@@ -162,34 +178,63 @@ export default function MainApp({ isGuest, onLogout, onRequireAuth }: MainAppPro
 
   return (
     <div className="flex flex-col h-full w-full bg-bg-light dark:bg-bg-dark relative pt-[max(env(safe-area-inset-top),8px)]">
-      <div ref={gestureAreaRef} className="flex-1 overflow-hidden">
-        <Routes>
-          <Route path="/wiki/*" element={<WikiTab />} />
-          <Route
-            path="/community"
-            element={<CommunityTab isGuest={isGuest} onRequireAuth={onRequireAuth} />}
-          />
-          <Route
-            path="/chat"
-            element={<ChatTab isGuest={isGuest} onRequireAuth={onRequireAuth} />}
-          />
-          <Route
-            path="/inbox"
-            element={<InboxTab isGuest={isGuest} onRequireAuth={onRequireAuth} />}
-          />
-          <Route
-            path="/profile"
-            element={
-              <ProfileTab
-                isGuest={isGuest}
-                onLogout={onLogout}
-                onRequireAuth={onRequireAuth}
-              />
+      <div ref={gestureAreaRef} className="relative flex-1 overflow-hidden">
+        <AnimatePresence initial={false} mode="wait" custom={transitionDirection}>
+          <motion.div
+            key={routeTransitionKey}
+            custom={transitionDirection}
+            initial={
+              shouldReduceMotion
+                ? { opacity: 0 }
+                : {
+                    opacity: 0,
+                    x: transitionDirection === 0 ? 0 : transitionDirection > 0 ? 24 : -24,
+                  }
             }
-          />
-          <Route path="/" element={<Navigate to="/wiki" replace />} />
-          <Route path="*" element={<Navigate to="/wiki" replace />} />
-        </Routes>
+            animate={{ opacity: 1, x: 0 }}
+            exit={
+              shouldReduceMotion
+                ? { opacity: 0 }
+                : {
+                    opacity: 0,
+                    x: transitionDirection === 0 ? 0 : transitionDirection > 0 ? -24 : 24,
+                  }
+            }
+            transition={{
+              duration: shouldReduceMotion ? 0.14 : 0.24,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="h-full"
+          >
+            <Routes location={location}>
+              <Route path="/wiki/*" element={<WikiTab />} />
+              <Route
+                path="/community"
+                element={<CommunityTab isGuest={isGuest} onRequireAuth={onRequireAuth} />}
+              />
+              <Route
+                path="/chat"
+                element={<ChatTab isGuest={isGuest} onRequireAuth={onRequireAuth} />}
+              />
+              <Route
+                path="/inbox"
+                element={<InboxTab isGuest={isGuest} onRequireAuth={onRequireAuth} />}
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProfileTab
+                    isGuest={isGuest}
+                    onLogout={onLogout}
+                    onRequireAuth={onRequireAuth}
+                  />
+                }
+              />
+              <Route path="/" element={<Navigate to="/wiki" replace />} />
+              <Route path="*" element={<Navigate to="/wiki" replace />} />
+            </Routes>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Bottom Navigation */}
