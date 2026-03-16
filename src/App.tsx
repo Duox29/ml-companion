@@ -156,7 +156,7 @@ export default function App() {
   const effectiveGuest = isGuest || !isAuthenticated;
 
   return (
-    <div className="h-[100dvh] w-full bg-bg-light dark:bg-bg-dark text-gray-900 dark:text-gray-100 overflow-hidden flex flex-col font-sans pt-safe pb-safe">
+    <div className="h-[100dvh] w-full bg-bg-light dark:bg-bg-dark text-gray-900 dark:text-gray-100 overflow-hidden flex flex-col font-sans">
       {shouldShowAuthFlow ? (
         <AuthFlow onLogin={handleLogin} initialStep={authInitialStep} />
       ) : (

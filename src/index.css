@@ -25,6 +25,14 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
 /* Allow text selection in inputs and textareas */
 input,
 textarea {

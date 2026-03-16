@@ -37,7 +37,7 @@ export default function MainApp({ isGuest, onLogout, onRequireAuth }: MainAppPro
   )?.id;
 
   return (
-    <div className="flex flex-col h-full w-full bg-bg-light dark:bg-bg-dark relative">
+    <div className="flex flex-col h-full w-full bg-bg-light dark:bg-bg-dark relative pt-[max(env(safe-area-inset-top),8px)]">
       <div className="flex-1 overflow-hidden">
         <Routes>
           <Route path="/wiki/*" element={<WikiTab />} />
@@ -69,8 +69,8 @@ export default function MainApp({ isGuest, onLogout, onRequireAuth }: MainAppPro
       </div>
 
       {/* Bottom Navigation */}
-      <div className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 pb-safe">
-        <div className="flex justify-around items-center h-14 px-2">
+      <div className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 pb-[max(env(safe-area-inset-bottom),4px)]">
+        <div className="flex justify-around items-center h-12 px-2">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
