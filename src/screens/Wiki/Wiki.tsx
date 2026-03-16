@@ -124,6 +124,22 @@ function getNewsSummary(news: WikiNewsItem) {
   return richContentToPlainText(news.content, news.contentFormat).slice(0, 140) || "No summary available.";
 }
 
+function getNewsCardExcerpt(news: WikiNewsItem) {
+  if (news.summary?.trim()) {
+    return news.summary.trim().slice(0, 160);
+  }
+  const fromContent = richContentToPlainText(news.content, news.contentFormat).slice(0, 160).trim();
+  return fromContent || "No summary available.";
+}
+
+function getEventCardExcerpt(event: WikiEventItem) {
+  return (
+    richContentToPlainText(event.description, event.descriptionFormat).slice(0, 160).trim() ||
+    event.location ||
+    "No description available."
+  );
+}
+
 function formatPercent(value: number | null | undefined) {
   if (value == null || Number.isNaN(value)) return "N/A";
   return `${(value * 100).toFixed(2)}%`;
@@ -413,10 +429,10 @@ export default function WikiTab() {
                 ) : (
                   <>
                     {featuredNews?.imageUrl ? (
-                      <img
+                      <VerticalFitImage
                         src={featuredNews.imageUrl}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                         alt={featuredNews.title}
+                        imageClassName="transition-transform duration-300 group-hover:scale-[1.03]"
                       />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-slate-700 to-slate-900" />
@@ -453,7 +469,7 @@ export default function WikiTab() {
                     >
                       <div className="w-28 h-28 shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-700">
                         {news.imageUrl ? (
-                          <img src={news.imageUrl} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" alt={news.title} />
+                          <VerticalFitImage src={news.imageUrl} alt={news.title} />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-gray-400 dark:text-gray-500">
                             <Bell size={18} />
@@ -463,7 +479,7 @@ export default function WikiTab() {
                       <div className="p-3 flex flex-col justify-between flex-1">
                         <div>
                           <h3 className="font-bold text-sm dark:text-white mb-1 leading-tight">{news.title}</h3>
-                          <p className="text-xs text-gray-500 line-clamp-2">{getNewsSummary(news)}</p>
+                          <p className="text-xs text-gray-500 line-clamp-2">{getNewsCardExcerpt(news)}</p>
                         </div>
                         <span className="text-[10px] text-gray-400 font-medium">
                           {formatRelativeTime(news.publishedAt ?? news.updatedAt ?? news.createdAt)}
@@ -514,7 +530,7 @@ export default function WikiTab() {
                   >
                     <div className="h-32 relative overflow-hidden">
                       {event.imageUrl ? (
-                        <img src={event.imageUrl} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" alt={event.title} />
+                        <VerticalFitImage src={event.imageUrl} alt={event.title} />
                       ) : (
                         <div className="w-full h-full bg-gradient-to-r from-slate-800 to-slate-700" />
                       )}
@@ -522,10 +538,11 @@ export default function WikiTab() {
                         <Calendar size={12} className="mr-1" /> {formatEventRange(event)}
                       </div>
                     </div>
-                    <div className="p-3 flex justify-between items-center">
-                      <div>
-                        <h3 className="font-bold text-sm dark:text-white">{event.title}</h3>
-                        <span className="text-xs text-primary dark:text-accent font-medium">
+                    <div className="p-3 flex justify-between items-start gap-3">
+                      <div className="min-w-0 flex-1">
+                        <h3 className="font-bold text-sm dark:text-white line-clamp-1">{event.title}</h3>
+                        <p className="text-xs text-gray-500 line-clamp-2 mt-1">{getEventCardExcerpt(event)}</p>
+                        <span className="text-xs text-primary dark:text-accent font-medium mt-1 inline-block">
                           {event.location || "Event"}
                         </span>
                       </div>
@@ -647,6 +664,34 @@ function HeroCard({
   );
 }
 
+function VerticalFitImage({
+  src,
+  alt,
+  imageClassName = "",
+}: {
+  src: string;
+  alt: string;
+  imageClassName?: string;
+}) {
+  return (
+    <div className="relative z-0 w-full h-full overflow-hidden pointer-events-none">
+      <img
+        src={src}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 z-0 w-full h-full object-cover scale-110 blur-2xl opacity-55"
+      />
+      <div className="absolute inset-0 z-0 bg-gradient-to-r from-black/45 via-black/10 to-black/45" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/25 via-transparent to-black/30" />
+      <img
+        src={src}
+        className={`relative z-0 w-full h-full object-contain ${imageClassName}`}
+        alt={alt}
+      />
+    </div>
+  );
+}
+
 function NewsDetail({ news }: { news: WikiNewsItem }) {
   const navigate = useNavigate();
   const displayTime = formatDateTime(news.publishedAt ?? news.updatedAt ?? news.createdAt);
@@ -655,7 +700,7 @@ function NewsDetail({ news }: { news: WikiNewsItem }) {
     <div className="flex flex-col h-full bg-bg-light dark:bg-bg-dark overflow-y-auto">
       <div className="relative h-64 shrink-0">
         {news.imageUrl ? (
-          <img src={news.imageUrl} className="w-full h-full object-cover" alt={news.title} />
+          <VerticalFitImage src={news.imageUrl} alt={news.title} />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-slate-700 to-slate-900" />
         )}
@@ -712,7 +757,7 @@ function EventDetail({ event }: { event: WikiEventItem }) {
     <div className="flex flex-col h-full bg-bg-light dark:bg-bg-dark overflow-y-auto">
       <div className="relative h-64 shrink-0">
         {event.imageUrl ? (
-          <img src={event.imageUrl} className="w-full h-full object-cover" alt={event.title} />
+          <VerticalFitImage src={event.imageUrl} alt={event.title} />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-slate-700 to-slate-900" />
         )}

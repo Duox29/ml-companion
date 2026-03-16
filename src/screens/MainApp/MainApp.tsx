@@ -70,7 +70,7 @@ export default function MainApp({ isGuest, onLogout, onRequireAuth }: MainAppPro
 
       {/* Bottom Navigation */}
       <div className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 pb-safe">
-        <div className="flex justify-around items-center h-16 px-2">
+        <div className="flex justify-around items-center h-14 px-2">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;

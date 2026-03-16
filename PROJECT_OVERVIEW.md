@@ -175,3 +175,8 @@ Ghi chú:
   - Hỗ trợ hyperlink (`[text](url)` hoặc URL trực tiếp)
   - Hỗ trợ image URL (dòng chứa URL ảnh hoặc markdown image `![alt](url)`)
   - Hỗ trợ YouTube embed (dòng chứa YouTube URL)
+  - Hỗ trợ markdown block cơ bản: heading (`#`..`######`), list (`-`, `*`, `1.`), horizontal rule (`---`, `***`, `___`)
+  - Hỗ trợ markdown inline cơ bản: `**bold**`/`__bold__`, `*italic*`/`_italic_`, `` `inline code` ``
+- Ảnh header của `Latest News` và màn hình chi tiết `News/Event` dùng kiểu hiển thị `object-contain` trên nền blur + gradient để giữ ảnh theo chiều dọc và tránh cảm giác bị cắt khi ảnh ngang.
+- Card list `News` ưu tiên hiển thị `summary` (fallback sang excerpt từ `content` nếu thiếu summary).
+- Card list `Event` hiển thị excerpt dạng summary từ `description` đã clean markdown (API Event hiện chưa có field `summary` riêng).
