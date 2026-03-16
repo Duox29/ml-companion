@@ -394,7 +394,7 @@ function ChatRoom({
             setInitialConnectionNotice((prev) => {
               if (prev !== null) return prev;
               return connected
-                ? "Realtime connected."
+                ? null
                 : "Realtime disconnected. You can still send by API.";
             });
           },

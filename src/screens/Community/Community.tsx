@@ -21,26 +21,26 @@ export default function CommunityTab({ isGuest, onRequireAuth }: { isGuest: bool
   return (
     <div className="flex flex-col h-full bg-bg-light dark:bg-bg-dark relative">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-900 px-4 pt-6 pb-2 sticky top-0 z-10 shadow-sm">
-        <div className="flex justify-between items-center mb-2">
-          <h1 className="text-xl font-bold dark:text-white">Community</h1>
+      <div className="bg-white dark:bg-gray-900 px-4 pt-3 pb-1 sticky top-0 z-10 shadow-sm">
+        <div className="flex justify-between items-center mb-1.5">
+          <h1 className="text-lg font-bold dark:text-white">Community</h1>
           <div className="flex space-x-3 text-gray-600 dark:text-gray-300">
             <button>
-              <Search size={22} />
+              <Search size={20} />
             </button>
             <button>
-              <Filter size={22} />
+              <Filter size={20} />
             </button>
           </div>
         </div>
 
         {/* Filter Chips */}
-        <div className="flex overflow-x-auto hide-scrollbar space-x-2 py-2">
+        <div className="flex overflow-x-auto hide-scrollbar space-x-2 py-1.5">
           {["All", "Heroes", "Strategies", "Highlights", "Questions"].map(
             (filter, i) => (
               <button
                 key={filter}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap ${i === 0 ? "bg-primary text-white" : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"}`}
+                className={`px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap ${i === 0 ? "bg-primary text-white" : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"}`}
               >
                 {filter}
               </button>

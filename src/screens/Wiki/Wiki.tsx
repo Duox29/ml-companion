@@ -8,8 +8,6 @@ import {
   Calendar,
   Bell,
   RefreshCw,
-  Database,
-  WifiOff,
 } from "lucide-react";
 import { Hero, HeroDetailedInfo } from "../../types";
 import { useHeroes, useHeroDetail } from "../../hooks/useWikiData";
@@ -43,53 +41,6 @@ const ROLE_COLORS: Record<string, string> = {
 };
 
 // ─────────────────────────────────────────────
-// Cache status badge
-// ─────────────────────────────────────────────
-
-function CacheStatusBadge({
-  isCacheValid,
-  cachedVersion,
-  dataVersion,
-  isRefreshing,
-  onRefresh,
-}: {
-  isCacheValid: boolean;
-  cachedVersion: string | null;
-  dataVersion: string;
-  isRefreshing: boolean;
-  onRefresh: () => void;
-}) {
-  return (
-    <div className="flex items-center gap-2 px-4 py-2 bg-gray-50 dark:bg-gray-800/60 border-b border-gray-100 dark:border-gray-700/60">
-      {isRefreshing ? (
-        <span className="flex items-center gap-1.5 text-xs text-blue-500 font-medium">
-          <RefreshCw size={12} className="animate-spin" />
-          Đang cập nhật dữ liệu…
-        </span>
-      ) : isCacheValid ? (
-        <span className="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-medium">
-          <Database size={12} />
-          Cache hợp lệ · v{cachedVersion}
-        </span>
-      ) : (
-        <span className="flex items-center gap-1.5 text-xs text-amber-600 dark:text-amber-400 font-medium">
-          <WifiOff size={12} />
-          Cache cũ · cần cập nhật lên v{dataVersion}
-        </span>
-      )}
-      <button
-        onClick={onRefresh}
-        disabled={isRefreshing}
-        className="ml-auto text-xs text-primary dark:text-accent font-medium flex items-center gap-1 disabled:opacity-50"
-      >
-        <RefreshCw size={11} className={isRefreshing ? "animate-spin" : ""} />
-        Làm mới
-      </button>
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────────
 // Hero card skeleton
 // ─────────────────────────────────────────────
 
@@ -119,7 +70,7 @@ export default function WikiTab() {
     refresh,
   } = useHeroes();
 
-  const isCacheValid = cacheVersion === dataVersion;
+  const hasNewVersion = Boolean(cacheVersion && cacheVersion !== dataVersion);
 
   if (view === "hero" && selectedHero) {
     return (
@@ -139,37 +90,44 @@ export default function WikiTab() {
   return (
     <div className="flex flex-col h-full bg-bg-light dark:bg-bg-dark">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-900 px-4 pt-6 pb-4 sticky top-0 z-10 shadow-sm">
-        <div className="flex justify-between items-center mb-4">
+      <div className="bg-white dark:bg-gray-900 px-4 pt-3 pb-2 sticky top-0 z-10 shadow-sm">
+        <div className="flex justify-between items-center mb-2">
           <div className="flex items-center">
-            <div className="w-8 h-8 bg-primary text-white rounded-lg flex items-center justify-center mr-3">
+            <div className="w-7 h-7 bg-primary text-white rounded-md flex items-center justify-center mr-2">
               <span className="font-game font-bold text-sm">ML</span>
             </div>
-            <h1 className="text-xl font-bold dark:text-white">Wiki</h1>
+            <h1 className="text-lg font-bold dark:text-white">Wiki</h1>
           </div>
-          <button className="p-2 text-gray-600 dark:text-gray-300">
-            <Search size={24} />
+          <button aria-label="Notifications" className="p-1.5 text-gray-600 dark:text-gray-300">
+            <Bell size={20} />
           </button>
         </div>
 
         <div className="relative">
-          <Search className="absolute left-3 top-2.5 text-gray-400" size={18} />
+          <Search className="absolute left-3 top-2 text-gray-400" size={16} />
           <input
             type="text"
             placeholder="Search heroes, events, news..."
-            className="w-full bg-gray-100 dark:bg-gray-800 rounded-xl py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary dark:text-white"
+            className="w-full bg-gray-100 dark:bg-gray-800 rounded-xl py-1.5 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary dark:text-white"
           />
         </div>
       </div>
 
-      {/* Cache status bar */}
-      <CacheStatusBadge
-        isCacheValid={isCacheValid}
-        cachedVersion={cacheVersion}
-        dataVersion={dataVersion}
-        isRefreshing={isRefreshing}
-        onRefresh={refresh}
-      />
+      {hasNewVersion && (
+        <div className="mx-4 mt-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-700 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-300">
+          <div className="flex items-center gap-2">
+            <span>Có phiên bản dữ liệu mới (v{dataVersion}).</span>
+            <button
+              onClick={refresh}
+              disabled={isRefreshing}
+              className="ml-auto inline-flex items-center gap-1 font-semibold text-amber-700 dark:text-amber-300 disabled:opacity-60"
+            >
+              <RefreshCw size={11} className={isRefreshing ? "animate-spin" : ""} />
+              Cập nhật
+            </button>
+          </div>
+        </div>
+      )}
 
       <div className="flex-1 overflow-y-auto">
         {/* Category Chips */}

@@ -11,7 +11,7 @@ import { storage, AUTH_KEYS } from './storage';
 const BASE_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:8080';
 
 if (import.meta.env.DEV) {
-  console.info(`[API] Backend URL → ${BASE_URL}`);
+  console.info(`[API] Backend URL imported`);
 }
 
 // Create an Axios instance
