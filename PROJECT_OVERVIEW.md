@@ -59,6 +59,7 @@ ml-companion-frontend/
   - `/wiki/heroes/:slug?section=skills|stats|lore|combos`
   - `/wiki/event`
   - `/wiki/news`
+  - News/Event detail render rich content theo format backend (`contentFormat`/`descriptionFormat`)
 - `Community`
   - Feed + create post UI (hiện tại mock, chưa gọi backend).
 - `Chat`
@@ -138,6 +139,16 @@ Ghi chú:
   - `GET /mlbb/wiki/heroes/bundle`
   - File: `src/hooks/useWikiData.ts`
 
+### 3.6 Wiki content APIs (News/Event)
+
+- `GET /wiki/news`, `GET /wiki/news/:id` (và alias `/mlbb/wiki/news*`)
+  - File: `src/hooks/useWikiData.ts`
+  - Parse thêm field `contentFormat` (`MARKDOWN` | `PLAIN`) để render nội dung.
+
+- `GET /wiki/events`, `GET /wiki/events/:id` (và alias `/mlbb/wiki/events*`)
+  - File: `src/hooks/useWikiData.ts`
+  - Parse thêm field `descriptionFormat` (`MARKDOWN` | `PLAIN`) để render nội dung.
+
 ### 3.5 Image fallback proxy (Wiki)
 
 - `GET /wiki/heroes/image-fallback?url=<encoded-url>`
@@ -158,3 +169,7 @@ Ghi chú:
 - Axios interceptor tự gắn Bearer token và tự refresh token khi gặp 401/403.
 - Nếu refresh thất bại, app phát event `auth:logout` để đưa người dùng về trạng thái guest.
 - Một số endpoint đã được chuẩn bị trong code nhưng chưa có luồng UI dùng thực tế (`/auth/forgot-password`, `/auth/reset-password`).
+- Wiki News/Event detail dùng rich content renderer:
+  - Hỗ trợ hyperlink (`[text](url)` hoặc URL trực tiếp)
+  - Hỗ trợ image URL (dòng chứa URL ảnh hoặc markdown image `![alt](url)`)
+  - Hỗ trợ YouTube embed (dòng chứa YouTube URL)

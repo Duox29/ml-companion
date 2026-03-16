@@ -81,6 +81,39 @@ export type HeroesBundle = {
   heroes: WikiHeroRecord[];
 };
 
+export type RichTextFormat = "MARKDOWN" | "PLAIN";
+
+export type WikiNewsItem = {
+  id: string;
+  title: string;
+  summary: string | null;
+  content: string;
+  contentFormat: RichTextFormat;
+  imageUrl: string | null;
+  sourceUrl: string | null;
+  published: boolean;
+  publishedAt: string | null;
+  displayOrder: number;
+  createdAt: string | null;
+  updatedAt: string | null;
+};
+
+export type WikiEventItem = {
+  id: string;
+  title: string;
+  description: string;
+  descriptionFormat: RichTextFormat;
+  imageUrl: string | null;
+  location: string | null;
+  registrationUrl: string | null;
+  startAt: string | null;
+  endAt: string | null;
+  active: boolean;
+  displayOrder: number;
+  createdAt: string | null;
+  updatedAt: string | null;
+};
+
 export type Skill = {
   name: string;
   icon: string;

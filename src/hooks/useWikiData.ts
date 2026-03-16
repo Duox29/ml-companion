@@ -4,7 +4,15 @@ import heroesBundleJson from '../data/wiki/heroes.bundle.json';
 import { api } from '../services/api';
 import { storage, AUTH_KEYS } from '../services/storage';
 import { getCachedImage, getOrCacheImage, preCacheImages } from '../services/imageCache';
-import { Hero, HeroRole, HeroesBundle, WikiHeroRecord } from '../types';
+import {
+  Hero,
+  HeroRole,
+  HeroesBundle,
+  RichTextFormat,
+  WikiEventItem,
+  WikiHeroRecord,
+  WikiNewsItem,
+} from '../types';
 
 const WIKI_KEYS = {
   VERSION: 'wiki_heroes_bundle_version',
@@ -118,6 +126,192 @@ async function fetchRemoteBundle(): Promise<HeroesBundle | null> {
       }
     } catch {
       // Keep local data if backend endpoint is not available.
+    }
+  }
+  return null;
+}
+
+type AdminPagedFetchResult<T> = {
+  items: T[];
+  status: number | null;
+};
+
+function toNullableText(input: unknown): string | null {
+  if (input == null) return null;
+  const normalized = String(input).trim();
+  return normalized ? normalized : null;
+}
+
+function toRequiredText(input: unknown): string {
+  return toNullableText(input) ?? '';
+}
+
+function toFiniteNumber(input: unknown, fallback = 0): number {
+  const value = Number(input);
+  return Number.isFinite(value) ? value : fallback;
+}
+
+function toTimestamp(input: string | null | undefined): number {
+  if (!input) return 0;
+  const timestamp = Date.parse(input);
+  return Number.isNaN(timestamp) ? 0 : timestamp;
+}
+
+function normalizeRichTextFormat(input: unknown): RichTextFormat {
+  const normalized = toNullableText(input)?.toUpperCase();
+  if (normalized === 'PLAIN') return 'PLAIN';
+  return 'MARKDOWN';
+}
+
+function extractPagedRows<T>(responseData: any): T[] {
+  const payload = responseData?.data ?? responseData;
+  const rows = payload?.data;
+  return Array.isArray(rows) ? (rows as T[]) : [];
+}
+
+function normalizeNewsItem(raw: any): WikiNewsItem {
+  return {
+    id: toRequiredText(raw?.id),
+    title: toRequiredText(raw?.title),
+    summary: toNullableText(raw?.summary),
+    content: toRequiredText(raw?.content),
+    contentFormat: normalizeRichTextFormat(raw?.contentFormat),
+    imageUrl: toNullableText(raw?.imageUrl),
+    sourceUrl: toNullableText(raw?.sourceUrl),
+    published: raw?.published === undefined ? true : Boolean(raw?.published),
+    publishedAt: toNullableText(raw?.publishedAt),
+    displayOrder: toFiniteNumber(raw?.displayOrder),
+    createdAt: toNullableText(raw?.createdAt),
+    updatedAt: toNullableText(raw?.updatedAt),
+  };
+}
+
+function normalizeEventItem(raw: any): WikiEventItem {
+  return {
+    id: toRequiredText(raw?.id),
+    title: toRequiredText(raw?.title),
+    description: toRequiredText(raw?.description),
+    descriptionFormat: normalizeRichTextFormat(raw?.descriptionFormat),
+    imageUrl: toNullableText(raw?.imageUrl),
+    location: toNullableText(raw?.location),
+    registrationUrl: toNullableText(raw?.registrationUrl),
+    startAt: toNullableText(raw?.startAt),
+    endAt: toNullableText(raw?.endAt),
+    active: raw?.active === undefined ? true : Boolean(raw?.active),
+    displayOrder: toFiniteNumber(raw?.displayOrder),
+    createdAt: toNullableText(raw?.createdAt),
+    updatedAt: toNullableText(raw?.updatedAt),
+  };
+}
+
+function sortNewsItems(items: WikiNewsItem[]): WikiNewsItem[] {
+  return [...items].sort((a, b) => {
+    if (a.displayOrder !== b.displayOrder) return a.displayOrder - b.displayOrder;
+    const publishedDiff = toTimestamp(b.publishedAt) - toTimestamp(a.publishedAt);
+    if (publishedDiff !== 0) return publishedDiff;
+    return toTimestamp(b.updatedAt) - toTimestamp(a.updatedAt);
+  });
+}
+
+function sortEventItems(items: WikiEventItem[]): WikiEventItem[] {
+  return [...items].sort((a, b) => {
+    if (a.displayOrder !== b.displayOrder) return a.displayOrder - b.displayOrder;
+    const aStart = toTimestamp(a.startAt);
+    const bStart = toTimestamp(b.startAt);
+    if (aStart === 0 && bStart !== 0) return 1;
+    if (bStart === 0 && aStart !== 0) return -1;
+    if (aStart !== bStart) return aStart - bStart;
+    return toTimestamp(b.updatedAt) - toTimestamp(a.updatedAt);
+  });
+}
+
+async function fetchWikiNews(): Promise<AdminPagedFetchResult<WikiNewsItem>> {
+  const endpoints = ['/wiki/news', '/mlbb/wiki/news'];
+  let lastStatus: number | null = null;
+
+  for (const endpoint of endpoints) {
+    try {
+      const { data } = await api.get(endpoint, {
+        params: {
+          page: 1,
+          limit: 100,
+        },
+      });
+      const rows = extractPagedRows<any>(data).map(normalizeNewsItem);
+      return {
+        items: sortNewsItems(rows),
+        status: 200,
+      };
+    } catch (error: any) {
+      lastStatus = error?.response?.status ?? null;
+    }
+  }
+
+  return {
+    items: [],
+    status: lastStatus,
+  };
+}
+
+async function fetchWikiEvents(): Promise<AdminPagedFetchResult<WikiEventItem>> {
+  const endpoints = ['/wiki/events', '/mlbb/wiki/events'];
+  let lastStatus: number | null = null;
+
+  for (const endpoint of endpoints) {
+    try {
+      const { data } = await api.get(endpoint, {
+        params: {
+          page: 1,
+          limit: 100,
+        },
+      });
+      const rows = extractPagedRows<any>(data).map(normalizeEventItem);
+      return {
+        items: sortEventItems(rows),
+        status: 200,
+      };
+    } catch (error: any) {
+      lastStatus = error?.response?.status ?? null;
+    }
+  }
+
+  return {
+    items: [],
+    status: lastStatus,
+  };
+}
+
+async function fetchWikiNewsById(newsId: string): Promise<WikiNewsItem | null> {
+  const encodedId = encodeURIComponent(newsId);
+  const endpoints = [`/wiki/news/${encodedId}`, `/mlbb/wiki/news/${encodedId}`];
+
+  for (const endpoint of endpoints) {
+    try {
+      const { data } = await api.get(endpoint);
+      const payload = data?.data ?? data;
+      if (payload && typeof payload === 'object') {
+        return normalizeNewsItem(payload);
+      }
+    } catch {
+      // Try next alias if available.
+    }
+  }
+  return null;
+}
+
+async function fetchWikiEventById(eventId: string): Promise<WikiEventItem | null> {
+  const encodedId = encodeURIComponent(eventId);
+  const endpoints = [`/wiki/events/${encodedId}`, `/mlbb/wiki/events/${encodedId}`];
+
+  for (const endpoint of endpoints) {
+    try {
+      const { data } = await api.get(endpoint);
+      const payload = data?.data ?? data;
+      if (payload && typeof payload === 'object') {
+        return normalizeEventItem(payload);
+      }
+    } catch {
+      // Try next alias if available.
     }
   }
   return null;
@@ -253,6 +447,118 @@ export function useHeroes(): UseHeroesResult {
     dataVersion,
     refresh,
   };
+}
+
+export interface UseWikiContentResult {
+  newsItems: WikiNewsItem[];
+  eventItems: WikiEventItem[];
+  isLoading: boolean;
+  isRefreshing: boolean;
+  isForbidden: boolean;
+  refresh: () => void;
+}
+
+export function useWikiContent(): UseWikiContentResult {
+  const [newsItems, setNewsItems] = useState<WikiNewsItem[]>([]);
+  const [eventItems, setEventItems] = useState<WikiEventItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [isForbidden, setIsForbidden] = useState(false);
+  const [refreshTick, setRefreshTick] = useState(0);
+
+  const refresh = useCallback(() => setRefreshTick((tick) => tick + 1), []);
+
+  useEffect(() => {
+    let cancelled = false;
+    const forceRefresh = refreshTick > 0;
+
+    async function load() {
+      if (!cancelled) {
+        if (forceRefresh) setIsRefreshing(true);
+        else setIsLoading(true);
+      }
+
+      const [newsResult, eventResult] = await Promise.all([fetchWikiNews(), fetchWikiEvents()]);
+      if (cancelled) return;
+
+      setNewsItems(newsResult.items);
+      setEventItems(eventResult.items);
+
+      const blocked = [newsResult.status, eventResult.status].some(
+        (status) => status === 401 || status === 403,
+      );
+      setIsForbidden(blocked);
+      setIsLoading(false);
+      setIsRefreshing(false);
+    }
+
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, [refreshTick]);
+
+  return {
+    newsItems,
+    eventItems,
+    isLoading,
+    isRefreshing,
+    isForbidden,
+    refresh,
+  };
+}
+
+export interface UseWikiContentDetailResult {
+  newsDetail: WikiNewsItem | null;
+  eventDetail: WikiEventItem | null;
+  isLoading: boolean;
+}
+
+export function useWikiContentDetail(
+  kind: 'news' | 'event' | null,
+  itemId: string | null,
+): UseWikiContentDetailResult {
+  const [newsDetail, setNewsDetail] = useState<WikiNewsItem | null>(null);
+  const [eventDetail, setEventDetail] = useState<WikiEventItem | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      if (!kind || !itemId) {
+        if (!cancelled) {
+          setNewsDetail(null);
+          setEventDetail(null);
+          setIsLoading(false);
+        }
+        return;
+      }
+
+      if (!cancelled) {
+        setIsLoading(true);
+        setNewsDetail(null);
+        setEventDetail(null);
+      }
+
+      if (kind === 'news') {
+        const payload = await fetchWikiNewsById(itemId);
+        if (!cancelled) setNewsDetail(payload);
+      } else {
+        const payload = await fetchWikiEventById(itemId);
+        if (!cancelled) setEventDetail(payload);
+      }
+
+      if (!cancelled) setIsLoading(false);
+    }
+
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, [kind, itemId]);
+
+  return { newsDetail, eventDetail, isLoading };
 }
 
 export interface UseHeroDetailResult {

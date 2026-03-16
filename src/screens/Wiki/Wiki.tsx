@@ -13,20 +13,13 @@ import {
   Sword,
   Sparkles,
   BarChart3,
+  ExternalLink,
+  MapPin,
+  Clock3,
 } from "lucide-react";
-import { Hero, WikiHeroDetailStat, WikiHeroRecord } from "../../types";
-import { useHeroes } from "../../hooks/useWikiData";
-
-const MOCK_EVENTS = [
-  { id: 1, title: "515 eParty", date: "May 15 - May 31", image: "https://picsum.photos/seed/event1/800/400", type: "In-Game" },
-  { id: 2, title: "MSC 2026", date: "June 10 - June 20", image: "https://picsum.photos/seed/event2/800/400", type: "Esports" },
-];
-
-const MOCK_NEWS = [
-  { id: 1, title: "Patch 1.8.88 Notes", date: "2 hours ago", image: "https://picsum.photos/seed/news1/400/400", summary: "New hero Suyou arrives, plus massive equipment adjustments." },
-  { id: 2, title: "New Skin: Tigreal 'Lightborn'", date: "1 day ago", image: "https://picsum.photos/seed/news2/400/400", summary: "The defender of the Moniyan Empire gets a shiny new look." },
-  { id: 3, title: "Season 32 Ending Soon", date: "3 days ago", image: "https://picsum.photos/seed/news3/400/400", summary: "Push your rank before the season ends to claim exclusive rewards." },
-];
+import { Hero, WikiEventItem, WikiHeroDetailStat, WikiHeroRecord, WikiNewsItem } from "../../types";
+import { useHeroes, useWikiContent, useWikiContentDetail } from "../../hooks/useWikiData";
+import { RichContentRenderer, richContentToPlainText } from "../../utils/richContent";
 
 const ROLE_COLORS: Record<string, string> = {
   Tank: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
@@ -49,21 +42,86 @@ function HeroCardSkeleton() {
   return <div className="relative h-36 sm:h-40 rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-700 animate-pulse" />;
 }
 
-function parseWikiPath(pathname: string): { category: WikiCategory; heroSlug: string | null } {
+function parseWikiPath(pathname: string): {
+  category: WikiCategory;
+  heroSlug: string | null;
+  contentId: string | null;
+} {
   const cleanPath = pathname.split("?")[0];
   const segments = cleanPath.replace(/^\/wiki\/?/, "").split("/").filter(Boolean);
   const first = segments[0];
   const second = segments[1];
 
-  if (!first) return { category: "All", heroSlug: null };
-  if (first === "heroes") return { category: "Heroes", heroSlug: second ?? null };
-  if (first === "event") return { category: "Event", heroSlug: null };
-  if (first === "news") return { category: "News", heroSlug: null };
-  return { category: "All", heroSlug: null };
+  if (!first) return { category: "All", heroSlug: null, contentId: null };
+  if (first === "heroes") return { category: "Heroes", heroSlug: second ?? null, contentId: null };
+  if (first === "event" || first === "events") return { category: "Event", heroSlug: null, contentId: second ?? null };
+  if (first === "news") return { category: "News", heroSlug: null, contentId: second ?? null };
+  return { category: "All", heroSlug: null, contentId: null };
 }
 
 function stripHtml(input: string) {
   return input.replace(/<[^>]*>/g, "").replace(/\n{3,}/g, "\n\n").trim();
+}
+
+function formatRelativeTime(input: string | null | undefined) {
+  if (!input) return "N/A";
+  const date = new Date(input);
+  if (Number.isNaN(date.getTime())) return "N/A";
+  const diffMs = date.getTime() - Date.now();
+
+  const units: Array<[Intl.RelativeTimeFormatUnit, number]> = [
+    ["year", 1000 * 60 * 60 * 24 * 365],
+    ["month", 1000 * 60 * 60 * 24 * 30],
+    ["day", 1000 * 60 * 60 * 24],
+    ["hour", 1000 * 60 * 60],
+    ["minute", 1000 * 60],
+  ];
+
+  for (const [unit, unitMs] of units) {
+    if (Math.abs(diffMs) >= unitMs) {
+      const value = Math.round(diffMs / unitMs);
+      return new Intl.RelativeTimeFormat("en", { numeric: "auto" }).format(value, unit);
+    }
+  }
+
+  return "just now";
+}
+
+function formatMonthDay(input: string | null | undefined): string | null {
+  if (!input) return null;
+  const date = new Date(input);
+  if (Number.isNaN(date.getTime())) return null;
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+  }).format(date);
+}
+
+function formatDateTime(input: string | null | undefined): string {
+  if (!input) return "N/A";
+  const date = new Date(input);
+  if (Number.isNaN(date.getTime())) return "N/A";
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(date);
+}
+
+function formatEventRange(event: WikiEventItem) {
+  const start = formatMonthDay(event.startAt);
+  const end = formatMonthDay(event.endAt);
+  if (start && end) return `${start} - ${end}`;
+  if (start) return start;
+  if (end) return end;
+  return "TBD";
+}
+
+function getNewsSummary(news: WikiNewsItem) {
+  if (news.summary?.trim()) return news.summary.trim();
+  return richContentToPlainText(news.content, news.contentFormat).slice(0, 140) || "No summary available.";
 }
 
 function formatPercent(value: number | null | undefined) {
@@ -85,18 +143,32 @@ export default function WikiTab() {
   const [searchQuery, setSearchQuery] = useState("");
   const [showScrollTop, setShowScrollTop] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-  const { category, heroSlug } = useMemo(() => parseWikiPath(location.pathname), [location.pathname]);
+  const { category, heroSlug, contentId } = useMemo(() => parseWikiPath(location.pathname), [location.pathname]);
 
   const {
     heroes,
     heroRecords,
     resolvedImages,
-    isLoading,
-    isRefreshing,
+    isLoading: isHeroesLoading,
+    isRefreshing: isHeroesRefreshing,
     cacheVersion,
     dataVersion,
     refresh,
   } = useHeroes();
+  const {
+    newsItems,
+    eventItems,
+    isLoading: isWikiContentLoading,
+    isForbidden: isWikiContentForbidden,
+  } = useWikiContent();
+  const detailKind = contentId
+    ? (category === "News" ? "news" : category === "Event" ? "event" : null)
+    : null;
+  const {
+    newsDetail,
+    eventDetail,
+    isLoading: isWikiContentDetailLoading,
+  } = useWikiContentDetail(detailKind, contentId);
 
   const roleParam = searchParams.get("role");
   const activeRole: HeroRoleFilter =
@@ -144,15 +216,50 @@ export default function WikiTab() {
       ? filteredHeroes.slice(0, 4)
       : filteredHeroes;
 
+  const visibleNewsPool = useMemo(() => {
+    const published = newsItems.filter((news) => news.published);
+    return published.length > 0 ? published : newsItems;
+  }, [newsItems]);
+
+  const visibleEventsPool = useMemo(() => {
+    const active = eventItems.filter((event) => event.active);
+    return active.length > 0 ? active : eventItems;
+  }, [eventItems]);
+
   const filteredEvents =
     isEventSearchActive && normalizedSearch
-      ? MOCK_EVENTS.filter((event) => event.title.toLowerCase().includes(normalizedSearch))
-      : MOCK_EVENTS;
+      ? visibleEventsPool.filter((event) =>
+          [
+            event.title,
+            richContentToPlainText(event.description, event.descriptionFormat),
+            event.location ?? "",
+          ]
+            .join(" ")
+            .toLowerCase()
+            .includes(normalizedSearch),
+        )
+      : visibleEventsPool;
+
+  const visibleEvents =
+    category === "All"
+      ? filteredEvents.slice(0, 2)
+      : filteredEvents;
 
   const filteredNews =
     isNewsSearchActive && normalizedSearch
-      ? MOCK_NEWS.filter((news) => news.title.toLowerCase().includes(normalizedSearch))
-      : MOCK_NEWS;
+      ? visibleNewsPool.filter((news) =>
+          [
+            news.title,
+            news.summary ?? "",
+            richContentToPlainText(news.content, news.contentFormat),
+          ]
+            .join(" ")
+            .toLowerCase()
+            .includes(normalizedSearch),
+        )
+      : visibleNewsPool;
+
+  const featuredNews = filteredNews[0] ?? visibleNewsPool[0] ?? null;
 
   const scrollToTop = () => {
     scrollContainerRef.current?.scrollTo({ top: 0, behavior: "smooth" });
@@ -178,9 +285,49 @@ export default function WikiTab() {
         hero={selectedHeroCard}
         record={selectedRecord}
         resolvedListImage={resolvedImages[selectedHeroCard.id]}
-        isRefreshing={isRefreshing}
+        isRefreshing={isHeroesRefreshing}
       />
     );
+  }
+
+  if (contentId && category === "News") {
+    if (isWikiContentDetailLoading) {
+      return <div className="h-full bg-gray-200 dark:bg-gray-700 animate-pulse" />;
+    }
+    if (!newsDetail) {
+      return (
+        <div className="h-full flex flex-col items-center justify-center gap-4 p-6 text-center">
+          <p className="text-sm text-gray-500 dark:text-gray-400">Không tìm thấy news.</p>
+          <button
+            onClick={() => navigate("/wiki/news")}
+            className="px-4 py-2 rounded-lg bg-primary text-white text-sm font-medium"
+          >
+            Quay lại News
+          </button>
+        </div>
+      );
+    }
+    return <NewsDetail news={newsDetail} />;
+  }
+
+  if (contentId && category === "Event") {
+    if (isWikiContentDetailLoading) {
+      return <div className="h-full bg-gray-200 dark:bg-gray-700 animate-pulse" />;
+    }
+    if (!eventDetail) {
+      return (
+        <div className="h-full flex flex-col items-center justify-center gap-4 p-6 text-center">
+          <p className="text-sm text-gray-500 dark:text-gray-400">Không tìm thấy event.</p>
+          <button
+            onClick={() => navigate("/wiki/event")}
+            className="px-4 py-2 rounded-lg bg-primary text-white text-sm font-medium"
+          >
+            Quay lại Events
+          </button>
+        </div>
+      );
+    }
+    return <EventDetail event={eventDetail} />;
   }
 
   return (
@@ -218,10 +365,10 @@ export default function WikiTab() {
             <span>Có phiên bản dữ liệu mới ({dataVersion}).</span>
             <button
               onClick={refresh}
-              disabled={isRefreshing}
+              disabled={isHeroesRefreshing}
               className="ml-auto inline-flex items-center gap-1 font-semibold text-amber-700 dark:text-amber-300 disabled:opacity-60"
             >
-              <RefreshCw size={11} className={isRefreshing ? "animate-spin" : ""} />
+              <RefreshCw size={11} className={isHeroesRefreshing ? "animate-spin" : ""} />
               Cập nhật
             </button>
           </div>
@@ -255,33 +402,83 @@ export default function WikiTab() {
           {(category === "All" || category === "News") && (
             <div>
               {category === "All" && <h2 className="text-lg font-bold mb-3 dark:text-white">Featured</h2>}
-              <div className="relative h-40 rounded-2xl overflow-hidden shadow-md mb-4 cursor-pointer group">
-                <img src="https://picsum.photos/seed/featured/800/400" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" alt="Featured" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4">
-                  <span className="bg-accent text-primary text-xs font-bold px-2 py-1 rounded w-max mb-1">NEW HERO</span>
-                  <h3 className="text-white font-game text-2xl font-bold">Suyou</h3>
-                  <p className="text-gray-300 text-sm">The Masked Immortal</p>
-                </div>
+              <div
+                onClick={() => featuredNews && navigate(`/wiki/news/${featuredNews.id}`)}
+                className={`relative h-40 rounded-2xl overflow-hidden shadow-md mb-4 group ${
+                  featuredNews ? "cursor-pointer" : ""
+                }`}
+              >
+                {isWikiContentLoading ? (
+                  <div className="w-full h-full bg-gray-200 dark:bg-gray-700 animate-pulse" />
+                ) : (
+                  <>
+                    {featuredNews?.imageUrl ? (
+                      <img
+                        src={featuredNews.imageUrl}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        alt={featuredNews.title}
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-slate-700 to-slate-900" />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4">
+                      <span className="bg-accent text-primary text-xs font-bold px-2 py-1 rounded w-max mb-1">LATEST NEWS</span>
+                      <h3 className="text-white font-game text-xl font-bold line-clamp-1">
+                        {featuredNews?.title || "No news available"}
+                      </h3>
+                      <p className="text-gray-300 text-sm line-clamp-2">
+                        {featuredNews ? getNewsSummary(featuredNews) : "Không có dữ liệu News từ endpoint."}
+                      </p>
+                    </div>
+                  </>
+                )}
               </div>
               {category === "News" && (
                 <div className="space-y-3">
-                  {filteredNews.map((news) => (
-                    <div key={news.id} className="flex bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700">
-                      <div className="w-28 h-28 shrink-0 overflow-hidden">
-                        <img src={news.image} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" alt={news.title} />
+                  {isWikiContentLoading && (
+                    <div className="space-y-3">
+                      {Array.from({ length: 3 }).map((_, idx) => (
+                        <div
+                          key={idx}
+                          className="h-28 rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+                        />
+                      ))}
+                    </div>
+                  )}
+                  {!isWikiContentLoading && filteredNews.map((news) => (
+                    <div
+                      key={news.id}
+                      onClick={() => navigate(`/wiki/news/${news.id}`)}
+                      className="flex bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer"
+                    >
+                      <div className="w-28 h-28 shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-700">
+                        {news.imageUrl ? (
+                          <img src={news.imageUrl} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" alt={news.title} />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center text-gray-400 dark:text-gray-500">
+                            <Bell size={18} />
+                          </div>
+                        )}
                       </div>
                       <div className="p-3 flex flex-col justify-between flex-1">
                         <div>
                           <h3 className="font-bold text-sm dark:text-white mb-1 leading-tight">{news.title}</h3>
-                          <p className="text-xs text-gray-500 line-clamp-2">{news.summary}</p>
+                          <p className="text-xs text-gray-500 line-clamp-2">{getNewsSummary(news)}</p>
                         </div>
-                        <span className="text-[10px] text-gray-400 font-medium">{news.date}</span>
+                        <span className="text-[10px] text-gray-400 font-medium">
+                          {formatRelativeTime(news.publishedAt ?? news.updatedAt ?? news.createdAt)}
+                        </span>
                       </div>
                     </div>
                   ))}
-                  {filteredNews.length === 0 && (
+                  {!isWikiContentLoading && filteredNews.length === 0 && (
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                       Không có news phù hợp với từ khóa tìm kiếm.
+                    </p>
+                  )}
+                  {!isWikiContentLoading && isWikiContentForbidden && filteredNews.length === 0 && (
+                    <p className="text-xs text-amber-600 dark:text-amber-300">
+                      Không có quyền truy cập endpoint nội dung Wiki.
                     </p>
                   )}
                 </div>
@@ -302,18 +499,35 @@ export default function WikiTab() {
                 )}
               </div>
               <div className="space-y-4">
-                {filteredEvents.map((event) => (
-                  <div key={event.id} className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700">
+                {isWikiContentLoading && (
+                  <div className="space-y-4">
+                    {Array.from({ length: 2 }).map((_, idx) => (
+                      <div key={idx} className="h-48 rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse" />
+                    ))}
+                  </div>
+                )}
+                {!isWikiContentLoading && visibleEvents.map((event) => (
+                  <div
+                    key={event.id}
+                    onClick={() => navigate(`/wiki/event/${event.id}`)}
+                    className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer"
+                  >
                     <div className="h-32 relative overflow-hidden">
-                      <img src={event.image} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" alt={event.title} />
+                      {event.imageUrl ? (
+                        <img src={event.imageUrl} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" alt={event.title} />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-r from-slate-800 to-slate-700" />
+                      )}
                       <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-lg flex items-center">
-                        <Calendar size={12} className="mr-1" /> {event.date}
+                        <Calendar size={12} className="mr-1" /> {formatEventRange(event)}
                       </div>
                     </div>
                     <div className="p-3 flex justify-between items-center">
                       <div>
                         <h3 className="font-bold text-sm dark:text-white">{event.title}</h3>
-                        <span className="text-xs text-primary dark:text-accent font-medium">{event.type}</span>
+                        <span className="text-xs text-primary dark:text-accent font-medium">
+                          {event.location || "Event"}
+                        </span>
                       </div>
                       <button className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300">
                         <Bell size={16} />
@@ -321,9 +535,14 @@ export default function WikiTab() {
                     </div>
                   </div>
                 ))}
-                {category === "Event" && filteredEvents.length === 0 && (
+                {category === "Event" && !isWikiContentLoading && visibleEvents.length === 0 && (
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Không có event phù hợp với từ khóa tìm kiếm.
+                  </p>
+                )}
+                {category === "Event" && !isWikiContentLoading && isWikiContentForbidden && visibleEvents.length === 0 && (
+                  <p className="text-xs text-amber-600 dark:text-amber-300">
+                    Không có quyền truy cập endpoint nội dung Wiki.
                   </p>
                 )}
               </div>
@@ -371,7 +590,7 @@ export default function WikiTab() {
               )}
 
               <div className="grid grid-cols-2 gap-3">
-                {isLoading
+                {isHeroesLoading
                   ? Array.from({ length: 4 }).map((_, i) => <HeroCardSkeleton key={i} />)
                   : visibleHeroes.map((hero) => (
                       <div key={hero.id}>
@@ -383,7 +602,7 @@ export default function WikiTab() {
                       </div>
                     ))}
               </div>
-              {category === "Heroes" && !isLoading && visibleHeroes.length === 0 && (
+              {category === "Heroes" && !isHeroesLoading && visibleHeroes.length === 0 && (
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">
                   Không có hero phù hợp với từ khóa tìm kiếm.
                 </p>
@@ -423,6 +642,129 @@ function HeroCard({
         <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider mt-1 w-max shadow-sm ${ROLE_COLORS[hero.role]}`}>
           {hero.role}
         </span>
+      </div>
+    </div>
+  );
+}
+
+function NewsDetail({ news }: { news: WikiNewsItem }) {
+  const navigate = useNavigate();
+  const displayTime = formatDateTime(news.publishedAt ?? news.updatedAt ?? news.createdAt);
+
+  return (
+    <div className="flex flex-col h-full bg-bg-light dark:bg-bg-dark overflow-y-auto">
+      <div className="relative h-64 shrink-0">
+        {news.imageUrl ? (
+          <img src={news.imageUrl} className="w-full h-full object-cover" alt={news.title} />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-slate-700 to-slate-900" />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-bg-light dark:from-bg-dark via-black/25 to-black/50" />
+        <div className="absolute top-0 left-0 right-0 p-4 pt-6 flex justify-between items-center">
+          <button
+            onClick={() => navigate("/wiki/news")}
+            className="w-10 h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center text-white"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button className="w-10 h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center text-white">
+            <Share2 size={20} />
+          </button>
+        </div>
+        <div className="absolute bottom-4 left-4 right-4">
+          <h1 className="text-2xl font-bold text-white leading-tight">{news.title}</h1>
+          <p className="text-xs text-gray-300 mt-2">{displayTime}</p>
+        </div>
+      </div>
+
+      <div className="p-4 space-y-4">
+        {news.summary && (
+          <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+            <p className="text-sm text-gray-700 dark:text-gray-200">{news.summary}</p>
+          </div>
+        )}
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+          <RichContentRenderer
+            content={news.content}
+            format={news.contentFormat}
+            paragraphClassName="text-sm text-gray-700 dark:text-gray-200 whitespace-pre-wrap break-words leading-6"
+          />
+        </div>
+        {news.sourceUrl && (
+          <a
+            href={news.sourceUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-primary dark:text-accent font-medium"
+          >
+            Open source <ExternalLink size={14} />
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function EventDetail({ event }: { event: WikiEventItem }) {
+  const navigate = useNavigate();
+
+  return (
+    <div className="flex flex-col h-full bg-bg-light dark:bg-bg-dark overflow-y-auto">
+      <div className="relative h-64 shrink-0">
+        {event.imageUrl ? (
+          <img src={event.imageUrl} className="w-full h-full object-cover" alt={event.title} />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-slate-700 to-slate-900" />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-bg-light dark:from-bg-dark via-black/25 to-black/50" />
+        <div className="absolute top-0 left-0 right-0 p-4 pt-6 flex justify-between items-center">
+          <button
+            onClick={() => navigate("/wiki/event")}
+            className="w-10 h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center text-white"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button className="w-10 h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center text-white">
+            <Share2 size={20} />
+          </button>
+        </div>
+        <div className="absolute bottom-4 left-4 right-4">
+          <h1 className="text-2xl font-bold text-white leading-tight">{event.title}</h1>
+        </div>
+      </div>
+
+      <div className="p-4 space-y-4">
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 space-y-3">
+          <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+            <Clock3 size={15} />
+            <span>{formatEventRange(event)}</span>
+          </div>
+          {event.location && (
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              <MapPin size={15} />
+              <span>{event.location}</span>
+            </div>
+          )}
+        </div>
+
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+          <RichContentRenderer
+            content={event.description}
+            format={event.descriptionFormat}
+            paragraphClassName="text-sm text-gray-700 dark:text-gray-200 whitespace-pre-wrap break-words leading-6"
+          />
+        </div>
+
+        {event.registrationUrl && (
+          <a
+            href={event.registrationUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-primary dark:text-accent font-medium"
+          >
+            Register now <ExternalLink size={14} />
+          </a>
+        )}
       </div>
     </div>
   );
