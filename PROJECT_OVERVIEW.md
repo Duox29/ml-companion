@@ -129,6 +129,10 @@ Ghi chú:
   - File: `src/services/globalChat.ts`
   - Hàm `sendGlobalChannelMessageRealtime()`.
 
+Ghi chú verify backend:
+- Backend hiện chỉ implement `@MessageMapping("/channels/{id}/send")`.
+- Chưa có endpoint realtime direct inbox (`/app/inbox/send`) trong source backend hiện tại.
+
 ### 3.4 Wiki data sync
 
 - Version check (thử lần lượt endpoint backend hỗ trợ):
@@ -171,6 +175,7 @@ Ghi chú:
 - Axios interceptor tự gắn Bearer token và tự refresh token khi gặp 401/403.
 - Nếu refresh thất bại, app phát event `auth:logout` để đưa người dùng về trạng thái guest.
 - Một số endpoint đã được chuẩn bị trong code nhưng chưa có luồng UI dùng thực tế (`/auth/forgot-password`, `/auth/reset-password`).
+- `src/contexts/AuthContext.tsx` có comment `api.get('/auth/me')`, nhưng đây chỉ là comment và không có request runtime.
 - Wiki News/Event detail dùng rich content renderer:
   - Hỗ trợ hyperlink (`[text](url)` hoặc URL trực tiếp)
   - Hỗ trợ image URL (dòng chứa URL ảnh hoặc markdown image `![alt](url)`)

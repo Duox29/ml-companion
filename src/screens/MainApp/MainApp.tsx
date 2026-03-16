@@ -69,7 +69,7 @@ export default function MainApp({ isGuest, onLogout, onRequireAuth }: MainAppPro
       </div>
 
       {/* Bottom Navigation */}
-      <div className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 pb-[max(env(safe-area-inset-bottom),4px)]">
+      <div className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 pb-[max(env(safe-area-inset-bottom),8px)]">
         <div className="flex justify-around items-center h-12 px-2">
           {tabs.map((tab) => {
             const Icon = tab.icon;
@@ -98,3 +98,4 @@ export default function MainApp({ isGuest, onLogout, onRequireAuth }: MainAppPro
     </div>
   );
 }
+
