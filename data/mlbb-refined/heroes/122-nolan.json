@@ -1,0 +1,103 @@
+{
+  "id": 122,
+  "name": "Nolan",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9012ee9f73fbb4db4e1953e5fb5172e1.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_cf1a85704a0636d70f49113b2dd119bd.png",
+  "role": [
+    "Assassin"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Chase",
+    "Burst"
+  ],
+  "lore": {
+    "story": "A scholar that wanders the universe with split souls to save his daughter.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 12240,
+      "name": "Dimensional Rift",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_655b024d09823ec48d3557e202a404b7.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Nolan's skills will leave a <font color=\"a6aafb\">Rift</font>. When a rift comes into contact with another rift, they will <font color=\"a6aafb\">activate</font> and pull enemies to their center and deal 240<font color=\"fba51f\"> (+140% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> after a short delay. Each time a rift activation hits an enemy, Nolan will gain 20 Energy. If an enemy is hit by multiple rift activations, the damage after the first hit will be reduced by 40%.\n<font color=\"a6aafb\">Cosmic Leap</font>: If Nolan does not deal or take damage for 5s, he enhances his next Basic Attack to dash to the target, dealing <font color=\"fba51f\"> (+120% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and leaving a <font color=\"a6aafb\">Rift</font>. (Damage to and from Minions or Creeps will not prevent Nolan from getting this effect.)",
+      "video": ""
+    },
+    {
+      "id": 12210,
+      "name": "Expansion",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f9e7e389d9aa59fb42aff11a2303cf1c.png",
+      "cooldown_cost": "CD: 2.5   Energy Cost: 25",
+      "tags": [],
+      "description": "Nolan cuts a rectangular area in front of him with his cosmic gauge, dealing 230<font color=\"fba51f\"> (+40% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and leaving a <font color=\"a6aafb\">Rift</font> at the first enemy hit.",
+      "video": ""
+    },
+    {
+      "id": 12220,
+      "name": "Gauge",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_23fc06b2b01c5abdf0c91182ab8eebc0.png",
+      "cooldown_cost": "CD: 2.5   Energy Cost: 25",
+      "tags": [],
+      "description": "Nolan charges in the target direction and slashes with his cosmic gauge, dealing 70<font color=\"fba51f\"> (+13% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in his path and leaving a <font color=\"a6aafb\">Rift</font>.",
+      "video": ""
+    },
+    {
+      "id": 12230,
+      "name": "Fracture",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a24a1a342fb4f6bd6f1d59de13e77a05.png",
+      "cooldown_cost": "CD: 21",
+      "tags": [],
+      "description": "Nolan slashes at the target location 3 times, dealing 120<font color=\"fba51f\"> (+50% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> with each slash while leaving 3 rifts and slowing the target hit by 30% for 0.5s. The rifts will be activated automatically while Nolan dashes backward.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      30,
+      60,
+      20,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.003107,
+        "ban_rate": 0.00332,
+        "win_rate": 0.498659
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, approach the enemy using Nolan's 2nd Skill and enhanced Basic Attack, then activate the rift with his 1st Skill. Use Nolan's 2nd Skill to dash through the enemy, and unleash his Ultimate to activate all the rifts while dashing back to safety."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Nolan's 2nd Skill and enhanced Basic Attack to catch the enemy, then use his 1st Skill to activate the rift. Follow up with his 2nd Skill into his 1st Skill to activate another rift explosion."
+    }
+  ]
+}

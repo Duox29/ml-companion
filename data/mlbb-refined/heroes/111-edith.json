@@ -1,0 +1,141 @@
+{
+  "id": 111,
+  "name": "Edith",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_daab57918de01a6d5bb2ed6f45808a7e.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_098891b01e7093a49228688bbad0cde8.png",
+  "role": [
+    "Tank",
+    "Marksman"
+  ],
+  "lane": [
+    "Exp Lane",
+    "Roam"
+  ],
+  "specialty": [
+    "Control",
+    "Burst"
+  ],
+  "lore": {
+    "story": "Forsaken Warden with sealed memories.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 11140,
+      "name": "Overload",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2fea4f679f7fd59d6ee9062960fe8cb8.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "After each skill cast, Edith and Phylax become Overloaded for 3s, during which all Basic Attacks will trigger chain lightning, dealing extra <font color=\"7f62fe\">Magic Damage</font> equal to <font color=\"62f8fe\"> (+20% Total Magic Power)</font> plus 3(+0.2*Hero Level)% of the target's Max HP to up to 4 enemies.\nChain lightning damage against Minions is increased to 150%.",
+      "video": ""
+    },
+    {
+      "id": 11110,
+      "name": "Earth Shatter",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_87a69f221b26b4ce2d0443e876ea8eba.png",
+      "cooldown_cost": "CD: 8.5",
+      "tags": [],
+      "description": "After a 0.75s delay, Edith controls Phylax to launch an earth-shattering blow in a designated direction, dealing 225<font color=\"26e407\"> (+10% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit (deals 120% damage to minions) and knocking them airborne for 0.8s.\nThis skill can only be interrupted by Suppression.",
+      "video": ""
+    },
+    {
+      "id": 11120,
+      "name": "Onward",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3f3bd7205e18b8af21c1e04ba5d8aafe.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Edith controls Phylax to charge in the target direction, dealing 90<font color=\"26e407\"> (+3% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the way.\n\nIf Phylax hits an enemy hero during the charge, it will stop immediately and throw them over its shoulder, dealing 108<font color=\"26e407\"> (+5% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font>.",
+      "video": ""
+    },
+    {
+      "id": 11130,
+      "name": "Primal Wrath",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ef6910865a6be662572e4f8b43dc7a5a.png",
+      "cooldown_cost": "CD: 40",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive:</font> When inside Phylax, Edith can accumulate Wrath according to the damage she receives (calculated before damage reduction).\n\n<font color=\"a6aafb\">Active:</font> Edith ejects herself forward from Phylax, knocking back nearby enemies. After that, she takes flight and can perform ranged Basic Attacks, each dealing 35<font color=\"fba51f\"> (+75% Total Physical Attack)</font> <font color=\"62f8fe\">(+25% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>. Edith also gains new skills in this state. When in flight, Edith gains 350<font color=\"26e407\"> (+5% Total HP)</font>-350<font color=\"26e407\"> (+20% Total HP)</font> extra Shield, 50%-150% extra Attack Speed and 5%-20% Hybrid Lifesteal based on the Wrath she accumulated, and converts each point of <font color=\"26e407\">Extra Physical Defense</font> and <font color=\"26e407\">Extra Magic Defense</font> into 3.5 <font color=\"62f8fe\">Magic Power</font>. The flight state lasts up to 8s.",
+      "video": ""
+    },
+    {
+      "id": 11140,
+      "name": "Overload",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2fea4f679f7fd59d6ee9062960fe8cb8.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "After each skill cast, Edith and Phylax become Overloaded for 3s, during which all Basic Attacks will trigger chain lightning, dealing extra <font color=\"7f62fe\">Magic Damage</font> equal to <font color=\"62f8fe\"> (+20% Total Magic Power)</font> plus 3(+0.2*Hero Level)% of the target's Max HP to up to 4 enemies.\nChain lightning damage against Minions is increased to 150%.",
+      "video": ""
+    },
+    {
+      "id": 11113,
+      "name": "Divine Retribution",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0afd44b80c98596aaf29cafb3b3a8a1f.png",
+      "cooldown_cost": "CD: 5",
+      "tags": [],
+      "description": "Edith exacts Divine Retribution on a target area, dealing 170<font color=\"62f8fe\"> (+40% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit and slowing them by 30%. She then continues to deal 68<font color=\"62f8fe\"> (+16% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in the area every 0.5s over the next 1.5s.",
+      "video": ""
+    },
+    {
+      "id": 11125,
+      "name": "Lightning Bolt",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bc15a9e8821ea55e507269a984459154.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Edith fires a Lightning Bolt in a designated direction, dealing 150<font color=\"62f8fe\"> (+50% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the first enemy hero hit and immobilizing them for 0.8s.",
+      "video": ""
+    },
+    {
+      "id": 11130,
+      "name": "Primal Wrath",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ef6910865a6be662572e4f8b43dc7a5a.png",
+      "cooldown_cost": "CD: 40",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive:</font> When inside Phylax, Edith can accumulate Wrath according to the damage she receives (calculated before damage reduction).\n\n<font color=\"a6aafb\">Active:</font> Edith ejects herself forward from Phylax, knocking back nearby enemies. After that, she takes flight and can perform ranged Basic Attacks, each dealing 35<font color=\"fba51f\"> (+75% Total Physical Attack)</font> <font color=\"62f8fe\">(+25% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>. Edith also gains new skills in this state. When in flight, Edith gains 350<font color=\"26e407\"> (+5% Total HP)</font>-350<font color=\"26e407\"> (+20% Total HP)</font> extra Shield, 50%-150% extra Attack Speed and 5%-20% Hybrid Lifesteal based on the Wrath she accumulated, and converts each point of <font color=\"26e407\">Extra Physical Defense</font> and <font color=\"26e407\">Extra Magic Defense</font> into 3.5 <font color=\"62f8fe\">Magic Power</font>. The flight state lasts up to 8s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 30,
+    "ability": [
+      70,
+      30,
+      100,
+      30
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.0022,
+        "ban_rate": 0.000703,
+        "win_rate": 0.508242
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Edith's 2nd Skill to toss the enemy behind her, followed by her 1st Skill to knock them airborne then immediately use her Ultimate.\r\nNow use Edith's 2nd Skill in human form to immobilize the target, followed by her 1st Skill for more damage, and secure the kill with enhanced Basic Attacks."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Edith's 2nd Skill to toss the enemy behind her,\r\nthen use her 1st Skill to knock them airborne\r\nand finish them off with enhanced Basic Attacks from her Passive."
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "id": 39,
+  "name": "Roger",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b40e578f13465b3ae99d0a9baac7ecc9.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_32304eb469dc241a15e3d539584f62a9.png",
+  "role": [
+    "Fighter",
+    "Marksman"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Finisher",
+    "Burst"
+  ],
+  "lore": {
+    "story": "A werewolf wandering in the dark forest longing for revenge.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 3940,
+      "name": "Full Moon Curse",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_09769166146e91d618341d4a45dbbf70.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Roger can freely switch between human and wolf forms.\n\nIn human form, Roger's Basic Attack and skills deal additional damage equal to 4% of the target's current HP.\n\nIn wolf form, Roger's Basic Attack and skills deal additional damage equal to 4% of the target's lost HP.\n\nThis effect can only deal up to 60 additional damage against Creeps.",
+      "video": ""
+    },
+    {
+      "id": 3910,
+      "name": "Open Fire",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f6a7a6f89ad205b579985ea0e5ac28a1.png",
+      "cooldown_cost": "CD: 7   Mana Cost: 50",
+      "tags": [],
+      "description": "Roger fires two quick shots in the target direction, dealing 250<font color=\"fba51f\"> (+125% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> in total to the enemy hit. The first shot is a hunter net that slows the enemy by 80% for 1.5s, while the second is a bullet that reduces the enemy's Physical Defense by 10 for 5s.",
+      "video": ""
+    },
+    {
+      "id": 3920,
+      "name": "Hunter's Steps",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_42cfcbb066e1aef866c0cc1b9221811a.png",
+      "cooldown_cost": "CD: 10   Mana Cost: 50",
+      "tags": [],
+      "description": "Roger gains 20% Movement Speed and 20% Attack Speed for 2.5s.",
+      "video": ""
+    },
+    {
+      "id": 3930,
+      "name": "Wolf Transformation",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d414e77c739a173de440616d47260dd8.png",
+      "cooldown_cost": "CD: 7.5",
+      "tags": [],
+      "description": "Roger lunges in the target direction and turns into wolf form, dealing 150<font color=\"fba51f\"> (+100% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit and slowing them by 90% for 0.8s.\n\n<font color=\"a6aafb\">Passive</font>: In wolf form, Roger gains 20 Physical & Magic Defense and 25 Movement Speed.",
+      "video": ""
+    },
+    {
+      "id": 3940,
+      "name": "Full Moon Curse",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_09769166146e91d618341d4a45dbbf70.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Roger can freely switch between human and wolf forms.\n\nIn human form, Roger's Basic Attack and skills deal additional damage equal to 4% of the target's current HP.\n\nIn wolf form, Roger's Basic Attack and skills deal additional damage equal to 4% of the target's lost HP.\n\nThis effect can only deal up to 60 additional damage against Creeps.",
+      "video": ""
+    },
+    {
+      "id": 3911,
+      "name": "Lycan Pounce",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3c6152c1e1bb2ceae95818e06bcfed86.png",
+      "cooldown_cost": "CD: 15   Mana Cost: 50",
+      "tags": [],
+      "description": "Roger lunges at the target enemy, becoming untargetable while dealing 250<font color=\"fba51f\"> (+125% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to up to 3 enemies in the area.\n\nGetting a kill or assist will reduce the cooldown of this skill by 80%.",
+      "video": ""
+    },
+    {
+      "id": 3922,
+      "name": "Bloodthirsty Howl",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c593ba4f2bebc21c6e099256e94ef2ec.png",
+      "cooldown_cost": "CD: 10   Mana Cost: 50",
+      "tags": [],
+      "description": "Roger lets out a howl, increasing his Attack Speed by 1.15 times for 5s and revealing nearby enemy heroes with HP below 40%. If there are enemy heroes with HP below 40% in range, Roger gains 50% Movement Speed.",
+      "video": ""
+    },
+    {
+      "id": 3932,
+      "name": "Restore Human Form",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b11d01d56251927771353cdb54a1f59b.png",
+      "cooldown_cost": "CD: 7.5",
+      "tags": [],
+      "description": "Roger rolls in the target direction and reverts back to human form, gaining a 200<font color=\"fba51f\"> (+200% Extra Physical Attack)</font> shield for 1.5s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      60,
+      40,
+      10,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.003267,
+        "ban_rate": 0.001298,
+        "win_rate": 0.501946
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Roger's 1st Skill to whittle down enemies from afar while using his 2nd Skill to maintain good positioning. When both sides have engaged, use his Ultimate to go for the enemy's back line. Use his 2nd Skill for extra Attack Speed and his 1st Skill to secure the kill."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Roger should poke the enemy while in his Human form. Use his 2nd Skill for extra Movement Speed for an angle to hit with his 1st Skill. Use his Ultimate to close in on the enemy, followed by his 2nd Skill for Attack Speed and tear into them with Basic Attacks before finishing them off with his 1st Skill."
+    }
+  ]
+}

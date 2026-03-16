@@ -1,0 +1,103 @@
+{
+  "id": 100,
+  "name": "Brody",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f18e45a9a4cb45897e1f614593ff4497.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0dd42d343fcd6298ca65eec2a65a6b77.png",
+  "role": [
+    "Marksman"
+  ],
+  "lane": [
+    "Gold Lane"
+  ],
+  "specialty": [
+    "Burst",
+    "Finisher"
+  ],
+  "lore": {
+    "story": "Mysterious man whose right hand was corroded and who lost his memory.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 10040,
+      "name": "Abyss Corrosion",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f8af16b9b9818804317127362cc3e78f.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "With his Basic Attacks resonated with the Abyss Power within his body, Brody is able to move while winding up his Basic Attacks (which will be interrupted when casting skills), at the cost of having longer Basic Attack Animation and lower Attack Speed Bonus. Each Basic Attack deals <font color=\"fba51f\"> (+140% Total Physical Attack)</font> <font color=\"ffe63c\">(+45*Hero Level)</font> <font color=\"fb1f1f\">Physical Damage</font> (of which the damage scaling with level cannot be critical), increases Movement Speed by 30% (which will decay rapidly in 1.2s), and applies 1 stack of <font color=\"a6aafb\">Abyss Mark</font> on the enemy, capped at 4 stacks.\nEach stack of <font color=\"a6aafb\">Abyss Mark</font> increases Brody's damage against the target by 5% and his Movement Speed by 5%.",
+      "video": ""
+    },
+    {
+      "id": 10010,
+      "name": "Abyss Impact",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6635e0873a7cc48bac4bf4542c84e459.png",
+      "cooldown_cost": "CD: 4   Mana Cost: 40",
+      "tags": [],
+      "description": "Brody launches a shock wave in the designated direction, dealing 150<font color=\"fba51f\"> (+170% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>, slowing the enemies by 30% for 1.2s, and applying 1 stack of <font color=\"a6aafb\">Abyss Mark</font>.\n\nAs the shock wave travels, for each enemy it hits, it deals an extra 10% damage, inflicts extra 5% slow effect, and applies an additional stack of <font color=\"a6aafb\">Abyss Mark</font>, capped at 130% damage, 45% slow effect, and 4 stacks. This skill deals only 80% damage to Minions.",
+      "video": ""
+    },
+    {
+      "id": 10020,
+      "name": "Corrosive Strike",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e26469bd1e87124fe3aefbd15dddb127.png",
+      "cooldown_cost": "CD: 8   Mana Cost: 75",
+      "tags": [],
+      "description": "Brody dashes to an enemy, dealing 200<font color=\"fba51f\"> (+70% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the target, stunning the target for 0.8s, and applying 1 stack of <font color=\"a6aafb\">Abyss Mark</font> on the target.\nUpon hitting the target, he is able to move one more time in the movement direction, gaining 45% Movement Speed that will decay rapidly in 1.2s.",
+      "video": ""
+    },
+    {
+      "id": 10030,
+      "name": "Torn-Apart Memory",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_cbf0e2955ea6204995caf47e8082a376.png",
+      "cooldown_cost": "CD: 32   Mana Cost: 120",
+      "tags": [],
+      "description": "Brody locks on all the targets within 8 unit(s), dealing 300<font color=\"fba51f\"> (+165% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to them. If the target has an <font color=\"a6aafb\">Abyss Mark</font>, all <font color=\"a6aafb\">Abyss Marks</font> will be reset, dealing <font color=\"fb1f1f\">Physical Damage</font> equal to 136<font color=\"fba51f\"> (+72% Extra Physical Attack)</font> plus 4% of the target's lost HP for each stack the target has.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      40,
+      70,
+      50,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.004453,
+        "ban_rate": 0.004775,
+        "win_rate": 0.525023
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Brody should prioritize using his 1st Skill and Basic Attack, to apply Abyss Marks on enemy heroes outside of the battle area. He can then use his Ultimate and Basic Attack to deal heavy damage and his 2nd Skill and Basic Attack to chase down enemies on the run."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Brody can regularly use his 1st Skill and Basic Attacks to clear lanes and poke the enemy heroes. Once enemy heroes are low on HP, Brody can use his 2nd Skill to close in and stun them, then cast his Ultimate to try to finish them off."
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "id": 103,
+  "name": "Paquito",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e2b6d9c6d82b4a27f0bb2710c8ead3e8.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e57019805d928c886bd0ae01b8947c30.png",
+  "role": [
+    "Fighter",
+    "Assassin"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Chase",
+    "Damage"
+  ],
+  "lore": {
+    "story": "The hero who uses his two fists to protect hope and love.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 10340,
+      "name": "Champ Stance",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c9451df51335c47c1dd75bef800d037d.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "After every 3 skill casts, Paquito enters the <font color=\"a6aafb\">Champ Stance</font>, gaining an enhanced skill ignoring his current cooldowns. He gains 60% extra Movement Speed that decays over 1.8s after casting the enhanced skill.\nPaquito's Basic Attacks only deal <font color=\"fba51f\"> (+85% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.",
+      "video": ""
+    },
+    {
+      "id": 10310,
+      "name": "Heavy Left Punch",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a885c745981e38cb336ca27d147f2bc6.png",
+      "cooldown_cost": "CD: 7",
+      "tags": [],
+      "description": "Paquito throws a punch in the target direction, dealing 210<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit. If this skill hits an enemy hero or Creep, Paquito will also gain a 150<font color=\"fba51f\"> (+135% Total Physical Attack)</font> shield for 2.5s.\n\n<font color=\"a6aafb\">Champ Stance</font>: The damage is increased to 350<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and the shield value is increased to 140%. The normal and enhanced shields can stack.",
+      "video": ""
+    },
+    {
+      "id": 10320,
+      "name": "Jab",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_322cb891727ea1c40e72f123c2d41e0d.png",
+      "cooldown_cost": "CD: 7",
+      "tags": [],
+      "description": "Paquito dashes in the target direction and throws a jab, dealing 200<font color=\"fba51f\"> (+165% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit. Paquito will stop and throw the jab immediately upon colliding with an enemy hero or Creep during the dash.\n\n<font color=\"a6aafb\">Champ Stance</font>: The damage is increased to 350<font color=\"fba51f\"> (+230% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.",
+      "video": ""
+    },
+    {
+      "id": 10330,
+      "name": "Knockout Strike",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_114ac52dbe3fe616904102fd4ac16d14.png",
+      "cooldown_cost": "CD: 15",
+      "tags": [],
+      "description": "Paquito launches an elbow strike in the target direction, dealing 250<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit and knocking them back. He then throws a haymaker, dealing 300<font color=\"fba51f\"> (+90% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit and slowing them by 75% for 1s, as he darts backward.\n\n<font color=\"a6aafb\">Champ Stance</font>: Instead of a haymaker, Paquito launches an uppercut after the elbow strike, dealing 400<font color=\"fba51f\"> (+120% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit and knocking them airborne for 0.5s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 80,
+    "ability": [
+      60,
+      50,
+      40,
+      80
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.003862,
+        "ban_rate": 0.001102,
+        "win_rate": 0.480895
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Paquito can use his 2nd Skill to approach the enemy team, then his 1st Skill to deal damage. He should follow up with his Ultimate to knock the enemy back and enter the Champ Stance. He can finish with his enhanced 2nd Skill to deal heavy damage to the enemies."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Paquito can use his 1st Skill to gain a stack for the Champ Stance before using his 2nd Skill to close in on the enemy hero. He can use his 1st Skill again to deal damage and enter the Champ Stance. He should then hit the enemy hero with the enhanced 2nd Skill."
+    }
+  ]
+}

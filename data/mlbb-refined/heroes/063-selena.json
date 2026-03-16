@@ -1,0 +1,138 @@
+{
+  "id": 63,
+  "name": "Selena",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c3f967121519ae40509c5b2fdf52b19d.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0e2fbc7a5f2e4ba45f7a740daf1910f6.png",
+  "role": [
+    "Assassin",
+    "Mage"
+  ],
+  "lane": [],
+  "specialty": [
+    "Initiator",
+    "Finisher"
+  ],
+  "lore": {
+    "story": "Dark Elf girl who fell into the Abyss.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 6340,
+      "name": "Symbiosis",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_32860acd4d3f0f6e34c80e70db4f3963.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Selena can switch freely between her two forms.\n<font color=\"a6aafb\">Elven Form</font>: Selena applies <font color=\"a6aafb\">Abyssal Mark</font> when her skills deal damage. Marks last 8s and can stack up to 2 times.\n<font color=\"a6aafb\">Abyssal Form</font>: Selena's Basic Attacks become melee and deal <font color=\"62f8fe\"> (+25% Total Magic Power)</font> additional <font color=\"7f62fe\">Magic Damage</font>. Her skills deal 240-450<font color=\"62f8fe\"> (+40% Total Magic Power)</font> additional <font color=\"7f62fe\">Magic Damage</font> to enemies with <font color=\"a6aafb\">Abyssal Mark</font> and consume their mark stacks by 1. This damage is increased to 250% against Creeps and Minions.",
+      "video": ""
+    },
+    {
+      "id": 6310,
+      "name": "Abyssal Trap",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_62637c2435b75abec80321bb1544fc30.png",
+      "cooldown_cost": "CD: 8   Mana Cost: 70",
+      "tags": [],
+      "description": "Selena summons an Abyssal Devil to lurk underground. The Abyssal Devil will attach itself to any enemy that approaches, inflicting a stack of <font color=\"a6aafb\">Abyssal Mark</font> and reducing their Movement Speed by 50% for 1s. The Abyssal Devil then explodes, dealing 350<font color=\"62f8fe\"> (+150% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in the area and reducing their Movement Speed by 50% for 1s.\n\nEach additional Abyssal Devil on an enemy increases the final damage by 50%.\n\nEach Abyssal Devil can lurk up to 60s and up to 3 Abyssal Devils can exist at the same time.",
+      "video": ""
+    },
+    {
+      "id": 6320,
+      "name": "Abyssal Arrow",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e672c608df7806e99148d0176149a316.png",
+      "cooldown_cost": "CD: 12   Mana Cost: 80",
+      "tags": [],
+      "description": "Selena fires an abyssal wraith in the target direction that stops when it hits an enemy hero, Creep, or Summon, dealing 250<font color=\"62f8fe\"> (+20% Total Magic Power)</font> to 500<font color=\"62f8fe\"> (+40% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the target hit and stunning them for 0.5s to 2.5s while revealing their locations (the damage and stun duration increase with the wraith's travel distance).\n\nThe wraith will pick up <font color=\"a6aafb\">Abyssal Trap</font> as it travels over it and will apply the <font color=\"a6aafb\">trap</font> to the enemy target upon stunning them.\n\nIf the wraith stuns an enemy for 0.9s or longer, Selena will gain 60% Movement Speed for 2s.",
+      "video": ""
+    },
+    {
+      "id": 6330,
+      "name": "Primal Darkness",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_abd29236983e4d3d1bfd361b2e242111.png",
+      "cooldown_cost": "CD: 5.5",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Selena gains 5 Magic Power.\n\n<font color=\"a6aafb\">Active</font>: Selena enters Abyssal Form and gains 20% Movement Speed for 0.8s. This also immediately resets the cooldown of <font color=\"a6aafb\">Soul Eater</font> and <font color=\"a6aafb\">Garotte</font>.",
+      "video": ""
+    },
+    {
+      "id": 6340,
+      "name": "Symbiosis",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_32860acd4d3f0f6e34c80e70db4f3963.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Selena can switch freely between her two forms.\n<font color=\"a6aafb\">Elven Form</font>: Selena applies <font color=\"a6aafb\">Abyssal Mark</font> when her skills deal damage. Marks last 8s and can stack up to 2 times.\n<font color=\"a6aafb\">Abyssal Form</font>: Selena's Basic Attacks become melee and deal <font color=\"62f8fe\"> (+25% Total Magic Power)</font> additional <font color=\"7f62fe\">Magic Damage</font>. Her skills deal 240-450<font color=\"62f8fe\"> (+40% Total Magic Power)</font> additional <font color=\"7f62fe\">Magic Damage</font> to enemies with <font color=\"a6aafb\">Abyssal Mark</font> and consume their mark stacks by 1. This damage is increased to 250% against Creeps and Minions.",
+      "video": ""
+    },
+    {
+      "id": 6312,
+      "name": "Soul Eater",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_beba48ddc774a4267f72ba8a93666998.png",
+      "cooldown_cost": "CD: 6",
+      "tags": [],
+      "description": "Selena strengthens her claws with the power of the Abyss, causing the next Basic Attack to dash to a target and deal an additional 200<font color=\"62f8fe\"> (+130% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> while granting her a 300<font color=\"62f8fe\"> (+150% Total Magic Power)</font> shield.\n\nIf this damage detonates an <font color=\"a6aafb\">Abyssal Mark</font>, <font color=\"a6aafb\">Garotte's</font> cooldown will reset.",
+      "video": ""
+    },
+    {
+      "id": 6326,
+      "name": "Garotte",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c2a0d728e05af9460c1cfa97bd0acd56.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "Selena charges in the target direction, dealing 150<font color=\"62f8fe\"> (+50% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in her path.\n\nIf this skill's damage detonates an <font color=\"a6aafb\">Abyssal Mark</font>, its cooldown will reset.",
+      "video": ""
+    },
+    {
+      "id": 6331,
+      "name": "Blessing of the Moon Goddess",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3dbdc17e11dddcec7a3547f79de6f42c.png",
+      "cooldown_cost": "CD: 5.5",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Selena gains 5 Magic Power.\n\n<font color=\"a6aafb\">Active</font>: Selena enters Elven Form and gains 20% Movement Speed for 0.8s. This also immediately resets the cooldown of <font color=\"a6aafb\">Abyssal Trap</font> and <font color=\"a6aafb\">Abyssal Arrow</font>.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 70,
+    "ability": [
+      30,
+      70,
+      100,
+      70
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.006629,
+        "ban_rate": 0.007495,
+        "win_rate": 0.489153
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Stay in Elven Form to cast her 1st and 2nd skill combo to catch the enemy hero in distance. Then cast her Ultimate to enter her Abyssal Form. Follow with her 2nd and 1st skill combo to close in and finish off the target, then cast her 2nd Skill to dash away."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Elven Form Selena can use her 2nd Skill to stun the enemy, then use her 1st Skill to poke enemies and deal damage."
+    }
+  ]
+}

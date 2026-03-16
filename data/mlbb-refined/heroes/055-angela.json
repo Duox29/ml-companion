@@ -1,0 +1,103 @@
+{
+  "id": 55,
+  "name": "Angela",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c7e0183956b2c2fd6d3fa0b18fe46917.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_07643d046530288eb0ff56f13b5e31dd.png",
+  "role": [
+    "Support"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Guard",
+    "Support"
+  ],
+  "lore": {
+    "story": "Artificial human made in Laboratory 1718.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 5540,
+      "name": "Smart Heart",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a43559c89c118c816b669fa49b45e76f.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Angela gains 5% extra Movement Speed for 4s each time she casts a skill (up to 20%). When she's attached to an allied hero, the Movement Speed boost is transferred to the allied hero.",
+      "video": ""
+    },
+    {
+      "id": 5510,
+      "name": "Love Waves",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6f7b56ae09ae397b07ad30d8c94164ae.png",
+      "cooldown_cost": "CD: 2   Mana Cost: 60",
+      "tags": [],
+      "description": "Angela sends <font color=\"a6aafb\">Love Waves</font> in the target direction, dealing 170<font color=\"62f8fe\"> (+80% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit, revealing their positions briefly, and applying a stack of <font color=\"a6aafb\">Lover's Mark</font> (up to 5 stacks). Each stack of <font color=\"a6aafb\">Lover's Mark</font> increases the damage by 20% and slows enemies hit by 8% for 3s.\n\n<font color=\"a6aafb\">Love Waves</font> also restore 150<font color=\"62f8fe\"> (+75% Total Magic Power)</font> HP to allied heroes hit. Angela can store up to 5 charges of this skill and the recharge time is affected by Cooldown Reduction.",
+      "video": ""
+    },
+    {
+      "id": 5520,
+      "name": "Puppet-on-a-String",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0f32c780347021165ab869944f1c981c.png",
+      "cooldown_cost": "CD: 13   Mana Cost: 90",
+      "tags": [],
+      "description": "Angela launches a <font color=\"a6aafb\">Puppet String</font> at the target enemy (excluding minions), dealing 300<font color=\"62f8fe\"> (+40% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and gradually slowing them by up to 80%. If the enemy is still connected to the string after 3s, they'll be immobilized for 1.5s and take 450<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>.\n\nEach stack of <font color=\"a6aafb\">Lover's Mark</font> increases the final damage by 20%.",
+      "video": ""
+    },
+    {
+      "id": 5530,
+      "name": "Heartguard",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d1c3f421da66e26aa3e0d8749f9f39de.png",
+      "cooldown_cost": "CD: 60   Mana Cost: 100",
+      "tags": [],
+      "description": "Angela begins channeling, applying a 600<font color=\"62f8fe\"> (+150% Total Magic Power)</font> shield that lasts 6s to the target allied hero regardless of distance. After the channeling is complete, she attaches herself to the allied hero for 20s, during which she can cast skills at zero Mana cost.\nAngela can cast this skill again to cancel the channeling or detach herself from the allied hero. The attaching state will end early if the allied hero is killed.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      30,
+      20,
+      50,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.016106,
+        "ban_rate": 0.057852,
+        "win_rate": 0.495286
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Angela's Ultimate first to attach to a strong ally, and use her 1st Skill to deal damage or heal allies when needed. When enemies try to close in, CC them with her 2nd Skill, and follow up with her 1st Skill for sustained damage."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Angela's 1st Skill to constantly poke the enemy. When their HP is low, use her 2nd Skill to CC the target, then continue to deal damage with her 1st Skill."
+    }
+  ]
+}

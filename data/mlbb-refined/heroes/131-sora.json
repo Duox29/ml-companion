@@ -1,0 +1,176 @@
+{
+  "id": 131,
+  "name": "Sora",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_40/100_8143d7bbd4318d7c699908e808de885e.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/gms/image/bc8375c54a43cc02fedcc304033c23bb.webp",
+  "role": [
+    "Fighter",
+    "Assassin"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Charge",
+    "Burst"
+  ],
+  "lore": {
+    "story": "A pure and free-spirited boy with unshakeable resolve, drifting across the golden sands.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 13140,
+      "name": "Mystic Surge",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_40/100_3612a82fab54424686631e59c7a8c322.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Sora can ascend to <font color=\"a6aafb\">Thunder</font> or <font color=\"a6aafb\">Torrent</font> by using his Ultimate. After ascending, dealing damage to heroes or summoned units grants 1 stack of <font color=\"a6aafb\">Cloudstep</font>. Upon reaching 5 stacks, he unlocks his True Art.\n\n<font color=\"a6aafb\">Thunder</font>: Adopts an assassin style, converting 30% Max HP into Physical Attack (Equal to 10% of Max HP).\n<font color=\"a6aafb\">Torrent</font>: Adopts a tank style, converting 30% Physical Attack into Max HP (Gains 10 HP for every 1 Attack).",
+      "video": ""
+    },
+    {
+      "id": 13110,
+      "name": "Sundering Strike",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_40/100_3e241dd044b166bccbc62957f2aaf0f8.png",
+      "cooldown_cost": "CD: 5",
+      "tags": [],
+      "description": "Sora strikes twice, dealing 140<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>, then lunges forward, dealing 240<font color=\"26e407\"> (+5% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font>. He can dash after striking.",
+      "video": ""
+    },
+    {
+      "id": 13120,
+      "name": "Windstride",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_40/100_14dbfe16a6a19c482ecc88eb0d9307a7.png",
+      "cooldown_cost": "CD: 8",
+      "tags": [],
+      "description": "Sora leaps forward, dealing 140<font color=\"fba51f\"> (+55% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. If he hits an enemy hero or reaches max range, he slams the ground, dealing an additional 140<font color=\"26e407\"> (+8% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font> and slowing them by 40% for 0.5s. Successful hits reduce the cooldown by 2s.",
+      "video": ""
+    },
+    {
+      "id": 13130,
+      "name": "Shifting Skies",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_40/100_cea96e22851430931feb523f9bfac657.png",
+      "cooldown_cost": "CD: 24",
+      "tags": [],
+      "description": "Swipe left to ascend into <font color=\"a6aafb\">Thunder</font> for 10s. Sora gains a brief bonus Movement Speed and becomes untargetable. He then summons lightning to strike nearby enemies 3 time(s), each dealing 140<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.\n\nSwipe right to ascend into <font color=\"a6aafb\">Torrent</font> for 10s. Sora gains Control Immunity. After a short delay, he pulls nearby enemies in and deals 250<font color=\"26e407\"> (+8% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font>.",
+      "video": ""
+    },
+    {
+      "id": 13140,
+      "name": "Mystic Surge",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_40/100_3612a82fab54424686631e59c7a8c322.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Sora can ascend to <font color=\"a6aafb\">Thunder</font> or <font color=\"a6aafb\">Torrent</font> by using his Ultimate. After ascending, dealing damage to heroes or summoned units grants 1 stack of <font color=\"a6aafb\">Cloudstep</font>. Upon reaching 5 stacks, he unlocks his True Art.\n\n<font color=\"a6aafb\">Thunder</font>: Adopts an assassin style, converting 30% Max HP into Physical Attack (Equal to 10% of Max HP).\n<font color=\"a6aafb\">Torrent</font>: Adopts a tank style, converting 30% Physical Attack into Max HP (Gains 10 HP for every 1 Attack).",
+      "video": ""
+    },
+    {
+      "id": 1013110,
+      "name": "Sundering Strike - Thunderflash",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_40/100_e7981942a32da2499ed7ee5d955274bf.png",
+      "cooldown_cost": "CD: 5",
+      "tags": [],
+      "description": "Sora strikes four times, dealing 140<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>, then lunges forward, dealing 240<font color=\"26e407\"> (+5% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font>. He can move freely during this skill.",
+      "video": ""
+    },
+    {
+      "id": 1013120,
+      "name": "Windstride - Thunder Rush",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_40/100_44c7378609f0dbc2cbc31eda36e1b41d.png",
+      "cooldown_cost": "CD: 8",
+      "tags": [],
+      "description": "Sora leaps forward, dealing 140<font color=\"fba51f\"> (+55% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. Upon hitting a hero or reaching the max distance, he summons a thunderstorm, dealing 140<font color=\"26e407\"> (+8% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font> and slowing enemies by 50% for 0.5s. This skill can be cast again within 4s if it hits an enemy.",
+      "video": ""
+    },
+    {
+      "id": 3013130,
+      "name": "Heaven's Wrath",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_40/100_7dd6e441e24c876f2a908d7bb23f91bb.png",
+      "cooldown_cost": "CD: 0.2",
+      "tags": [],
+      "description": "Sora leaps into the air and strikes a target area 16 time(s), dealing 60<font color=\"fba51f\"> (+40% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> with each hit. Sora can move freely and ignore terrain during this skill.",
+      "video": ""
+    },
+    {
+      "id": 13140,
+      "name": "Mystic Surge",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_40/100_3612a82fab54424686631e59c7a8c322.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Sora can ascend to <font color=\"a6aafb\">Thunder</font> or <font color=\"a6aafb\">Torrent</font> by using his Ultimate. After ascending, dealing damage to heroes or summoned units grants 1 stack of <font color=\"a6aafb\">Cloudstep</font>. Upon reaching 5 stacks, he unlocks his True Art.\n\n<font color=\"a6aafb\">Thunder</font>: Adopts an assassin style, converting 30% Max HP into Physical Attack (Equal to 10% of Max HP).\n<font color=\"a6aafb\">Torrent</font>: Adopts a tank style, converting 30% Physical Attack into Max HP (Gains 10 HP for every 1 Attack).",
+      "video": ""
+    },
+    {
+      "id": 2013110,
+      "name": "Sundering Strike - Overwhelm",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_40/100_6d3d6f49e87e9b470decddd96ceeb8f7.png",
+      "cooldown_cost": "CD: 5",
+      "tags": [],
+      "description": "Sora strikes twice, dealing 140<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and slowing enemies for 40%. He then lunges forward, dealing 240<font color=\"26e407\"> (+5% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font>, stunning enemies for 0.5s.",
+      "video": ""
+    },
+    {
+      "id": 2013120,
+      "name": "Windstride - Skyfall",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_40/100_6238f98e4a8ecc15e9ab7787882edce9.png",
+      "cooldown_cost": "CD: 8",
+      "tags": [],
+      "description": "Sora leaps forward, dealing 140<font color=\"fba51f\"> (+55% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>, knocking enemies airborne, and knocking them back to the landing point. He then smashes the ground, knocking enemies airborne again for 0.5s, dealing 140<font color=\"26e407\"> (+8% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font>, and slowing them by 50% for 1s. Hits reduce cooldown by 2s.",
+      "video": ""
+    },
+    {
+      "id": 3013132,
+      "name": "Stormbind",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_40/100_110416b6328d192138f7a74c88f96242.png",
+      "cooldown_cost": "CD: 0.2",
+      "tags": [],
+      "description": "Sora leaps into the air and strikes the target area 5 time(s), dealing 100<font color=\"26e407\"> (+6% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font> and briefly stunning enemies with each hit. Sora can move freely and ignore terrain during this skill.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      60,
+      60,
+      50,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.011824,
+        "ban_rate": 0.388074,
+        "win_rate": 0.515151
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In mid-to-late game teamfights, Sora is able to adapt to different situations. He can ascend to Thunder form to dive the enemy backline, or Torrent form to become a CC machine and take control of the battlefield."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "When the opponent is focused on clearing Minions, poke them with Sora's 1st Skill, then use his 2nd Skill to create distance. Use the mobility from his 1st and 2nd Skill to effectively kite enemies. Sora's damage is reliant on hitting with his 1st Skill."
+    }
+  ]
+}

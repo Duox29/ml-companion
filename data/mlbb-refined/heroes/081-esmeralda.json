@@ -1,0 +1,104 @@
+{
+  "id": 81,
+  "name": "Esmeralda",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4661a64a2c6b724e7b67032fcbface27.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_08a84eb0f690c4c4f3865d924c704b25.png",
+  "role": [
+    "Tank",
+    "Mage"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Regen",
+    "Mixed Damage"
+  ],
+  "lore": {
+    "story": "A mysterious astrologer.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 8140,
+      "name": "Starmoon Casket",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_fde2b66e35d103d9e71272a6d61381e8.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Esmeralda manipulates Stardust and Frostmoon: Stardust deals Physical Damage while Frostmoon deals Magic Damage and gives the target a shield equal to 135% of Frostmoon's damage dealt. Each Basic Attack deals <font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and 100<font color=\"62f8fe\"> (+75% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>.\nThe damage dealt by Esmeralda ignores all shield effects and gradually converts her shield into HP.",
+      "video": ""
+    },
+    {
+      "id": 8110,
+      "name": "Frostmoon Shield",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_00253b3e2e77dce506b07fe23755fe26.png",
+      "cooldown_cost": "CD: 8.5   Mana Cost: 40",
+      "tags": [],
+      "description": "Esmeralda gains 400<font color=\"62f8fe\"> (+150% Total Magic Power)</font> Shield and 40% Movement Speed which rapidly decays over its duration for 4s. Meanwhile, she gradually transforms the shields of her nearby enemies into her own shield, capped at 50% of her Max HP.",
+      "video": ""
+    },
+    {
+      "id": 8120,
+      "name": "Stardust Dance",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_fd62ea376ea37da799123a8db3d853d9.png",
+      "cooldown_cost": "CD: 4.5   Mana Cost: 35",
+      "tags": [],
+      "description": "Esmeralda waves Stardust and Frostmoon, dealing 240<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and 300<font color=\"62f8fe\"> (+120% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to nearby enemies. Each time she deals damage to a hero, the cooldown of <font color=\"a6aafb\">Frostmoon Shield</font> is reduced by 1.5s (damaging non-hero units grants a 0.5s reduction) and the enemy's Movement Speed is reduced by 10% for 1.5s.",
+      "video": ""
+    },
+    {
+      "id": 8130,
+      "name": "Falling Starmoon",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9d95dd7c4b01c3a234a79ace93433a2c.png",
+      "cooldown_cost": "CD: 30   Mana Cost: 100",
+      "tags": [],
+      "description": "Esmeralda coheres the power of Astrospace into her two weapons - Stardust and Frostmoon. The longer this skill is channeled, the longer the cast range.\n\n<font color=\"a6aafb\">Use Again</font>: Esmeralda casts Stardust at the target location, dealing 350<font color=\"fba51f\"> (+90% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>, and then blinks to the target location and casts Frostmoon, dealing 350<font color=\"62f8fe\"> (+140% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and immobilizing enemies in the area for 1s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 60,
+    "ability": [
+      90,
+      30,
+      60,
+      60
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.006277,
+        "ban_rate": 0.009454,
+        "win_rate": 0.446773
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, enter the fight using Esmeralda's Ultimate, then use her 1st Skill to gain Movement Speed and steal the shields of nearby enemies, before finishing them off with her 2nd Skill and Basic Attacks."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Esmeralda's 1st Skill to approach the enemy and hit them with her 2nd Skill followed by Basic Attacks. Her 1st Skill should be up again soon thanks to the CD reduction from her 2nd Skill, so use her 1st Skill again for Movement Speed and shields, and continue using her 2nd Skill and Basic Attacks."
+    }
+  ]
+}

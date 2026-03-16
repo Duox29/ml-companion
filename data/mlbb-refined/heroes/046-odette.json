@@ -1,0 +1,103 @@
+{
+  "id": 46,
+  "name": "Odette",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_d9251718a8894546ba04cfa9ca68dedc.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8ecd04f6d20c82508e69b839ca49131b.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Burst",
+    "Poke"
+  ],
+  "lore": {
+    "story": "Innocent princess that grew up in the Swan Castle and genius mage that excels in sword and scepter.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 4640,
+      "name": "Lakeshore Ambience",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ea1dc3bb32cd7ca47e7a8aa0c0864278.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Each skill cast grants extra range on Odette's next Basic Attack within 8s and causes it to bounce between enemies (or an enemy and herself if only one enemy is in range), dealing 144-200<font color=\"62f8fe\"> (+50% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> per hit.\n\nOdette's skills will also trigger this effect when hitting an enemy. This effect stacks up to 3 times.",
+      "video": ""
+    },
+    {
+      "id": 4610,
+      "name": "Avian Authority",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e97b9ebeb8147c1ddd5610e36b4541cd.png",
+      "cooldown_cost": "CD: 6   Mana Cost: 65",
+      "tags": [],
+      "description": "Odette releases a magic swan in the target direction, dealing 300<font color=\"62f8fe\"> (+150% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit and slowing them by 30% for 2s.",
+      "video": ""
+    },
+    {
+      "id": 4620,
+      "name": "Blue Nova",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_630483c59b2a2eb1c6b9f3bdfc369dc8.png",
+      "cooldown_cost": "CD: 12   Mana Cost: 75",
+      "tags": [],
+      "description": "Odette releases a set of magic energy balls in the target direction, dealing 250<font color=\"62f8fe\"> (+50% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the first enemy hit and immobilizing them for 1.5s. After hitting an enemy, another energy ball will split off and attack a nearby enemy (prioritizes enemy heroes), dealing them 250<font color=\"62f8fe\"> (+50% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and immobilizing them for 1.5s.",
+      "video": ""
+    },
+    {
+      "id": 4630,
+      "name": "Swan Song",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2f47fdb064b3c880cfc853d921ef090b.png",
+      "cooldown_cost": "CD: 50   Mana Cost: 160",
+      "tags": [],
+      "description": "Odette begins to dance, gaining a 1200<font color=\"62f8fe\"> (+150% Total Magic Power)</font> shield while dealing up to 2000<font color=\"62f8fe\"> (+750% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in a large area around her for 5s. The bounce speed and frequency of <font color=\"a6aafb\">Lakeshore Ambience</font>'s sound wave in the area are also enhanced when the skill is active.\nUse again while the skill is active to dash in the target direction.\n<font color=\"A4AAC7\">The skill is a channeling cast and will be interrupted if Odette is hit by high level control effects (knocked airborne, transformed, etc.) or if she performs another action.</font>",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 20,
+    "ability": [
+      30,
+      100,
+      70,
+      20
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.008656,
+        "ban_rate": 0.004708,
+        "win_rate": 0.497748
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, initiate with Odette's 2nd Skill to immobilize the enemy\r\nand activate her Ultimate to continuously damage the controlled targets.\r\nActivate the dash from her Ultimate to reposition when enemies are about to escape, and finish them off with her 1st Skill after her Ultimate ends."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Odette's 1st Skill to harass the opponent, and immobilize them with her 2nd Skill at the right moment before securing the kill with her Ultimate."
+    }
+  ]
+}

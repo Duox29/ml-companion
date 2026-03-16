@@ -4,11 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "npm run bundle:heroes",
     "dev": "vite --port=3000 --host=0.0.0.0",
+    "prebuild": "npm run bundle:heroes",
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "crawl:mlbb": "node scripts/crawl-mlbb-apis.mjs",
+    "refine:mlbb": "node scripts/refine-mlbb-hero-data.mjs",
+    "bundle:heroes": "node scripts/build-hero-bundle.mjs",
+    "bundle:heroes:backend": "node scripts/build-backend-hero-resources.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^8.2.0",

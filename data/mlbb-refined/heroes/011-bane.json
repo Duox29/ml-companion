@@ -1,0 +1,105 @@
+{
+  "id": 11,
+  "name": "Bane",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_7e4e74bb161da0f477cc0d1819fa39e6.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_384c3e16350f91e191de2351d73a9980.png",
+  "role": [
+    "Fighter",
+    "Mage"
+  ],
+  "lane": [
+    "Jungle",
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Push",
+    "Burst"
+  ],
+  "lore": {
+    "story": "Cruel pirate leader, Franco's sworn enemy.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 1140,
+      "name": "Shark Bite",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6458e01eb437665b82e4cd27c10a4344.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Bane infuses his weapon with a stack of <font color=\"a6aafb\">Tidal Energy</font> each time he uses a skill (up to 2 stacks). Each of his subsequent Basic Attacks consumes a stack to deal <font color=\"fb1f1f\">Physical Damage</font> equal to <font color=\"fba51f\"> (+95% Total Physical Attack)</font> plus 4(+0.4*Hero Level)% of the target's Max HP to nearby enemies.",
+      "video": ""
+    },
+    {
+      "id": 1110,
+      "name": "Crab Claw Cannon",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c0b05da138f56fff0f5876884c8a2036.png",
+      "cooldown_cost": "CD: 8   Mana Cost: 30",
+      "tags": [],
+      "description": "Bane fires his Crab Claw Cannon in the target direction, dealing 150<font color=\"fba51f\"> (+160% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the first enemy hit and then 150% damage to a random enemy behind them (prioritizes enemy heroes). Enemies hit are slowed by 10<font color=\"62f8fe\"> (+10% Total Magic Power)</font>% for 1s.\n\nEvery 100 <font color=\"fba51f\">Physical Attack</font> Bane possesses reduces this skill's cooldown by an additional 8%.",
+      "video": ""
+    },
+    {
+      "id": 1120,
+      "name": "Ale",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_71a139065a16f485cd6b13bec193c499.png",
+      "cooldown_cost": "CD: 7.5   Mana Cost: 50",
+      "tags": [],
+      "description": "Bane chugs his ale, recovering 200<font color=\"62f8fe\"> (+150% Total Magic Power)</font> plus 5<font color=\"62f8fe\"> (+1.5% Total Magic Power)</font>% of his lost HP and gaining 50% extra Movement Speed that decays over 2.5s.\n\n<font color=\"a6aafb\">Use Again</font>: Bane spits venom in the target direction, dealing 140<font color=\"62f8fe\"> (+130% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> (scales up to 200% with charging time) to enemies in a fan-shaped area.\nEvery 100 <font color=\"62f8fe\">Magic Power</font> Bane possesses additionally reduces this skill's cooldown by 7%.",
+      "video": ""
+    },
+    {
+      "id": 1130,
+      "name": "Deadly Catch",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_fe8c4a45d27cc7d56b893a31138b8a4d.png",
+      "cooldown_cost": "CD: 40   Mana Cost: 120",
+      "tags": [],
+      "description": "Bane summons a school of sharks to charge in the target direction, dealing 700<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"62f8fe\">(+150% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit, knocking them airborne for 0.6s, and slowing them by 75% (decays over 3s).\nThis skill deals 40% damage to turrets.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 30,
+    "ability": [
+      50,
+      60,
+      40,
+      30
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.003605,
+        "ban_rate": 0.002348,
+        "win_rate": 0.501623
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Bane's 2nd Skill to close in and catch multiple enemies with his Ultimate. Use an enhanced Basic Attack when the enemies are knocked airborne, then use his 2nd Skill and another enhanced Basic Attack. Finally, use his 1st Skill and enhanced Basic Attack to chase and finish off the enemy."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Bane's 2nd Skill to get close to the enemy and hit them with an enhanced Basic Attack. Then use his 1st Skill to slow the enemy followed by another enhanced Basic Attack. And end with his 2nd Skill again with another enhanced Basic Attack."
+    }
+  ]
+}

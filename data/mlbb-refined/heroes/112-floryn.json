@@ -1,0 +1,103 @@
+{
+  "id": 112,
+  "name": "Floryn",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5a57b91e4914cf071a3849e352e530a5.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_fd49844ff3811155b149ea6bf67be24e.png",
+  "role": [
+    "Support"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Poke",
+    "Guard"
+  ],
+  "lore": {
+    "story": "A kind-hearted girl who is determined to spread greenery throughout the world.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 11240,
+      "name": "Dew",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_7b2320a33e912817ca37da52c9d09c57.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Dew's <font color=\"a6aafb\">Lantern</font> will permanently increase Floryn's attributes by a small amount.\n\nAfter leaving combat for 5s, Floryn can share the <font color=\"a6aafb\">Flower of Hope</font> with an allied hero (30s cooldown), which will grant them a 100<font color=\"62f8fe\"> (+70% Total Magic Power)</font> shield each time they are healed by Floryn.\n\nFloryn will never sell the <font color=\"a6aafb\">Lantern</font>.",
+      "video": ""
+    },
+    {
+      "id": 11225,
+      "name": "Sow",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c6013f24a0d60e559d6d0ec3ed98b3fe.png",
+      "cooldown_cost": "CD: 9   Mana Cost: 90",
+      "tags": [],
+      "description": "Floryn tosses an Energy Seed at the target enemy, dealing 180<font color=\"62f8fe\"> (+100% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>. Healing Fruits will then spawn and bounce to nearby allied heroes, restoring their <font color=\"26e407\">HP</font> by 175<font color=\"62f8fe\"> (+90% Total Magic Power)</font>.",
+      "video": ""
+    },
+    {
+      "id": 11215,
+      "name": "Sprout",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8eaeefe76d960607dafc49229eb08597.png",
+      "cooldown_cost": "CD: 13   Mana Cost: 100",
+      "tags": [],
+      "description": "Floryn casts a blob of energy ahead that explodes upon hitting an enemy, dealing 175<font color=\"62f8fe\"> (+90% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to nearby enemies and stunning them for 0.5s (and revealing their positions briefly).",
+      "video": ""
+    },
+    {
+      "id": 11235,
+      "name": "Bloom",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_03fedb79f8a7dec957408802fa28f840.png",
+      "cooldown_cost": "CD: 70   Mana Cost: 150",
+      "tags": [],
+      "description": "Floryn resonates with Dew's power, recovering 250<font color=\"62f8fe\"> (+100% Total Magic Power)</font> <font color=\"26e407\">HP</font> for all allied heroes 2 time(s) no matter where they are. This effect also increases their Shield and HP Regen effects by 12% for 2s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 10,
+    "ability": [
+      60,
+      10,
+      70,
+      10
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.010583,
+        "ban_rate": 0.123672,
+        "win_rate": 0.55063
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Floryn's 2nd Skill to CC enemies, and her 1st Skill for damage and healing. When a teammate is in bad shape, use Floryn's Ultimate to save them."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Floryn's 2nd Skill to stun enemies, then follow up with her 1st Skill for damage and healing."
+    }
+  ]
+}

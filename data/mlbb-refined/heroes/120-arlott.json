@@ -1,0 +1,104 @@
+{
+  "id": 120,
+  "name": "Arlott",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f666faa5ec6be5353f10dcd1d8997a42.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_177c32c19a2ad87c028fd9a6fcf08cb1.png",
+  "role": [
+    "Fighter",
+    "Assassin"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Charge",
+    "Burst"
+  ],
+  "lore": {
+    "story": "A demon human hybrid wielding two lances with a thirst for vengeance against both the Church and demons.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 12040,
+      "name": "Demon Gaze",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_98ae9dc84bff0054295750fee5f63035.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Arlott possesses a demonic eye that will <font color=\"a6aafb\">Mark</font> enemy units near Arlott that become affected by control effects for 7s.\nThe eye will also automatically <font color=\"a6aafb\">Mark</font> a nearby enemy hero in vision every 7s.",
+      "video": ""
+    },
+    {
+      "id": 12010,
+      "name": "Dauntless Strike",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bf3b2fb8a6fd0341b092063718a5b9b4.png",
+      "cooldown_cost": "CD: 8",
+      "tags": [],
+      "description": "Arlott swings his lance forward, dealing 200<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and briefly stunning targets in an area. Targets hit by the farther part of the AOE will be stunned for 1s instead.",
+      "video": ""
+    },
+    {
+      "id": 12020,
+      "name": "Vengeance",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_7f7f82e7e9c261133710db979e42a589.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Arlott charges at an enemy, dealing 135<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> (this skill cannot be interrupted during movement).\nIf Arlott's target is <font color=\"a6aafb\">Marked</font>, he gains a brief burst of Movement Speed, and this skill will deal double damage, immediately refresh its cooldown, and recover 70<font color=\"fba51f\"> (+60% Total Physical Attack)</font> HP to Arlott (only restores 50% of that amount when used on a non-hero unit).",
+      "video": ""
+    },
+    {
+      "id": 12030,
+      "name": "Final Slash",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_af90127587cb7de4dbd3bfcea3307021.png",
+      "cooldown_cost": "CD: 24",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Each level-up reduces <font color=\"a6aafb\">Demon Gaze</font>'s interval by 1s.\n<font color=\"a6aafb\">Active</font>: Arlott cleaves in front of him, dealing 400<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to targets in the area while pushing them to the end of the AOE and briefly revealing their location (this skill can only be interrupted by Suppression).",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      60,
+      60,
+      50,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.004343,
+        "ban_rate": 0.003966,
+        "win_rate": 0.493662
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, start by hitting a marked enemy hero with Arlott's 2nd Skill, then get into position to unleash his Ultimate on the enemy team to CC and mark them. Use Arlott's 2nd Skill to cut through the enemy from target to target. When all marks have been used up, use his 1st Skill to CC and mark enemies again, and continue to chain his 2nd Skill."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, after Arlott's Passive marks an enemy hero, use his 2nd Skill to dash through them and get a cooldown reset. Follow up with his 1st Skill to CC the enemy and mark them again, then hit them with his 2nd Skill while resetting its cooldown."
+    }
+  ]
+}

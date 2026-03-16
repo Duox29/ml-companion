@@ -1,0 +1,105 @@
+{
+  "id": 35,
+  "name": "Hilda",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_acd700708dc515f5c63a08f8835a9941.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e71f7aa2d75cd340da108318b3d5a3f1.png",
+  "role": [
+    "Fighter",
+    "Tank"
+  ],
+  "lane": [
+    "Roam",
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Damage",
+    "Regen"
+  ],
+  "lore": {
+    "story": "Inheritor of the Power of the Megalith.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 3540,
+      "name": "Blessing of Wilderness",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c2ffa9fe6df7c70e85144e9250f0f5bf.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Hilda regenerates 2% of her max HP per second while in the bush. When entering the bush, she gains a shield equal to 110<font color=\"fba51f\"> (+130% Total Physical Attack)</font><font color=\"ffe63c\">(+12*Hero Level)</font> of her max HP. After leaving the bush, the shield lasts for 40%s. This effect has a 40<font color=\"fba51f\"> (+100% Total Physical Attack)</font><font color=\"ffe63c\">(+10*Hero Level)</font>s cooldown.\n\nHilda's Basic Attack and Skills apply a <font color=\"a6aafb\">Wilderness Mark</font> on hit, which lasts up to 6s and stacks up to 4. Each stack reduces the target's Physical Defense and Magic Defense by 6.",
+      "video": ""
+    },
+    {
+      "id": 3510,
+      "name": "Combat Ritual",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_34b0dddc37a0bd20d686616d9b7b984e.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Hilda activates the runic power of her great axe, increasing her Movement Speed by 60% for 3s and enhancing her next Basic Attack to deal 10% <font color=\"fb1f1f\">Physical Damage</font> and slow the target by 3 for s. The attack will also deal  <font color=\"fb1f1f\">Physical Damage</font> to enemies behind the target.",
+      "video": ""
+    },
+    {
+      "id": 3520,
+      "name": "Art of Hunting",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2f407178c40dbabccf8d787b2e0e30cc.png",
+      "cooldown_cost": "CD: 7",
+      "tags": [],
+      "description": "Hilda locks onto an enemy target, each time dealing 220<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. This skill can be used 3 times at most. The 2nd attack will deal damage to target's surroundings, and the 3rd attack will deal damage to and knock back the target and surrounding enemies temporarily.",
+      "video": ""
+    },
+    {
+      "id": 3530,
+      "name": "Power of Wildness",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_323f1e87195d3a50d0c307f239241b61.png",
+      "cooldown_cost": "CD: 32",
+      "tags": [],
+      "description": "Hilda launches a powerful slash on the target enemy, dealing 600<font color=\"fba51f\"> (+250% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and stunning them for 0.2s. Nearby enemies also take 60% damage. Each stack of <font color=\"a6aafb\">Wilderness Mark</font> makes <font color=\"a6aafb\">Power of Wildness</font> deal 2.5% of the target's Max HP as extra damage. At max stacks, <font color=\"a6aafb\">Power of Wildness</font> deals 20% of the target's Max HP as extra damage.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      90,
+      40,
+      40,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.011306,
+        "ban_rate": 0.128663,
+        "win_rate": 0.534559
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Hilda should use her Ultimate to dive the back-row heroes, then use her 2nd Skill to deal damage and chase the enemy down with her 1st Skill."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Hilda can use her 1st Skill to close in on a target enemy, and slow them with her Enhanced Basic Attack. She can then follow up with her 2nd Skill to chip away at her target and finish with her Ultimate."
+    }
+  ]
+}

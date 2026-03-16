@@ -1,0 +1,103 @@
+{
+  "id": 106,
+  "name": "Phoveus",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_06/100_af21c0dd8b5308c27974bff900803a9a.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9abf963fae03d641bac528f6fab2b8c2.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Regen",
+    "Damage"
+  ],
+  "lore": {
+    "story": "A former soldier from the border of the Empire who took on the chains of sin to defend his people.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 10640,
+      "name": "Demonic Force",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_06/100_be31ba6b65c2da1b4d2d0961ee1ffd85.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Phoveus's next Basic Attack charges at the enemy, knocking them back, dealing extra <font color=\"7f62fe\">Magic Damage</font> equal to 4%-6% of the enemy's Max HP (scales with level), and gaining a Shield equal to 8%-12% (scales with level) of his own Max HP. This effect has a 26-14s cooldown (based on <font color=\"a6aafb\">Infernal Pursuit</font>'s level).\n\n<font color=\"a6aafb\">Astaros' Gaze</font>: Whenever an enemy hero blinks, dashes, or is displaced within 8 units, the cooldown of <font color=\"a6aafb\">Demonic Force</font> will be reduced by 20% and other skills by 0.5s.",
+      "video": ""
+    },
+    {
+      "id": 10610,
+      "name": "Demonic Impact",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_06/100_5748e21d6ff5231b05a6acae7d4665c1.png",
+      "cooldown_cost": "CD: 6",
+      "tags": [],
+      "description": "Phoveus slams his monolith into the ground, dealing 200<font color=\"fba51f\"> (+120% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in the area and slowing them by 70% for 0.5s. If this skill hits an enemy, Phoveus's next <font color=\"a6aafb\">Demonic Impact</font> will leave behind an <font color=\"a6aafb\">Astaros Eye</font>.\n\n<font color=\"a6aafb\">Astaros Eye</font>: Implodes after a short delay, dealing 100<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"7f62fe\">Magic Damage</font> to the enemies.",
+      "video": ""
+    },
+    {
+      "id": 10620,
+      "name": "Dark Wave",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_06/100_0e6fc7263f921c1084d7a47805648fab.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Phoveus lowers his monolith and releases his demonic power in the target direction, knocking enemies airborne, dragging them along, and dealing 250<font color=\"fba51f\"> (+100% Extra Physical Attack)</font> <font color=\"7f62fe\">Magic Damage</font>.",
+      "video": ""
+    },
+    {
+      "id": 10630,
+      "name": "Infernal Pursuit",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_20/100_295a1e427d8b39ba25c3779cf32ff7d2.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Sinner</font>: <font color=\"a6aafb\">Demonic Force</font>, <font color=\"a6aafb\">Astaros Eye</font>, and <font color=\"a6aafb\">Dark Wave</font> can apply <font color=\"a6aafb\">Sinner's Mark</font> to the enemy hero hit.\n\n<font color=\"a6aafb\">Judgment</font>: Phoveus leaps into the air and smashes down with his monolith at the enemy hero with <font color=\"a6aafb\">Sinner's Mark</font>, dealing 250<font color=\"fba51f\"> (+100% Total Physical Attack)</font> plus extra <font color=\"fb1f1f\">Physical Damage</font> equal to 5% of the target's Max HP to enemies in the area while Phoveus recovers <font color=\"26e407\">50 plus 6% of his Lost HP</font>.\n\n<font color=\"A4AAC7\">The HP recovered is reduced by 80% when hitting multiple enemies</font>.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      60,
+      80,
+      50,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.005618,
+        "ban_rate": 0.014426,
+        "win_rate": 0.518605
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Phoveus should use his enhanced Basic Attack to charge at the enemy while knocking them back and marking them. Then immediately follow up with his Ultimate. Next, hit the target with his 1st Skill, then use his 2nd skill and his Ultimate again. Finally, use the enhanced 1st Skill to mark the enemy once more, and use his Ultimate."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Phoveus should first use his enhanced Basic Attack to hit the enemy hero and gain a shield. Follow up with his 1st Skill to chip away their HP, then use his enhanced 1st Skill for additional damage and to slow the target, and end with his 2nd Skill for more damage."
+    }
+  ]
+}

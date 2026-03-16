@@ -1,0 +1,102 @@
+{
+  "id": 76,
+  "name": "Faramis",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_04e575d648d7f7ac1174f4369595c3a2.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e6b0467527533e7882bcb7967db96063.png",
+  "role": [
+    "Support",
+    "Mage"
+  ],
+  "lane": [],
+  "specialty": [
+    "Guard",
+    "Charge"
+  ],
+  "lore": {
+    "story": "A necromancer in Necrokeep who's determined to find a cure for the Mist.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 7640,
+      "name": "Vicious Retrieval",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ce73fa0ade8a10b183814b1a73f4364d.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Every 4s, Faramis' next skill against enemy heroes and summoned objects generates a soul fragment on the spot. Faramis can absorb the soul fragment to restore 100<font color=\"62f8fe\"> (+50% Total Magic Power)</font> HP and gain 2 extra Magic Power (up to 40 stacks). Upon death, he consumes the absorbed soul fragments to reduce the respawn timer, each reducing the timer by 3% (up to 90%). Enemies that die around Faramis also have a chance to drop soul fragments.",
+      "video": ""
+    },
+    {
+      "id": 7610,
+      "name": "Shadow Stampede",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b78fdaeaae006f2d188d3c19c33abe74.png",
+      "cooldown_cost": "CD: 15   Mana Cost: 85",
+      "tags": [],
+      "description": "Faramis enters the Shadow state for 3s, gaining 70% Movement Speed, 25 Physical & Magic Defense, and 20% Cooldown Reduction of this skill. He also gains the ability to move through terrain. Enemy heroes he touches take 250<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and are marked with a <font color=\"a6aafb\">Nether Mark</font>. Upon leaving the Shadow state, Faramis pulls all the marked enemy heroes toward him, dealing 250<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>. \n<font color=\"a6aafb\">Use Again</font>: Ends the Shadow state early to pull marked enemy heroes toward him.\nSoul Fragment absorption range is increased while this skill is active.",
+      "video": ""
+    },
+    {
+      "id": 7620,
+      "name": "Ghost Bursters",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_27da095c2a1c8aea15d709ddaf3c0eaa.png",
+      "cooldown_cost": "CD: 6   Mana Cost: 60",
+      "tags": [],
+      "description": "Faramis gathers Nether energy in a fan-shaped area ahead, dealing 330<font color=\"62f8fe\"> (+144% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies within. The energy will then split and bounce to nearby enemies, dealing 200<font color=\"62f8fe\"> (+86% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> (splits up to 2 time(s) on enemy hero hits and 1 time(s) on non-enemy hero hits).",
+      "video": ""
+    },
+    {
+      "id": 7630,
+      "name": "Nether Realm",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_894fc862a8e42832b70042e47b14943e.png",
+      "cooldown_cost": "CD: 90   Mana Cost: 150",
+      "tags": [],
+      "description": "Faramis turns his surroundings into the <font color=\"a6aafb\">Nether Realm</font> for 6s, making affected allied heroes (including himself) enter the <font color=\"a6aafb\">Specter</font> state and granting them 400 plus 10<font color=\"62f8fe\"> (+5% Total Magic Power)</font>% extra HP and 50% extra Movement Speed for 1s. When the <font color=\"a6aafb\">Specter</font> state breaks, the hero will clear all debuffs and enter a brief Resurrection state for 1.3s. An allied hero's <font color=\"a6aafb\">Specter</font> state ends when they leave the <font color=\"a6aafb\">Nether Realm</font>.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      40,
+      60,
+      10,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.001169,
+        "ban_rate": 0.005174,
+        "win_rate": 0.515856
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Faramis' Ultimate to protect his allies, then get close to the enemy and apply Nether Marks with his 1st Skill. Activate the 1st Skill again to pull them over and follow up with his 2nd Skill for additional damage."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Faramis' 1st Skill to get close to the enemy\r\nand hit them with his 2nd Skill while applying a Nether Mark with the 1st Skill. Then, use his 1st Skill again to pull the enemy back to him."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": 23,
+  "name": "Gord",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_9513f5e10ec33f76747732eaf2082259.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_818d00fbb946feca543a95ff7b035ec5.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Poke",
+    "Burst"
+  ],
+  "lore": {
+    "story": "Dean of the Icarus School of the Magic Academy.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 2340,
+      "name": "Mystic Favor",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d001e3ffc019ed6a944faa42e6bc7d4c.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "After Gord hits an enemy 4 times with skills within a short period of time, the next skill damage will deal an additional 140 (+8*Hero Level) <font color=\"62f8fe\"> (+40% Total Magic Power)</font> <font color=\"ffe63c\">True Damage</font> and slow them by 20% for 1s (the slow effect stacks up to 2 times).",
+      "video": ""
+    },
+    {
+      "id": 2310,
+      "name": "Mystic Projectile",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e44e97b68e56e6488c6148f3f1caad2e.png",
+      "cooldown_cost": "CD: 8   Mana Cost: 80",
+      "tags": [],
+      "description": "Gord conjures a Mystic Orb that bounces in the target direction and explodes on the first enemy hit, dealing 225<font color=\"62f8fe\"> (+65% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in the area, while stunning them and revealing their locations for 1s.",
+      "video": ""
+    },
+    {
+      "id": 2320,
+      "name": "Mystic Injunction",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e764ce9be81a6d36bde6c3603ac98812.png",
+      "cooldown_cost": "CD: 8   Mana Cost: 60",
+      "tags": [],
+      "description": "Gord creates an energy field in the target area, dealing 30<font color=\"62f8fe\"> (+10% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> every 0.25s to enemies within (up to 16 times).",
+      "video": ""
+    },
+    {
+      "id": 2330,
+      "name": "Mystic Gush",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5609f4cebb87e2d2fa52c4419a8d3a63.png",
+      "cooldown_cost": "CD: 44   Mana Cost: 150",
+      "tags": [],
+      "description": "Gord unleashes an energy beam in the target direction, dealing 110<font color=\"62f8fe\"> (+32% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit every 0.2s (up to 16 times).\n\nThe direction of the beam can be adjusted using the Joystick.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 20,
+    "ability": [
+      10,
+      70,
+      80,
+      20
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.006501,
+        "ban_rate": 0.004734,
+        "win_rate": 0.533948
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Gord should look to stun the enemy heroes with his 1st Skill, then follow up with his 2nd Skill and Ultimate to get a quick kill on them."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Gord should look to stun the enemy heroes with his 1st Skill, then follow up with his 2nd Skill and Ultimate to get a quick kill on them."
+    }
+  ]
+}

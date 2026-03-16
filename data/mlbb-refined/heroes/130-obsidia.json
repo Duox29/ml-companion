@@ -1,0 +1,103 @@
+{
+  "id": 130,
+  "name": "Obsidia",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_9c3daef5625bfade5c4cb8a219845dd3.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/gms/image/9ea138369ca4a37b4806ac64998df054.webp",
+  "role": [
+    "Marksman"
+  ],
+  "lane": [
+    "Gold Lane"
+  ],
+  "specialty": [
+    "Finisher",
+    "Damage"
+  ],
+  "lore": {
+    "story": "The ancient Sovereign of the Abyss, risen from ruin, now seeks to slay the God of Darkness and hunt down its Spawns of Decay.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 13040,
+      "name": "Return to Bone",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_636c671e6ea7c9fd89e992c42fb9f4dc.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Obsidia gains <font color=\"a6aafb\">Bone Energy</font> whenever she deals damage. Basic Attacks grant 1 Energy against non-hero units and 2 against hero units. Skills grant Energy equal to 3 times the amount granted by Basic Attacks against the same unit type. No Energy is gained from hitting creeps.\n\nWhen <font color=\"a6aafb\">Bone Energy</font> reaches 30, it forms a <font color=\"a6aafb\">Bone Shard</font>, up to 25 shards. Killing an enemy hero directly grants 1 <font color=\"a6aafb\">Bone Shard(s)</font>. When Obsidia uses Basic Attacks, all <font color=\"a6aafb\">Bone Shards</font> strike the target, each dealing <font color=\"fba51f\"> (+6% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and inheriting 6% Attack Effects.\n\n Obsidia's Basic Attacks deal 70<font color=\"fba51f\"> (+70% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>, inheriting 100% Attack Effects.",
+      "video": ""
+    },
+    {
+      "id": 13010,
+      "name": "Abyssal Bone Needle",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_6a6cfd77d892164ae8fbb98819a7233b.png",
+      "cooldown_cost": "CD: 4.5   Mana Cost: 35",
+      "tags": [],
+      "description": "Obsidia launches an <font color=\"a6aafb\">Abyssal Bone Needle</font>, dealing 325<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit and triggering <font color=\"a6aafb\">Return to Bone</font> on the first enemy hero struck.",
+      "video": ""
+    },
+    {
+      "id": 13020,
+      "name": "Phantom Shadowmeld",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_27b8bf74b5f22a09a7ae1e4d0c69c056.png",
+      "cooldown_cost": "CD: 4.5   Mana Cost: 35",
+      "tags": [],
+      "description": "Obsidia descends into the Abyss and enters <font color=\"a6aafb\">Shadowmeld Form</font>, gaining 500% Movement Speed for 0.3s.",
+      "video": ""
+    },
+    {
+      "id": 13030,
+      "name": "Hunt of Bone",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_4b023cbf620869d7596b5e87e467c7c8.png",
+      "cooldown_cost": "CD: 40   Mana Cost: 100",
+      "tags": [],
+      "description": "Obsidia shoots <font color=\"a6aafb\">Bones of Wrath</font> in the target direction, dealing 125<font color=\"fba51f\"> (+60% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>, briefly stunning the first enemy hero hit, and pulling herself to the target. The <font color=\"a6aafb\">Bones of Wrath</font> then tether Obsidia to the enemy, preventing her from moving more than 4 units away. While tethered, the enemy cannot use displacement skills, and their movement will drag Obsidia along. During this time, Obsidia gains 5 temporary <font color=\"a6aafb\">Bone Shard(s)</font> and 30% Attack Speed. This effect lasts 3s.\n\nWhile tethered, Obsidia can move through obstacles and use Basic Attacks while moving. <font color=\"a6aafb\">Phantom Shadowmeld</font> is enhanced, with its duration increased to 1s and cooldown reduced to 33%.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      30,
+      80,
+      10,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.006918,
+        "ban_rate": 0.021338,
+        "win_rate": 0.520591
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "During teamfights, use Obsidia's Basic Attacks and 1st Skill to poke the enemy, and her 2nd Skill to reposition herself. Look for opportunities to close in on a target with her Ultimate and pick them off with your team. Finally, use her mobility and powerful Basic Attacks to clean up the remaining enemies."
+    },
+    {
+      "skill_id": null,
+      "title": "Laning Combos",
+      "description": "During the laning phase, use Obsidia's 1st Skill often on enemy Minions and heroes to quickly stack her Passive. When the enemy's HP drops low enough, use Obsidia's 2nd Skill and Ultimate on them and finish them off with Basic Attacks."
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "id": 22,
+  "name": "Freya",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18_2/100_b9c34c88762ca8e66ccd4d84071bf0bc.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_703d1d626507f05ff72c799f53b123b9.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Exp Lane",
+    "Jungle"
+  ],
+  "specialty": [
+    "Chase",
+    "Damage"
+  ],
+  "lore": {
+    "story": "The Valkyrie who guards the Northern Vale.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 2260,
+      "name": "Power of Einherjar",
+      "icon": "",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "",
+      "video": ""
+    },
+    {
+      "id": 2299,
+      "name": "Leap of Faith",
+      "icon": "",
+      "cooldown_cost": "CD: 8",
+      "tags": [],
+      "description": "",
+      "video": ""
+    },
+    {
+      "id": 2298,
+      "name": "Valkyrie Slash",
+      "icon": "",
+      "cooldown_cost": "CD: 0.396",
+      "tags": [],
+      "description": "",
+      "video": ""
+    },
+    {
+      "id": 2250,
+      "name": "Valkyrie Descent",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18_2/100_49a8b4de271d0162ab9e26e06819840e.png",
+      "cooldown_cost": "CD: 34",
+      "tags": [],
+      "description": "Freya gains 300<font color=\"fba51f\"> (+75% Total Physical Attack)</font> stacks of <font color=\"a6aafb\">Sacred Orb</font> and enters the <font color=\"a6aafb\">Valkyrie</font> state, gaining a 40% shield and 2 Physical Attack. Meanwhile, her Basic Attacks become ranged and deal <font color=\"a6aafb\">splash</font> damage. The <font color=\"a6aafb\">Valkyrie</font> state lasts for 12s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      60,
+      70,
+      60,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.014646,
+        "ban_rate": 0.362408,
+        "win_rate": 0.513131
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Use Freya's Ultimate to dive the enemy backline and start dealing Splash Damage. Use her 1st Skill to CC enemies and shield herself, then alternate between her 2nd Skill and AoE Basic Attacks to bring them down."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Use Freya's 1st Skill to close the gap on enemies and knock them Airborne while giving herself a shield. Use her 2nd Skill once followed by 2 enhanced Basic Attacks to make use of the Attack Speed bonus and generate more Sacred Orbs from her Passive."
+    }
+  ]
+}

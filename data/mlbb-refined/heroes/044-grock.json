@@ -1,0 +1,104 @@
+{
+  "id": 44,
+  "name": "Grock",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_902/100_f8b8c8964d3202b7b762947ac96f1ed3.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b6bfa6adbe8c282a0b83f3f3a5bd85c7.png",
+  "role": [
+    "Tank",
+    "Fighter"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Crowd Control",
+    "Initiator"
+  ],
+  "lore": {
+    "story": "Stone man awakened from sleep.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 4440,
+      "name": "Bastion of Stone",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_902/100_bb06fa77cd649eff0cc061706e029182.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Grock gains a Shield equal to 14% of his Max HP and empowers the next Basic Attack to deal <font color=\"fb1f1f\">Physical Damage</font> equal to 4<font color=\"26e407\"> (+2% Total Physical Defense)</font>% of the target's Max HP (capped at 300<font color=\"ffe63c\">(+20*Hero Level)</font> against non-hero units). This effect has a 18-12s cooldown (decreases with level), which reduces by 200% when near terrain.\n\nGrock's skills cannot be interrupted, and he gains 30<font color=\"ffe63c\">(+6*Hero Level)</font>% extra Physical Defense while the Shield is active.",
+      "video": ""
+    },
+    {
+      "id": 4410,
+      "name": "Mighty Swing",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_902/100_b4b1b8b21935b3455b44981f2a01404d.png",
+      "cooldown_cost": "CD: 8",
+      "tags": [],
+      "description": "Grock strikes forward with massive force, dealing 240<font color=\"fba51f\"> (+100% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. Enemies with obstacles behind them are knocked back into the obstacle, launched airborne, and take extra <font color=\"fb1f1f\">Physical Damage</font> equal to 4<font color=\"26e407\"> (+2% Total Physical Defense)</font>% of their Max HP (capped at 300<font color=\"ffe63c\">(+20*Hero Level)</font> against non-hero units). If there are no obstacles behind, enemies are only knocked back slightly.",
+      "video": ""
+    },
+    {
+      "id": 4420,
+      "name": "Earthen Rampart",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_902/100_e19cfc03bbe289fccbfc89a1ef6668be.png",
+      "cooldown_cost": "CD: 14",
+      "tags": [],
+      "description": "After a brief delay, Grock summons a stone wall in the target area, dealing 100<font color=\"fba51f\"> (+60% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and knocking enemies towards him.\n<font color=\"a6aafb\">Use Again</font>: Cancel the wall early.",
+      "video": ""
+    },
+    {
+      "id": 4430,
+      "name": "Tectonic Charge",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_902/100_5226d8dc97b10a6a1a2416b3957dfc7f.png",
+      "cooldown_cost": "CD: 55",
+      "tags": [],
+      "description": "Grock charges forward and gains Control Immunity, dealing 100<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in his path. Upon hitting terrain, he immediately stops and triggers a massive explosion that knocks nearby enemies airborne for 1s and deals 650<font color=\"fba51f\"> (+300% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. If this skill doesn't hit terrain, 50% of its cooldown is refunded.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 60,
+    "ability": [
+      90,
+      40,
+      80,
+      60
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.007791,
+        "ban_rate": 0.038062,
+        "win_rate": 0.492181
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights,initiate with Grock's 2nd Skill to trap the enemies,then charge into the wall with his Ultimate.While the enemies are airborne, find a good angle to slam them into the wall with his 1st Skill and send them airborne again,then finish up with Basic Attacks."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In small skirmishes,use Grock's 2nd Skill to knock the enemy toward him,then use his 1st Skill to slam them into the wall.Use his Ultimate to charge into the wall and knock them airborne again,and finish the job with Basic Attacks."
+    }
+  ]
+}

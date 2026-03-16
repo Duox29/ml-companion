@@ -1,0 +1,103 @@
+{
+  "id": 45,
+  "name": "Argus",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0bd96658e5b8ec578226ea1622bd7231.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e6c706529acaf3f6c703405673af945b.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Charge",
+    "Burst"
+  ],
+  "lore": {
+    "story": "The angel who fell from light into darkness.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 4540,
+      "name": "Warmonger",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f8a28cd195d4ec474f361daee0d0de6c.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "When Argus' Meteoric Sword reaches 100 <font color=\"a6aafb\">Malice Energy</font>, he will launch a <font color=\"a6aafb\">Demonic Slash</font> with his next Basic Attack, dealing 180<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and recovering 150<font color=\"fba51f\"> (+10% Total Physical Attack)</font> HP. This attack ignores 40% of the target's Physical Defense.\nArgus' Meteoric Sword gains 5 <font color=\"a6aafb\">Malice Energy</font> per second and 10 Energy per Basic Attack (critical strikes grant an additional 10 Energy).",
+      "video": ""
+    },
+    {
+      "id": 4510,
+      "name": "Demonic Grip",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b90caeb8b5854f2585f4c9af760e026a.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "Argus stretches out a demonic hand in the target direction, dealing 125<font color=\"fba51f\"> (+60% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the first enemy hero or Creep hit, stunning them for 0.7s, and pulling him and the target towards each other. If no enemy is hit, Argus pulls himself toward the hand's destination instead.\n<font color=\"a6aafb\">Use Again</font>: Argus dashes and strikes in the target direction, dealing 175<font color=\"fba51f\"> (+100% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the path.",
+      "video": ""
+    },
+    {
+      "id": 4520,
+      "name": "Meteoric Sword",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_79110528884ec6365c2e9395dc1bc11b.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "After a short delay, Argus thrusts his Meteoric Sword in the target direction, dealing 120<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit (200% damage against minions) and reducing their Movement Speed by 80% for 0.8s. The delay time decreases as Argus's Attack Speed increases. Enemy heroes hit will be <font color=\"a6aafb\">Cursed</font> for 4s, during which they leave a Cursed Trail behind. Argus gains 20% Movement Speed while on a Cursed Trail.\n<font color=\"a6aafb\">Meteoric Sword</font> damage counts as Basic Attack damage and can trigger Attack Effects. Hitting heroes restores 100 <font color=\"a6aafb\">Malice Energy</font> (excess is preserved).",
+      "video": ""
+    },
+    {
+      "id": 4530,
+      "name": "Eternal Evil",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_41fe2a5e02169da266ce942372ad1e91.png",
+      "cooldown_cost": "CD: 60",
+      "tags": [],
+      "description": "Argus removes all debuffs on himself, dealing 150<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fba51f\">Physical Damage</font> to nearby enemies and becoming the <font color=\"a6aafb\">Fallen Angel</font> for 4s (hitting heroes enhances <font color=\"a6aafb\">Warmonger</font>). <font color=\"a6aafb\">Fallen Angel</font>: Gains 40% Movement Speed that decays over 1s; when the transformation ends, he converts all his damage dealt in the Fallen Angel state into HP. If he takes fatal damage in the Fallen Angel state, the duration of the Movement Speed boost will be reset, and he will gain <font color=\"a6aafb\">Death Immunity</font> for 4s. <font color=\"a6aafb\">Enhanced Warmonger</font>: <font color=\"a6aafb\">Demonic Slash</font> grants 50 Malice Energy (50 extra Malice Energy with critical hits).\nIf <font color=\"a6aafb\">Death Immunity</font> isn't triggered, the cooldown will be reduced by 50%.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 60,
+    "ability": [
+      70,
+      50,
+      50,
+      60
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.004182,
+        "ban_rate": 0.01537,
+        "win_rate": 0.511745
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Argus's 1st Skill to close in on the opponent and slow them with his 2nd Skill while hitting with Basic Attacks. If the enemy tries to run, use the second cast of his 1st Skill to chase."
+    },
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Argus's 1st Skill to pull himself towards the enemy formation, then use the skill again to dash into their backline. Next, slow the enemy with his 2nd Skill and use Basic Attacks until his HP is low, then pop his Ultimate and continue the assault with Basic Attacks."
+    }
+  ]
+}

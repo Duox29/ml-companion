@@ -1,0 +1,103 @@
+{
+  "id": 72,
+  "name": "Thamuz",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_b5ad55e408b68acf6a86e7ff76f5f569.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2fc38a2e465b275a72c3308152cab77d.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Chase",
+    "Damage"
+  ],
+  "lore": {
+    "story": "The lord of the Fire Demons who seeks to reignite the flames of the Abyss through war and violence.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 7240,
+      "name": "Grand Lord Lava",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_d051312911931ae72d9976cdd14c973d.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Thamuz's Basic Attacks have a chance of 10%–60% (scaling with <font color=\"a6aafb\">Lava's Rage</font>) to conjure Lava Energy beneath the target that erupts after a brief delay, dealing 55<font color=\"ffe63c\"> (+60% Total Physical Attack)</font><font color=\"ffe63c\">(+8*Hero Level)</font> <font color=\"ffe63c\">True Damage</font>. Basic Attacks that don't trigger Lava Energy increase Thamuz's <font color=\"a6aafb\">Lava's Rage</font>.\n\nWhile Thamuz is without his <font color=\"a6aafb\">Scythes</font>, he gains 25% Movement Speed. After retrieving his <font color=\"a6aafb\">Scythes</font>, his next Basic Attack slows the target by 30% and is guaranteed to trigger Lava Energy.",
+      "video": ""
+    },
+    {
+      "id": 7210,
+      "name": "Molten Scythes",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_e6071a86da476531ddcd6d386aa96f4a.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Thamuz tosses <font color=\"a6aafb\">Scythes</font> in the target direction. After traveling a set distance or hitting the first enemy hero, they deal 120<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. The <font color=\"a6aafb\">Scythes</font> will then slow nearby enemies by 30% and deal 45<font color=\"fba51f\"> (+20% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> every 0.5s.\n\nAfter leaving Thamuz for a short time or reaching a set distance, the <font color=\"a6aafb\">Scythes</font> return to him, dragging enemies along their path toward Thamuz. Thamuz can move toward the <font color=\"a6aafb\">Scythes</font> or cast the skill again to retrieve them.",
+      "video": ""
+    },
+    {
+      "id": 7220,
+      "name": "Chasm Trample",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_40d76405ad463946a2cd7a742b69d19a.png",
+      "cooldown_cost": "CD: 8",
+      "tags": [],
+      "description": "Thamuz jumps to a designated area to deal 230<font color=\"fba51f\"> (+60% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and slow the enemy units by 25% for 2s upon landing. \nIf the Scythes are still travelling, they will return to Thamuz and <font color=\"a6aafb\">Molten Scythes</font> will reset its CD instantly.",
+      "video": ""
+    },
+    {
+      "id": 7230,
+      "name": "Cauterant Inferno",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_fa001f5f75ae598c8d362c04629ba328.png",
+      "cooldown_cost": "CD: 38",
+      "tags": [],
+      "description": "Thamuz spouts the lava within, dealing 300<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies and creating a <font color=\"a6aafb\">Cauterant Zone</font> around himself. The <font color=\"a6aafb\">Cauterant Zone</font> lasts 9s and deals 30<font color=\"fba51f\"> (+10% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> every 0.5s to enemies in the area.\n\nMeanwhile, Thamuz gains 800<font color=\"26e407\"> (+50% Extra Max HP)</font> extra Max HP, immediately healing for the same amount, and gains 60% Attack Speed. Each time his Basic Attacks or <font color=\"a6aafb\">Scythes</font> deal damage, he recovers 1.5% Max HP.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      70,
+      40,
+      20,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.013209,
+        "ban_rate": 0.038217,
+        "win_rate": 0.485317
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Thamuz's 1st Skill to speed up and adjust positioning, then jump into the crowd using his 2nd Skill. Activate his Ultimate followed by a Basic Attack and his 1st Skill, and retrieve the Scythes before continuing with Basic Attacks."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Thamuz's 1st Skill, then leap to enemy using his 2nd Skill, causing his Scythes to return and resetting the CD of his 1st Skill. Follow up with a Basic Attack and then his 1st Skill, and tap the skill again to retrieve the Scythes and end with Basic Attacks."
+    }
+  ]
+}

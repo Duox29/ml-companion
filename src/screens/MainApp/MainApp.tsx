@@ -40,7 +40,7 @@ export default function MainApp({ isGuest, onLogout, onRequireAuth }: MainAppPro
     <div className="flex flex-col h-full w-full bg-bg-light dark:bg-bg-dark relative">
       <div className="flex-1 overflow-hidden">
         <Routes>
-          <Route path="/wiki" element={<WikiTab />} />
+          <Route path="/wiki/*" element={<WikiTab />} />
           <Route
             path="/community"
             element={<CommunityTab isGuest={isGuest} onRequireAuth={onRequireAuth} />}

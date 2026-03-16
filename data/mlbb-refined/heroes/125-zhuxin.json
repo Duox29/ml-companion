@@ -1,0 +1,103 @@
+{
+  "id": 125,
+  "name": "Zhuxin",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_595f85bc90df3889c711c6b1f02dc02d.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_8991b456c4482e7170422f3d77d16b00.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Damage",
+    "Crowd Control"
+  ],
+  "lore": {
+    "story": "A mysterious young woman who guides the ember butterflies using her Lantern of Spirits.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 12540,
+      "name": "Crimson Butterflies",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_43020fccd51aa7420c2c8b76a2cdb4fe.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Every time Zhuxin channels <font color=\"a6aafb\">Lantern Flare</font>, she converts the Mana spent into up to 15 <font color=\"a6aafb\">Crimson Butterflies</font> to follow her <font color=\"a6aafb\">Spirit Lantern</font>. After Zhuxin stops channeling <font color=\"a6aafb\">Lantern Flare</font>, the <font color=\"a6aafb\">Crimson Butterflies</font> will gradually disappear, each restoring 3% of her Max Mana.\nZhuxin has a naturally high base Max Mana, but it doesn't scale with her level.",
+      "video": ""
+    },
+    {
+      "id": 12550,
+      "name": "Fluttering Grace",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_155343c85c52dfccbf7697d353e115bd.png",
+      "cooldown_cost": "CD: 12   Mana Cost: 100",
+      "tags": [],
+      "description": "Zhuxin deals 150<font color=\"62f8fe\"> (+30% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to all enemies in a fan-shaped area and applies 1 stack(s) of <font color=\"a6aafb\">Soul Snare</font>. Zhuxin also slows all enemy heroes hit by 20% and gains 20% of extra Movement Speed herself for 1.5s.",
+      "video": ""
+    },
+    {
+      "id": 12510,
+      "name": "Lantern Flare",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_0eb6ec4236fd89a8ea6041edf0868569.png",
+      "cooldown_cost": "CD: 0.5",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Hold</font>: Hold the skill button to move the <font color=\"a6aafb\">Spirit Lantern</font>. It deals 35<font color=\"62f8fe\"> (+30% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to all enemies in range every 0.33s (Magic Power increases to 60% against Minions) and applies <font color=\"a6aafb\">Soul Snare</font> to enemy heroes hit. When an enemy hero reaches 10 stacks of <font color=\"a6aafb\">Soul Snare</font>, the <font color=\"a6aafb\">Crimson Butterflies</font> capture them, pulling them airborne for 1s.\n\n<font color=\"a6aafb\">Release</font>: Throw all captured enemies to the target location, dealing 200<font color=\"62f8fe\"> (+150% Total Magic Power)</font> + 10% of the captured target's Max HP as <font color=\"7f62fe\">Magic Damage</font> to all enemies in the area. If an enemy is hit multiple times, subsequent hits deal 80% less damage.\n\nAfter a target is captured, <font color=\"a6aafb\">Soul Snare</font> cannot stack on them again for 4s. During this time, this skill deals 15% increased damage to that target.",
+      "video": ""
+    },
+    {
+      "id": 12530,
+      "name": "Crimson Beacon",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_a6ca23dff19dee8f2f26740ce29b47a9.png",
+      "cooldown_cost": "CD: 60   Mana Cost: 200",
+      "tags": [],
+      "description": "Zhuxin blinks to the target location while gaining a 400<font color=\"62f8fe\"> (+100% Total Magic Power)</font> shield. While flying, she creates a field around her for 6s. The field deals 30<font color=\"62f8fe\"> (+10% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and applies 1 stack of <font color=\"a6aafb\">Soul Snare</font> to enemies every 0.5s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 30,
+    "ability": [
+      40,
+      80,
+      80,
+      30
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.005068,
+        "ban_rate": 0.057266,
+        "win_rate": 0.535766
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Zhuxin's 1st Skill to slow the opponent and increase her own Movement Speed, then use her 2nd Skill from a safe position and try to hit the Minions and the opponent at the same time to both poke and clear the lane. Once the enemy has enough stacks, throw them into the Minions for additional damage."
+    },
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Zhuxin's Ultimate to blink into a good position, then follow up with her 1st Skill to slow the enemy team and use her 2nd Skill to build stacks at a safe distance. Try to capture as many enemies as possible with her 2nd Skill, then throw them out of position while also grouping them up."
+    }
+  ]
+}

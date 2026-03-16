@@ -1,0 +1,104 @@
+{
+  "id": 26,
+  "name": "Chou",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_158209b180032c4564b8f3bde8c48888.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_57d7c6285b0aeb615f8b4e8865e6dc7b.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Exp Lane",
+    "Roam"
+  ],
+  "specialty": [
+    "Chase",
+    "Control"
+  ],
+  "lore": {
+    "story": "A talented fighter with a heart of chivalry.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 2640,
+      "name": "Only Fast",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_aca76a3a3dda44b6a0c3a72ff9bbcb94.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "After traveling 5 units, Chou deals 180% damage on his next Basic Attack (cannot Crit), briefly slows the target by 90% and reduces their Physical Defense by 10(+1*Hero Level) for 3s (up to 2 stacks).",
+      "video": ""
+    },
+    {
+      "id": 2610,
+      "name": "Jeet Kune Do",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_70b2990486b562415dac32dac01bdb16.png",
+      "cooldown_cost": "CD: 9.5",
+      "tags": [],
+      "description": "Chou strikes in the target direction, dealing 180<font color=\"fba51f\"> (+70% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit. This skill can be cast 3 times before it goes on cooldown. On the 3rd cast, Chou also knocks enemies hit airborne.\n\nHitting an enemy hero with the 3rd cast resets the cooldown of <font color=\"a6aafb\">Shunpo</font>.",
+      "video": ""
+    },
+    {
+      "id": 2620,
+      "name": "Shunpo",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d784b75324318b23edb29b1fdd06bea0.png",
+      "cooldown_cost": "CD: 5",
+      "tags": [],
+      "description": "Chou charges in the target direction, gaining Control Immunity and a 200<font color=\"fba51f\"> (+200% Extra Physical Attack)</font> shield.",
+      "video": ""
+    },
+    {
+      "id": 2630,
+      "name": "The Way of Dragon",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_05083715344213a996ab3ebf04381e93.png",
+      "cooldown_cost": "CD: 34",
+      "tags": [],
+      "description": "Chou strikes a roundhouse kick at the target enemy hero, dealing them 400<font color=\"fba51f\"> (+200% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and knocking them back.\n\nCast the skill again to chase up the target, dealing a total of 480<font color=\"fba51f\"> (+240% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 70,
+    "ability": [
+      50,
+      30,
+      80,
+      70
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.010435,
+        "ban_rate": 0.019007,
+        "win_rate": 0.455636
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Chou's 2nd and 1st Skill to get next to a key target, then use his Ultimate to knock them out of position and secure the kill with his team."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Chou's 2nd Skill to get close to the enemy and follow up with his 1st Skill for multiple strikes. After landing the 3rd strike of his 1st Skill, use the refreshed 2nd Skill to stay on the target and finish them with his Ultimate."
+    }
+  ]
+}

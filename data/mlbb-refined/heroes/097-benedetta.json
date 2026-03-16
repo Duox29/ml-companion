@@ -1,0 +1,104 @@
+{
+  "id": 97,
+  "name": "Benedetta",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b4a5e537894bdc00787e80e4d3ada5dd.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_11bf645722b931631c3a63d5be7da068.png",
+  "role": [
+    "Assassin",
+    "Fighter"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Chase",
+    "Burst"
+  ],
+  "lore": {
+    "story": "Female warrior defending the Barren Lands against demon invasion.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 9740,
+      "name": "Elapsed Daytime",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_dec94d48625abe29337a7dc247ae4089.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "When holding down the <font color=\"a6aafb\">Basic Attack</font> button, Benedetta enters the Swordout state and charges up Sword Intent. If the <font color=\"a6aafb\">Basic Attack</font> button is released after the Sword Intent is fully charged, Benedetta will use Swordout Slash in <font color=\"a6aafb\">the direction she's facing</font> and dash forward, dealing <font color=\"fba51f\"> (+215% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies on the path (counts as Skill Damage and is reduced to 50% on Minions and Creeps).\n\nBenedetta can only use Swordout Slash when her Sword Intent is fully charged and she is in Swordout state by holding down the <font color=\"a6aafb\">Basic Attack</font> button.\n\nBenedetta also gains Sword Intent by dealing damage with her Basic Attacks and skills.",
+      "video": ""
+    },
+    {
+      "id": 9710,
+      "name": "Phantom Slash",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ae06e5db054c1b94fcc70b2158828fc6.png",
+      "cooldown_cost": "CD: 10   Mana Cost: 55",
+      "tags": [],
+      "description": "Benedetta withdraws swiftly and leaves a shadow in front. After a short delay, her shadow slashes forward in a fan-shaped area, dealing 200<font color=\"fba51f\"> (+75% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and slowing the enemies by 60% for 0.5s.\n\nMeanwhile, Benedetta dashes forward to slash, dealing 75<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. (If the target is hit by her shadow, damage caused by Benedetta herself will increase to 200%.)",
+      "video": ""
+    },
+    {
+      "id": 9720,
+      "name": "An Eye for An Eye",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_22cec07aed8f5e783996cfc99fbbcaf3.png",
+      "cooldown_cost": "CD: 15   Mana Cost: 100",
+      "tags": [],
+      "description": "Benedetta raises her weapon to defend, gaining Control Immunity and blocking damage from any source for 0.8s. After this, she stabs in the designated direction, dealing 300<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.\n\nIf Benedetta successfully fends off any damage while defending, she will gain full <font color=\"a6aafb\">Sword Intent</font>. If she fends off any control effects, her subsequent stab stuns the target for 1.5s.",
+      "video": ""
+    },
+    {
+      "id": 9730,
+      "name": "Alecto: Final Blow",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d9d895c9df7f13247a57660597045267.png",
+      "cooldown_cost": "CD: 45   Mana Cost: 110",
+      "tags": [],
+      "description": "Benedetta clenches Alecto, dashes forward (Benedetta is untargetable during the dash), and performs a slash after a short delay, detonating the Sword Intent along the path. For 2.5s, the Sword Intent deals up to a total of 1560<font color=\"fba51f\"> (+1105% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies within and slows them by 50%.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 70,
+    "ability": [
+      60,
+      50,
+      20,
+      70
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.00581,
+        "ban_rate": 0.0061,
+        "win_rate": 0.534091
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Swordout Slash to get close to the enemy, then use Benedetta's Ultimate where the enemy is clustered, and follow up with her 1st Skill for additional damage and 2nd Skill to block incoming CC."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, gather Sword Intent by holding Benedetta's Basic Attack button, then use Swordout Slash after Sword Intent is maxed to strike the enemy. Follow up with her 1st Skill and try to max out Sword Intent again by blocking the enemy's attack with her 2nd Skill, then end the combo with another Swordout Slash."
+    }
+  ]
+}

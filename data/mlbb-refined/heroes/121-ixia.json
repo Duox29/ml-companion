@@ -1,0 +1,103 @@
+{
+  "id": 121,
+  "name": "Ixia",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f070d82521ecd2e14d4ef3f25880830a.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ad36ae3824bc4853dcc2f48fef767be1.png",
+  "role": [
+    "Marksman"
+  ],
+  "lane": [
+    "Gold Lane"
+  ],
+  "specialty": [
+    "Finisher",
+    "Damage"
+  ],
+  "lore": {
+    "story": "The leader of Bad Soul and self-proclaimed inventor, she wields a homemade weapon powered by a stolen Starlium reactor.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 12140,
+      "name": "Siphon Starlium",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0b28b73c43760afb3539979ea9d5c312.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Ixia's Basic Attacks and skills apply a stack of <font color=\"a6aafb\">Starlium Charge</font> to enemies on hit. When Ixia performs a Basic Attack on an enemy with two stacks of <font color=\"a6aafb\">Starlium Charge</font>, the attack will consume the stacks and be replaced with <font color=\"a6aafb\">Siphon Starlium</font>, dealing <font color=\"fba51f\"> (+150% Total Physical Attack)</font> <font color=\"26e407\">(+200 Lifesteal)</font> plus (+10*Hero Level) <font color=\"fb1f1f\">Physical Damage</font> to the target. Ixia recovers HP equal to the damage dealt by <font color=\"a6aafb\">Siphon Starlium</font> (only 10<font color=\"26e407\">(+150 Lifesteal)</font>% against non-hero units) and reduces the target's Movement Speed by 25% for 1s.\n<font color=\"a6aafb\">Siphon Starlium</font> can trigger on all enemies in front of Ixia that are within her Basic Attack range, but it cannot Crit.\nIxia's Basic Attacks cannot trigger Lifesteal.",
+      "video": ""
+    },
+    {
+      "id": 12110,
+      "name": "Dual Beam",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a8abf9eeb77d6cb3afccd0bd4bb9d772.png",
+      "cooldown_cost": "CD: 4   Mana Cost: 40",
+      "tags": [],
+      "description": "Ixia fires 2 Starlium-charged energy beams along the ground in the target direction, dealing 50<font color=\"fba51f\"> (+70% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in a rectangular area. When hitting enemy heroes, Ixia gains 50% Movement Speed for 2s.\nEnemies hit by both beams will take double damage.",
+      "video": ""
+    },
+    {
+      "id": 12120,
+      "name": "Star Helix",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f4f780b9ada962f9e52903d9ad5359fd.png",
+      "cooldown_cost": "CD: 11   Mana Cost: 75",
+      "tags": [],
+      "description": "Ixia unleashes a canister of Starlium energy in the target direction, knocking back nearby enemies, and pulling enemies in range to the center line after a short delay and dealing 200<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.",
+      "video": ""
+    },
+    {
+      "id": 12130,
+      "name": "Full Barrage",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_da280fb5742c603e295f58bf621d50c1.png",
+      "cooldown_cost": "CD: 42   Mana Cost: 75",
+      "tags": [],
+      "description": "Ixia reassembles her weapon into 6 smaller weapons and enters the <font color=\"a6aafb\">Barrage</font> state for 4s. In this state, Ixia's Basic Attacks and skills can hit enemies in the large fan-shaped area in front of her but not outside it. Ixia's Basic Attacks can hit up to 6 enemy units (prioritizes heroes), and <font color=\"a6aafb\">Siphon Starlium</font> will fire simultaneously with her normal Basic Attacks.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      30,
+      70,
+      50,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.009907,
+        "ban_rate": 0.053779,
+        "win_rate": 0.499348
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Choose the perfect location that can secure herself and cast the Ultimate to rain down her attacks on as many enemies as possible. Keep tapping Basic Attack while using her 2nd Skill and 1st Skill to control enemies and deal extra damage."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Ixia can pull enemies to the center line with her 2nd Skill and follow up with her 1st Skill to deal damage. Use the Movement Speed boost provided by her 1st Skill to chase down enemies."
+    }
+  ]
+}

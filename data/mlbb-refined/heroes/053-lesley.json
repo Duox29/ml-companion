@@ -1,0 +1,104 @@
+{
+  "id": 53,
+  "name": "Lesley",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_08770893183018333f54a98e63c41ee3.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_fe343ddb9097b53f2d1e27d1c342add7.png",
+  "role": [
+    "Marksman",
+    "Assassin"
+  ],
+  "lane": [
+    "Gold Lane"
+  ],
+  "specialty": [
+    "Finisher",
+    "Burst"
+  ],
+  "lore": {
+    "story": "Adopted daughter of House Vance, a clandestine sniper.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 5340,
+      "name": "Lethal Shot",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_296a3745ef0ec7c978400b3e7f481030.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "If Lesley doesn't take damage for 5s, her next Basic Attack gains extra range and 50% Crit Chance and deals 100<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"ffe63c\">True Damage</font> (20% extra damage against minions).\nEach point of fixed Physical Penetration and each 1% Physical Penetration Lesley acquires is converted into 1% Crit Damage, but her base Crit Damage is reduced to 130%.\nLesley's Basic Attack restores 5 points of energy and her <font color=\"a6aafb\">Lethal Shot</font> doubles the amount of energy restored. The <font color=\"a6aafb\">Lethal Shot</font> effect will activate immediately after Lesley uses a skill.",
+      "video": ""
+    },
+    {
+      "id": 5310,
+      "name": "Master of Camouflage",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a8caf30fc02cfaa2f500311936dbfc31.png",
+      "cooldown_cost": "CD: 3.5   Energy Cost: 30",
+      "tags": [],
+      "description": "Lesley enters the Camouflage state, gaining double Energy Regen, 40% extra Movement Speed, and 85 extra Physical Attack.\n\nThe state lasts 3s or until Lesley takes or deals damage. Enemies can detect Lesley's position through distortions of their surroundings.",
+      "video": ""
+    },
+    {
+      "id": 5320,
+      "name": "Tactical Grenade",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_18a15ed9f8facd0926ea8a8ecd200e25.png",
+      "cooldown_cost": "CD: 10   Energy Cost: 40",
+      "tags": [],
+      "description": "Lesley throws a tactical grenade in the target direction while jumping back slightly, dealing 150<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in a fan-shaped area and knocking them back.\n\nLesley can cast this skill during <font color=\"a6aafb\">Ultimate Snipe</font> to cancel the state and immediately fire a Fatal Bullet at the target. The attack is only triggered when there are unfired Fatal Bullets left.",
+      "video": ""
+    },
+    {
+      "id": 5330,
+      "name": "Ultimate Snipe",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c6126c3a551ed56f43e76df1f21510d2.png",
+      "cooldown_cost": "CD: 40",
+      "tags": [],
+      "description": "Lesley locks onto the target enemy hero and fires 4 Fatal Bullets in succession, each dealing <font color=\"fb1f1f\">Physical Damage</font> equal to 250<font color=\"fba51f\"> (+80% Extra Physical Attack)</font> plus 5% of their lost HP and restoring 10 energy on hit. The Bullets can be blocked by other enemy heroes.\n\nIf this skill is interrupted, each remaining Bullet reduces the skill cooldown by 10%.\n\n<font color=\"a6aafb\">Passive</font>: Lesley's Crit Chance is increased by 10%.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      10,
+      70,
+      20,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.014911,
+        "ban_rate": 0.066371,
+        "win_rate": 0.474919
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Lesley can repeatedly use her 1st Skill to deal more damage with her enhanced Basic Attack while moving. When the enemy hero is close, Lesley can use her 2nd Skill and the enhanced Basic Attack for the counterattack, and use his Ultimate to start reaping."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, once Lesley reaches full energy, and her enhanced Basic Attack is activated, wait for the opportunity to use the enhanced Basic Attack to hit the enemy hero. Then use her 1st Skill to reactivate the enhanced Basic Attack and hit the enemy again, and finally, use her Ultimate to finish off the enemy."
+    }
+  ]
+}

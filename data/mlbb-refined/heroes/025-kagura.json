@@ -1,0 +1,139 @@
+{
+  "id": 25,
+  "name": "Kagura",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_da424b020b8ac8235d64a1b8a09aa749.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_81334e359e0b00a4797ce3c80a49ca73.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Poke",
+    "Finisher"
+  ],
+  "lore": {
+    "story": "A young spirit born of the deep longings stored within the Seimei Umbrella, she has finally stepped out of her dream, like a radiant bloom, in defiance of the dark night.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 2540,
+      "name": "Yin Yang Gathering ",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f022f5769cb87dee7944160a24f03b79.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Upon retrieving the <font color=\"a6aafb\">Seimei Umbrella</font>, Kagura gains a 450<font color=\"62f8fe\"> (+80% Total Magic Power)</font> shield, stuns nearby enemies for 0.5s, and slows them by 60% for 1s. Cooldown: 4.5s.",
+      "video": ""
+    },
+    {
+      "id": 2510,
+      "name": "Seimei Umbrella Open ",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_cc6ff81df0961e494e8c5f3e42f582fe.png",
+      "cooldown_cost": "CD: 5   Mana Cost: 45",
+      "tags": [],
+      "description": "Kagura sends the <font color=\"a6aafb\">Seimei Umbrella</font> to the target location, dealing 365<font color=\"62f8fe\"> (+105% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in its path and slowing them by 60% for 0.5s. The Umbrella will automatically return to Kagura when she's too far away.\nThis skill deals 130% damage to non-hero enemies.",
+      "video": ""
+    },
+    {
+      "id": 2520,
+      "name": "Rasho Umbrella Flee",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_292caeb01278d75ba3e02457e9ddb603.png",
+      "cooldown_cost": "CD: 12   Mana Cost: 55",
+      "tags": [],
+      "description": "Kagura removes all debuffs on her and leaps in the target direction, while leaving the <font color=\"a6aafb\">Seimei Umbrella</font> behind.",
+      "video": ""
+    },
+    {
+      "id": 2530,
+      "name": "Yin Yang Overturn",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_07f828b02ce64ae8ded3b3ede8893b53.png",
+      "cooldown_cost": "CD: 36   Mana Cost: 60",
+      "tags": [],
+      "description": "Kagura invokes the power of the <font color=\"a6aafb\">Seimei Umbrella</font>, dealing 250<font color=\"62f8fe\"> (+95% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to nearby enemies, knocking them back, and slowing them by 60% for 0.5s.",
+      "video": ""
+    },
+    {
+      "id": 2540,
+      "name": "Yin Yang Gathering ",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f022f5769cb87dee7944160a24f03b79.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Upon retrieving the <font color=\"a6aafb\">Seimei Umbrella</font>, Kagura gains a 450<font color=\"62f8fe\"> (+80% Total Magic Power)</font> shield, stuns nearby enemies for 0.5s, and slows them by 60% for 1s. Cooldown: 4.5s.",
+      "video": ""
+    },
+    {
+      "id": 2511,
+      "name": "Seimei Umbrella Open ",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8df435b74a7fcd429e89dd381e5ea452.png",
+      "cooldown_cost": "CD: 5   Mana Cost: 45",
+      "tags": [],
+      "description": "Kagura sends the <font color=\"a6aafb\">Seimei Umbrella</font> to the target location, dealing 365<font color=\"62f8fe\"> (+105% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in its path and slowing them by 60% for 0.5s. The Umbrella will automatically return to Kagura when she's too far away.\nThis skill deals 130% damage to non-hero enemies.",
+      "video": ""
+    },
+    {
+      "id": 2521,
+      "name": "Rasho Umbrella Flee",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_210c67437a6d0722052086bfcca1e20d.png",
+      "cooldown_cost": "CD: 12   Mana Cost: 55",
+      "tags": [],
+      "description": "Kagura teleports to the <font color=\"a6aafb\">Seimei Umbrella</font>'s location and retrieves it, dealing 300<font color=\"62f8fe\"> (+90% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the nearby enemies.",
+      "video": ""
+    },
+    {
+      "id": 2531,
+      "name": "Yin Yang Overturn",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0329949e3af570f3c65b46f1d12bf637.png",
+      "cooldown_cost": "CD: 36   Mana Cost: 60",
+      "tags": [],
+      "description": "Kagura invokes the power of the <font color=\"a6aafb\">Seimei Umbrella</font>, resetting the cooldown of <font color=\"a6aafb\">Seimei Umbrella Open</font>, dealing 235<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies around the Umbrella, and slowing them by 60%. After 1.5s, enemy heroes around the Umbrella will be pulled toward it and take 480<font color=\"62f8fe\"> (+155% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 80,
+    "ability": [
+      30,
+      90,
+      40,
+      80
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.007518,
+        "ban_rate": 0.006733,
+        "win_rate": 0.515978
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Kagura should place her Umbrella between the enemies with her 1st Skill, then use her Ultimate to reset the cooldown for her 1st Skill to be able to adjust the Umbrella location before teleporting to the Umbrella location to stun nearby enemies. She should then use her Ultimate + 2nd Skill combo to escape from the fighting zone."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Kagura can use her 1st Skill to poke the enemy with her Umbrella, then her 2nd Skill to teleport to the Umbrella's location, dealing more damage to the enemies and dash back by casting her 2nd Skill again."
+    }
+  ]
+}

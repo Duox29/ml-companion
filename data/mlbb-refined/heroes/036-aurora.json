@@ -1,0 +1,103 @@
+{
+  "id": 36,
+  "name": "Aurora",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f9b2be0150361018bb98f941b9667c42.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0c97d1f7482d3c18074fc27a61c0e802.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Crowd Control",
+    "Poke"
+  ],
+  "lore": {
+    "story": "The Maiden of the Glacier who grants eternal remembrance in the legends of the North.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 3640,
+      "name": "Pride of Ice",
+      "icon": "",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Upon taking fatal damage, Aurora freezes herself for 1.5s, becoming invincible during this time and gradually recovering 30% Max HP. This effect has a 150s cooldown.\n\nAurora's freeze effects can also affect Turrets.",
+      "video": ""
+    },
+    {
+      "id": 3610,
+      "name": "Hailstone Blast",
+      "icon": "",
+      "cooldown_cost": "CD: 6   Mana Cost: 60",
+      "tags": [],
+      "description": "Aurora summons an icy meteorite to strike at the target location, dealing 400<font color=\"62f8fe\"> (+90% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and slowing targets hit by 40% for 1s. Afterward, 5 hailstones fall, each dealing 40<font color=\"62f8fe\"> (+10% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>.",
+      "video": ""
+    },
+    {
+      "id": 3620,
+      "name": "Frosty Breeze",
+      "icon": "",
+      "cooldown_cost": "CD: 12   Mana Cost: 75",
+      "tags": [],
+      "description": "Aurora blows Frosty Breeze in a fan-shaped area in the target direction, dealing 225<font color=\"62f8fe\"> (+75% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit, and creating a frozen area at the far-end of the attack that deals a total of 225<font color=\"62f8fe\"> (+75% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in the area and freezes them for 1s.",
+      "video": ""
+    },
+    {
+      "id": 3630,
+      "name": "Frigid Glacier",
+      "icon": "",
+      "cooldown_cost": "CD: 50   Mana Cost: 140",
+      "tags": [],
+      "description": "Aurora creates a frost path in the target direction, dealing 100<font color=\"62f8fe\"> (+40% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in the path and reducing their Movement Speed by 80% for 1.2s. The frost path gradually becomes glaciers that spread until reaching their maximum size and shattering, dealing 600<font color=\"62f8fe\"> (+150% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to all enemies in the area and freezing targets for 1s. Every 100 Magic Power that Aurora has will increase the freeze duration by 0.2s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 10,
+    "ability": [
+      40,
+      70,
+      100,
+      10
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.004618,
+        "ban_rate": 0.002985,
+        "win_rate": 0.473792
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, first cast Aurora's Ultimate when the enemy is grouped, then use her 2nd Skill immediately to freeze them inside the Ultimate's AOE, and finish with her 1st Skill on the CC'ed targets for maximum damage."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Aurora's 2nd Skill to freeze the enemy, then follow up with her 1st Skill to ensure all the hits connect."
+    }
+  ]
+}

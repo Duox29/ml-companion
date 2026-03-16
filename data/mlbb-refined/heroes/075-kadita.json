@@ -1,0 +1,104 @@
+{
+  "id": 75,
+  "name": "Kadita",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_42b40ae7741d2eb81148c8f1e1ff614c.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_812f998f0d153ace42c9c55a10dd2533.png",
+  "role": [
+    "Mage",
+    "Assassin"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Burst",
+    "Charge"
+  ],
+  "lore": {
+    "story": "Beautiful and powerful mermaid queen.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 7540,
+      "name": "Thalassophobia",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_cd01187439b79c1916a9c74a3b34a006.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Kadita gains the <font color=\"a6aafb\">Blessing of the Ocean</font> every 30s. The Blessing is triggered when she takes damage from enemy heroes and lasts 4s, allowing her to recover 65% of the HP lost within the duration afterward.",
+      "video": ""
+    },
+    {
+      "id": 7510,
+      "name": "Ocean Ode",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_167f6356afa763ceaa72fdf875770531.png",
+      "cooldown_cost": "CD: 9   Mana Cost: 55",
+      "tags": [],
+      "description": "Kadita summons an ocean wave to carry herself in the target direction and back, dealing 250<font color=\"62f8fe\"> (+90% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit and slowing them by 30%. While inside the wave, she gains Control Immunity and 50% Damage Reduction. This skill can pass through obstacles and terrain.\n\n<font color=\"a6aafb\">Use Again</font>: Kadita exits the wave without interrupting the wave's movement.",
+      "video": ""
+    },
+    {
+      "id": 7520,
+      "name": "Breath of the Ocean",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3533b6afa084dd8c756c563aac23933b.png",
+      "cooldown_cost": "CD: 8   Mana Cost: 75",
+      "tags": [],
+      "description": "After a short delay, Kadita summons an ocean wave to erupt at the target location, dealing 350<font color=\"62f8fe\"> (+140% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit and knocking them airborne for 1s.\n\nKadita can cast this skill during <font color=\"a6aafb\">Ocean Ode</font> to summon an ocean wave beneath her with a shorter eruption delay.",
+      "video": ""
+    },
+    {
+      "id": 7530,
+      "name": "Rough Waves",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e0a8e44d8b5f8c14be27daf7cb807008.png",
+      "cooldown_cost": "CD: 40   Mana Cost: 120",
+      "tags": [],
+      "description": "Kadita dives into the ground and sends ocean waves in all directions (this skill can only be interrupted by Suppression), each dealing 270<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit and slowing them by 30%. Enemies hit by multiple waves take increased damage. After a short period, the waves return to Kadita, each dealing 180<font color=\"62f8fe\"> (+40% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit.\n\nWhen underground, Kadita becomes untargetable and gains 60% Movement Speed.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 60,
+    "ability": [
+      40,
+      80,
+      80,
+      60
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.009238,
+        "ban_rate": 0.037358,
+        "win_rate": 0.529168
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, target the enemy's backline with Kadita's 1st Skill, and use her 2nd Skill when passing through enemies to knock them airborne. Follow up with her Ultimate for massive damage and avoid all incoming damage while being untargetable."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Kadita's 1st Skill to constantly harass enemies, and look for opportunities to use her 2nd Skill."
+    }
+  ]
+}

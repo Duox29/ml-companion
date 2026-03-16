@@ -1,0 +1,103 @@
+{
+  "id": 21,
+  "name": "Hayabusa",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9cc074562291a02644a0ddae28eeaa42.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_261209d8154dbe2bf6d4292076b0437f.png",
+  "role": [
+    "Assassin"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Chase",
+    "Burst"
+  ],
+  "lore": {
+    "story": "The young leader of the Shadow Sect who wields his blade through moonless nights, walking the path of nindo without fear.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 2140,
+      "name": "Ninjutsu: Trace of Shadow",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1255ed2b33be690a777dce8a797557c1.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Hayabusa's attacks apply a stack of <font color=\"a6aafb\">Shadow Mark</font> on hit (up to 4 stacks). Each stack lasts 6s and increases Hayabusa's damage to the enemy by 5%.",
+      "video": ""
+    },
+    {
+      "id": 2110,
+      "name": "Ninjutsu: Phantom Shuriken",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2291f23ec06da9b9f312dd985bfd47a9.png",
+      "cooldown_cost": "CD: 4   Energy Cost: 30",
+      "tags": [],
+      "description": "Hayabusa throws three returning shurikens in the target direction, each dealing 220<font color=\"fba51f\"> (+75% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit and slowing them by 35% for 2s. Enemies hit by multiple shurikens take 70% less damage after the first hit, and Creeps take 50% less damage after the first hit. Hayabusa restores 10 energy when hitting non-Minion enemies.\n\n<font color=\"a6aafb\">Passive</font>: Hayabusa permanently gains 3% Spell Vamp.",
+      "video": ""
+    },
+    {
+      "id": 2120,
+      "name": "Ninjutsu: Quad Shadow",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_76a4c1e8322ddec04759efa14a3ab3ff.png",
+      "cooldown_cost": "CD: 16   Energy Cost: 25",
+      "tags": [],
+      "description": "Hayabusa dashes in the target direction and releases four phantoms that travel in separate directions. The phantoms will remain at the end of their paths or attach themselves to the first enemy hero hit, dealing 130<font color=\"fba51f\"> (+30% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and slowing them by 40% for 2s. Hayabusa will immediately stop if he hits an enemy hero during the dash.\n\n<font color=\"a6aafb\">Use Again</font>: Hayabusa teleports to a phantom's location and reduces the cooldown of <font color=\"a6aafb\">Ninjutsu: Phantom Shuriken</font> by 1s. If the phantom is attached to an enemy hero, he also deals 130<font color=\"fba51f\"> (+30% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the enemy.",
+      "video": ""
+    },
+    {
+      "id": 2130,
+      "name": "Ougi: Shadow Kill",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_725ee5582eb697e37896e8a6b81442d9.png",
+      "cooldown_cost": "CD: 40",
+      "tags": [],
+      "description": "Hayabusa blends into the shadows and launches 6 single-target attacks on enemies in the area, each dealing 140<font color=\"fba51f\"> (+32% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.\n\nThe attacks prioritize enemies with <font color=\"a6aafb\">Shadow Mark</font> and each will consume a mark to deal 90<font color=\"fba51f\"> (+40% Extra Physical Attack)</font> extra <font color=\"fb1f1f\">Physical Damage</font>. Shadow Kill does not apply <font color=\"a6aafb\">Shadow Mark</font>.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      40,
+      50,
+      10,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.010017,
+        "ban_rate": 0.093675,
+        "win_rate": 0.492386
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Hayabusa should use his 2nd Skill to hit an enemy with his phantom, then use his 1st and 2nd Skill on the target to apply Shadow Mark before unleashing his Ultimate. Afterwards, use his 1st Skill to finish off the enemy and escape with his 2nd Skill."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Hayabusa's 2nd Skill to hit the enemy with a phantom, then strike with his 1st Skill, and use his 2nd Skill to blink away. Wait until Hayabusa's 1st Skill is off cooldown, then blink back to the enemy with his 2nd Skill and strike again with his 1st Skill followed by his Ultimate to secure the kill."
+    }
+  ]
+}

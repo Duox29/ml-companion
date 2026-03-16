@@ -1,0 +1,113 @@
+{
+  "id": 117,
+  "name": "Fredrinn",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_dea170bfd5f26c41fb04e5edf72afedb.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3834313607fefe7bf2c895f042d60f10.png",
+  "role": [
+    "Fighter",
+    "Tank"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Damage",
+    "Chase"
+  ],
+  "lore": {
+    "story": "A master treasure appraiser in Los Pecados accumulating wealth and searching for his lost friend.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 11740,
+      "name": "Crystalline Armor",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ffe5821a5ea1c1bd39f0db4f2cef947d.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Fredrinn gains 1 <font color=\"a6aafb\">Combo Point</font> that lasts 5s each time his skill hits a non-minion enemy, up to 4 <font color=\"a6aafb\">Combo Points</font>. His Ultimates cost different numbers of <font color=\"a6aafb\">Combo Points</font>.\n\nFredrinn stores 100% of the damage he receives as <font color=\"a6aafb\">Crystal Energy</font>, which decays after 5s at a rate of 10% Max HP per second.\nFredrinn can convert the stored <font color=\"a6aafb\">Crystal Energy</font> into HP by 20% of his damage dealt (10% for damage dealt to minions). Gaining a <font color=\"a6aafb\">Combo Point</font> resets the decaying timer.",
+      "video": ""
+    },
+    {
+      "id": 11710,
+      "name": "Piercing Strike",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4945b0e50c9f2fdad8814a8451861a86.png",
+      "cooldown_cost": "CD: 7.5",
+      "tags": [],
+      "description": "Fredrinn thrusts his sword in the target direction, dealing 125<font color=\"26e407\"> (+7% Total HP)</font> <font color=\"fba51f\">(+120% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit and slowing them by 30% for 2s. His next Basic Attack gains extra attack range and deals 85<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.\nThis skill deals 200% damage to non-hero enemies.",
+      "video": ""
+    },
+    {
+      "id": 11720,
+      "name": "Brave Assault",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_dcd1b03082da5a690ba7a45196d5ff13.png",
+      "cooldown_cost": "CD: 7.5",
+      "tags": [],
+      "description": "Fredrinn dashes in the target direction, dealing 140<font color=\"fba51f\"> (+80% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the first non-minion enemy hit. His next Basic Attack knocks the target airborne for 0.3s.",
+      "video": ""
+    },
+    {
+      "id": 11730,
+      "name": "Energy Eruption",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1b377f78451ed0315312ed90835a01c9.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Fredrinn deals 210<font color=\"fba51f\"> (+100% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies and taunts them for 1s. Hitting a non-minion enemy grants Fredrinn 25 Physical & Magic Defense for 3s and reduces the cooldowns of <font color=\"a6aafb\">Piercing Strike</font> and <font color=\"a6aafb\">Brave Assault</font> by 75%.\nThis skill costs 1 <font color=\"a6aafb\">Combo Point</font>.",
+      "video": ""
+    },
+    {
+      "id": 11750,
+      "name": "Appraiser's Wrath",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_775f49d622b6611bc97a10108ead401c.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Fredrinn slams his sword in the target direction (this skill can only be interrupted by Suppression), dealing 600 plus 21% of his <font color=\"a6aafb\">Crystal Energy</font> as <font color=\"fb1f1f\">Physical Damage</font> to enemies in a fan-shaped area after a short delay. Enemies in the center of the area take 175% damage. This skill doubles the conversion ratio based on damage dealt to enemy heroes from stored <font color=\"a6aafb\">Crystal Energy</font> to HP.\nThis skill costs 3 <font color=\"a6aafb\">Combo Points</font>.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      80,
+      50,
+      60,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.008375,
+        "ban_rate": 0.0835,
+        "win_rate": 0.522568
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Fredrinn should use his 2nd Skill to close in on the enemy hero and knock them airborne, then use his 1st Skill and 1st Ultimate for CC and cooldown reset. Use his enhanced Basic Attacks, 1st and 2nd skills sequentially to deal heavy damage, and finish with his 2nd Ultimate after knocking the enemy airborne for the kill."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Fredrinn can dash to the enemy hero with his 2nd Skill, and knock that hero airborne with the enhanced Basic Attack. Then follow up with his 1st Skill to deal damage."
+    }
+  ]
+}

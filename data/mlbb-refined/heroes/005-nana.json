@@ -1,0 +1,103 @@
+{
+  "id": 5,
+  "name": "Nana",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ee1e0d80d87bb614a0c552ef028f85ce.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ff9412a3d36170f98801085bb32f7bad.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Poke",
+    "Burst"
+  ],
+  "lore": {
+    "story": "Little Leonin with no worries.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 540,
+      "name": "Molina's Gift",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_40f1ef3190c16e8bedac960e5d600ae0.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Upon taking fatal damage, Nana removes all debuffs on her and transforms, becoming untargetable and invincible, and gains 30% Movement Speed for 2s. She also recovers 10% Max HP over the duration.\n\nNana can only transform once every 150s and cannot cast skills in the transformed form.",
+      "video": ""
+    },
+    {
+      "id": 510,
+      "name": "Magic Boomerang",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_54aff0ecbd71fb7e4819568698dfbee6.png",
+      "cooldown_cost": "CD: 6   Mana Cost: 55",
+      "tags": [],
+      "description": "Nana hurls her Magic Boomerang in the target direction, dealing damage to enemies hit on its way out and back. The boomerang deals 300<font color=\"62f8fe\"> (+100% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the first enemy hit. For every additional enemy hit, the damage is reduced by 10% (max reduction of 30%).",
+      "video": ""
+    },
+    {
+      "id": 520,
+      "name": "Molina Smooch",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1551014a72caf56ad15d79a118d767ed.png",
+      "cooldown_cost": "CD: 12   Mana Cost: 80",
+      "tags": [],
+      "description": "Nana throws Molina at the target location, dealing 250<font color=\"62f8fe\"> (+50% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies within range and <font color=\"a6aafb\">Transforming</font> enemy heroes hit into small animals.\n\nIf Molina does not hit an enemy hero, she will remain on the ground and chase the nearest enemy hero that comes into range, <font color=\"a6aafb\">Transforming</font> the first enemy hero she touches.\n\n<font color=\"a6aafb\">Transform</font>: Reduces the target's Movement Speed by 50% and Magic Defense by 30% for 1.5s. Transformed heroes cannot attack or use skills.",
+      "video": ""
+    },
+    {
+      "id": 530,
+      "name": "Molina Blitz",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_32610623c520254cccf0e02a5fac9e44.png",
+      "cooldown_cost": "CD: 36   Mana Cost: 135",
+      "tags": [],
+      "description": "Nana summons Molina to strike the target area 3 times, each time dealing 440<font color=\"62f8fe\"> (+140% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies within and slowing them by 30% for 1s. Enemies hit consecutively will be stunned for 1s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 10,
+    "ability": [
+      50,
+      60,
+      100,
+      10
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.015357,
+        "ban_rate": 0.039549,
+        "win_rate": 0.478107
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Nana can use her 2nd Skill to slow the enemy first so she can hit and stun them with her Ultimate. She can then use her 1st Skill to finish off the low HP enemy."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Nana can use her 2nd Skill to harass enemy heroes and her 1st Skill to damage both enemy Minions and heroes, allowing her to poke enemies while farming."
+    }
+  ]
+}

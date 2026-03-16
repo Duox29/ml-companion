@@ -1,0 +1,103 @@
+{
+  "id": 13,
+  "name": "Clint",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5a8345c69a4c9c611fdfce91089fe74a.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3f5ffe36b6e07ded46dac0ce665d971b.png",
+  "role": [
+    "Marksman"
+  ],
+  "lane": [
+    "Gold Lane"
+  ],
+  "specialty": [
+    "Finisher",
+    "Burst"
+  ],
+  "lore": {
+    "story": "A sharpshooter full of righteousness and justice.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 1340,
+      "name": "Double Shot",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4f34f91aa8c276c6c68c0fb062645591.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "After each skill cast, Clint's next Basic Attack within 4s penetrates a line of enemies, dealing 150<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. This damage can trigger attack effects, and the part affected by Physical Attack can Crit.",
+      "video": ""
+    },
+    {
+      "id": 1310,
+      "name": "Quick Draw",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_819bd2b4fce66ea402874193cd70b190.png",
+      "cooldown_cost": "CD: 8   Mana Cost: 50",
+      "tags": [],
+      "description": "Clint fires 5 bullets in quick succession in the target direction, each dealing 250<font color=\"fba51f\"> (+85% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the enemy hit.\n\nThe bullets will spread evenly across enemies in a fan-shaped area. Enemies hit by multiple bullets will take less damage after the first bullet.",
+      "video": ""
+    },
+    {
+      "id": 1320,
+      "name": "Trapping Recoil",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6813ebabb3e000e3af1935d16faa8f5b.png",
+      "cooldown_cost": "CD: 10   Mana Cost: 65",
+      "tags": [],
+      "description": "Clint shoots a trap net in the target direction, slightly jumping back while dealing 140<font color=\"fba51f\"> (+30% Total Physical Attack)</font><font color=\"62f8fe\"> (+150% Total Magic Power)</font> <font color=\"fb1f1f\">Physical Damage</font> to the first enemy hit and immobilizing them for 1.2s.\n\nSuccessfully hitting an enemy reduces the cooldown of this skill by 40%.",
+      "video": ""
+    },
+    {
+      "id": 1330,
+      "name": "Grenade Bombardment",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_144f654bbb1560ed883a8f21b11f8a9d.png",
+      "cooldown_cost": "CD: 1.5   Mana Cost: 50",
+      "tags": [],
+      "description": "Clint launches a grenade in the target direction that explodes on the first enemy hit, dealing 280<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and slowing them by 50% for 0.5s.\n\nClint gains a grenade charge every 10s (up to 3).",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 70,
+    "ability": [
+      30,
+      70,
+      40,
+      70
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.007429,
+        "ban_rate": 0.011273,
+        "win_rate": 0.518837
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Clint's Ultimate and enhanced Basic Attacks to whittle down enemies from a distance. Once the enemy is weakened from the constant bombardment, use Clint's 1st Skill, Basic Attack, 2nd Skill, and Basic Attack combo to finish them off."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Clint should use his 1st Skill followed by an enhanced Basic Attack, then his 2nd Skill followed by another enhanced Basic Attack. This combo maximizes his damage, immobilizes the target, and moves Clint out of harm's way."
+    }
+  ]
+}

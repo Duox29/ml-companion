@@ -1,0 +1,103 @@
+{
+  "id": 1,
+  "name": "Miya",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_da894b37bfb5cadb32307f371f31918a.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f6d3f7f102e1f0fb9dc92b971d1128ec.png",
+  "role": [
+    "Marksman"
+  ],
+  "lane": [
+    "Gold Lane"
+  ],
+  "specialty": [
+    "Finisher",
+    "Damage"
+  ],
+  "lore": {
+    "story": "The Priestess of the Moon and protector of the Moonlit Forest.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 140,
+      "name": "Moon Blessing",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_fbe01740efd779f6059fd2313b427457.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Each time Miya hits a target with her Basic Attack, she gains 5% Attack Speed for 4s. Stacks up to 5 times.\n\nAfter reaching full stacks, Miya summons a <font color=\"a6aafb\">Moonlight Shadow</font> with each Basic Attack that deals 30<font color=\"fba51f\"> (+25% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and inherits a portion of Attack Effects.",
+      "video": ""
+    },
+    {
+      "id": 110,
+      "name": "Moon Arrow",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_de41566ded345f89064e32da9dfd8893.png",
+      "cooldown_cost": "CD: 11   Mana Cost: 50",
+      "tags": [],
+      "description": "Miya shoots two extra arrows with each Basic Attack, dealing 10<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the target enemy and 30% damage to nearby targets. This effect lasts 4s. Each extra arrow inherits a portion of Attack Effects.",
+      "video": ""
+    },
+    {
+      "id": 120,
+      "name": "Arrow of Eclipse",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c5771dd5686278640dabfaa26839545c.png",
+      "cooldown_cost": "CD: 8   Mana Cost: 80",
+      "tags": [],
+      "description": "Miya launches an empowered arrow on the target area, dealing 270<font color=\"fba51f\"> (+45% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies within and immobilizing them for 1.2s. The arrow then splits into 6 scattering minor arrows, each dealing 40<font color=\"fba51f\"> (+20% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the first enemy hit and slowing them by 30% for 2s.",
+      "video": ""
+    },
+    {
+      "id": 130,
+      "name": "Hidden Moonlight",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_361546d795e6df7029a1cf1252e57ac8.png",
+      "cooldown_cost": "CD: 30   Mana Cost: 120",
+      "tags": [],
+      "description": "Miya removes all debuffs on her and conceals herself, gaining 65% extra Movement Speed. This state lasts 2s or until she launches an attack.\n\nMiya gains full stacks of <font color=\"a6aafb\">Moon Blessing</font> upon leaving the state.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 10,
+    "ability": [
+      10,
+      70,
+      40,
+      10
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.022847,
+        "ban_rate": 0.030381,
+        "win_rate": 0.488351
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Miya's Ultimate first to conceal herself, then find an ideal position to attack the enemy and quickly stack her Passive. Utilize her 2nd Skill to immobilize the enemy and activate her 1st Skill to enhance her Basic Attacks to hit multiple targets at once."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "When laning, immobilize the opponent with Miya's 2nd Skill and use her 1st Skill to poke them and clear Minions at the same time."
+    }
+  ]
+}

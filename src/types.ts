@@ -7,9 +7,78 @@ export type User = {
 
 export type Hero = {
   id: string;
+  slug: string;
   name: string;
   role: "Tank" | "Fighter" | "Mage" | "Marksman" | "Assassin" | "Support";
   image: string;
+};
+
+export type HeroRole = Hero["role"];
+
+export type WikiHeroSkill = {
+  id: number;
+  name: string;
+  icon: string;
+  cooldown_cost: string;
+  tags: string[];
+  description: string;
+  video: string;
+};
+
+export type WikiHeroRate = {
+  rank: string | null;
+  camp_type: string | null;
+  match_type: string | null;
+  win_rate: number | null;
+};
+
+export type WikiHeroDetailStat = {
+  rank: string | null;
+  camp_type: string | null;
+  match_type: string | null;
+  appearance_rate: number | null;
+  ban_rate: number | null;
+  win_rate: number | null;
+};
+
+export type WikiHeroRecord = {
+  id: string;
+  slug: string;
+  name: string;
+  icon: string;
+  portrait: string;
+  role: HeroRole[];
+  lane: string[];
+  specialty: string[];
+  lore: {
+    story: string;
+    tale: string;
+  };
+  skill: WikiHeroSkill[];
+  stats: {
+    difficulty: number;
+    ability: number[];
+    hero_rate: WikiHeroRate[];
+    detail_stats: WikiHeroDetailStat[];
+  };
+  skin: Array<Record<string, any>>;
+  quote: {
+    select: string;
+    movement: string[];
+    ultimate: string;
+  };
+  skill_combo: Array<{
+    skill_id: number | null;
+    title: string;
+    description: string;
+  }>;
+};
+
+export type HeroesBundle = {
+  version: string;
+  generatedAt: string;
+  total: number;
+  heroes: WikiHeroRecord[];
 };
 
 export type Skill = {

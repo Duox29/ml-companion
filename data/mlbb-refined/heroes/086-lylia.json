@@ -1,0 +1,103 @@
+{
+  "id": 86,
+  "name": "Lylia",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_706573f138055c3df3df94948b4f26bd.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_84a089c2608b908b87c01ce7af5c3162.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Push",
+    "Damage"
+  ],
+  "lore": {
+    "story": "A funny and witted little witch.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 8640,
+      "name": "Angry Gloom",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3e523892b88699da589a93bfd58d05d4.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Lylia gets power from <font color=\"a6aafb\">Gloom</font>, increasing her Movement Speed by 15%. Each <font color=\"a6aafb\">Gloom</font> upgrade further increases this bonus by 5%.\n<font color=\"a6aafb\">Gloom</font> gains an upgrade every time he devours <font color=\"a6aafb\">Shadow Energy</font>, up to 5 times. Gloom upgrade increases the detonation damage of <font color=\"a6aafb\">Shadow Energy</font>.",
+      "video": ""
+    },
+    {
+      "id": 8610,
+      "name": "Magic Shockwave",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_891fd83e887a48389c4601114518f082.png",
+      "cooldown_cost": "CD: 4   Mana Cost: 40",
+      "tags": [],
+      "description": "Lylia sends out <font color=\"a6aafb\">Gloom</font> with a shockwave, dealing 250<font color=\"62f8fe\"> (+100% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in a line and slowing them by 30% for 1.5s.\nIf <font color=\"a6aafb\">Gloom</font> touches <font color=\"a6aafb\">Shadow Energy</font>, he will devour and detonate it.",
+      "video": ""
+    },
+    {
+      "id": 8620,
+      "name": "Shadow Energy",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_024d13f272ff865dc6fcf5aa2a2a1605.png",
+      "cooldown_cost": "CD: 1   Mana Cost: 32",
+      "tags": [],
+      "description": "Lylia condenses Shadow Energy at the target location, dealing 90<font color=\"62f8fe\"> (+50% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit and slowing them by 80%.\n<font color=\"a6aafb\">Shadow Energy</font> can be detonated by <font color=\"a6aafb\">Gloom's</font> devour, dealing 220<font color=\"62f8fe\"> (+115% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the enemies nearby. Each <font color=\"a6aafb\">Gloom</font> upgrade increases the detonation damage by 20%, up to 80%.\n<font color=\"a6aafb\">Gloom</font> will restore 20% of Shadow Energy's Recharge Time when it hits an enemy hero.\nLylia starts with the <font color=\"a6aafb\">Shadow Energy</font> skill, storing one charge every 6s.",
+      "video": ""
+    },
+    {
+      "id": 8630,
+      "name": "Black Shoes",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_24e26172faa7303b0a5db666cd23a0a4.png",
+      "cooldown_cost": "CD: 45   Mana Cost: 120",
+      "tags": [],
+      "description": "Lylia returns to the Black Shoes' location 4s ago and restores her HP and Mana to the previous state, and an extra 10% Max HP. She also gains 20% extra Movement Speed for 2s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      50,
+      100,
+      20,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.008763,
+        "ban_rate": 0.013155,
+        "win_rate": 0.499581
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Use Lylia's 2nd Skill to hit the opponent, then use her 1st Skill to detonate the Shadow Energy for a significant burst of damage. Continue to throw her 2nd Skill at the enemy and detonate it with Gloom."
+    },
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Use Lylia's 2nd Skill multiple times to cover a large area with Shadow Energy, then detonate a chain reaction with her 1st Skill. Continue to spam Lylia's 2nd Skill and detonate with Gloom to quickly set off multiple explosions at once. When in danger, use Lylia's Ultimate to return to safety and recover."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": 38,
+  "name": "Vexana",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_743edd1702084c4ed247908d698bca77.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8a6f5f1c20d001819222bd251bb594d1.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Poke",
+    "Control"
+  ],
+  "lore": {
+    "story": "The young duchess guarding Necrokeep.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 3840,
+      "name": "Nether Touch",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4a772fea90f7fef17b012afc119091a7.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Vexana and the <font color=\"a6aafb\">Eternal Guard</font> inflict <font color=\"a6aafb\">Nether Curse</font> on enemies hit. The Curse lasts 5s and will cause the affected enemy to explode upon death, dealing 108-500<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to nearby enemies (base damage scales with level).",
+      "video": ""
+    },
+    {
+      "id": 3810,
+      "name": "Deathly Grasp",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_306fd329581b6ea4590086598d250df1.png",
+      "cooldown_cost": "CD: 14   Mana Cost: 80",
+      "tags": [],
+      "description": "Vexana unleashes a <font color=\"a6aafb\">Deathly Grasp</font> in the target direction, dealing 200<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in its path. The projectile stops upon hitting an enemy hero, terrifying them and knocking them back, then it explodes, dealing 200<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to nearby enemies and terrifying them for 1s.",
+      "video": ""
+    },
+    {
+      "id": 3820,
+      "name": "Cursed Blast",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f0142fc0def21fe074ec6feb4a24fa07.png",
+      "cooldown_cost": "CD: 7   Mana Cost: 60",
+      "tags": [],
+      "description": "Vexana marks the target area with the power of the undead, striking it after a 0.8s delay and dealing 580<font color=\"62f8fe\"> (+165% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit.",
+      "video": ""
+    },
+    {
+      "id": 3830,
+      "name": "Eternal Guard",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1a95d813fc47cb5ec048784dacd7b46e.png",
+      "cooldown_cost": "CD: 50   Mana Cost: 120",
+      "tags": [],
+      "description": "Vexana summons an <font color=\"a6aafb\">Eternal Guard</font> at the target location, dealing 480<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit and knocking them airborne for 0.8s. The <font color=\"a6aafb\">Eternal Guard</font> then joins Vexana in battle for 15s. Each of the Eternal Guard's attacks deals 200<font color=\"62f8fe\"> (+40% Total Magic Power)</font> plus 5% of the target's Max HP as <font color=\"7f62fe\">Magic Damage</font> to enemies in a large area.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 10,
+    "ability": [
+      20,
+      90,
+      50,
+      10
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.018945,
+        "ban_rate": 0.015732,
+        "win_rate": 0.495885
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Initiate teamfights with CC or follow up after other CC. \r\nUse her Ultimate when enemies are gathered, follow up \r\nwith 2nd and 1st Skill combo for CC and damage."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Terrify enemy with 1st Skill and follow up with 2nd Skill for guaranteed damage."
+    }
+  ]
+}

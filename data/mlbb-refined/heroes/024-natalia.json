@@ -1,0 +1,104 @@
+{
+  "id": 24,
+  "name": "Natalia",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8ca11ea3470a120eb3b011225e40bf08.png",
+  "role": [
+    "Assassin"
+  ],
+  "lane": [
+    "Jungle",
+    "Roam"
+  ],
+  "specialty": [
+    "Chase",
+    "Finisher"
+  ],
+  "lore": {
+    "story": "An assassin exiled by the Empire.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 2440,
+      "name": "Assassin Instinct",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_70c63dbf8a6c5f7c13e000e50cb45048.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "If Natalia stays in a bush without taking damage for 1s, she will enter <font color=\"a6aafb\">Camouflage</font> state and gain 15% Movement Speed. In this state, Natalia's next Basic Attack will teleport her behind her target and deal 200<font color=\"fba51f\"> (+110% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> while silencing the target for 0.25s.\n\nDealing damage, taking damage or using skills will immediately end the <font color=\"a6aafb\">Camouflage</font> state, but her next Basic Attack will remain enhanced for another 1s.\n\nNatalia's base Crit Damage is reduced to 150%, but her damage to Creeps is increased to 150%.",
+      "video": ""
+    },
+    {
+      "id": 2410,
+      "name": "Claw Dash",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9fe9f13f142891ef055c36a9c5fe8e56.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Natalia dashes in the target direction, dealing 250<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in her path.\n\nAfter hitting an enemy, she can cast this skill again within 5s.",
+      "video": ""
+    },
+    {
+      "id": 2420,
+      "name": "Smoke Bomb",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b2dc19263463a18f2a7706ff9ceb90d9.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "Natalia releases a <font color=\"a6aafb\">Smoke Bomb</font> at her location, slowing enemies within by 25% while Natalia becomes immune to enemy Basic Attacks for 4s.",
+      "video": ""
+    },
+    {
+      "id": 2430,
+      "name": "The Hunt",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a505102cf3c9127d94b3fa4ae5de6734.png",
+      "cooldown_cost": "CD: 3",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Natalia gains 15% extra Crit Chance.\n\n<font color=\"a6aafb\">Active</font>: Natalia immediately enters <font color=\"a6aafb\">Assassin Instinct</font> state. Natalia can store up to 2 charges of her Ultimate and each charge has a recharge time of 30s. Creep kills will reduce the current remaining recharge time by 50% of the full recharge time.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 90,
+    "ability": [
+      10,
+      60,
+      60,
+      90
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.003092,
+        "ban_rate": 0.017638,
+        "win_rate": 0.521318
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Natalia's Passive and enhanced Basic Attacks to approach enemies, then use her 2nd Skill to improve her survivability. Follow up with her 1st Skill then Ultimate and end with a Basic Attack to finish off the enemy."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "When ganking, hide in a bush to activate Natalia's Passive, then approach the enemy from behind and blink to them with the enhanced Basic Attack. Follow up with her 2nd Skill to slow the enemy and chase after them using her 1st Skill."
+    }
+  ]
+}

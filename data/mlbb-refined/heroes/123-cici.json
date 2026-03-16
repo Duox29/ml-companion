@@ -1,0 +1,103 @@
+{
+  "id": 123,
+  "name": "Cici",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_60e3e11da30f404c77fff9e22d3bdc72.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_83e246a50d2a27fe0d18f991dcb1bccb.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Damage",
+    "Regen"
+  ],
+  "lore": {
+    "story": "A cheerful performer who spreads fun and wonderment wherever she goes.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 12340,
+      "name": "Performer's Delight",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6d7f05670808b2e7662aab8303594fc5.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Cici generates a stack of Delight after dealing damage, increasing her Movement Speed by 0.75% and Spell Vamp by 0.75% per stack up to 10 times, doubling the effects at full stacks.",
+      "video": ""
+    },
+    {
+      "id": 12310,
+      "name": "Yo-Yo Blitz",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_35698dd184befabba3199661018bdf38.png",
+      "cooldown_cost": "CD: 6.5",
+      "tags": [],
+      "description": "Cici uses Yoyo to continuously attack the nearest enemy within range (prioritizing heroes) for 3.5s, hitting them up to 10 times, and dealing <font color=\"fb1f1f\">Physical Damage</font> equal to 60 plus 3<font color=\"fba51f\"> (+1.2% Extra Physical Attack)</font>% of the target's Max HP per hit. Cici can move and use other skills during this attack.\n\nIf there is no enemy within range, Yoyo will attack Turrets or the Base instead.\n\nThis skill deals 20% extra damage to Minions.",
+      "video": ""
+    },
+    {
+      "id": 12320,
+      "name": "Buoyant Bounce",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f49eea2c0866fad182a898eedb8afc72.png",
+      "cooldown_cost": "CD: 9.5",
+      "tags": [],
+      "description": "Cici leaps to a target location. If she lands on any unit (not including Turrets and Base), she can leap again in the Joystick's direction. If she lands on an enemy with the first leap, she deals 200<font color=\"fba51f\"> (+40% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to them.",
+      "video": ""
+    },
+    {
+      "id": 12330,
+      "name": "Curtain Call",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c0b792bde3a635cb3534035683f5429f.png",
+      "cooldown_cost": "CD: 40",
+      "tags": [],
+      "description": "Cici throws Yoyo at the target enemy hero and links them with another nearby enemy hero, dealing 100<font color=\"fba51f\"> (+10% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>, slowing them by 30%, and pulling them together for 4s. \n\nDuring this time, Cici can use <font color=\"a6aafb\">Yo-Yo Blitz</font> to attack both linked targets at the same time. If only one target is within the range of <font color=\"a6aafb\">Yo-Yo Blitz</font>, Cici will attack the target twice, but the damage of the second attack will be reduced to 25%.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 20,
+    "ability": [
+      50,
+      60,
+      30,
+      20
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.005299,
+        "ban_rate": 0.014355,
+        "win_rate": 0.481713
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, find two enemy heroes that are close together and toss Cici's Ultimate on one of them, then use her 2nd Skill to jump in and pop her 1st Skill mid-leap to start dealing continuous damage."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Cici's Basic Attacks to stack some Delight before using her 1st Skill on the opponent, and use her 2nd Skill if they attempt an escape."
+    }
+  ]
+}

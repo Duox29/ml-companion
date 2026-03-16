@@ -1,0 +1,103 @@
+{
+  "id": 29,
+  "name": "Ruby",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4b96c75b136290576d849309722d4d20.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_87a6b382c3e5b864cdcd8f7752151a96.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Crowd Control",
+    "Regen"
+  ],
+  "lore": {
+    "story": "A girl who grew up with Roger's help.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 2940,
+      "name": "Let's Dance!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_262dcfb1e67c19e273ac2409098c8b5d.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Ruby starts with 6%-20% Spell Vamp (scales with level) and her skills have a 125% Spell Vamp Ratio (but her Basic Attacks cannot trigger Lifesteal).\n\nAfter each skill cast, Ruby can dash to another location and gains 8-25 Physical & Magic Defense (scales with level) for 4s (stacks up to 3 times).",
+      "video": ""
+    },
+    {
+      "id": 2910,
+      "name": "Be Good!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3ada6c7426a96d2d9b00fbaf7a0068d4.png",
+      "cooldown_cost": "CD: 4   Mana Cost: 25",
+      "tags": [],
+      "description": "Ruby swings her scythe, dealing 110<font color=\"fba51f\"> (+90% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit. She then unleashes a shockwave in the same direction, dealing 110<font color=\"fba51f\"> (+90% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit and slowing them by 40% for 1s.",
+      "video": ""
+    },
+    {
+      "id": 2920,
+      "name": "Don't Run, Wolf King!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_eaf4da37b9211deccc9c0452c0853887.png",
+      "cooldown_cost": "CD: 7   Mana Cost: 50",
+      "tags": [],
+      "description": "Ruby swings her scythe around herself twice, each swing dealing 60<font color=\"fba51f\"> (+55% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies, stunning them for 0.5s, and slowly pulling them toward her.",
+      "video": ""
+    },
+    {
+      "id": 2930,
+      "name": "I'm Offended!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_de4c25c06cc0816c7be8638d52d2dfce.png",
+      "cooldown_cost": "CD: 26   Mana Cost: 80",
+      "tags": [],
+      "description": "Ruby sweeps her scythe in the target direction, dealing 200<font color=\"fba51f\"> (+200% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit, pulling them toward her, and stunning them for 0.5s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      90,
+      20,
+      90,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.00588,
+        "ban_rate": 0.0038,
+        "win_rate": 0.528089
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Ruby's 1st Skill to slow the enemy at a distance, and close in with her Passive dash. Then use her 2nd Skill to stun the enemies in range and use her Ultimate to pull back those who try to escape."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Use Ruby's 1st Skill to slow down the enemy, and the dash from her Passive to get closer. Then cast Ruby's Ultimate to pull the enemy into melee range and her 2nd Skill to keep them stunned. Finally, spam her Basic Attacks to finish them off."
+    }
+  ]
+}

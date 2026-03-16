@@ -1,0 +1,103 @@
+{
+  "id": 83,
+  "name": "X.Borg",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3f372795b38be1e2b2037229928bfe57.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Regen",
+    "Burst"
+  ],
+  "lore": {
+    "story": "An uncontrollable flame that's determined to take revenge against Eruditio.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 8340,
+      "name": "Firaga Armor",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_89f511f46d1e6c6db972cf7bb37924f5.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Firaga Armor inherits 160% of X.Borg's Max HP and absorbs all incoming damage when it's active. When destroyed, X.Borg rolls in the direction of the Joystick (he is invincible during this process). The Armor's energy will gradually regenerate while X.Borg is in the Armorless State. At full energy, X.Borg re-equips the Armor and restores it to 30% HP.\nX.Borg's attacks cause enemies to enter <font color=\"a6aafb\">Overheated</font> state. Enemies in <font color=\"a6aafb\">Overheated</font> state will drop Firaga Supplies when they take damage from X.Borg. Picking up supplies restores 10% of the Armor's HP (or 10 energy while in the Armorless State).\nX.Borg's skills deal <font color=\"ffe63c\">True Damage</font> to enemies in <font color=\"a6aafb\">Overheated</font> state.",
+      "video": ""
+    },
+    {
+      "id": 8310,
+      "name": "Fire Missiles",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4ee1680e53d5823b14f9989bc10bc719.png",
+      "cooldown_cost": "CD: 4",
+      "tags": [],
+      "description": "X.Borg sprays fire, dealing 25<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"62f8fe\">(+40% Total Magic Power)</font> <font color=\"fb1f1f\">Physical Damage</font> 7 times over 2s to enemies in front of him (75% damage to minions). \n\nArmorless State: The attack area becomes narrower but longer, while the damage is reduced to 60%.",
+      "video": ""
+    },
+    {
+      "id": 8320,
+      "name": "Fire Stake",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9194fa592d8f77a7b9e9b1676e47b3e4.png",
+      "cooldown_cost": "CD: 9",
+      "tags": [],
+      "description": "X.Borg fires 5 Fire Stakes forward and recalls them after 1.7s. Each stake deals 50<font color=\"fba51f\"> (+20% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and pulls enemies and Firaga Supplies along its path back to him.\n\nArmorless State: X.Borg adjusts the Fire Stake launcher, making the stakes travel farther and closer together.",
+      "video": ""
+    },
+    {
+      "id": 8330,
+      "name": "Last Insanity",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_fece4e752139100505f5eb2bd08390aa.png",
+      "cooldown_cost": "CD: 30",
+      "tags": [],
+      "description": "X.Borg charges in the target direction while spinning and spraying fire (cannot pick up Firaga Supplies during this time), dealing 90<font color=\"fba51f\"> (+60% Extra Physical Attack)</font> <font color=\"62f8fe\">(+45% Total Magic Power)</font> <font color=\"fb1f1f\">Physical Damage</font> 12 times and slowing enemies hit by 25%. He stops upon touching an enemy hero and will slow them by an additional 40%. After 3s, his mecha suit detonates, dealing 300 plus 15% of the target's Max HP as <font color=\"ffe63c\">True Damage</font>. If his armor is destroyed, it will immediately explode but damage drops to 50%. The detonation destroys his Armor, removes all debuffs, and collects all nearby Firaga Supplies. Cannot be used in <font color=\"a6aafb\">Armorless State</font>.\n\n<font color=\"a6aafb\">Use Again</font>: Immediately stop spraying fire and detonate early.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      80,
+      30,
+      10,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.007207,
+        "ban_rate": 0.033267,
+        "win_rate": 0.498463
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, cast X.Borg's 1st Skill, then activate his Ultimate when enemies are clustered, and uses his 2nd Skill to pull them back to him."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, cast X.Borg's 1st Skill then use his 2nd Skill to pull enemies toward him."
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "id": 99,
+  "name": "Barats",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6495be044c2d28106e200f6918391d54.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_dd47c9cac5a4848e8d4d0246a6739fec.png",
+  "role": [
+    "Tank",
+    "Fighter"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Damage",
+    "Crowd Control"
+  ],
+  "lore": {
+    "story": "Adventurer riding a dragon lizard.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 9940,
+      "name": "Big Guy",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9d790cd46d08ab21d5cd0157a0c035c9.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Detona gains a stack of <font color=\"a6aafb\">Big Guy</font> for 12s each time it or Barats damages an enemy with their skills (up to 10 stacks). Each stack of <font color=\"a6aafb\">Big Guy</font> increases Detona's size and grants 4-10 extra Hybrid Defense (scales with the level of <font color=\"a6aafb\">Detona's Welcome</font>). At max stacks, Detona gains 20% extra Resilience, and its Basic Attacks are replaced with <font color=\"a6aafb\">Trample</font>, which deals <font color=\"fba51f\"> (+140% Total Physical Attack)</font> <font color=\"26e407\">(+3.5% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in a circular area, slows them by 40% for 0.2s, and refreshes the duration of <font color=\"a6aafb\">Big Guy</font> with each hit.",
+      "video": ""
+    },
+    {
+      "id": 9910,
+      "name": "So-Called Teamwork",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d9d1ea11338786e2de0b748f9a796759.png",
+      "cooldown_cost": "CD: 7   Mana Cost: 25",
+      "tags": [],
+      "description": "Detona spits contaminated oil in the target direction, dealing 60<font color=\"26e407\"> (+7% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in a fan-shaped area. Barats then ignites the oil with a firecracker, dealing 120<font color=\"fba51f\"> (+180% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in the area (only 50% damage to Creeps).\n\nThe area of effect of <font color=\"a6aafb\">So-Called Teamwork</font> increases with the number of <font color=\"a6aafb\">Big Guy</font> stacks.",
+      "video": ""
+    },
+    {
+      "id": 9920,
+      "name": "Missile \"Expert\"",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_df6e9b7c26bd4b99dec7b1e187dd9608.png",
+      "cooldown_cost": "CD: 11   Mana Cost: 70",
+      "tags": [],
+      "description": "Barats fires two missiles at the target location, dealing 100<font color=\"fba51f\"> (+75% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and slowing enemies by 40% for 1s. The missiles expel fumes from their exhausts upon landing, dealing 100<font color=\"fba51f\"> (+75% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in a rectangular area and pushing them toward Barats.",
+      "video": ""
+    },
+    {
+      "id": 309930,
+      "name": "Detona's Welcome",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2dcd8888aaa6d28df61cd49eb89085b5.png",
+      "cooldown_cost": "CD: 50   Mana Cost: 100",
+      "tags": [],
+      "description": "After a short delay, Detona charges in the target direction, dealing 120<font color=\"fba51f\"> (+70% Total Physical Attack)</font> <font color=\"26e407\">(+1.2% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font> to the first enemy hit, devouring and suppressing them for 1.2s before spitting them out. If the target hits an enemy hero or a wall after being spit out, the target will cause an explosion, they and nearby enemies will take an additional 180<font color=\"fba51f\"> (+105% Total Physical Attack)</font> <font color=\"26e407\">(+5% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font> and be stunned for 1s.\nFor the duration, Barats becomes immune to control effects. If the channeling is canceled, 50% of the skill cooldown will be refunded.\n<font color=\"a6aafb\">Passive</font>: Detona gains 4 stacks of <font color=\"a6aafb\">Big Guy</font> upon respawn.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      100,
+      30,
+      90,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.001211,
+        "ban_rate": 0.001326,
+        "win_rate": 0.48271
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Barats' 1st Skill to maintain Big Guy stacks. Approach the enemy and use his 2nd Skill to push them close before using his Ultimate to minimize their chance of escape, then finish them off with Basic Attacks."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, spam Barats' low Mana cost 1st Skill to build Big Guy stacks while slowing and poking the enemy. Use his 2nd Skill to push the enemy to him and hit them with Basic Attacks."
+    }
+  ]
+}

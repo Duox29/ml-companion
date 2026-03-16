@@ -1,0 +1,103 @@
+{
+  "id": 109,
+  "name": "Aamon",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b3a7602fe7ffd1e54bf8ea79ceadfa72.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e38297f23f285b88272894aa3c797c09.png",
+  "role": [
+    "Assassin"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Chase",
+    "Magic Damage"
+  ],
+  "lore": {
+    "story": "The aloof Duke of Castle Aberleen.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 10940,
+      "name": "Invisible Armor",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_96583b8721481fe151eceeb4d17f089c.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Aamon enters the <font color=\"a6aafb\">Camouflage</font> state each time he hits an enemy with a skill, during which he cannot be targeted, recovers 25<font color=\"62f8fe\"> (+15% Total Magic Power)</font> plus 3% of his lost HP every 0.5s, and gains 80% extra Movement Speed that rapidly decays over 3s.\nUpon leaving the <font color=\"a6aafb\">Camouflage</font> state, Aamon immediately resets his Basic Attack's cooldown and enhances his Basic Attacks within the next 3s. Each enhanced Basic Attack deals 70<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"62f8fe\">(+115% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>. The first attack after actively leaving <font color=\"a6aafb\"> Camouflage</font> is enhanced to deal 84<font color=\"fba51f\"> (+120% Total Physical Attack)</font> <font color=\"62f8fe\">(+138% Total Magic Power)</font> damage and reduces all skill cooldowns by 1s.",
+      "video": ""
+    },
+    {
+      "id": 10910,
+      "name": "Soul Shards",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_51b68183615922a3891919cd0a0d5536.png",
+      "cooldown_cost": "CD: 7   Mana Cost: 40",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive:</font> Aamon charges his armor through enhanced Basic Attacks or while camouflaged. At 5 charges, Aamon throws 6 shards at the target on his next attack, each shard dealing 50<font color=\"62f8fe\"> (+15% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>. The shards will then scatter around the target.\n\n<font color=\"a6aafb\">Active:</font> Aamon throws a shard at a nearby enemy, dealing 175<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>.",
+      "video": ""
+    },
+    {
+      "id": 10920,
+      "name": "Slayer Shards",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_db82969869000375f7e6f1ab7ae895b3.png",
+      "cooldown_cost": "CD: 12.5   Mana Cost: 50",
+      "tags": [],
+      "description": "Aamon throws a shard forward, dealing 120<font color=\"62f8fe\"> (+50% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies along the way. The shard will return to Aamon after a short delay and allow him to enter the <font color=\"a6aafb\">Camouflage</font> state.\nIf the shard hits a non-minion enemy, it'll slow them by 50% for 2s and return to Aamon immediately.",
+      "video": ""
+    },
+    {
+      "id": 10930,
+      "name": "Endless Shards",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2fe1e567c14d3bd648184285b7d9d427.png",
+      "cooldown_cost": "CD: 50   Mana Cost: 150",
+      "tags": [],
+      "description": "Aamon throws all shards at a designated enemy and slows them by 30% for 1.5s. After a short delay, the shards will fly to the enemy's location again, each dealing 35<font color=\"62f8fe\"> (+10% Total Magic Power)</font>-70<font color=\"62f8fe\"> (+20% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>.\n\nThe number of shards increases with Aamon's armor charges and the shards on the ground (8-25).\nThe damage dealt increases with the target's lost HP, to the max when the target's HP is below 30%.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      30,
+      70,
+      10,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.009591,
+        "ban_rate": 0.120748,
+        "win_rate": 0.516225
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Use 2nd Skill to Camouflage and flank the enemy. Deal damage with his 1st Skill and Basic Attacks, and Ultimate to take out backline heroes."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Use his skills and Enhanced Basic Attacks for very high jungling efficiency."
+    }
+  ]
+}

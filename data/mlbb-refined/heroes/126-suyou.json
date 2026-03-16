@@ -1,0 +1,104 @@
+{
+  "id": 126,
+  "name": "Suyou",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_20/100_5e4ca70172332dde18bb1dc158ccc5c8.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/gms/image/cf569e7a8746535e207d1957ec2d8db9.webp",
+  "role": [
+    "Assassin",
+    "Fighter"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Chase",
+    "Burst"
+  ],
+  "lore": {
+    "story": "An exorcist from Zhu'an who has inherited the power of the Immortal Nuo.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 12670,
+      "name": "Transient Immortal",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_20/100_8b4882f70a3c4538683a2cb8739c7027.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Tap-casting</font> any skill will put Suyou in his Mortal form, granting him 40 Movement Speed and decreasing the interval between Basic Attacks.\n<font color=\"a6aafb\">Hold-casting</font> any skill will put Suyou in his Immortal form, increasing the damage of Basic Attacks to 125% and granting him 20% Physical Damage Reduction. In this form, for every 20 extra Physical Attack Suyou has, he gains 1% Physical Damage Reduction (up to 40%).",
+      "video": ""
+    },
+    {
+      "id": 12610,
+      "name": "Blade Surge",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_20/100_f19d61842474b4be077095114cb7a2bd.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Tap</font>: Suyou throws his weapon in the target direction, dealing 250<font color=\"fba51f\"> (+100% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in its path. Suyou then blinks to the weapon's location, catches it, and performs a slash in the opposite direction, dealing 375<font color=\"fba51f\"> (+150% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.\n<font color=\"a6aafb\">Hold</font>: Suyou channels the Immortal's power and charges in the target direction, dealing 250<font color=\"fba51f\"> (+100% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the path. When hitting an enemy hero, he stops and stuns enemies in a rectangular area in front for 0.6s. The charge distance increases with the hold time.\n<font color=\"A4AAC7\">Suyou can be controlled while charging, but the skill cannot be interrupted</font>.",
+      "video": ""
+    },
+    {
+      "id": 12630,
+      "name": "Soul Sever",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_20/100_4a0a58432d841803b33982fe1918bfe2.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Tap</font>: Suyou performs a sweeping attack with his weapon, dealing <font color=\"fb1f1f\">Physical Damage</font> equal to 300<font color=\"fba51f\"> (+200% Extra Physical Attack)</font> plus 15% of target's Lost HP to enemies in a fan-shaped area.\n<font color=\"a6aafb\">Hold</font>: Suyou channels the power of the Immortal to perform 3 cleaves in a fan-shaped area. The first two strikes deal 250<font color=\"fba51f\"> (+80% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> each, while the final strike deals 400<font color=\"fba51f\"> (+128% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and recovers 150<font color=\"fba51f\"> (+50% Extra Physical Attack)</font> HP for himself.",
+      "video": ""
+    },
+    {
+      "id": 12650,
+      "name": "Evil Queller",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_20/100_34cdeedb104693a99738e1cad6dda2ec.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Tap</font>: Suyou glides backward and swings his weapon in the target direction, dealing 420<font color=\"fba51f\"> (+120% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in a rectangular area and on his path backward, and reducing their Movement Speed by 30% for 1.5s.\n<font color=\"a6aafb\">Hold</font>: Suyou uses the Immortal's power to shoot a deadly arrow in the target direction, dealing 580<font color=\"fba51f\"> (+165% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the target hit. The range increases with the hold time. \n<font color=\"A4AAC7\">Suyou can be controlled while charging, but the skill cannot be interrupted</font>.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 70,
+    "ability": [
+      60,
+      60,
+      50,
+      70
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.010262,
+        "ban_rate": 0.010868,
+        "win_rate": 0.512573
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Hold-cast Skill 3 to poke before the team fight, then hold-cast Skill 1 to engage and control the enemy at their back, then hold-cast Skill 2 to deal massive damage. Then tap-cast Skill 3 to keep your distance from the enemy, and when the skill cooldown is up, tap-cast Skill 1 and Skill 2 to quickly kill the target."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Hold-casting Skill 1 in the Bush allows Suyou to attack unexpectedly and control the enemy; then hold-cast Skill 2 to deal massive damage and follow up the Basic Attack by tap-casting Skill 3 to leave the battlefield."
+    }
+  ]
+}

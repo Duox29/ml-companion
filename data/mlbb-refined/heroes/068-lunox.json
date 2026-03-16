@@ -1,0 +1,202 @@
+{
+  "id": 68,
+  "name": "Lunox",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e162688afdcaf3f6498af30badfe31c5.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_86a0c8cc7b2fc883b59a6dd63c766aef.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Burst",
+    "Damage"
+  ],
+  "lore": {
+    "story": "A miraculous creature born in Twilight Orb.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 6850,
+      "name": "Dreamland Twist",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_664a96f964b628fff553bf11064a9367.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Lunox is twisted by the powers of Chaos and Order.\nWhen Lunox uses <font color=\"a6aafb\">Power of Order</font>, she gains 0.5% of Spell Vamp for every 1% of <font color=\"7f62fe\">Magic Penetration</font>. \nWhen Lunox uses <font color=\"a6aafb\">Power of Chaos</font>, she gains 0.5% of <font color=\"7f62fe\">Magic Penetration</font> for every 1% of Spell Vamp.",
+      "video": ""
+    },
+    {
+      "id": 6810,
+      "name": "Starlight Pulse",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_acf846262a6ad486ce0a7bc52ea7adeb.png",
+      "cooldown_cost": "CD: 2   Mana Cost: 30",
+      "tags": [],
+      "description": "Lunox summons a rain of starlight upon nearby enemies, dealing 200<font color=\"62f8fe\"> (+110% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>. The starlight then returns to Lunox, each restoring 75<font color=\"62f8fe\"> (+30% Total Magic Power)</font> HP to her. The HP restored is doubled when hitting enemy heroes.\n\nThis skill shares cooldown with <font color=\"a6aafb\">Chaos Assault</font>. Grants one stack of <font color=\"a6aafb\">Power of Order</font> after use and ends the Power of Chaos enhanced state.",
+      "video": ""
+    },
+    {
+      "id": 6820,
+      "name": "Chaos Assault ",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1785f547a0d65857cdd756fd248932ed.png",
+      "cooldown_cost": "CD: 2   Mana Cost: 30",
+      "tags": [],
+      "description": "Lunox unleashes Chaos Energy at an enemy, dealing <font color=\"7f62fe\">Magic Damage</font> equal to 250<font color=\"62f8fe\"> (+120% Total Magic Power)</font> plus 2.5% of the target's Max HP (1.5% of Max HP against Creeps).\n\nThis skill shares cooldown with <font color=\"a6aafb\">Starlight Pulse</font>. Grants one stack of <font color=\"a6aafb\">Power of Chaos</font> after use.",
+      "video": ""
+    },
+    {
+      "id": 6830,
+      "name": "Cosmic Fission",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d67ac23319eff91169044a7d89484d77.png",
+      "cooldown_cost": "CD: 10   Mana Cost: 70",
+      "tags": [],
+      "description": "When Lunox uses the power of Order and Chaos, she will deal 300<font color=\"62f8fe\"> (+150% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the targets along the way and slow them by 40% for 2s.",
+      "video": ""
+    },
+    {
+      "id": 6840,
+      "name": "Order & Chaos",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_89f09bb6c7f9eece05e75759ca7eedef.png",
+      "cooldown_cost": "CD: 30   Mana Cost: 120",
+      "tags": [],
+      "description": "Lunox is twisted by the powers of Chaos and Order.\n\nWhen Lunox uses <font color=\"a6aafb\">Power of Order</font>, she gains <font color=\"a6aafb\">Brilliance</font> and becomes invincible while dealing continuous damage to nearby enemies. \n\nWhen Lunox uses <font color=\"a6aafb\">Power of Chaos</font>, she gains <font color=\"a6aafb\">Darkening</font> and can blink in a target direction and greatly reduces the cooldown of <font color=\"a6aafb\">Chaos Assault</font> for a brief period.",
+      "video": ""
+    },
+    {
+      "id": 6850,
+      "name": "Dreamland Twist",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_664a96f964b628fff553bf11064a9367.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Lunox is twisted by the powers of Chaos and Order.\nWhen Lunox uses <font color=\"a6aafb\">Power of Order</font>, she gains 0.5% of Spell Vamp for every 1% of <font color=\"7f62fe\">Magic Penetration</font>. \nWhen Lunox uses <font color=\"a6aafb\">Power of Chaos</font>, she gains 0.5% of <font color=\"7f62fe\">Magic Penetration</font> for every 1% of Spell Vamp.",
+      "video": ""
+    },
+    {
+      "id": 6810,
+      "name": "Starlight Pulse",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_acf846262a6ad486ce0a7bc52ea7adeb.png",
+      "cooldown_cost": "CD: 2   Mana Cost: 30",
+      "tags": [],
+      "description": "Lunox summons a rain of starlight upon nearby enemies, dealing 200<font color=\"62f8fe\"> (+110% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>. The starlight then returns to Lunox, each restoring 75<font color=\"62f8fe\"> (+30% Total Magic Power)</font> HP to her. The HP restored is doubled when hitting enemy heroes.\n\nThis skill shares cooldown with <font color=\"a6aafb\">Chaos Assault</font>. Grants one stack of <font color=\"a6aafb\">Power of Order</font> after use and ends the Power of Chaos enhanced state.",
+      "video": ""
+    },
+    {
+      "id": 6821,
+      "name": "Chaos Assault ",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1785f547a0d65857cdd756fd248932ed.png",
+      "cooldown_cost": "CD: 0.264",
+      "tags": [],
+      "description": "Lunox unleashes Chaos Energy at an enemy, dealing <font color=\"7f62fe\">Magic Damage</font> equal to 250<font color=\"62f8fe\"> (+120% Total Magic Power)</font> plus 2.5% of the target's Max HP (1.5% of Max HP against Creeps).\n\nWhile enhanced by Power of Chaos, this skill has a brief cooldown and its cast interval is unaffected by Cooldown Reduction.",
+      "video": ""
+    },
+    {
+      "id": 6830,
+      "name": "Cosmic Fission",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d67ac23319eff91169044a7d89484d77.png",
+      "cooldown_cost": "CD: 10   Mana Cost: 70",
+      "tags": [],
+      "description": "When Lunox uses the power of Order and Chaos, she will deal 300<font color=\"62f8fe\"> (+150% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the targets along the way and slow them by 40% for 2s.",
+      "video": ""
+    },
+    {
+      "id": 6870,
+      "name": "Power of Order: Brilliance",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_928f5ae97116806edf7fd06522aee9e9.png",
+      "cooldown_cost": "CD: 30   Mana Cost: 120",
+      "tags": [],
+      "description": "Lunox extends the Light Barrier, becomes invincible for 2.5s, and gains 30% extra Movement Speed while dealing 100<font color=\"62f8fe\"> (+50% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> every 0.5s to nearby enemies.",
+      "video": ""
+    },
+    {
+      "id": 6850,
+      "name": "Dreamland Twist",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_664a96f964b628fff553bf11064a9367.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Lunox is twisted by the powers of Chaos and Order.\nWhen Lunox uses <font color=\"a6aafb\">Power of Order</font>, she gains 0.5% of Spell Vamp for every 1% of <font color=\"7f62fe\">Magic Penetration</font>. \nWhen Lunox uses <font color=\"a6aafb\">Power of Chaos</font>, she gains 0.5% of <font color=\"7f62fe\">Magic Penetration</font> for every 1% of Spell Vamp.",
+      "video": ""
+    },
+    {
+      "id": 6810,
+      "name": "Starlight Pulse",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_acf846262a6ad486ce0a7bc52ea7adeb.png",
+      "cooldown_cost": "CD: 2   Mana Cost: 30",
+      "tags": [],
+      "description": "Lunox summons a rain of starlight upon nearby enemies, dealing 200<font color=\"62f8fe\"> (+110% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>. The starlight then returns to Lunox, each restoring 75<font color=\"62f8fe\"> (+30% Total Magic Power)</font> HP to her. The HP restored is doubled when hitting enemy heroes.\n\nThis skill shares cooldown with <font color=\"a6aafb\">Chaos Assault</font>. Grants one stack of <font color=\"a6aafb\">Power of Order</font> after use and ends the Power of Chaos enhanced state.",
+      "video": ""
+    },
+    {
+      "id": 6820,
+      "name": "Chaos Assault ",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1785f547a0d65857cdd756fd248932ed.png",
+      "cooldown_cost": "CD: 2   Mana Cost: 30",
+      "tags": [],
+      "description": "Lunox unleashes Chaos Energy at an enemy, dealing <font color=\"7f62fe\">Magic Damage</font> equal to 250<font color=\"62f8fe\"> (+120% Total Magic Power)</font> plus 2.5% of the target's Max HP (1.5% of Max HP against Creeps).\n\nThis skill shares cooldown with <font color=\"a6aafb\">Starlight Pulse</font>. Grants one stack of <font color=\"a6aafb\">Power of Chaos</font> after use.",
+      "video": ""
+    },
+    {
+      "id": 6830,
+      "name": "Cosmic Fission",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d67ac23319eff91169044a7d89484d77.png",
+      "cooldown_cost": "CD: 10   Mana Cost: 70",
+      "tags": [],
+      "description": "When Lunox uses the power of Order and Chaos, she will deal 300<font color=\"62f8fe\"> (+150% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the targets along the way and slow them by 40% for 2s.",
+      "video": ""
+    },
+    {
+      "id": 6860,
+      "name": "Power of Chaos: Darkening",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3673d187cf12182b09ba1a0054ca0742.png",
+      "cooldown_cost": "CD: 30   Mana Cost: 120",
+      "tags": [],
+      "description": "Lunox blinks in the target direction, dealing 250<font color=\"62f8fe\"> (+100% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to nearby enemies, slowing them by 30% for 4s.\n\nFor the next 4s, Lunox enhances her <font color=\"a6aafb\">Power of Chaos</font> to greatly reduce the cooldown of <font color=\"a6aafb\">Chaos Assault</font> (unaffected by CD Reduction), but using <font color=\"a6aafb\">Starlight Pulse</font> will end this enhanced state.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 90,
+    "ability": [
+      30,
+      90,
+      20,
+      90
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.003577,
+        "ban_rate": 0.002018,
+        "win_rate": 0.507053
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Lunox's 3rd Skill to slow the opponent and her 2nd Skill to poke. When she takes damage, use her 1st Skill to heal back up."
+    },
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Lunox's 3rd Skill to slow enemies first and follow up with her 2nd Skill to gain the Power of Chaos, then activate her Darkening Ultimate and spam her 2nd Skill for a lot of damage. Afterwards, use her 1st Skill to gain the Power of Order, then activate her Brilliance Ultimate to become invincible and deal damage to nearby enemies."
+    }
+  ]
+}

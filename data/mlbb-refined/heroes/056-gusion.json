@@ -1,0 +1,101 @@
+{
+  "id": 56,
+  "name": "Gusion",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c6cd232de60da5372a7101a203e56554.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b0de2d71aeb40a289c44288b1861b641.png",
+  "role": [
+    "Assassin"
+  ],
+  "lane": [],
+  "specialty": [
+    "Burst",
+    "Magic Damage"
+  ],
+  "lore": {
+    "story": "Rebellious son of House Paxley.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 5640,
+      "name": "Dagger Specialist",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_dd599ad04fa456a864ea1e34e14d7739.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Each skill cast adds a rune to Gusion's dagger (stacks up to 4 times). Each stack enhances Gusion's next Basic Attack to deal additional damage equal to 3% of the target's Max HP and restore 50<font color=\"62f8fe\"> (+25% Total Magic Power)</font> HP to himself.",
+      "video": ""
+    },
+    {
+      "id": 5610,
+      "name": "Sword Spike",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3c2d474c18f5d10925a4c732992df352.png",
+      "cooldown_cost": "CD: 9   Mana Cost: 50",
+      "tags": [],
+      "description": "Gusion throws a dagger in the target direction, dealing 200<font color=\"62f8fe\"> (+50% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the first enemy hit and marking them.\n\n<font color=\"a6aafb\">Use Again</font>: Gusion moves behind the marked enemy, dealing 200<font color=\"62f8fe\"> (+100% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to them. This skill cannot be interrupted while Gusion is moving behind the marked enemy.",
+      "video": ""
+    },
+    {
+      "id": 5620,
+      "name": "Shadowblade Slaughter",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_40bc6e5205c84fb8cd337031ca8480d0.png",
+      "cooldown_cost": "CD: 9   Mana Cost: 60",
+      "tags": [],
+      "description": "Gusion throws a volley of daggers in the target direction, each dealing 100<font color=\"62f8fe\"> (+40% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit and slowing them by 6% for 2s (when hit by multiple daggers, the slow effect can stack up to 30%).\n\n<font color=\"a6aafb\">Use Again</font>: Gusion recalls the daggers, each dealing 65<font color=\"62f8fe\"> (+40% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in its path.",
+      "video": ""
+    },
+    {
+      "id": 5630,
+      "name": "Incandescence",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6ffa279a397359b614e8acecde38c0bb.png",
+      "cooldown_cost": "CD: 24   Mana Cost: 100",
+      "tags": [],
+      "description": "Gusion dashes to the target location, resetting the cooldowns of <font color=\"a6aafb\">Sword Spike</font> and <font color=\"a6aafb\">Shadowblade Slaughter</font>. If <font color=\"a6aafb\">Shadowblade Slaughter</font> was cast once before the reset, Gusion can throw another five daggers on his next <font color=\"a6aafb\">Shadowblade Slaughter</font> cast, and recall a total of ten daggers afterward.\n\n<font color=\"a6aafb\">Use Again</font>: Gusion dashes a short distance in the target direction.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 80,
+    "ability": [
+      30,
+      90,
+      10,
+      80
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.019326,
+        "ban_rate": 0.096253,
+        "win_rate": 0.505495
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Gusion should first use his 2nd Skill for damage, then his Ultimate to reset the cooldown for his 2nd Skill. Follow up with his 2nd and 1st Skill combo for more damage. And use his 2nd Skill again to recall all 10 daggers right after moving behind a target with his 1st Skill for massive damage. He can then finish off any remaining low-HP heroes and escape with his Ultimate."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Gusion can use his 1st Skill to mark the enemies, then use his 2nd Skill to slow them down. Next, he can use his 1st Skill again to move behind a target enemy and use his 2nd Skill again to deal massive damage. And finally, use his Basic Attacks to finish off the target."
+    }
+  ]
+}

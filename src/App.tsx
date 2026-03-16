@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import AuthFlow from "./screens/Auth";
 import MainApp from "./screens/MainApp";
 import { storage, AUTH_KEYS, APP_KEYS } from "./services/storage";
@@ -6,6 +7,7 @@ import { storage, AUTH_KEYS, APP_KEYS } from "./services/storage";
 const ONBOARDING_VERSION = "v2";
 
 export default function App() {
+  const location = useLocation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isGuest, setIsGuest] = useState(false);
   const [authInitialStep, setAuthInitialStep] = useState<"splash" | "login" | "register">("splash");
@@ -56,13 +58,15 @@ export default function App() {
           return;
         }
 
-        setIsGuest(false);
-        setIsAuthenticated(false);
+        // Default anonymous mode: allow browsing Wiki without login.
+        setIsGuest(true);
+        setIsAuthenticated(true);
       } catch (error) {
         console.error("Failed to restore app session:", error);
         if (isMounted) {
-          setIsGuest(false);
-          setIsAuthenticated(false);
+          // Fallback to anonymous mode if session restore fails.
+          setIsGuest(true);
+          setIsAuthenticated(true);
           setAuthInitialStep("splash");
         }
       } finally {
@@ -81,8 +85,9 @@ export default function App() {
 
   useEffect(() => {
     const handleForcedLogout = () => {
-      setIsAuthenticated(false);
-      setIsGuest(false);
+      // Keep app accessible in anonymous mode after token/session invalidation.
+      setIsAuthenticated(true);
+      setIsGuest(true);
       setAuthInitialStep("login");
     };
 
@@ -134,12 +139,17 @@ export default function App() {
     );
   }
 
+  const isWikiRoute =
+    location.pathname === "/" || location.pathname.startsWith("/wiki");
+  const shouldShowAuthFlow = !isAuthenticated && !isWikiRoute;
+  const effectiveGuest = isGuest || !isAuthenticated;
+
   return (
     <div className="h-[100dvh] w-full bg-bg-light dark:bg-bg-dark text-gray-900 dark:text-gray-100 overflow-hidden flex flex-col font-sans pt-safe pb-safe">
-      {!isAuthenticated ? (
+      {shouldShowAuthFlow ? (
         <AuthFlow onLogin={handleLogin} initialStep={authInitialStep} />
       ) : (
-        <MainApp isGuest={isGuest} onLogout={handleLogout} onRequireAuth={handleRequireAuth} />
+        <MainApp isGuest={effectiveGuest} onLogout={handleLogout} onRequireAuth={handleRequireAuth} />
       )}
     </div>
   );

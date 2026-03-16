@@ -1,0 +1,103 @@
+{
+  "id": 48,
+  "name": "Diggie",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_45ea26bab973b16071fe6e3d52e18a66.png",
+  "role": [
+    "Support"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Guard",
+    "Poke"
+  ],
+  "lore": {
+    "story": "The owl scholar who can control time.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 4840,
+      "name": "Young Again",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c925354be703b164f4cb1e334f7f0999.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Upon death, Diggie reverses time and turns back to egg form, in which he can continue to move around and gains a new set of skills. He cannot be targeted in egg form and will revive after a period of time.",
+      "video": ""
+    },
+    {
+      "id": 4810,
+      "name": "Auto Alarm Bomb",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c86c657882cc6e1d60d78de99684630b.png",
+      "cooldown_cost": "CD: 8   Mana Cost: 70",
+      "tags": [],
+      "description": "Diggie flings an owl alarm to the target location that remains stationary for 25s or until it reacts to the first enemy in range, chasing them and exploding upon collision. The explosion deals 350<font color=\"62f8fe\"> (+100% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit and slows them by 30%.\n\nDiggie gains 2 stacks of <font color=\"a6aafb\">Dangerous Sparks</font> each time an enemy hero is hit by the explosion (up to 60 stacks), each stack increasing the skill's damage by 1%. He loses half the stacks upon death, but can gain 1 stack of <font color=\"a6aafb\">Dangerous Sparks</font> each time his skill hits an enemy hero when in egg form.\n\nUp to 5 owl alarms can exist at the same time.",
+      "video": ""
+    },
+    {
+      "id": 4820,
+      "name": "Reverse Time",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_89a503e45d0aa3d3118f3bf9860f7793.png",
+      "cooldown_cost": "CD: 15   Mana Cost: 90",
+      "tags": [],
+      "description": "Diggie marks the target enemy hero for 4s and pulls them back to their previous location after the duration ends, dealing 150<font color=\"62f8fe\"> (+100% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and briefly slowing them by 80%.\n\nIf the enemy moves out of the circle, the pull will be triggered early.",
+      "video": ""
+    },
+    {
+      "id": 4830,
+      "name": "Time Journey",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_51ad0888fa262bf92b3cadf75b7d371c.png",
+      "cooldown_cost": "CD: 76   Mana Cost: 130",
+      "tags": [],
+      "description": "Diggie removes all debuffs on nearby allied heroes (including himself) and grants them a 650<font color=\"62f8fe\"> (+300% Total Magic Power)</font> shield and Control Immunity for 2s. He also gains 50% Movement Speed for 0.5s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      40,
+      40,
+      20,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.002253,
+        "ban_rate": 0.068381,
+        "win_rate": 0.549711
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Diggie's 1st Skill to poke the enemy. If an enemy tries to initiate, pull them back with his 2nd Skill. If a teammate gets CC'd or takes too much damage, use Diggie's Ultimate to save them."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Diggie's 2nd Skill to confine the enemy to their location, then toss an owl alarm at them with his 1st Skill."
+    }
+  ]
+}

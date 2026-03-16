@@ -1,0 +1,103 @@
+{
+  "id": 70,
+  "name": "Belerick",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5f2a9eca0bafd4ed8dc39a93c771b3af.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_29fa60e268304ff61fce131a158e0ad2.png",
+  "role": [
+    "Tank"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Crowd Control",
+    "Regen"
+  ],
+  "lore": {
+    "story": "A kind and fraternal elemental creature.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 7040,
+      "name": "Deadly Thorns",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_570abe4ad1267c65f2c4f368a5f4add9.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Whenever Belerick takes 50 or more damage, he has a 25% chance to shoot the nearest enemy unit, dealing <font color=\"7f62fe\">Magic Damage</font> equal to 55(+5*Hero Level) plus 1.8% of his Max HP (scales with level). This attack can be triggered once every 0.4s.\nHis HP obtained from Equipment and Emblems is increased by 30%.",
+      "video": ""
+    },
+    {
+      "id": 7010,
+      "name": "Ancient Seed",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5433e8607e73b325e705ad88ca513c98.png",
+      "cooldown_cost": "CD: 8   Mana Cost: 60",
+      "tags": [],
+      "description": "Belerick releases vines in a designated direction, dealing 200<font color=\"62f8fe\"> (+50% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies along the path and slowing them by 25%. Ancient Seeds left by the vines will erupt into thorns after 1s, dealing 200<font color=\"62f8fe\"> (+50% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies on the path and taunting them for 1.2s.\n\nDeals 80% extra damage against Minions.",
+      "video": ""
+    },
+    {
+      "id": 7020,
+      "name": "Nature's Strike",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bd8021db8bc655e12a9de54aef597fb3.png",
+      "cooldown_cost": "CD: 14   Mana Cost: 60",
+      "tags": [],
+      "description": "Belerick increases his Movement Speed by 80% and enhances his next Basic Attack. (The Movement Speed gained will decrease in 2s.)\nThis enhanced Basic Attack deals 300<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and slows the target by 60% for 1.4s. Belerick also recovers HP equal to 240 plus 10% of his lost HP.\nEach time Deadly Thorns is triggered, reduce the cooldown of this skill by 1s.",
+      "video": ""
+    },
+    {
+      "id": 7030,
+      "name": "Wrath of Dryad",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8b1501526a70c36f4c89d7ab971f9eb0.png",
+      "cooldown_cost": "CD: 50   Mana Cost: 150",
+      "tags": [],
+      "description": "Belerick conjures spreading vines around him, dealing 100<font color=\"62f8fe\"> (+30% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in the area 4 times, taunting and slowing them for 1.5s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 10,
+    "ability": [
+      90,
+      40,
+      100,
+      10
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.010063,
+        "ban_rate": 0.035655,
+        "win_rate": 0.508159
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Belerick's 2nd Skill to close the distance with the opponent and slow them with his enhanced Basic Attack, then follow up with his 1st Skill to CC them."
+    },
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, charge into the enemy formation with Belerick's 2nd Skill and taunt as many targets as possible with his Ultimate, then follow up with his 1st Skill to keep them taunted."
+    }
+  ]
+}

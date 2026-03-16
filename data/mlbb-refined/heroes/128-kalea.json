@@ -1,0 +1,104 @@
+{
+  "id": 128,
+  "name": "Kalea",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_64/100_4f3d4649e301c76daf20bd8811f3095c.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/gms/image/3a7693b9a565b4e1d67d57ae73eb5297.webp",
+  "role": [
+    "Support",
+    "Fighter"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Control",
+    "Regen"
+  ],
+  "lore": {
+    "story": "With her serpent tail, this proud descendant of the Great Serpent swims gracefully through the Vonetis Sea, aspiring to one day carry the full power of her heritage.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 12890,
+      "name": "Surge of Life",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_64/100_1d60372b6081b1d9aa2493a6939d38a1.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "After casting a skill, Kalea creates a <font color=\"a6aafb\">Water Zone</font> on the ground. When Kalea casts a skill within this zone, she will absorb the Water Zone to enhance her next three Basic Attacks with different effects:\nFirst Basic Attack: Kalea dashes to the target, dealing <font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.\nSecond Basic Attack: Kalea unleashes a flurry of attacks, dealing 200<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and recovering 40<font color=\"26e407\"> (+10% Total HP)</font>  <font color=\"62f8fe\">(+60% Total Magic Power)</font> HP for herself and the nearby ally with the lowest HP.\nThird Basic Attack: Kalea uses her tail to strike the area around her target, dealing 100<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and creating a new <font color=\"a6aafb\">Water Zone</font>. Enhanced Basic Attacks are not affected by Attack Speed.",
+      "video": ""
+    },
+    {
+      "id": 12810,
+      "name": "Wavebreaker",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_64/100_e5ccc8c144997bb6676fe8199bc9979b.png",
+      "cooldown_cost": "CD: 4",
+      "tags": [],
+      "description": "Kalea slams her fist into the ground, creating a wave that deals 200<font color=\"26e407\"> (+5% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies and slows them by 40% for 1.5s.",
+      "video": ""
+    },
+    {
+      "id": 12820,
+      "name": "Tidal Strike",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_64/100_6cc2f9fe1c18c569d0f327e29f0c77fa.png",
+      "cooldown_cost": "CD: 13",
+      "tags": [],
+      "description": "Kalea charges forward and body slams the first enemy hero she encounters, knocking them airborne for 0.6s (unaffected by Resilience) while dealing 150<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.\nIf she collides with an obstacle or touches the edge of a <font color=\"a6aafb\">Water Zone</font> during her charge, Kalea will leap into the air. Cast the skill again to slam down at a target location, dealing 150<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and knocking enemies airborne for 0.6s (unaffected by Resilience).",
+      "video": ""
+    },
+    {
+      "id": 12830,
+      "name": "Tsunami Slam",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_64/100_ff24a8b43cd23f1be612856e11e8e761.png",
+      "cooldown_cost": "CD: 56",
+      "tags": [],
+      "description": "Kalea grabs an enemy hero with her tail and slams them down in the Joystick's direction (drag the Joystick to change landing spot). She gains Control Immunity during this process. Upon landing, deals 300<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the target and nearby enemies.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      60,
+      20,
+      90,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.002549,
+        "ban_rate": 0.013243,
+        "win_rate": 0.457542
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "Laning Combos",
+      "description": " While ganking with Kalea, use her 2nd Skill to close in and CC the target, then use her 1st Skill to activate her enhanced Basic Attacks and unleash them on the target."
+    },
+    {
+      "skill_id": null,
+      "title": "Teamfight Combos",
+      "description": "In teamfights, Kalea should prioritize enemy Mages or Marksmen. Use the first part of her 2nd Skill to dash into an obstacle near the target, then dive down to CC them, and follow up with her Ultimate to slam them into your team. Use her 1st Skill to trigger her Passive, and unload her enhanced Basic Attacks on the target."
+    }
+  ]
+}

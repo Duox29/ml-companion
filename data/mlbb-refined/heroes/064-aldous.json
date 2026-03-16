@@ -1,0 +1,103 @@
+{
+  "id": 64,
+  "name": "Aldous",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0eb32187d08f14779585a8be53b83f01.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4222a9efc85e75188d3048bd7d042d32.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Burst",
+    "Support"
+  ],
+  "lore": {
+    "story": "The guardian of the Minoan Labyrinth.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 6440,
+      "name": "Contract: Transform",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_17f31391481c569bdb6691e9feb3fc21.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "After every 2 Basic Attacks, Aldous gains a 500 (+3 times the number of <font color=\"a6aafb\">Soul Steal</font> stacks) shield for 3s on his next Basic Attack.\nThis effect can only be triggered once every 5s.",
+      "video": ""
+    },
+    {
+      "id": 6410,
+      "name": "Contract: Soul Steal",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_39d2e1dab8a446d9d5adb5f4b564505c.png",
+      "cooldown_cost": "CD: 4   Mana Cost: 45",
+      "tags": [],
+      "description": "Aldous unleashes his inner energy to enhance his next Basic Attack to deal <font color=\"fb1f1f\">Physical Damage</font> equal to 200<font color=\"fba51f\"> (+100% Total Physical Attack)</font> plus 5 times the number of <font color=\"a6aafb\">Soul Steal</font> stacks.\n\nIf this attack kills an enemy hero/Siege Minion/other non-hero unit, Aldous will gain 10/10/4 stacks of <font color=\"a6aafb\">Soul Steal</font> (up to 650 stacks).\n\nThe enhanced Basic Attack deals 300% extra Base Damage to Minions or Creeps. Aldous gets an extra 5/2 stack(s) of <font color=\"a6aafb\">Soul Steal</font> when a nearby enemy Siege Minion/other non-hero unit dies.",
+      "video": ""
+    },
+    {
+      "id": 6420,
+      "name": "Contract: Explosion",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_523832f81d6deeaf65b1f9a0a4735591.png",
+      "cooldown_cost": "CD: 12   Mana Cost: 80",
+      "tags": [],
+      "description": "Aldous assumes a defensive stance, gaining 30% Damage Reduction and 20% extra Movement Speed for 2s or until manual cancellation. He then deals 100<font color=\"fba51f\"> (+20% Total Physical Attack)</font>-200<font color=\"fba51f\"> (+40% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies and stuns them for 0.5-1s (scales with defensive stance duration).",
+      "video": ""
+    },
+    {
+      "id": 6430,
+      "name": "Contract: Chase Fate",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3f696f83c150449f6a691ce738ee6576.png",
+      "cooldown_cost": "CD: 60   Mana Cost: 150",
+      "tags": [],
+      "description": "Aldous gains vision of all enemy heroes for 5s. During this time, if Aldous uses this skill again, he can dash toward an enemy hero. When Aldous hits that enemy hero, he will deal <font color=\"fb1f1f\">Physical Damage</font> equal to 250 plus 8% of the target's Max HP and knock back the target for 1s. (Aldous can interrupt target's Recall during the dash.)",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 60,
+    "ability": [
+      70,
+      30,
+      50,
+      60
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.004143,
+        "ban_rate": 0.005301,
+        "win_rate": 0.489609
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Use Aldous' Ultimate to gain vision on the enemy team, then use his Ultimate again to dash to the most vulnerable target. After the dash, use Aldous' 1st and 2nd skill combo to hit the enemy with his enhanced Basic Attacks."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Use Aldous' 1st Skill to enhance his next Basic Attack,\r\nthen his 2nd Skill to close in on the enemy to hit them with his enhanced attack. Follow with another 1st Skill to hit the enemy with another enhanced Basic Attack."
+    }
+  ]
+}

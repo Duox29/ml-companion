@@ -1,0 +1,112 @@
+{
+  "id": 52,
+  "name": "Pharsa",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_10151d43910e62f7aa9ce08df481a20f.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d3de1398e008eadbcc2d711ba43c8c42.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Burst",
+    "Poke"
+  ],
+  "lore": {
+    "story": "Crow Princess of Askati Forest.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 5240,
+      "name": "Spiritual Unity",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ebde3d94865d5d05527b4becf8099d61.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Every 5 to 8s (varies with <font color=\"a6aafb\">Feathered Air Strike</font> level), Verri enters the Hunting state and assists Pharsa on her next attack against an enemy hero, dealing extra <font color=\"7f62fe\">Magic Damage</font> equal to 8% of the target's Max HP (+ 1% for every 200 Magic Power owned) and slowing them by 60% for 1s.",
+      "video": ""
+    },
+    {
+      "id": 5210,
+      "name": "Curse of Crow",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f742fccb6bbc9436b3085a1ee4b740f7.png",
+      "cooldown_cost": "CD: 8   Mana Cost: 60",
+      "tags": [],
+      "description": "Pharsa unleashes a blast of magic at the target location, dealing 300<font color=\"62f8fe\"> (+120% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit and marking them for 4s.\n\nWhen Pharsa hits a marked enemy with a Basic Attack or active skill, the mark is consumed to stun them for 1s.\nMarked enemies have their position revealed.",
+      "video": ""
+    },
+    {
+      "id": 5220,
+      "name": "Energy Impact",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_dcf364fc10b2a3ee13ba23a6d56f7987.png",
+      "cooldown_cost": "CD: 6.5   Mana Cost: 60",
+      "tags": [],
+      "description": "Pharsa releases magic energy in the target direction, dealing 475<font color=\"62f8fe\"> (+145% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit.",
+      "video": ""
+    },
+    {
+      "id": 5230,
+      "name": "Feathered Air Strike",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f0d9ce0152491c148821703d1e31d802.png",
+      "cooldown_cost": "CD: 36   Mana Cost: 120",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Each level-up reduces <font color=\"a6aafb\">Spiritual Unity</font>'s interval by 1s.\n<font color=\"a6aafb\">Active</font>: Pharsa takes flight for 8s and bombards the target location, dealing 530<font color=\"62f8fe\"> (+160% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies within the area. This skill can be cast up to 4 times within the duration.",
+      "video": ""
+    },
+    {
+      "id": 5250,
+      "name": "Wings by Wings",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_566a1f86bd9177eb7b75f0fb0a0c762c.png",
+      "cooldown_cost": "CD: 23",
+      "tags": [],
+      "description": "Pharsa turns into mist and wraps herself around Verri, gaining 150% extra Movement Speed (decaying over time) and the ability to fly over terrain. This state lasts up to 5s or until she uses a Basic Attack or skills, or is controlled.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 30,
+    "ability": [
+      20,
+      90,
+      50,
+      30
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.007923,
+        "ban_rate": 0.007521,
+        "win_rate": 0.482691
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Pharsa can use her 4th Skill to get into an advantageous position to initiate a teamfight, followed by a damage combo with her 1st and 3rd skills and use her 2nd Skill when she wants to deal extra damage."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Pharsa should start with her 1st Skill to mark the enemy, follow up with her 2nd Skill to apply CC, and then cast her Ultimate to deal an insane amount of Magic Damage."
+    }
+  ]
+}

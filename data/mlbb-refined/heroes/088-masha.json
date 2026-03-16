@@ -1,0 +1,113 @@
+{
+  "id": 88,
+  "name": "Masha",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c97a314dc260dfad1311512ddc03f936.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_087f15d931d74f75b577f5aff372ce25.png",
+  "role": [
+    "Fighter",
+    "Tank"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Push",
+    "Damage"
+  ],
+  "lore": {
+    "story": "Guardian of the Direbears.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 8840,
+      "name": "Ancient Strength",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_11fea6d6964fce2e229664f69b8b74a0.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Blessed by the Bear King, Masha has 3 HP bars and won't die until all of them are depleted. She can ignore an instance of damage and remove all Control effects on herself each time she loses an HP bar. When Masha only has two HP bars left, skills will only require 50% of their original HP Cost to cast. When Masha only has one HP bar left, she doesn't need to spend HP to cast skills.",
+      "video": ""
+    },
+    {
+      "id": 8810,
+      "name": "Wild Power",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e8d16ab8090bc35167878013b946b53f.png",
+      "cooldown_cost": "CD: 4",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Masha gains <font color=\"a6aafb\">Power of the Wild</font>, causing her Basic Attacks to deal extra <font color=\"fb1f1f\">Physical Damage</font> equal to 2<font color=\"fba51f\"> (+1% Extra Physical Attack)</font>% of the target's Max HP (up to 60 against Creeps and doesn't take effect on Turrets or Base).\n\n<font color=\"a6aafb\">Active</font>: Masha consumes 24% HP to empower herself, gaining 50% Movement Speed (decays over time) for 2s. She also increases the extra <font color=\"fb1f1f\">Physical Damage</font> from <font color=\"a6aafb\">Power of the Wild</font> by 3<font color=\"fba51f\"> (+1% Extra Physical Attack)</font>% of the target's Max HP and gains 50% Attack Speed for her next two Basic Attacks.",
+      "video": ""
+    },
+    {
+      "id": 8820,
+      "name": "Howl Shock",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_18145750af85a40bbae3287f1ed47ebb.png",
+      "cooldown_cost": "CD: 8",
+      "tags": [],
+      "description": "Masha spends 24% HP to roar at enemies, dealing 200<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and reducing their Attack Speed by 50% for 2s.",
+      "video": ""
+    },
+    {
+      "id": 8830,
+      "name": "Thunderclap",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a7bd1cc6fe451768339602321771094a.png",
+      "cooldown_cost": "CD: 35",
+      "tags": [],
+      "description": "Masha spends 34% HP to lunge at an enemy hero (immune to control effects during the lunge), dealing 400<font color=\"fba51f\"> (+220% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>, slowing them by 25% for 2s, and knocking back nearby enemies. The cooldown of this skill will be reset each time Masha loses an HP bar.",
+      "video": ""
+    },
+    {
+      "id": 8850,
+      "name": "Life Recovery",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_13f8eb8f71c22d308124486b630def4c.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Masha gains Energy when dealing damage to enemies and extra Energy when dealing damage with Wild Power.\n\nAfter leaving combat for 3s, Masha can activate this skill to spend half a full bar of Energy to recover a full HP bar. Masha is invincible while casting this skill.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 30,
+    "ability": [
+      50,
+      70,
+      30,
+      30
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.00117,
+        "ban_rate": 0.002365,
+        "win_rate": 0.575269
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Masha's 1st Skill to close the gap with the enemy and slow them with her 2nd Skill to engage. Follow up with Basic Attacks for more damage."
+    },
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, charge into an enemy with Masha's Ultimate, then use her 1st Skill followed by Basic Attacks to deal more damage. Whenever she loses an HP bar, use her Ultimate again to charge at the target and slow them with her 2nd Skill."
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "id": 51,
+  "name": "Helcurt",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6abf0c552b59b8ca4cbc1af3662ef176.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4fcae9e3a7db0bd9f49aea013839d217.png",
+  "role": [
+    "Assassin"
+  ],
+  "lane": [
+    "Jungle",
+    "Roam"
+  ],
+  "specialty": [
+    "Push",
+    "Burst"
+  ],
+  "lore": {
+    "story": "The nightmare of the Abyss who's willing to betray anyone in order to survive.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 5140,
+      "name": "Shadow of Styx",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_dc8d2817dd15f112fee407d391b40263.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Helcurt remains in <font color=\"a6aafb\">Prowler</font> state until spotted by the enemy team, gaining 15% extra Movement Speed, and continuously regenerating <font color=\"fba51f\"> (+30% Total Physical Attack)</font> HP if he has not dealt any damage.\nHe gains 50% extra Attack Speed and 50% extra Movement Speed (decreasing over time) for 4s upon being spotted and leaves <font color=\"a6aafb\">Prowler</font> state 0.75s later.\nAny hero killed after being hit by Helcurt leaves a <font color=\"a6aafb\">dark fog</font> that explodes and spreads with a cooldown of 10s. Helcurt <font color=\"a6aafb\">Conceals</font> himself while within the <font color=\"a6aafb\">dark fog</font>.",
+      "video": ""
+    },
+    {
+      "id": 5110,
+      "name": "Hidden Terror",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c382e8831549b8418b96bd2bf1a1a747.png",
+      "cooldown_cost": "CD: 15",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: When Helcurt is in <font color=\"a6aafb\">Prowler</font> state, the skill <font color=\"a6aafb\">terrifies</font> enemy heroes hit and briefly reveals them. Its cooldown decreases 3 times as fast as normal.\n\n<font color=\"a6aafb\">Active</font>: Helcurt blinks to the target location and deals 150<font color=\"fba51f\"> (+70% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies within the area, reducing their Movement Speed by 60% for 0.75s.",
+      "video": ""
+    },
+    {
+      "id": 5120,
+      "name": "Deadly Stinger",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_488c8c77f2759c625d9b480310190446.png",
+      "cooldown_cost": "CD: 4",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Helcurt gains one Deadly Stinger for every 1.5s spent in <font color=\"a6aafb\">Prowler</font> state or on each Basic Attack. Up to 5 <font color=\"a6aafb\">stingers</font> can be stored.\n<font color=\"a6aafb\">Active</font>: Helcurt fires all <font color=\"a6aafb\">Deadly Stingers</font> forward, each dealing 180<font color=\"fba51f\"> (+50% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies (Minions and Creeps take only 70% of the damage).\n<font color=\"a6aafb\">Deadly Stinger</font> counts as a Basic Attack but cannot Crit.",
+      "video": ""
+    },
+    {
+      "id": 5130,
+      "name": "Dark Night Falls",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_85ec55d4fae0baee5fc5b776963020c5.png",
+      "cooldown_cost": "CD: 60",
+      "tags": [],
+      "description": "Helcurt summons the Dark Night, reducing all enemies' sight range and making them lose sight of their allies for 3s. During Dark Night, Helcurt gains 40% extra Movement Speed.\n\nThe Dark Night makes it easier for Helcurt to leave enemies' sight range.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      30,
+      50,
+      50,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.009892,
+        "ban_rate": 0.211306,
+        "win_rate": 0.50645
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, cast Helcurt's Ultimate to obscure the enemies' vision, then blink to their backline with his 1st Skill to hit with his Basic Attacks, and end with his 2nd Skill."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, blink to the target using Helcurt's 1st Skill, then stack up stingers with his Basic Attacks and finish the combo with his 2nd Skill."
+    }
+  ]
+}

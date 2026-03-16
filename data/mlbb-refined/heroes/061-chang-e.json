@@ -1,0 +1,103 @@
+{
+  "id": 61,
+  "name": "Chang'e",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_46cfe9c30e8a14f85b4d022496aca274.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_91e96418810894dfb8b74a3c1a58cc8d.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Poke",
+    "Burst"
+  ],
+  "lore": {
+    "story": "Naughty and cute disciple of the Great Dragon.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 6140,
+      "name": "Trouble Maker",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4d7332d176c72445d8cc3ee0317dacde.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Each time Chang'e deals damage to an enemy, she leaves a mark on them. Each mark reduces the target's Movement Speed by 1%, stacking up to 20%.",
+      "video": ""
+    },
+    {
+      "id": 6110,
+      "name": "Starmoon Shockwave",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a02d601ba3fe650adef7922262df55c4.png",
+      "cooldown_cost": "CD: 7   Mana Cost: 60",
+      "tags": [],
+      "description": "Chang'e sends an energy sphere in the target direction, dealing 350<font color=\"62f8fe\"> (+130% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in its path and slowing them by 10% for 1.5s.\n\n<font color=\"a6aafb\">Crescent Moon</font>: The <font color=\"a6aafb\">Crescent Moon</font> sends 4 extra energy spheres along with Chang'e's, each dealing 20% damage and slowing enemies hit. The slow effect can stack (up to 20%).",
+      "video": ""
+    },
+    {
+      "id": 6120,
+      "name": "Crescent Moon",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_7cccc4df5ed4adc5cedaaf446aab3a6a.png",
+      "cooldown_cost": "CD: 12   Mana Cost: 60",
+      "tags": [],
+      "description": "Chang'e summons the <font color=\"a6aafb\">Crescent Moon</font>, gaining a permanent 300<font color=\"62f8fe\"> (+150% Total Magic Power)</font> shield and 10% Movement Speed (that lasts until the shield is destroyed). Each time Chang'e casts a skill, she also gains 50% Movement Speed that decays over 2.5s. <font color=\"a6aafb\">Crescent Moon</font> also allows Chang'e's Basic Attacks to deal 20<font color=\"62f8fe\"> (+35% Total Magic Power)</font> additional <font color=\"7f62fe\">Magic Damage</font> 2 times.\n\nEach time Chang'e deals Magic Damage with her Basic Attack and skills, the cooldown of this skill is reduced by 0.2s.",
+      "video": ""
+    },
+    {
+      "id": 6130,
+      "name": "Meteor Shower",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_43c4ffb92aa2cf0242ed4fc0571c1a5d.png",
+      "cooldown_cost": "CD: 24   Mana Cost: 120",
+      "tags": [],
+      "description": "Chang'e fires 30 meteors in the target direction over 4s, each dealing 60<font color=\"62f8fe\"> (+21% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the first enemy hit. This skill deals 100% extra damage to Minions and Creeps. Chang'e also gains 10% Movement Speed for the duration.\n\n<font color=\"a6aafb\">Crescent Moon</font>: The <font color=\"a6aafb\">Crescent Moon</font> also fires meteors along with Chang'e, each dealing 33% damage.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 30,
+    "ability": [
+      40,
+      80,
+      20,
+      30
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.010025,
+        "ban_rate": 0.007074,
+        "win_rate": 0.483529
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, get the shield from Chang'e's 2nd Skill, then use her 1st Skill to poke enemies, and follow up with her Ultimate if the 1st Skill was on target. Chang'e needs to move around during her Ultimate to keep herself safe and make sure the meteors can hit the target."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, get the buff from Chang'e's 2nd Skill first, then mark the enemy with her Basic Attacks. Cast her 1st Skill to slow down low HP enemy, and finish them off with her Ultimate."
+    }
+  ]
+}

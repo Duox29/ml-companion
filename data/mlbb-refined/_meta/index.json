@@ -1,0 +1,668 @@
+{
+  "generatedAt": "2026-03-16T11:27:47.412Z",
+  "sourceDir": "C:\\Users\\Duox\\Documents\\Web\\ml-companion-root\\ml-companion-frontend\\data\\mlbb\\heroes",
+  "outputDir": "C:\\Users\\Duox\\Documents\\Web\\ml-companion-root\\ml-companion-frontend\\data\\mlbb-refined\\heroes",
+  "totalHeroes": 132,
+  "heroes": [
+    {
+      "id": 1,
+      "name": "Miya",
+      "file": "heroes/001-miya.json"
+    },
+    {
+      "id": 2,
+      "name": "Balmond",
+      "file": "heroes/002-balmond.json"
+    },
+    {
+      "id": 3,
+      "name": "Saber",
+      "file": "heroes/003-saber.json"
+    },
+    {
+      "id": 4,
+      "name": "Alice",
+      "file": "heroes/004-alice.json"
+    },
+    {
+      "id": 5,
+      "name": "Nana",
+      "file": "heroes/005-nana.json"
+    },
+    {
+      "id": 6,
+      "name": "Tigreal",
+      "file": "heroes/006-tigreal.json"
+    },
+    {
+      "id": 7,
+      "name": "Alucard",
+      "file": "heroes/007-alucard.json"
+    },
+    {
+      "id": 8,
+      "name": "Karina",
+      "file": "heroes/008-karina.json"
+    },
+    {
+      "id": 9,
+      "name": "Akai",
+      "file": "heroes/009-akai.json"
+    },
+    {
+      "id": 10,
+      "name": "Franco",
+      "file": "heroes/010-franco.json"
+    },
+    {
+      "id": 11,
+      "name": "Bane",
+      "file": "heroes/011-bane.json"
+    },
+    {
+      "id": 12,
+      "name": "Bruno",
+      "file": "heroes/012-bruno.json"
+    },
+    {
+      "id": 13,
+      "name": "Clint",
+      "file": "heroes/013-clint.json"
+    },
+    {
+      "id": 14,
+      "name": "Rafaela",
+      "file": "heroes/014-rafaela.json"
+    },
+    {
+      "id": 15,
+      "name": "Eudora",
+      "file": "heroes/015-eudora.json"
+    },
+    {
+      "id": 16,
+      "name": "Zilong",
+      "file": "heroes/016-zilong.json"
+    },
+    {
+      "id": 17,
+      "name": "Fanny",
+      "file": "heroes/017-fanny.json"
+    },
+    {
+      "id": 18,
+      "name": "Layla",
+      "file": "heroes/018-layla.json"
+    },
+    {
+      "id": 19,
+      "name": "Minotaur",
+      "file": "heroes/019-minotaur.json"
+    },
+    {
+      "id": 20,
+      "name": "Lolita",
+      "file": "heroes/020-lolita.json"
+    },
+    {
+      "id": 21,
+      "name": "Hayabusa",
+      "file": "heroes/021-hayabusa.json"
+    },
+    {
+      "id": 22,
+      "name": "Freya",
+      "file": "heroes/022-freya.json"
+    },
+    {
+      "id": 23,
+      "name": "Gord",
+      "file": "heroes/023-gord.json"
+    },
+    {
+      "id": 24,
+      "name": "Natalia",
+      "file": "heroes/024-natalia.json"
+    },
+    {
+      "id": 25,
+      "name": "Kagura",
+      "file": "heroes/025-kagura.json"
+    },
+    {
+      "id": 26,
+      "name": "Chou",
+      "file": "heroes/026-chou.json"
+    },
+    {
+      "id": 27,
+      "name": "Sun",
+      "file": "heroes/027-sun.json"
+    },
+    {
+      "id": 28,
+      "name": "Alpha",
+      "file": "heroes/028-alpha.json"
+    },
+    {
+      "id": 29,
+      "name": "Ruby",
+      "file": "heroes/029-ruby.json"
+    },
+    {
+      "id": 30,
+      "name": "Yi Sun-shin",
+      "file": "heroes/030-yi-sun-shin.json"
+    },
+    {
+      "id": 31,
+      "name": "Moskov",
+      "file": "heroes/031-moskov.json"
+    },
+    {
+      "id": 32,
+      "name": "Johnson",
+      "file": "heroes/032-johnson.json"
+    },
+    {
+      "id": 33,
+      "name": "Cyclops",
+      "file": "heroes/033-cyclops.json"
+    },
+    {
+      "id": 34,
+      "name": "Estes",
+      "file": "heroes/034-estes.json"
+    },
+    {
+      "id": 35,
+      "name": "Hilda",
+      "file": "heroes/035-hilda.json"
+    },
+    {
+      "id": 36,
+      "name": "Aurora",
+      "file": "heroes/036-aurora.json"
+    },
+    {
+      "id": 37,
+      "name": "Lapu-Lapu",
+      "file": "heroes/037-lapu-lapu.json"
+    },
+    {
+      "id": 38,
+      "name": "Vexana",
+      "file": "heroes/038-vexana.json"
+    },
+    {
+      "id": 39,
+      "name": "Roger",
+      "file": "heroes/039-roger.json"
+    },
+    {
+      "id": 40,
+      "name": "Karrie",
+      "file": "heroes/040-karrie.json"
+    },
+    {
+      "id": 41,
+      "name": "Gatotkaca",
+      "file": "heroes/041-gatotkaca.json"
+    },
+    {
+      "id": 42,
+      "name": "Harley",
+      "file": "heroes/042-harley.json"
+    },
+    {
+      "id": 43,
+      "name": "Irithel",
+      "file": "heroes/043-irithel.json"
+    },
+    {
+      "id": 44,
+      "name": "Grock",
+      "file": "heroes/044-grock.json"
+    },
+    {
+      "id": 45,
+      "name": "Argus",
+      "file": "heroes/045-argus.json"
+    },
+    {
+      "id": 46,
+      "name": "Odette",
+      "file": "heroes/046-odette.json"
+    },
+    {
+      "id": 47,
+      "name": "Lancelot",
+      "file": "heroes/047-lancelot.json"
+    },
+    {
+      "id": 48,
+      "name": "Diggie",
+      "file": "heroes/048-diggie.json"
+    },
+    {
+      "id": 49,
+      "name": "Hylos",
+      "file": "heroes/049-hylos.json"
+    },
+    {
+      "id": 50,
+      "name": "Zhask",
+      "file": "heroes/050-zhask.json"
+    },
+    {
+      "id": 51,
+      "name": "Helcurt",
+      "file": "heroes/051-helcurt.json"
+    },
+    {
+      "id": 52,
+      "name": "Pharsa",
+      "file": "heroes/052-pharsa.json"
+    },
+    {
+      "id": 53,
+      "name": "Lesley",
+      "file": "heroes/053-lesley.json"
+    },
+    {
+      "id": 54,
+      "name": "Jawhead",
+      "file": "heroes/054-jawhead.json"
+    },
+    {
+      "id": 55,
+      "name": "Angela",
+      "file": "heroes/055-angela.json"
+    },
+    {
+      "id": 56,
+      "name": "Gusion",
+      "file": "heroes/056-gusion.json"
+    },
+    {
+      "id": 57,
+      "name": "Valir",
+      "file": "heroes/057-valir.json"
+    },
+    {
+      "id": 58,
+      "name": "Martis",
+      "file": "heroes/058-martis.json"
+    },
+    {
+      "id": 59,
+      "name": "Uranus",
+      "file": "heroes/059-uranus.json"
+    },
+    {
+      "id": 60,
+      "name": "Hanabi",
+      "file": "heroes/060-hanabi.json"
+    },
+    {
+      "id": 61,
+      "name": "Chang'e",
+      "file": "heroes/061-chang-e.json"
+    },
+    {
+      "id": 62,
+      "name": "Kaja",
+      "file": "heroes/062-kaja.json"
+    },
+    {
+      "id": 63,
+      "name": "Selena",
+      "file": "heroes/063-selena.json"
+    },
+    {
+      "id": 64,
+      "name": "Aldous",
+      "file": "heroes/064-aldous.json"
+    },
+    {
+      "id": 65,
+      "name": "Claude",
+      "file": "heroes/065-claude.json"
+    },
+    {
+      "id": 66,
+      "name": "Vale",
+      "file": "heroes/066-vale.json"
+    },
+    {
+      "id": 67,
+      "name": "Leomord",
+      "file": "heroes/067-leomord.json"
+    },
+    {
+      "id": 68,
+      "name": "Lunox",
+      "file": "heroes/068-lunox.json"
+    },
+    {
+      "id": 69,
+      "name": "Hanzo",
+      "file": "heroes/069-hanzo.json"
+    },
+    {
+      "id": 70,
+      "name": "Belerick",
+      "file": "heroes/070-belerick.json"
+    },
+    {
+      "id": 71,
+      "name": "Kimmy",
+      "file": "heroes/071-kimmy.json"
+    },
+    {
+      "id": 72,
+      "name": "Thamuz",
+      "file": "heroes/072-thamuz.json"
+    },
+    {
+      "id": 73,
+      "name": "Harith",
+      "file": "heroes/073-harith.json"
+    },
+    {
+      "id": 74,
+      "name": "Minsitthar",
+      "file": "heroes/074-minsitthar.json"
+    },
+    {
+      "id": 75,
+      "name": "Kadita",
+      "file": "heroes/075-kadita.json"
+    },
+    {
+      "id": 76,
+      "name": "Faramis",
+      "file": "heroes/076-faramis.json"
+    },
+    {
+      "id": 77,
+      "name": "Badang",
+      "file": "heroes/077-badang.json"
+    },
+    {
+      "id": 78,
+      "name": "Khufra",
+      "file": "heroes/078-khufra.json"
+    },
+    {
+      "id": 79,
+      "name": "Granger",
+      "file": "heroes/079-granger.json"
+    },
+    {
+      "id": 80,
+      "name": "Guinevere",
+      "file": "heroes/080-guinevere.json"
+    },
+    {
+      "id": 81,
+      "name": "Esmeralda",
+      "file": "heroes/081-esmeralda.json"
+    },
+    {
+      "id": 82,
+      "name": "Terizla",
+      "file": "heroes/082-terizla.json"
+    },
+    {
+      "id": 83,
+      "name": "X.Borg",
+      "file": "heroes/083-x-borg.json"
+    },
+    {
+      "id": 84,
+      "name": "Ling",
+      "file": "heroes/084-ling.json"
+    },
+    {
+      "id": 85,
+      "name": "Dyrroth",
+      "file": "heroes/085-dyrroth.json"
+    },
+    {
+      "id": 86,
+      "name": "Lylia",
+      "file": "heroes/086-lylia.json"
+    },
+    {
+      "id": 87,
+      "name": "Baxia",
+      "file": "heroes/087-baxia.json"
+    },
+    {
+      "id": 88,
+      "name": "Masha",
+      "file": "heroes/088-masha.json"
+    },
+    {
+      "id": 89,
+      "name": "Wanwan",
+      "file": "heroes/089-wanwan.json"
+    },
+    {
+      "id": 90,
+      "name": "Silvanna",
+      "file": "heroes/090-silvanna.json"
+    },
+    {
+      "id": 91,
+      "name": "Cecilion",
+      "file": "heroes/091-cecilion.json"
+    },
+    {
+      "id": 92,
+      "name": "Carmilla",
+      "file": "heroes/092-carmilla.json"
+    },
+    {
+      "id": 93,
+      "name": "Atlas",
+      "file": "heroes/093-atlas.json"
+    },
+    {
+      "id": 94,
+      "name": "Popol and Kupa",
+      "file": "heroes/094-popol-and-kupa.json"
+    },
+    {
+      "id": 95,
+      "name": "Yu Zhong",
+      "file": "heroes/095-yu-zhong.json"
+    },
+    {
+      "id": 96,
+      "name": "Luo Yi",
+      "file": "heroes/096-luo-yi.json"
+    },
+    {
+      "id": 97,
+      "name": "Benedetta",
+      "file": "heroes/097-benedetta.json"
+    },
+    {
+      "id": 98,
+      "name": "Khaleed",
+      "file": "heroes/098-khaleed.json"
+    },
+    {
+      "id": 99,
+      "name": "Barats",
+      "file": "heroes/099-barats.json"
+    },
+    {
+      "id": 100,
+      "name": "Brody",
+      "file": "heroes/100-brody.json"
+    },
+    {
+      "id": 101,
+      "name": "Yve",
+      "file": "heroes/101-yve.json"
+    },
+    {
+      "id": 102,
+      "name": "Mathilda",
+      "file": "heroes/102-mathilda.json"
+    },
+    {
+      "id": 103,
+      "name": "Paquito",
+      "file": "heroes/103-paquito.json"
+    },
+    {
+      "id": 104,
+      "name": "Gloo",
+      "file": "heroes/104-gloo.json"
+    },
+    {
+      "id": 105,
+      "name": "Beatrix",
+      "file": "heroes/105-beatrix.json"
+    },
+    {
+      "id": 106,
+      "name": "Phoveus",
+      "file": "heroes/106-phoveus.json"
+    },
+    {
+      "id": 107,
+      "name": "Natan",
+      "file": "heroes/107-natan.json"
+    },
+    {
+      "id": 108,
+      "name": "Aulus",
+      "file": "heroes/108-aulus.json"
+    },
+    {
+      "id": 109,
+      "name": "Aamon",
+      "file": "heroes/109-aamon.json"
+    },
+    {
+      "id": 110,
+      "name": "Valentina",
+      "file": "heroes/110-valentina.json"
+    },
+    {
+      "id": 111,
+      "name": "Edith",
+      "file": "heroes/111-edith.json"
+    },
+    {
+      "id": 112,
+      "name": "Floryn",
+      "file": "heroes/112-floryn.json"
+    },
+    {
+      "id": 113,
+      "name": "Yin",
+      "file": "heroes/113-yin.json"
+    },
+    {
+      "id": 114,
+      "name": "Melissa",
+      "file": "heroes/114-melissa.json"
+    },
+    {
+      "id": 115,
+      "name": "Xavier",
+      "file": "heroes/115-xavier.json"
+    },
+    {
+      "id": 116,
+      "name": "Julian",
+      "file": "heroes/116-julian.json"
+    },
+    {
+      "id": 117,
+      "name": "Fredrinn",
+      "file": "heroes/117-fredrinn.json"
+    },
+    {
+      "id": 118,
+      "name": "Joy",
+      "file": "heroes/118-joy.json"
+    },
+    {
+      "id": 119,
+      "name": "Novaria",
+      "file": "heroes/119-novaria.json"
+    },
+    {
+      "id": 120,
+      "name": "Arlott",
+      "file": "heroes/120-arlott.json"
+    },
+    {
+      "id": 121,
+      "name": "Ixia",
+      "file": "heroes/121-ixia.json"
+    },
+    {
+      "id": 122,
+      "name": "Nolan",
+      "file": "heroes/122-nolan.json"
+    },
+    {
+      "id": 123,
+      "name": "Cici",
+      "file": "heroes/123-cici.json"
+    },
+    {
+      "id": 124,
+      "name": "Chip",
+      "file": "heroes/124-chip.json"
+    },
+    {
+      "id": 125,
+      "name": "Zhuxin",
+      "file": "heroes/125-zhuxin.json"
+    },
+    {
+      "id": 126,
+      "name": "Suyou",
+      "file": "heroes/126-suyou.json"
+    },
+    {
+      "id": 127,
+      "name": "Lukas",
+      "file": "heroes/127-lukas.json"
+    },
+    {
+      "id": 128,
+      "name": "Kalea",
+      "file": "heroes/128-kalea.json"
+    },
+    {
+      "id": 129,
+      "name": "Zetian",
+      "file": "heroes/129-zetian.json"
+    },
+    {
+      "id": 130,
+      "name": "Obsidia",
+      "file": "heroes/130-obsidia.json"
+    },
+    {
+      "id": 131,
+      "name": "Sora",
+      "file": "heroes/131-sora.json"
+    },
+    {
+      "id": 132,
+      "name": "Marcel",
+      "file": "heroes/132-marcel.json"
+    }
+  ]
+}

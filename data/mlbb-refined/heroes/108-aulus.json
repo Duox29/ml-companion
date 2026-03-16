@@ -1,0 +1,103 @@
+{
+  "id": 108,
+  "name": "Aulus",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_40839957990dbb59a9e5ec4da9f85a8e.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b18a4e09124187587ef09826dee69ec3.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Damage",
+    "Crowd Control"
+  ],
+  "lore": {
+    "story": "A Leonin warrior that fights to prove himself.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 10840,
+      "name": "Fighting Spirit",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_7c4332cf35097a899d0081622974fc30.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Aulus adds a stack of <font color=\"a6aafb\">Fighting Spirit</font> to his axe per second for 3s after dealing damage to any enemy (up to 3 stacks). Each stack grants 15% extra Attack Speed. Aulus also deals 42-210 extra <font color=\"fb1f1f\">Physical Damage</font> with his Basic Attacks at max <font color=\"a6aafb\">Fighting Spirit</font> stacks (scales with level). The damage counts as Attack Effect.",
+      "video": ""
+    },
+    {
+      "id": 10810,
+      "name": "Aulus, Charge!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9ac3d6ad3a919532d4254a1102cd2a0f.png",
+      "cooldown_cost": "CD: 14   Mana Cost: 50",
+      "tags": [],
+      "description": "Aulus removes all Slowing Effects and gains 30% extra Movement Speed and 30% Damage Reduction against attacks from the front for 5s.",
+      "video": ""
+    },
+    {
+      "id": 10820,
+      "name": "The Power of Axe",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_37c793b8c6ae49e9c85a2b80c796e3a8.png",
+      "cooldown_cost": "CD: 5   Mana Cost: 40",
+      "tags": [],
+      "description": "Aulus brandishes his axe, dealing 200<font color=\"fba51f\"> (+70% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in a fan-shaped area and slowing them by 20% for 3s. At max stacks of <font color=\"a6aafb\">Fighting Spirit</font>, he deals additional <font color=\"fb1f1f\">Physical Damage</font> equal to 3.5% of the targets' Max HP. After hitting enemy targets, he enhances his Basic Attacks for 3s. Aulus recovers HP by 50<font color=\"26e407\"> (+1% Total HP)</font> after each Basic Attack.",
+      "video": ""
+    },
+    {
+      "id": 10830,
+      "name": "Undying Fury",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b1902ab838ff6bc7c0eab00e15822a9c.png",
+      "cooldown_cost": "CD: 50   Mana Cost: 150",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive:</font> Every time Undying Fury is upgraded, Aulus crafts a part for his axe in order. <font color=\"a6aafb\">Blade Craft:</font> His Basic Attacks deal 50 extra <font color=\"fb1f1f\">Physical Damage</font>. <font color=\"a6aafb\">Handle Craft:</font> Permanently increases his Attack Range by 65% and the range of <font color=\"a6aafb\">The Power of Axe</font>. <font color=\"a6aafb\">Hammer Craft:</font> Permanently increases his Physical Penetration by 20%.\n\n<font color=\"a6aafb\">Active:</font> Aulus raises his axe and smashes it to the ground (this skill can only be interrupted by Suppression), dealing 210<font color=\"fba51f\"> (+100% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in a line and slowing them by 90% for 0.5s. A burning trail that lasts for 5s is left on the ground, dealing 90<font color=\"fba51f\"> (+40% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies who walk on it every 0.5s and slowing them by 70%.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      60,
+      60,
+      10,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.001858,
+        "ban_rate": 0.001231,
+        "win_rate": 0.505486
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use his 1st Skill to charge into the midst of the enemy team and use his Ultimate to hit as many targets as possible. Follow up with his 2nd Skill,\r\nbefore unleashing a flurry of Basic Attacks for considerable damage."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, wear down enemies with 2nd Skill\r\nand use his enhanced Basic Attacks to quickly build passive stacks. When the time is right, close the distance with his 1st Skill and follow up with his 2nd Skill, then finish the enemy with Basic Attacks."
+    }
+  ]
+}

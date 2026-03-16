@@ -1,0 +1,103 @@
+{
+  "id": 49,
+  "name": "Hylos",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_195ad9af866afaab415ae23a6be13b45.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d6af7bfc2f67e7bc30dec2c3bd115f91.png",
+  "role": [
+    "Tank"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Guard",
+    "Initiator"
+  ],
+  "lore": {
+    "story": "Centaur guarding the Misty Mountains.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 4940,
+      "name": "Thickened Blood",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_81f19961357acccd7005193849dc05ac.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Hylos gains 1.5 extra Max HP for every 1 extra Max Mana he possesses.\n\nWhen out of Mana, Hylos can use his HP for skill casts.",
+      "video": ""
+    },
+    {
+      "id": 4910,
+      "name": "Law and Order",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6dc51b5af13742c8a0fb9e0dd1d0cb93.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "Hylos gains 50% Movement Speed and causes his next Basic Attack within 3s to deal 300<font color=\"62f8fe\"> (+80% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the target, knocking back and stunning them for 1s.\n\n<font color=\"A4AAC7\">The extra Movement Speed rapidly decays over the duration and vanishes after the next Basic Attack.</font>",
+      "video": ""
+    },
+    {
+      "id": 4920,
+      "name": "Ring of Punishment",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_068a1e4a7a26457bba3aadb5b7b3e675.png",
+      "cooldown_cost": "CD: 1",
+      "tags": [],
+      "description": "Hylos releases the <font color=\"a6aafb\">Ring of Punishment</font>, dealing 100<font color=\"62f8fe\"> (+20% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to nearby enemies per second while slowing them by 4% and reducing their Attack Speed by 7.5% for 2.5s (up to 8 stacks). Each stack also increases the enemy's damage taken from the <font color=\"a6aafb\">Ring of Punishment</font> by 5%. The <font color=\"a6aafb\">Ring of Punishment</font> consumes 30 Mana per second when it's active.\n\n<font color=\"a6aafb\">Use Again</font>: Hylos cancels the <font color=\"a6aafb\">Ring of Punishment</font>.",
+      "video": ""
+    },
+    {
+      "id": 4930,
+      "name": "Glorious Pathway",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_fb95da3d348806ddefba457bafd30e9f.png",
+      "cooldown_cost": "CD: 40",
+      "tags": [],
+      "description": "Hylos creates a huge pathway in the target direction, reducing enemies' Movement Speed by 75% for 1s. The pathway lasts 6s.\nWhen on the pathway, Hylos gains Slow Immunity and recovers 3% of his Max HP per second. Allied heroes moving along the pathway gain 60% extra Movement Speed, while enemy heroes on the pathway will be slowed by 25%.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 30,
+    "ability": [
+      100,
+      20,
+      80,
+      30
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.003155,
+        "ban_rate": 0.00565,
+        "win_rate": 0.494076
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Hylos' Ultimate to create a pathway into the enemy team\r\nand then his 1st Skill to get in and stun an enemy. At the same time, use his 2nd Skill and Basic Attacks to deal continuous damage."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Hylos should use his 1st Skill to get close and stun the enemy, then follow up with his 2nd Skill and Basic Attacks to deal damage.\r\n"
+    }
+  ]
+}

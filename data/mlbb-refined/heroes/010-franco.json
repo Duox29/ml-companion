@@ -1,0 +1,103 @@
+{
+  "id": 10,
+  "name": "Franco",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2928027062e3c2a97bc3fd4a84897012.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e6e87e9b82ab7863cbcb678e544200e4.png",
+  "role": [
+    "Tank"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Initiator",
+    "Control"
+  ],
+  "lore": {
+    "story": "Brave permafrost warrior, Bane's sworn enemy.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 1040,
+      "name": "Wasteland Force",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f28d9d7b5ae159997dc00f992cec8881.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "If no damage is taken within 5s, Franco gains 10% Movement Speed, recovers 1% Max HP per second, and begins accumulating <font color=\"a6aafb\">Wasteland Force</font> (up to 10 stacks).\n\nFranco will consume all <font color=\"a6aafb\">Wasteland Force</font> stacks on his next skill cast to increase the skill's damage by up to 150%.",
+      "video": ""
+    },
+    {
+      "id": 1010,
+      "name": "Iron Hook",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_eb5032e0d6d264f97c30f95237cc2ed4.png",
+      "cooldown_cost": "CD: 15   Mana Cost: 135",
+      "tags": [],
+      "description": "Franco launches an iron hook in the target direction. The hook will snag the first enemy unit hit, dealing 400<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and dragging them to Franco.",
+      "video": ""
+    },
+    {
+      "id": 1020,
+      "name": "Fury Shock",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4ed340f228f854d69477c6d492ab6046.png",
+      "cooldown_cost": "CD: 7   Mana Cost: 40",
+      "tags": [],
+      "description": "Franco lashes out, dealing <font color=\"fb1f1f\">Physical Damage</font> equal to 300 plus 4% of his Max HP to nearby enemies and slowing them by 70% for 1.5s.",
+      "video": ""
+    },
+    {
+      "id": 1030,
+      "name": "Bloody Hunt",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b19953d95c51bcb9292e743e84d71071.png",
+      "cooldown_cost": "CD: 62   Mana Cost: 110",
+      "tags": [],
+      "description": "Franco suppresses the target enemy hero for 1.8s and strikes them 6 times over the duration, each time dealing 50<font color=\"fba51f\"> (+70% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 20,
+    "ability": [
+      80,
+      10,
+      100,
+      20
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.015142,
+        "ban_rate": 0.086171,
+        "win_rate": 0.452177
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Use Flicker to reach key targets for his Ultimate. Follow up with 1st Skill to extend the CC, then 2nd Skill to deal damage and slow."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Use 1st Skill to hook the enemy into a bad position. Follow up with 2nd Skill to slow, then Ultimate to suppress and secure a kill."
+    }
+  ]
+}

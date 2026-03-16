@@ -1,0 +1,105 @@
+{
+  "id": 4,
+  "name": "Alice",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_18300163a5a912a84adb52b8d59b4618.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_34013ffb449baa842122de6126e43259.png",
+  "role": [
+    "Tank",
+    "Mage"
+  ],
+  "lane": [
+    "Exp Lane",
+    "Jungle"
+  ],
+  "specialty": [
+    "Charge",
+    "Regen"
+  ],
+  "lore": {
+    "story": "Queen of the Blood Demons and one of the two dominant powers in the Abyss.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 440,
+      "name": "Crimson Blood Banquet",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_156b5e04b84b0c6b88e4b32267fec730.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "When Alice's skills hit, she gains 1 stack(s) of <font color=\"a6aafb\">Crimson</font>, lasting 4s. Once <font color=\"a6aafb\">Crimson</font> reaches 2 stacks, <font color=\"a6aafb\">Blood Banquet</font> activates, dealing 25<font color=\"62f8fe\"> (+30% Total Magic Power)</font> plus 0.5%-2.5% of the target's Max HP (scales with level) as <font color=\"7f62fe\">Magic Damage</font> to nearby units (hitting heroes with skills refreshes the duration) and recovering 10<font color=\"26e407\"> (+3% Extra Max HP)</font> HP for Alice every 0.5s.\nWhile <font color=\"a6aafb\">Blood Banquet</font> is active, Alice gains 8% Movement Speed. <font color=\"a6aafb\">Blood Banquet</font> can deal up to 70(+10*Hero Level) <font color=\"7f62fe\">Magic Damage</font> to creeps.",
+      "video": ""
+    },
+    {
+      "id": 410,
+      "name": "Crimson Gleam",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_6a063238228005a9942a1eb7efa6b23a.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "Alice fires blood energy forward, dealing 100<font color=\"62f8fe\"> (+50% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>. Before the blood energy dissipates, this skill can be cast again to activate <font color=\"a6aafb\">Scarlet Shadow</font>, allowing Alice to blink to the blood energy's location.",
+      "video": ""
+    },
+    {
+      "id": 420,
+      "name": "Doom Waltz",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_4c7a4bc9cafdc56731b756dc883f4301.png",
+      "cooldown_cost": "CD: 4",
+      "tags": [],
+      "description": "Alice performs a deadly dance, dealing 350<font color=\"62f8fe\"> (+130% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to nearby enemies and slowing them by 70% for 1s. If <font color=\"a6aafb\">Blood Banquet</font> is active at this time, it also scorches enemies, dealing 300% of <font color=\"a6aafb\">Blood Banquet</font>'s damage and healing Alice for the same amount.",
+      "video": ""
+    },
+    {
+      "id": 430,
+      "name": "Throne of Ruin",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18/100_256a8304f18c293d0edcd6c6738cb3e8.png",
+      "cooldown_cost": "CD: 60",
+      "tags": [],
+      "description": "Alice surrounds herself with blood, gaining Control Immunity and 50% Damage Reduction while slowing herself by 50%. After 1.5s, she descends with force, dealing 500<font color=\"62f8fe\"> (+150% Total Magic Power)</font><font color=\"26e407\"> (+20% Extra Max HP)</font> <font color=\"7f62fe\">Magic Damage</font> to all enemies in range and immobilizing them for 1s.\nWhile charging her Ultimate, Alice can only use <font color=\"a6aafb\">Scarlet Shadow</font>.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 70,
+    "ability": [
+      50,
+      50,
+      70,
+      70
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.008724,
+        "ban_rate": 0.137326,
+        "win_rate": 0.509474
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Use Alice's 1st Skill to poke the opponent and recast it to blink on top of them, then follow up with her 2nd Skill to CC the enemies and finish with her Ultimate to continue the attack."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Use Alice's 1st Skill to poke the opponent and recast it to blink on top of them, then follow up with her 2nd Skill to CC the enemies and finish with her Ultimate to continue the attack."
+    }
+  ]
+}

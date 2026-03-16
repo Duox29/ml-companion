@@ -1,0 +1,103 @@
+{
+  "id": 114,
+  "name": "Melissa",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1fa7436301fea3f13fbcd4772051d22d.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a19559a08211b32279c27d584478a4b2.png",
+  "role": [
+    "Marksman"
+  ],
+  "lane": [
+    "Gold Lane"
+  ],
+  "specialty": [
+    "Finisher",
+    "Damage"
+  ],
+  "lore": {
+    "story": "A girl with cursed needles who runs a tailor shop and solves problems for clients.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 11440,
+      "name": "Doll Buster",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1885d2903ffe007effddfef83f69f28f.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "\"My tailor shop excels at fixing and 'fixing' dolls. Am I right, Muddles?\"\n\n(Melissa deals 125% damage to Minions, Creeps, and Summoned Units.)",
+      "video": ""
+    },
+    {
+      "id": 11410,
+      "name": "Falling!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c00db06b0bccee41a914ec8301feed2b.png",
+      "cooldown_cost": "CD: 7.5   Mana Cost: 30",
+      "tags": [],
+      "description": "\"Watch me slide forward and increase my Attack Speed for 3 seconds— Ah, that was just boring…\"\n\n\"<font color=\"a6aafb\">Muddles</font>, go that way!\"\n\"<font color=\"a6aafb\">Cuddles</font>, come here!\"\n\n(The skill's cooldown is reduced by 0.5s each time Melissa damages the enemy by attacking <font color=\"a6aafb\">Muddles</font>.)",
+      "video": ""
+    },
+    {
+      "id": 11420,
+      "name": "Eyes on You!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5f7c343dbca6eb726c39c44f46397e47.png",
+      "cooldown_cost": "CD: 9   Mana Cost: 60",
+      "tags": [],
+      "description": "The plan's like this: Throw <font color=\"a6aafb\">Muddles</font> out to hold down the bad guys, and then… I come on stage!\n\"I puncture the bad guys, while <font color=\"a6aafb\">Giggles</font> hit <font color=\"a6aafb\">Muddles</font> to punish them as well! Hee, fantastic!\"\n\n(<font color=\"a6aafb\">Muddles</font> deals 250<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> on the first hit and links nearby enemies for up to 6s. Linked enemies are slowed by 60% that decays over 1.5s and can break the link by moving out of the range. <font color=\"a6aafb\">Muddles</font> will return to Melissa early when there are no enemies around and immediately if she's too far away. When <font color=\"a6aafb\">Muddles</font> is present, you can tap the <font color=\"a6aafb\">Attack Minion</font> button to directly attack <font color=\"a6aafb\">Muddles</font>, though it cannot trigger the multi-hit damage. <font color=\"a6aafb\">Giggles</font> only hits <font color=\"a6aafb\">Muddles</font> when Melissa has a target for her Basic Attack.)",
+      "video": ""
+    },
+    {
+      "id": 11430,
+      "name": "Go Away!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b5b3a37f13c02756c783788a2e2d675f.png",
+      "cooldown_cost": "CD: 50   Mana Cost: 120",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Cuddles</font>, protect me! For 4 seconds, let no bad guys come close. Unless I say otherwise!\n\n(When activated, the field knocks back enemies in the area and deals them 500<font color=\"62f8fe\"> (+100% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>. It'll then continuously knock back enemies who attempt to enter the field, dealing them 50<font color=\"62f8fe\"> (+10% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and briefly slowing them. The field will also interrupt the enemy's movement skills unless they're immune to control effects. The field will move with Melissa once, when she's about to move out of the boundary.\n<font color=\"a6aafb\">Passive</font>: Melissa's Physical & Magic Defense are increased by 3. This effect is increased to 5 times when the skill is active.)",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      20,
+      90,
+      40,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.005822,
+        "ban_rate": 0.009453,
+        "win_rate": 0.515746
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Link enemies with her 2nd Skill for increased damage.\r\nUse 1st Skill to keep them linked and her Ultimate\r\nto stop enemies from getting close."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Link the enemy with her 2nd Skill and use\r\nBasic Attacks to deal extra damage. \r\nChase enemies trying to flee with her 1st Skill."
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "id": 67,
+  "name": "Leomord",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_554cdf13a7587fe08c5deed60132c61c.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a7527695da7a9a4ef62739861205b57b.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Chase",
+    "Burst"
+  ],
+  "lore": {
+    "story": "A sworn knight who vowed to guard Necrokeep until his last breath.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 6740,
+      "name": "The Oath Keeper",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_04b94a8560d7cba08238b017a929611e.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Leomord's Basic Attacks are guaranteed to Crit against enemies below 25 Max HP, dealing 100 damage.\nLeomord converts every 200% Crit Chance gained into 100 <font color=\"ffe63c\">(+10*Hero Level)</font><font color=\"26e407\"> (+15% Extra Max HP)</font> Physical Attack.",
+      "video": ""
+    },
+    {
+      "id": 6710,
+      "name": "Momentum",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f95e7440099a5481f3082f48ca6b499d.png",
+      "cooldown_cost": "CD: 6",
+      "tags": [],
+      "description": "Leomord gains a 150<font color=\"fba51f\"> (+50% Total Physical Attack)</font> shield and begins channeling, slowing enemies in the target direction by 25%. When the channeling is complete or interrupted, he thrusts his sword in the same direction, dealing up to 500<font color=\"fba51f\"> (+180% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit (scales with channel time) and slowing them by 40% for 1s.\nLeomord can cast this skill again to actively interrupt the channeling.",
+      "video": ""
+    },
+    {
+      "id": 6720,
+      "name": "Decimation Assault",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_658b998993378d3089b609649ae93270.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "Leomord charges in a designated direction, dealing 300<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the way and slowing them by 30% for 1s.",
+      "video": ""
+    },
+    {
+      "id": 6730,
+      "name": "Phantom Steed",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d1f7fce40b8a283934077f2481b6d402.png",
+      "cooldown_cost": "CD: 30",
+      "tags": [],
+      "description": "Leomord summons <font color=\"a6aafb\">Barbiel</font> to rush to him, knocking back and dealing 100<font color=\"fba51f\"> (+40% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to all enemies in its path.\nIf <font color=\"a6aafb\">Barbiel</font> comes in contact with Leomord, they will enter the Mounted State, gaining 50% Movement Speed that decays over 2s.\n<font color=\"a6aafb\">Mounted State</font>: Leomord gains a brand-new set of skills, and his Basic Attack can be used while moving and hits a circular area to deal AOE damage. Leomord also gains 70 Movement Speed and 30 Physical & Magic Defense. This lasts 10s.",
+      "video": ""
+    },
+    {
+      "id": 6740,
+      "name": "The Oath Keeper",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_04b94a8560d7cba08238b017a929611e.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Leomord's Basic Attacks are guaranteed to Crit against enemies below 25 Max HP, dealing 100 damage.\nLeomord converts every 200% Crit Chance gained into 100 <font color=\"ffe63c\">(+10*Hero Level)</font><font color=\"26e407\"> (+15% Extra Max HP)</font> Physical Attack.",
+      "video": ""
+    },
+    {
+      "id": 6750,
+      "name": "Phantom Stomp",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c8aff6534951b28bb0f4dd032892085a.png",
+      "cooldown_cost": "CD: 5",
+      "tags": [],
+      "description": "Barbiel leaps forward, dealing 325<font color=\"fba51f\"> (+120% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in the landing area and in front of him, while slowing them by 40% for 1s.",
+      "video": ""
+    },
+    {
+      "id": 6760,
+      "name": "Phantom Charge",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_7e557b2c3334edde0a1029ac434ff3cc.png",
+      "cooldown_cost": "CD: 7",
+      "tags": [],
+      "description": "Barbiel charges forward in a designated direction, and knocks back all enemies on the path, dealing 300<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.",
+      "video": ""
+    },
+    {
+      "id": 6730,
+      "name": "Phantom Steed",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d1f7fce40b8a283934077f2481b6d402.png",
+      "cooldown_cost": "CD: 30",
+      "tags": [],
+      "description": "Leomord summons <font color=\"a6aafb\">Barbiel</font> to rush to him, knocking back and dealing 100<font color=\"fba51f\"> (+40% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to all enemies in its path.\nIf <font color=\"a6aafb\">Barbiel</font> comes in contact with Leomord, they will enter the Mounted State, gaining 50% Movement Speed that decays over 2s.\n<font color=\"a6aafb\">Mounted State</font>: Leomord gains a brand-new set of skills, and his Basic Attack can be used while moving and hits a circular area to deal AOE damage. Leomord also gains 70 Movement Speed and 30 Physical & Magic Defense. This lasts 10s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 60,
+    "ability": [
+      70,
+      50,
+      30,
+      60
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.006782,
+        "ban_rate": 0.031222,
+        "win_rate": 0.530157
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Leomord can cast his Ultimate, then his 1st and 2nd Skills while Barbiel is moving towards him. After mounting, Leomord can use his mounted 1st Skill, 2nd Skill, and Basic Attacks to continue dishing out damage."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Poke and zone out enemies with his 1st Skill while clearing minions.\r\nWhen the enemy's HP is close to his Passive's threshold,\r\ncharge in with his 2nd Skill and finish them off with Basic Attacks."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": 57,
+  "name": "Valir",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bf16690876761b80822df90eb3320d69.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_88b057a88cdb623936e6d9d49e081aa7.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Damage",
+    "Guard"
+  ],
+  "lore": {
+    "story": "Heir to Fire Throat, fire mage.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 5740,
+      "name": "Ashing",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_65b74c606ad3b8d47f18b6f87bc25bee.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Valir's skills apply a stack of Ablaze to enemies hit, dealing them <font color=\"7f62fe\">Magic Damage</font> equal to 1<font color=\"62f8fe\"> (+0.2% Total Magic Power)</font>% of their Max HP per second for 3s.\nAt 3 stacks, the fire detonates, dealing <font color=\"7f62fe\">Magic Damage</font> equal to 5<font color=\"62f8fe\"> (+1% Total Magic Power)</font>% of the target's Max HP to the enemy and stunning them for 1s (the same target can only be stunned by Valir's skills once every 7s.)",
+      "video": ""
+    },
+    {
+      "id": 5710,
+      "name": "Burst Fireball",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_37f8cc042e3430f6afcf4a18e1c8d064.png",
+      "cooldown_cost": "CD: 1.5   Mana Cost: 45",
+      "tags": [],
+      "description": "Valir launches a fireball that explodes upon hitting the first target, dealing 235<font color=\"62f8fe\"> (+80% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and slowing them by 30% for 1s. The lingering flame on the ground will explode after 1s, dealing 118<font color=\"62f8fe\"> (+40% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>.\nValir recharges 1 fireball every 9s and can hold up to 2 fireball charges. Hitting an enemy hero or Legend Creep with this skill will immediately restore a fireball charge, while hitting a Minion will restore 4s of the recharge time.\nOnce enhanced by <font color=\"a6aafb\">Vengeance Flame</font>, the cast range of <font color=\"a6aafb\">Burst Fireball</font> increases by 30%.",
+      "video": ""
+    },
+    {
+      "id": 5720,
+      "name": "Searing Torrent",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d2289b367b7fb08328145563195346f6.png",
+      "cooldown_cost": "CD: 13   Mana Cost: 75",
+      "tags": [],
+      "description": "Valir unleashes a torrent of flames in the target direction, dealing 200<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit and knocking them to the end of its path.\n<font color=\"a6aafb\">Vengeance Flame</font>: The torrent forms a firewall at the end of its path that lasts 4s and deals 100<font color=\"62f8fe\"> (+30% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to nearby enemies per second.\nEnemies hit by the torrent or the firewall are slowed by 25% for 1s.",
+      "video": ""
+    },
+    {
+      "id": 5730,
+      "name": "Vengeance Flame",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_87bb3708c7ffb7391a768de2c82370a7.png",
+      "cooldown_cost": "CD: 36   Mana Cost: 100",
+      "tags": [],
+      "description": "Valir removes all existing debuffs on him, gains 40% Movement Speed that decays over 3s, and conjures 4 <font color=\"a6aafb\">Vengeance Flames</font>, enhancing <font color=\"a6aafb\">Burst Fireball</font> and <font color=\"a6aafb\">Searing Torrent</font> for 9s.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      20,
+      70,
+      70,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.009305,
+        "ban_rate": 0.009374,
+        "win_rate": 0.530567
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, activate Valir's Ultimate to enhance his skills, then blast the enemy with his 1st Skill. If the enemy tries to get close, use his 2nd Skill to push them away, and hit them with his 1st Skill for high damage."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, harass enemies with Valir's 1st Skill\r\nuntil their HP is low, then cast his 2nd Skill to push them back and follow up immediately with his 1st Skill for burst damage."
+    }
+  ]
+}

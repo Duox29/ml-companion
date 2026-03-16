@@ -1,0 +1,102 @@
+{
+  "id": 6,
+  "name": "Tigreal",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8b30576754be1a4f8bebd09df8d6bec7.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2f346943d85318a466b5eba513682d7c.png",
+  "role": [
+    "Tank"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Crowd Control"
+  ],
+  "lore": {
+    "story": "Leader of the Light's Order, guardian of the Moniyan Empire.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 640,
+      "name": "Fearless",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5b028ce65e323d962d7060705f59743f.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Tigreal gains a stack of <font color=\"a6aafb\">Fearless</font> each time he uses a skill or is hit by a Basic Attack. After getting 4 stacks, Tigreal will consume all <font color=\"a6aafb\">Fearless</font> stacks to block the next incoming Basic Attack (including attacks from Turrets).\n\n<font color=\"A4AAC7\">Attacks from Minions do not grant</font> <font color=\"a6aafb\">Fearless</font> <font color=\"A4AAC7\">stacks nor trigger its effect</font>.",
+      "video": ""
+    },
+    {
+      "id": 610,
+      "name": "Attack Wave",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8e00063700ab16f53d840986b98aae25.png",
+      "cooldown_cost": "CD: 7   Mana Cost: 45",
+      "tags": [],
+      "description": "Tigreal smashes the ground with his hammer and sends a shockwave that erupts 3 times in the target direction, each time dealing 270<font color=\"fba51f\"> (+70% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the fan-shaped area and slowing them by 20%/40%/60% for 1.5s.",
+      "video": ""
+    },
+    {
+      "id": 620,
+      "name": "Sacred Hammer",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e9baf5e58ce0fb23c0fcb6176cc8ed5d.png",
+      "cooldown_cost": "CD: 16   Mana Cost: 70",
+      "tags": [],
+      "description": "Tigreal charges in the target direction, dealing <font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the way and pushing them to the end of the charge.\n\n<font color=\"a6aafb\">Use Again</font>: Tigreal can use this skill again within 4s, dealing 280<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in front of him and knocking them airborne for 0.6s.",
+      "video": ""
+    },
+    {
+      "id": 630,
+      "name": "Implosion",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_46e5c2b6f8fd6fda995a63d5c10f19e5.png",
+      "cooldown_cost": "CD: 55   Mana Cost: 120",
+      "tags": [],
+      "description": "Tigreal unleashes the power of his hammer, pulling nearby enemies to him and stunning them for 1.8s while dealing 600<font color=\"fba51f\"> (+130% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.\n\n<font color=\"A4AAC7\">The first half of the channeling can be interrupted by control effects. The second half of the channeling can only be interrupted by Suppression.</font>",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 10,
+    "ability": [
+      80,
+      10,
+      100,
+      10
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.022075,
+        "ban_rate": 0.063616,
+        "win_rate": 0.469685
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Tigreal should cast his 2nd Skill to charge in and then pull the enemy team towards him with his Ultimate. At the end of his CC, cast his 2nd Skill again to extend it, then use his 1st Skill to deal damage."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Tigreal can use his 2nd Skill to charge the enemy target and knock them airborne by casting it again. He then finishes with his 1st Skill to deal damage."
+    }
+  ]
+}

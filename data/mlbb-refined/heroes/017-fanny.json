@@ -1,0 +1,103 @@
+{
+  "id": 17,
+  "name": "Fanny",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3391df36d6dcc54dd1c417098e15ec59.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_eec0194a974ed18ceb71bf5d86457d4e.png",
+  "role": [
+    "Assassin"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Chase",
+    "Finisher"
+  ],
+  "lore": {
+    "story": "A blade dancer in the battlefield.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 1740,
+      "name": "Air Superiority",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9010ffb0bfdac45531cb9977a26ae32d.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "During flight, Fanny deals 10%-20% extra damage to enemies hit (scales with flying speed) and applies a stack of <font color=\"a6aafb\">Prey Mark</font> to them (up to 2 stacks) on each attack. Her subsequent skill hits on marked enemy heroes restore 8 energy per stack for her. The energy restoration is reduced if she hits multiple enemy heroes within a short period of time.",
+      "video": ""
+    },
+    {
+      "id": 1710,
+      "name": "Tornado Strike",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bf2db24c7635421134610a42e0b61005.png",
+      "cooldown_cost": "CD: 3.5   Energy Cost: 12",
+      "tags": [],
+      "description": "Fanny whirls her blades, dealing 275<font color=\"fba51f\"> (+85% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies.",
+      "video": ""
+    },
+    {
+      "id": 1720,
+      "name": "Steel Cable",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0dacda6f2198ccd2a3e1dcd444065d7a.png",
+      "cooldown_cost": "CD: 0   Energy Cost: 19",
+      "tags": [],
+      "description": "Fanny shoots a cable in the target direction that pulls her to the first obstacle hit. She can cast this skill again within 2s until her energy runs out. Each successive cast reduces the skill's energy cost by 2.\n\nFanny automatically casts <font color=\"a6aafb\">Tornado Strike</font> upon hitting an enemy mid-flight, as long as her energy is sufficient.",
+      "video": ""
+    },
+    {
+      "id": 1730,
+      "name": "Cut Throat",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c7f6411c4bb0027e0fbd8ef98ef7e770.png",
+      "cooldown_cost": "CD: 35   Energy Cost: 12",
+      "tags": [],
+      "description": "Fanny leaps at the target enemy hero or Creep with her blades, dealing 400<font color=\"fba51f\"> (+200% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. Each stack of <font color=\"a6aafb\">Prey Mark</font> on the target increases this damage by 30%.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 100,
+    "ability": [
+      60,
+      70,
+      10,
+      100
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.00776,
+        "ban_rate": 0.035564,
+        "win_rate": 0.447297
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Fanny's 2nd Skill repeatedly to move around and use her 1st Skill when in the middle of the enemy. Look for low HP enemies to finish off with her Ultimate."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Fanny's 2nd Skill at walls to quickly maneuver around and use her 1st Skill when near the enemy. Keep using her 2nd Skill to pass through the enemy to automatically trigger her 1st Skill, and use her Ultimate to secure kills."
+    }
+  ]
+}

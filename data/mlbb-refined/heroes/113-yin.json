@@ -1,0 +1,141 @@
+{
+  "id": 113,
+  "name": "Yin",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_ee1c12c84f49514a30e405fb5c617796.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c0452c120fee6e5b762d7a2dd1c24cb8.png",
+  "role": [
+    "Fighter",
+    "Assassin"
+  ],
+  "lane": [
+    "Jungle",
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Burst",
+    "Control"
+  ],
+  "lore": {
+    "story": "A young martial artist on a journey to defeat the Evil God that dwells within him.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 11340,
+      "name": "Leave It to Me",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_10e337fa6398a8ea4a471155c8c22c1c.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "If there are no allied heroes within 4 units of Yin, his damage is increased to 120% and he gains 8% Spell Vamp.",
+      "video": ""
+    },
+    {
+      "id": 11310,
+      "name": "Charged Punch",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_927d2396bfbe124ced32fec90158a316.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Yin gains 60% extra Movement Speed (decays over 3s).\nYin can launch an enhanced Basic Attack that deals 25<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> within the duration. Upon hitting an enemy with the enhanced Basic Attack, Yin will throw another charged punch forward, dealing 360<font color=\"fba51f\"> (+200% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in the path.\nSuccessfully throwing the charged punch reduces the skill's cooldown by 35%.",
+      "video": ""
+    },
+    {
+      "id": 11320,
+      "name": "Instant Blast",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9840f60d6b05aa1cb9513397d574df12.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "Yin dashes forward, leaving a <font color=\"a6aafb\">Golden Ring</font> behind while dealing 75<font color=\"fba51f\"> (+35% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the way. He gains 30% extra Damage Reduction for 4s if an enemy hero is hit.\nAfter 1s, the <font color=\"a6aafb\">Golden Ring</font> will catch up with Yin, dealing 150<font color=\"fba51f\"> (+70% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies it passes through and stunning them for 1s.",
+      "video": ""
+    },
+    {
+      "id": 11330,
+      "name": "My Turn",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_772f992a2b08481a7d0f876e1c1ace56.png",
+      "cooldown_cost": "CD: 52",
+      "tags": [],
+      "description": "After a short delay, Yin locks onto an enemy hero (<font color=\"a6aafb\">cannot lock onto pets or clones</font>) and pulls them into a domain for up to 8s and turns into <font color=\"a6aafb\">Lieh</font>. When in the domain, the two cannot be affected by other heroes' skills.\n<font color=\"a6aafb\">Lieh</font> has stronger skills and 50 extra <font color=\"26e407\">Physical & Magic Defense</font> that last 8s.\nThe domain will end early if either of the two is killed. If <font color=\"a6aafb\">Lieh</font> successfully kills the enemy, he'll recover 20% of his Max HP, leave the domain with the cooldowns of <font color=\"a6aafb\">Frenzy Strike</font> and <font color=\"a6aafb\">Instant Blast</font> reset, and continue to fight as <font color=\"a6aafb\">Lieh</font> for 8s.\nIf Yin fails to pull his target into the domain, the skill will enter a 3s cooldown.",
+      "video": ""
+    },
+    {
+      "id": 11340,
+      "name": "Leave It to Me",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_10e337fa6398a8ea4a471155c8c22c1c.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "If there are no allied heroes within 4 units of Yin, his damage is increased to 120% and he gains 8% Spell Vamp.",
+      "video": ""
+    },
+    {
+      "id": 2011310,
+      "name": "Frenzy Strike",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e34f614b0fe2d29abc6364e3a2ab4969.png",
+      "cooldown_cost": "CD: 20",
+      "tags": [],
+      "description": "Lieh smashes an area ahead up to 9 times, each smash dealing 130<font color=\"fba51f\"> (+110% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit and slowing them by 75% for 0.2s.\n\nLieh is immune to control effects for the duration, while the smashing speed will gradually increase. The first half of the attacks will automatically lock onto nearby enemies, while the latter half cannot change directions.\nLieh can move or cast other skills during the latter half to cancel the skill early.",
+      "video": ""
+    },
+    {
+      "id": 2011320,
+      "name": "Instant Blast",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bd208d41c28fbdc474d8381a52a5048b.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "Lieh strikes a flying kick forward, leaving a <font color=\"a6aafb\">Golden Ring</font> behind while dealing 75<font color=\"fba51f\"> (+35% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the way. Enemies hit will also be knocked back slightly. He gains 30% extra Damage Reduction for 4s if an enemy hero is hit.\nAfter 1s, the <font color=\"a6aafb\">Golden Ring</font> will catch up with Lieh, dealing 150<font color=\"fba51f\"> (+70% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies it passes through and stunning them for 1s.",
+      "video": ""
+    },
+    {
+      "id": 11330,
+      "name": "My Turn",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_772f992a2b08481a7d0f876e1c1ace56.png",
+      "cooldown_cost": "CD: 52",
+      "tags": [],
+      "description": "After a short delay, Yin locks onto an enemy hero (<font color=\"a6aafb\">cannot lock onto pets or clones</font>) and pulls them into a domain for up to 8s and turns into <font color=\"a6aafb\">Lieh</font>. When in the domain, the two cannot be affected by other heroes' skills.\n<font color=\"a6aafb\">Lieh</font> has stronger skills and 50 extra <font color=\"26e407\">Physical & Magic Defense</font> that last 8s.\nThe domain will end early if either of the two is killed. If <font color=\"a6aafb\">Lieh</font> successfully kills the enemy, he'll recover 20% of his Max HP, leave the domain with the cooldowns of <font color=\"a6aafb\">Frenzy Strike</font> and <font color=\"a6aafb\">Instant Blast</font> reset, and continue to fight as <font color=\"a6aafb\">Lieh</font> for 8s.\nIf Yin fails to pull his target into the domain, the skill will enter a 3s cooldown.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      50,
+      60,
+      80,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.006463,
+        "ban_rate": 0.02315,
+        "win_rate": 0.477193
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Yin should use his 1st Skill to gain Movement Speed and then his 2nd Skill to get close to a key enemy and hit them with his enhanced Basic Attack before trapping them in his Ultimate. In Lieh form, use his 2nd Skill to stun the enemy and finish them off with his 1st Skill."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Yin should use his 1st Skill to gain Movement Speed, then use his 2nd Skill to dash behind the enemy so the Golden Rings will stun them on their return, and end with his enhanced Basic Attack."
+    }
+  ]
+}

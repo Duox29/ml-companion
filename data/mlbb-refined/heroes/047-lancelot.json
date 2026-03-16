@@ -1,0 +1,103 @@
+{
+  "id": 47,
+  "name": "Lancelot",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_dc4b821e49b904715172136017798da3.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9d7d32fc7cd9da8b47003178a279c046.png",
+  "role": [
+    "Assassin"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Chase",
+    "Burst"
+  ],
+  "lore": {
+    "story": "Prodigal son and genius swordsman of House Baroque.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 4740,
+      "name": "Soul Cutter",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ae0f65f46319169e0086c9249b921b16.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Each time Lancelot charges, his damage is increased by 7.5% for 4s, up to 30%.",
+      "video": ""
+    },
+    {
+      "id": 4710,
+      "name": "Puncture",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_60c8287e6736521c1c00d1eda3bc07bf.png",
+      "cooldown_cost": "CD: 14   Mana Cost: 40",
+      "tags": [],
+      "description": "Lancelot charges in the target direction, dealing 150<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the way and applying a <font color=\"a6aafb\">Sword Mark</font> to the first unmarked enemy hit. The <font color=\"a6aafb\">Sword Mark</font> lasts 3s.\n\nIf Lancelot successfully applies a <font color=\"a6aafb\">Sword Mark</font> to an enemy, the skill's cooldown will be reset.",
+      "video": ""
+    },
+    {
+      "id": 4720,
+      "name": "Thorned Rose",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_146f3578adb9187559996d65a9bcab8b.png",
+      "cooldown_cost": "CD: 11   Mana Cost: 60",
+      "tags": [],
+      "description": "Lancelot strikes in the target direction 3 times, each time dealing 220<font color=\"fba51f\"> (+120% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit (damage is reduced when multiple enemies are hit). He's untargetable during this process. Enemies in the center of the area take all the 3 hits and are slowed by 20% for 0.5s. The slow effect can stack.",
+      "video": ""
+    },
+    {
+      "id": 4730,
+      "name": "Phantom Execution",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_410d2071fe2e9cfeaed0001e1b942229.png",
+      "cooldown_cost": "CD: 36   Mana Cost: 100",
+      "tags": [],
+      "description": "After a short delay, Lancelot performs an executioner's strike in the target direction, dealing 350<font color=\"fba51f\"> (+170% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit. He is invincible throughout the process.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      40,
+      50,
+      10,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.009597,
+        "ban_rate": 0.033097,
+        "win_rate": 0.450856
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Lancelot's 1st Skill on frontline enemies to springboard into their backline, then unleash his 2nd Skill on the backline for heavy damage. Follow up with his Ultimate to charge through the target and block their escape, and use his 1st Skill to continue to chase or retreat."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, clear Minions by repeatedly using Lancelot's 1st Skill thanks to the cooldown reset, and stack his Passive before approaching the enemy and hitting them with his 2nd Skill."
+    }
+  ]
+}

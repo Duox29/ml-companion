@@ -1,0 +1,103 @@
+{
+  "id": 118,
+  "name": "Joy",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d3a3a55c22000ae78732fed8cba2efef.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1ecb59cb5508be26cd90ac70d2177b76.png",
+  "role": [
+    "Assassin"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Chase",
+    "Damage"
+  ],
+  "lore": {
+    "story": "The \"Child of Miracle\" who returned to the Leonins after years of wandering.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 11840,
+      "name": "Humph, Joy's Angry!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2e3f79d1e66691e8d89cacca211ed231.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Joy becomes <font color=\"a6aafb\">Angry!</font> each time her skill hits a non-Minion enemy, dealing 100<font color=\"62f8fe\"> (+80% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and increasing her Movement Speed by 60% that decays over 4s (hitting the <font color=\"a6aafb\">Leonin Crystal</font> will also grant the Movement Speed effect). This effect has a cooldown of 4s for each target.\n\nJoy's Basic Attack will deal 65<font color=\"fba51f\"> (+65% Total Physical Attack)</font>  <font color=\"62f8fe\">(+65% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>.",
+      "video": ""
+    },
+    {
+      "id": 11810,
+      "name": "Look, Leonin Crystal!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_608b4796b7497e4552f9785a3d4331db.png",
+      "cooldown_cost": "CD: 4",
+      "tags": [],
+      "description": "Joy summons a <font color=\"a6aafb\">Leonin Crystal</font> at the target location, dealing 200<font color=\"62f8fe\"> (+40% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to nearby enemies and slowing them by 30% for 1s. The <font color=\"a6aafb\">Leonin Crystal</font> lasts up to 2s.",
+      "video": ""
+    },
+    {
+      "id": 11820,
+      "name": "Meow, Rhythm of Joy!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a500868582b10eec96f338ed3922d3eb.png",
+      "cooldown_cost": "CD: 0.132",
+      "tags": [],
+      "description": "Joy dashes in the target direction, dealing 120<font color=\"62f8fe\"> (+40% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in her path. Hitting an enemy or the <font color=\"a6aafb\">Leonin Crystal</font> allows Joy to cast this skill again within 0.8s and gain 1 <font color=\"a6aafb\">Beat Energy</font>. Casting this skill on the beat increases the skill damage by 100% and grants a 80<font color=\"62f8fe\"> (+60% Total Magic Power)</font> shield that lasts 3s.\n\nThis skill can be cast up to 4 times in succession.",
+      "video": ""
+    },
+    {
+      "id": 11830,
+      "name": "Ha, Electrifying Beats!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d86ac1655ad1a2ec0b569fbec9abadda.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Joy increases her Physical & Magic Defense by 15<font color=\"62f8fe\"> (+10% Total Magic Power)</font> and gains 30% Movement Speed. Over the next 3s, she pulses 8 times, dealing 120<font color=\"62f8fe\"> (+40% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> each time to nearby enemies.\nEach <font color=\"a6aafb\">Meow, Rhythm of Joy!</font> cast on the beat increases this skill's damage by 40%. If perfect rhythm is achieved by hitting every beat with <font color=\"a6aafb\">Meow, Rhythm of Joy!</font>, Joy also gains 40% Spell Vamp while this skill is active.\nThis skill unlocks when Joy acquires <font color=\"a6aafb\">Beat Energy</font>. Casting this skill with 3 <font color=\"a6aafb\">Beat Energy</font> will remove all debuffs on Joy and make her immune to slow effects while this skill is active.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 90,
+    "ability": [
+      30,
+      70,
+      10,
+      90
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.003208,
+        "ban_rate": 0.006352,
+        "win_rate": 0.505774
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Joy should summon a Leonin Crystal with her 1st Skill and use it as a springboard for her 2nd Skill to enter the battle. Continue to chain her 2nd Skill on the beat to unlock her Ultimate. Finally, use her Ultimate to finish off the enemy."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Joy should place her 1st Skill on top of the enemy, then use her 2nd Skill to dash through both targets and continue to chain her 2nd Skill on the beat for damage."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": 78,
+  "name": "Khufra",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2fe99f4001211d18b3d2b95d0d3dc395.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6541be939404a7e45c28a30bd2f2aa16.png",
+  "role": [
+    "Tank"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Initiator",
+    "Crowd Control"
+  ],
+  "lore": {
+    "story": "Sealed ancient tyrant.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 7840,
+      "name": "Spell Curse",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d94c4dc00e5a3b21b0f57614ea52969d.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Khufra activates the Spell Curse left by Esmeralda every 8s, enhancing his next Basic Attack. The enhanced Basic Attack gains extra attack range and deals <font color=\"7f62fe\">Magic Damage</font> equal to <font color=\"fba51f\"> (+120% Total Physical Attack)</font> plus 6% of the target's Max HP. He also slows the target by 30% for 1.5s and heals 8% of his Max HP on hit.\nEach time Khufra applies a control effect to an enemy hero with his skill, the cooldown of <font color=\"a6aafb\">Spell Curse</font> is reduced by 4s.",
+      "video": ""
+    },
+    {
+      "id": 7810,
+      "name": "Tyrant's Revenge",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e0c4482b792fad7b1613c25e35c87c84.png",
+      "cooldown_cost": "CD: 15   Mana Cost: 80",
+      "tags": [],
+      "description": "Khufra pulls the bandage on his arms to launch himself in the specified direction, dealing <font color=\"fb1f1f\">Physical Damage</font> equal to 50 plus 7<font color=\"fba51f\"> (+1.5% Extra Physical Attack)</font>% of his Max HP to all enemy units on the path. When blinking to the furthest distance or encountering a first enemy hero, Khufra will immediately stop, dealing <font color=\"fb1f1f\">Physical Damage</font> equal to 50 plus 7<font color=\"fba51f\"> (+1.5% Extra Physical Attack)</font>% of his Max HP to enemies nearby and then knocking them in the air for up to 1s.",
+      "video": ""
+    },
+    {
+      "id": 7820,
+      "name": "Bouncing Ball",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_fce03edaa914b7eb06de1f158250c7bb.png",
+      "cooldown_cost": "CD: 10   Mana Cost: 70",
+      "tags": [],
+      "description": "Khufra uses bandage to wrap himself into a magic bouncing ball, increasing his own Physical & Magic Defense by 30%. Enemies trying to use blink skills to move across Khufra will be knocked airborne. \nEach time the magic bouncing ball hits the ground, it will deal <font color=\"7f62fe\">Magic Damage</font> equal to 50 plus 3<font color=\"fba51f\"> (+2% Extra Physical Attack)</font>% of his Max HP to enemies nearby and slow them by 80% for 0.2s.",
+      "video": ""
+    },
+    {
+      "id": 7830,
+      "name": "Tyrant's Rage",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c789cf5a91de9659a3af64fa42f1c3bd.png",
+      "cooldown_cost": "CD: 50   Mana Cost: 150",
+      "tags": [],
+      "description": "Khufra pushes back all enemy targets around him toward his front (this skill can only be interrupted by Suppression), dealing 300<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and slowing them down for 1.25s. If the enemies are knocked against walls, extra <font color=\"fb1f1f\">Physical Damage</font> equal to 150% of this skill's damage will be inflicted upon them, and they will be stunned, instead of slowed.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      90,
+      20,
+      100,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.002225,
+        "ban_rate": 0.007568,
+        "win_rate": 0.541078
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Khufra should open with his 1st Skill, then his Ultimate for area control, follow up with his 2nd Skill to prevent the enemy from escaping with their dash or blink skills."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Khufra uses his 1st Skill to aim while charging before launching himself to CC the enemy target. He then deals damage and slows the target with his enhanced Basic Attack and follows up with his 2nd Skill to keep the target slowed."
+    }
+  ]
+}

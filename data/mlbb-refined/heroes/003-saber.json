@@ -1,0 +1,104 @@
+{
+  "id": 3,
+  "name": "Saber",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6bbfac806f29d29f17fea9e98d2d2fee.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e3171fbce7f67586df05233bfa1635c5.png",
+  "role": [
+    "Assassin"
+  ],
+  "lane": [
+    "Jungle",
+    "Roam"
+  ],
+  "specialty": [
+    "Charge",
+    "Finisher"
+  ],
+  "lore": {
+    "story": "A swordsman in pursuit of invincibility, used by Laboratory 1718.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 340,
+      "name": "Enemy's Bane",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1ec282b532be7af31153ce75b206f112.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Saber's attacks reduce enemies' Physical Defense by 3-8 for 5s on hit. This effect stacks up to 5 times.",
+      "video": ""
+    },
+    {
+      "id": 310,
+      "name": "Orbiting Swords",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c6294839bbadfa6f203cd57bdc15efe2.png",
+      "cooldown_cost": "CD: 10   Mana Cost: 60",
+      "tags": [],
+      "description": "Saber releases 5 swords that orbit around him and deal 75<font color=\"fba51f\"> (+25% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies on hit. The swords will retract back to him after the duration.\n\nWhen the swords are active, Saber launches a sword at his target on each attack, dealing 200<font color=\"fba51f\"> (+50% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the target and 50% damage to enemies along the path (damage reduced to 50% against minions). Each sword attack also reduces the cooldown of <font color=\"a6aafb\">Orbiting Swords</font> by 0.5s and <font color=\"a6aafb\">Charge</font> by 1s.",
+      "video": ""
+    },
+    {
+      "id": 320,
+      "name": "Charge",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8607d91bbdff281d5bba7618f3ed4c98.png",
+      "cooldown_cost": "CD: 7   Mana Cost: 40",
+      "tags": [],
+      "description": "Saber dashes in the target direction, dealing 75<font color=\"fba51f\"> (+50% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the way while enhancing his next Basic Attack.\n\nSaber can dash to the target, and his enhanced Basic Attack deals 75<font color=\"fba51f\"> (+120% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and slows the target by 60% for 1s.",
+      "video": ""
+    },
+    {
+      "id": 330,
+      "name": "Triple Sweep",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_fc47930fd50e062bf6e8c8c0398e237c.png",
+      "cooldown_cost": "CD: 44   Mana Cost: 100",
+      "tags": [],
+      "description": "Saber charges at the target enemy hero, knocking them airborne for 1.2s (unaffected by Resilience) and striking them 3 times over the duration. The first two strikes deal 120<font color=\"fba51f\"> (+80% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> each, while the third strike deals 240<font color=\"fba51f\"> (+160% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 10,
+    "ability": [
+      20,
+      60,
+      60,
+      10
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.01048,
+        "ban_rate": 0.122858,
+        "win_rate": 0.487587
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Saber can use his 1st Skill to poke and weaken the enemy, follow with his 2nd Skill to close in, then use his Ultimate to finish them off."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Saber can use his 1st Skill to poke and weaken the enemy, follow with his 2nd Skill to close in, then use his Ultimate to finish them off."
+    }
+  ]
+}

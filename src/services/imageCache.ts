@@ -1,5 +1,38 @@
+import { Capacitor } from '@capacitor/core';
 import { storage } from './storage';
 import { CACHE_KEYS, APP_DATA_VERSION, CacheEntry } from './cacheService';
+
+const API_BASE_URL = (import.meta.env.VITE_API_URL ?? 'http://localhost:8080').replace(/\/+$/, '');
+const IS_WEB = Capacitor.getPlatform() === 'web';
+
+function isCrossOriginApi(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    return new URL(API_BASE_URL, window.location.origin).origin !== window.location.origin;
+  } catch {
+    return false;
+  }
+}
+
+function shouldEnableWebImageCache(): boolean {
+  const override = import.meta.env.VITE_ENABLE_WEB_IMAGE_CACHE;
+  if (override === 'true') return true;
+  if (override === 'false') return false;
+  return false;
+}
+
+function shouldUseImageFallbackProxy(): boolean {
+  const override = import.meta.env.VITE_ENABLE_IMAGE_FALLBACK_PROXY;
+  if (override === 'true') return true;
+  if (override === 'false') return false;
+  if (!IS_WEB) return true;
+  return !isCrossOriginApi();
+}
+
+const SHOULD_USE_IMAGE_FALLBACK_PROXY = shouldUseImageFallbackProxy();
+
+let disableImageCaching = IS_WEB && !shouldEnableWebImageCache();
+let hasLoggedQuotaExceeded = false;
 
 // ─────────────────────────────────────────────
 // Image cache – stores images as base64 data-URIs
@@ -38,6 +71,25 @@ async function fetchImageAsBase64(url: string): Promise<string> {
   });
 }
 
+async function fetchFallbackFromBackend(url: string): Promise<string | null> {
+  if (!SHOULD_USE_IMAGE_FALLBACK_PROXY) return null;
+
+  try {
+    const endpoint = `${API_BASE_URL}/wiki/heroes/image-fallback?url=${encodeURIComponent(url)}`;
+    const response = await fetch(endpoint);
+    if (!response.ok) return null;
+    const payload = await response.json();
+    const data = payload?.data ?? payload;
+    const base64 = data?.base64;
+    if (typeof base64 === 'string' && base64.startsWith('data:image/')) {
+      return base64;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Returns the cached base64 data-URI for an image.
  * Returns `null` when the image is not cached or was cached with a
@@ -64,6 +116,10 @@ export async function getCachedImage(url: string): Promise<string | null> {
  * the UI can still show images via the network.
  */
 export async function cacheImage(url: string): Promise<string> {
+  if (disableImageCaching) {
+    return (await fetchFallbackFromBackend(url)) ?? url;
+  }
+
   try {
     const base64 = await fetchImageAsBase64(url);
     const key = imageKey(url);
@@ -75,6 +131,30 @@ export async function cacheImage(url: string): Promise<string> {
     await storage.set(key, JSON.stringify(entry));
     return base64;
   } catch (err) {
+    const fallbackBase64 = await fetchFallbackFromBackend(url);
+    if (fallbackBase64) {
+      try {
+        const key = imageKey(url);
+        const entry: CacheEntry<string> = {
+          version: APP_DATA_VERSION,
+          cachedAt: Date.now(),
+          data: fallbackBase64,
+        };
+        await storage.set(key, JSON.stringify(entry));
+      } catch {
+        // Ignore storage failures and still use the base64 fallback.
+      }
+      return fallbackBase64;
+    }
+
+    const message = String((err as { message?: string })?.message ?? err ?? '');
+    if (message.toLowerCase().includes('quota')) {
+      disableImageCaching = true;
+      if (!hasLoggedQuotaExceeded) {
+        hasLoggedQuotaExceeded = true;
+        console.warn('[ImageCache] Storage quota exceeded, disabling image caching for this session.');
+      }
+    }
     console.warn('[ImageCache] Failed to cache image, falling back to URL:', url, err);
     return url; // Graceful degradation
   }

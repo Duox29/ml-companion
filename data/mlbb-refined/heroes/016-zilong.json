@@ -1,0 +1,104 @@
+{
+  "id": 16,
+  "name": "Zilong",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9db57da4f0daef6d432676e4f19101ed.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d218e81f1b2383e3def3d6a14796d74e.png",
+  "role": [
+    "Fighter",
+    "Assassin"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Chase",
+    "Damage"
+  ],
+  "lore": {
+    "story": "Guardian of the Dragon Altar and the Oriental Fighter who inherited the Cloud Dragon's power.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 1640,
+      "name": "Dragon Flurry",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_588b6273f7a0153bebe86f7ed6bb7e18.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "After dealing damage 3 time(s) with Basic Attacks or skills, Zilong triggers <font color=\"a6aafb\">Dragon Flurry</font> on the next Basic Attack, hitting the target 3 time(s). Each hit deals 80<font color=\"fba51f\"> (+30% Total Physical Attack)</font> Basic Attack Damage and heals himself for 50<font color=\"fba51f\"> (+20% Total Physical Attack)</font> HP.\n\nZilong's Basic Attack deals 100<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.\n\nIf the target's HP is below 50%, all damage dealt by Zilong's skills and Basic Attacks is increased by 30.",
+      "video": ""
+    },
+    {
+      "id": 1610,
+      "name": "Spear Flip",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_effcecb9dba41aa5fa1c34edad4d7e17.png",
+      "cooldown_cost": "CD: 12   Mana Cost: 80",
+      "tags": [],
+      "description": "Zilong flings the target enemy over his head, dealing 250<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.",
+      "video": ""
+    },
+    {
+      "id": 1620,
+      "name": "Spear Strike",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_61e9af7beef08d70233d34f98cafb3e3.png",
+      "cooldown_cost": "CD: 12   Mana Cost: 40",
+      "tags": [],
+      "description": "Zilong lunges at the target enemy, dealing 250<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and reducing their Physical Defense by 15 for 2s.\n\nThe cooldown of <font color=\"a6aafb\">Spear Strike</font> is reset each time Zilong kills an enemy.",
+      "video": ""
+    },
+    {
+      "id": 1630,
+      "name": "Supreme Warrior",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ed8776fe35d9d7b2db410549e95759cd.png",
+      "cooldown_cost": "CD: 35   Mana Cost: 120",
+      "tags": [],
+      "description": "Zilong removes all slow effects on himself and gains 40% Movement Speed, 35% Attack Speed, and Slow Immunity for 7.5s.\n\nFor the duration, he can trigger <font color=\"a6aafb\">Dragon Flurry</font> after every 2 Basic Attacks (instead of the previous 3).",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 10,
+    "ability": [
+      20,
+      50,
+      60,
+      10
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.008871,
+        "ban_rate": 0.004285,
+        "win_rate": 0.458179
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, activate Zilong's Ultimate to gain Movement and Attack Speed bonus before charging at the target enemy with his 2nd Skill. Cast his 1st Skill after closing in on the enemy and follow up with Basic Attacks to trigger the Passive effects."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Zilong should use his 2nd Skill to close in on the target enemy and lower their Defenses, then lift the target over his back with his 1st Skill, and spam Basic Attacks to trigger more Passive effects."
+    }
+  ]
+}

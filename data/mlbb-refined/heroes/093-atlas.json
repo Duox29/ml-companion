@@ -1,0 +1,103 @@
+{
+  "id": 93,
+  "name": "Atlas",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d974ac796678180ff8724b88e192898b.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f7b43ccce0423507f62bbe555e9f2395.png",
+  "role": [
+    "Tank"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Crowd Control",
+    "Initiator"
+  ],
+  "lore": {
+    "story": "Abysmal Sea creature who broke free from the seal.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 9340,
+      "name": "Frigid Breath",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d7bbba4e6ab968ce1f1d798f29960198.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Atlas generates <font color=\"a6aafb\">Frigid Breath</font> around him for 5s each time he casts a skill. Enemies affected by <font color=\"a6aafb\">Frigid Breath</font> will have their Movement Speed gradually reduced over 2s, after which they'll be frozen for 0.5s.\n\nAtlas gains 20<font color=\"26e407\"> (+0.5% Extra Max HP)</font>- extra Physical & Magic Defense when <font color=\"a6aafb\">Frigid Breath</font> is present.",
+      "video": ""
+    },
+    {
+      "id": 9310,
+      "name": "Annihilate",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e329fe04072558085096e8198d9e15c8.png",
+      "cooldown_cost": "CD: 7   Mana Cost: 60",
+      "tags": [],
+      "description": "Atlas smashes the ground and causes 3 explosions, dealing 400<font color=\"62f8fe\"> (+100% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies.\n\n<font color=\"a6aafb\">Ejected State</font>: If Atlas is ejected from his Mecha Sentry, both he and his Mecha will cast Annihilate.",
+      "video": ""
+    },
+    {
+      "id": 9320,
+      "name": "Perfect Match",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_15c10ac17e273e24397333ae7900a72d.png",
+      "cooldown_cost": "CD: 0   Mana Cost: 75",
+      "tags": [],
+      "description": "Atlas enters <font color=\"a6aafb\">Ejected State</font>, gaining 40% Movement Speed and immunity to Slowing Effects. In this state, the Mecha Sentry will follow the pilot at an increasing speed (can only be controlled by Suppression). Once they meet, Atlas will return to the Mecha, dealing 320<font color=\"62f8fe\"> (+80% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies nearby and stunning them for 0.8s.\n<font color=\"a6aafb\">Ejected State</font>: Atlas and his Mecha share the same HP bar and reduce 50% of the damage taken in this state.",
+      "video": ""
+    },
+    {
+      "id": 9330,
+      "name": "Fatal Links",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6b88d2df7f9a269a382e2cd256f9d816.png",
+      "cooldown_cost": "CD: 55   Mana Cost: 130",
+      "tags": [],
+      "description": "Atlas hurls chains around and starts to channel (can only be interrupted by Suppression), dealing 225<font color=\"62f8fe\"> (+75% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemy heroes hit and slowing them by 40% for 3s.\nUse this skill again while channeling: Atlas will drag the targets toward him and plunk them down on the designated location, dealing 360<font color=\"62f8fe\"> (+180% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>.\nUse this skill in <font color=\"a6aafb\">Ejected State</font>: The Mecha Sentry will return to Atlas immediately, but the stun effect will be replaced by 40% Slowing Effect.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      80,
+      10,
+      90,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.004285,
+        "ban_rate": 0.019405,
+        "win_rate": 0.513424
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Atlas's 2nd Skill to approach the enemy and unleash his Ultimate when multiple enemies are in range. Aim while channeling and release to slam them down near your team, then continue to deal damage with his 1st Skill."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Atlas's 2nd Skill to eject and then get close to the enemy. Right before the Mecha Sentry reaches Atlas, use his 1st Skill to double the effect."
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "id": 62,
+  "name": "Kaja",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a23983833ad5bee7c83422c8ff727115.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_92b841a4898314b3a4f1996492bb0b24.png",
+  "role": [
+    "Support",
+    "Fighter"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Control",
+    "Charge"
+  ],
+  "lore": {
+    "story": "Leader of Nazar who guards the Celestial Palace.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 6240,
+      "name": "Wrath Sanction",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_886fc87f5a6bb8be73d7ff0f1265368d.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Kaja achieves Wrath Sanction every 6s. His next Basic Attack will send lightning at enemies, dealing <font color=\"7f62fe\">Magic Damage</font> equal to 100<font color=\"62f8fe\"> (+100% Total Magic Power)</font> plus 4% of targets' Max HP and <font color=\"a6aafb\">paralyzing</font> them. The lightning will jump to enemies nearby as well (up to 3 times).\n\nIncreases damage by 200% of targets' Max HP on Minions and Creeps.\n\n<font color=\"a6aafb\">Paralyze</font>: Slows enemy heroes and summons while reducing their damage by 2.5% (up to 6 stacks) for 5s.",
+      "video": ""
+    },
+    {
+      "id": 6210,
+      "name": "Ring of Order",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_17653d39e18c367eb027863afa142fe8.png",
+      "cooldown_cost": "CD: 5.5   Mana Cost: 50",
+      "tags": [],
+      "description": "Kaja releases a Ringed Electric Blade that quickly expands and contracts, dealing 135<font color=\"62f8fe\"> (+70% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit on its way out and back and <font color=\"a6aafb\">paralyzing</font> them. Enemies hit will also have their positions revealed briefly.\nEach time Electric Blade deals damage, Kaja restores 100 HP (decays to 30% after multiple hits).",
+      "video": ""
+    },
+    {
+      "id": 6220,
+      "name": "Lightning Bomb",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a4e4ae951469d8f7ea8719442a8830a7.png",
+      "cooldown_cost": "CD: 13   Mana Cost: 65",
+      "tags": [],
+      "description": "Kaja dashes in the target direction while leaving 3 Lightning Bombs along the way. The Bombs will explode upon enemy contact, dealing 150<font color=\"62f8fe\"> (+35% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the enemies and <font color=\"a6aafb\">paralyzing</font> them.",
+      "video": ""
+    },
+    {
+      "id": 6230,
+      "name": "Divine Judgment",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_97e2b721acd4d9ce8180dafdebd0954f.png",
+      "cooldown_cost": "CD: 60   Mana Cost: 150",
+      "tags": [],
+      "description": "Kaja deals 200<font color=\"62f8fe\"> (+80% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to a designated enemy hero, suppresses and <font color=\"a6aafb\">paralyzes</font> them for 1.5s.\n\nDuring the suppression, Kaja can drag the enemy hero along with him.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      30,
+      20,
+      60,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.00247,
+        "ban_rate": 0.011227,
+        "win_rate": 0.564242
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, look for opportunities to use Kaja's Ultimate to suppress an important target, then use his 2nd Skill to pull them into his team and finish them off with his 1st Skill."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Kaja's enhanced Basic Attacks and 1st Skill to wear down the enemy while stacking paralyze. Look for a chance to grab the enemy with Kaja's Ultimate then use his 2nd Skill to pull them out of position and into the bombs left by the 2nd Skill."
+    }
+  ]
+}

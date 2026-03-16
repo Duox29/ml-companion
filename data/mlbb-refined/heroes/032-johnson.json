@@ -1,0 +1,104 @@
+{
+  "id": 32,
+  "name": "Johnson",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_85ff988c6660b4d04f8dd3d40df988bb.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2ad944e166e69a31623ccdb1f4b38f91.png",
+  "role": [
+    "Tank",
+    "Support"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Support",
+    "Crowd Control"
+  ],
+  "lore": {
+    "story": "A super cyborg who can transform into a car and lead his teammates into battle.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 3240,
+      "name": "Electro Airbag",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_df5fccf91538ea84c5ce22d59d217a5a.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "When Johnson's HP drops below 30%, he gains a 300<font color=\"26e407\"> (+700% Total Physical Defense)</font> shield for 10s. Cooldown: 100s.",
+      "video": ""
+    },
+    {
+      "id": 3210,
+      "name": "Impact Wrench",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_931a5157d2fadc2f1fe0d6d4941c2939.png",
+      "cooldown_cost": "CD: 8",
+      "tags": [],
+      "description": "Johnson throws his wrench toward the target location, dealing 120<font color=\"26e407\"> (+220% Total Physical Defense)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in its path. Enemies around the landing point are stunned for 0.8s.",
+      "video": ""
+    },
+    {
+      "id": 3220,
+      "name": "Electromagnetic Waves",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d559adcd5b3f996872c0db6b7673c86c.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Johnson raises his shield, continuously dealing 120<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in a fan-shaped area in the target direction, reducing their Movement Speed and Magic Defense by 10% (stacks up to 3 times) for 2s.\nWhile his shield is raised, Johnson can perform Basic Attacks and cast skills.",
+      "video": ""
+    },
+    {
+      "id": 3230,
+      "name": "Full Throttle",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3b552855efed5343debb078d885c15f8.png",
+      "cooldown_cost": "CD: 36",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Johnson's Physical Defense is increased by 10%.\nJohnson transforms into a car. An allied hero can use <font color=\"a6aafb\">Hop In</font> when near Johnson to board the car (only 1 allied hero can ride with Johnson). The car will explode upon hitting an enemy hero, dealing 300<font color=\"26e407\"> (+240% Total Physical Defense)</font>-450<font color=\"26e407\"> (+360% Total Physical Defense)</font> <font color=\"7f62fe\">Magic Damage</font> to nearby enemies, stunning them for 0.5-1s (scales with driving time), and creating an electrified zone at the location. The zone continuously deals 60<font color=\"62f8fe\"> (+20% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and slows enemies within. Johnson's location will be revealed to the enemy for 3s when casting this skill.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      80,
+      30,
+      90,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.008734,
+        "ban_rate": 0.028962,
+        "win_rate": 0.490393
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, cast Johnson's Ultimate and pick up a teammate before engaging the enemy. Then follow up with his 2nd Skill and 1st Skill to CC the enemy again."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Johnson's 1st Skill to stun enemies, then move in and hit them with his 2nd Skill and Basic Attacks."
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "id": 127,
+  "name": "Lukas",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_20/100_63040edd0cf15b815fcbbb8b2d08d7f7.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/gms/image/1bea09e43f6b02845de97af863c53da5.webp",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Exp Lane",
+    "Jungle"
+  ],
+  "specialty": [
+    "Regen",
+    "Damage"
+  ],
+  "lore": {
+    "story": "A legendary Sacred Beast that can take the form of a rambunctious young man.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 12740,
+      "name": "Hero's Resolve",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_eed80b0f3a9b855d178f5eb70c3542d9.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Lukas gains 0.5 Resolve per second and an additional 2 Resolve when attacking heroes.\n\nLukas consumes 10 Resolve per second while in [Sacred Beast] form.",
+      "video": ""
+    },
+    {
+      "id": 12710,
+      "name": "Flash Combo",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_2a67de9ff7e731d6a5e6c6746b9971af.png",
+      "cooldown_cost": "CD: 5.5",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Basic Attacks enhance <font color=\"a6aafb\">Flash Combo</font> up to 2 times, lasting 4s.\nLukas consumes all Vigor to unleash Pulverize, dealing 220<font color=\"fba51f\"> (+120% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and recovering 5% of his Max HP when hitting a hero or minion.\n<font color=\"a6aafb\">1 Stack</font>: Lukas briefly stuns the target and spins his tonfa hammers to deal 100<font color=\"fba51f\"> (+45% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> 3 times, pulling the enemy toward him.\n<font color=\"a6aafb\">2 Stacks</font>: Lukas briefly stuns the target and follows up with 2 attacks that deal 50<font color=\"fba51f\"> (+20% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> each. He then spins his tonfa hammers to deal 100<font color=\"fba51f\"> (+45% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> 3 times, gaining Control Immunity during this period.",
+      "video": ""
+    },
+    {
+      "id": 12720,
+      "name": "Flash Step",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_4c18e5cd1756493f078cbc1ccceefe99.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "Lukas dashes in the target direction and turns his next Basic Attack within 4s into <font color=\"a6aafb\">Flash Strike</font>.\n<font color=\"a6aafb\">Flash Strike</font>: Lukas blinks behind the enemy, dealing 60<font color=\"fba51f\"> (+125% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. He then gains increased Attack Range, 20% Movement Speed and Attack Speed, and his Basic Attacks trigger lightning storms to deal 50<font color=\"fba51f\"> (+25% Total Physical Attack)</font> extra <font color=\"fb1f1f\">Physical Damage</font>, lasting for 4s.",
+      "video": ""
+    },
+    {
+      "id": 12730,
+      "name": "Unleash the Beast",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_0ee62afc61544c6664234deab5577fc7.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Lukas transforms into his <font color=\"a6aafb\">Sacred Beast</font> form (briefly gains Control Immunity). His base Movement Speed is increased by 30, all attributes are increased by 15%, and his skills gain new effects.\n<font color=\"a6aafb\">Use Again</font>: Fires a Shockwave Blast in the target direction that will explode upon hitting an enemy hero or reaching its maximum range, dealing 450<font color=\"fba51f\"> (+155% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.\n<font color=\"A4AAC7\">All attributes: HP, Physical Attack, Attack Speed, Physical & Magic Defense, and Attack Range.</font>",
+      "video": ""
+    },
+    {
+      "id": 12740,
+      "name": "Hero's Resolve",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_eed80b0f3a9b855d178f5eb70c3542d9.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Lukas gains 0.5 Resolve per second and an additional 2 Resolve when attacking heroes.\n\nLukas consumes 10 Resolve per second while in [Sacred Beast] form.",
+      "video": ""
+    },
+    {
+      "id": 2012710,
+      "name": "Flash Combo",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_31b3aadc6fbf508e4782bc8c36df3008.png",
+      "cooldown_cost": "CD: 5.5",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Basic Attacks enhance <font color=\"a6aafb\">Flash Combo</font> up to 2 times, lasting 4s.\nLukas consumes all Vigor to unleash a tail swing, dealing 220<font color=\"fba51f\"> (+120% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and recovers 5% of his Max HP when hitting a hero.\n<font color=\"a6aafb\">1 Stack</font>: Lukas briefly stuns the target and pounces to deal 100<font color=\"fba51f\"> (+45% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> 3 times, knocking the enemy back.\n<font color=\"a6aafb\">2 Stacks</font>: Lukas briefly stuns the target and leaps to deal 50<font color=\"fba51f\"> (+20% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> 2 times, then summons sacred lightning, dealing 100<font color=\"fba51f\"> (+45% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> 3 times, and gaining Control Immunity during this period.",
+      "video": ""
+    },
+    {
+      "id": 2012720,
+      "name": "Flash Step",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_c9cc9b1c2e6b95fcef9a4fb7e0c0523a.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "Lukas dashes in the target direction and turns his next Basic Attack within 4s into <font color=\"a6aafb\">Lightning Clash</font>.\n\n<font color=\"a6aafb\">Lightning Clash</font>: Lukas charges toward the enemy, knocking them back and dealing 60<font color=\"fba51f\"> (+125% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. He then gains 20% Movement Speed and Attack Speed, and summons sacred lightning with Basic Attacks to deal 50<font color=\"fba51f\"> (+25% Total Physical Attack)</font> extra <font color=\"fb1f1f\">Physical Damage</font>, lasting for 4s.",
+      "video": ""
+    },
+    {
+      "id": 12734,
+      "name": "Shockwave Blast",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_c751fb684db1294450cb37cb333ca558.png",
+      "cooldown_cost": "CD: 0.1",
+      "tags": [],
+      "description": "The Sacred Beast fires a Shockwave Blast in the target direction (gains Control Immunity during the cast) that will explode upon hitting an enemy hero or reaching its maximum range, dealing 450<font color=\"fba51f\"> (+155% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 30,
+    "ability": [
+      70,
+      50,
+      60,
+      30
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.004244,
+        "ban_rate": 0.00596,
+        "win_rate": 0.491544
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Lukas should use his 2nd Skill to close in on the enemy, then use the enhanced Basic Attack plus another Basic Attack to get 2 stacks of Vigor. Now use his fully powered 1st Skill to inflict high damage and stun and displace the target, then back off to avoid the enemy's counterattack."
+    },
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In Sacred Beast form, use Lukas's 2nd Skill followed by an enhanced Basic Attack, then another Basic Attack to get 2 stacks of Vigor. Use his 1st Skill to inflict high damage and CC, and finish off with Shockwave Blast to devastate the enemy with a massive AOE attack."
+    }
+  ]
+}

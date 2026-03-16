@@ -1,0 +1,104 @@
+{
+  "id": 30,
+  "name": "Yi Sun-shin",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_961378be3f498d42c25b3defd1635ad1.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e7ec78a2d7f84ef57deac87ec2b40dbf.png",
+  "role": [
+    "Assassin",
+    "Marksman"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Finisher",
+    "Chase"
+  ],
+  "lore": {
+    "story": "Leader of the City of the Dragon Fleet.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 3040,
+      "name": "Heavenly Vow",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_708b471cf829d9ffb5d892a79b17d710.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Yi Sun-shin attacks with his <font color=\"a6aafb\">longbow</font> or <font color=\"a6aafb\">glaive</font> according to his distance from the target.\n<font color=\"a6aafb\">Weapon Mastery</font>: After each weapon switch, the next two Basic Attacks will gain extra Attack Speed, dealing 70% and 55% Crit Damage respectively, and gain 15% Movement Speed for 1s.",
+      "video": ""
+    },
+    {
+      "id": 3010,
+      "name": "Traceless",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_abd7c311019ffb1e4210092e448a445e.png",
+      "cooldown_cost": "CD: 12   Mana Cost: 50",
+      "tags": [],
+      "description": "Yi Sun-shin dashes forward and slashes with his glaive, dealing 150<font color=\"fba51f\"> (+40% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and becoming immune to control effects for 0.4s.\n\nEach <font color=\"a6aafb\">Weapon Mastery</font> triggered reduces the cooldown of <font color=\"a6aafb\">Traceless</font> by 1s.",
+      "video": ""
+    },
+    {
+      "id": 3020,
+      "name": "Blood Floods",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_cbefbe66ac78ac29ec20d14a057c30a5.png",
+      "cooldown_cost": "CD: 11   Mana Cost: 60",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Tap</font>: Yi Sun-shin slashes swiftly with his glaive, dealing 240<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.\n<font color=\"a6aafb\">Hold</font>: Yi Sun-shin shoots a powerful arrow, dealing 240<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the target. The arrow's damage scales with the hold time, up to 200%.\nYi Sun-shin gains <font color=\"a6aafb\">Weapon Mastery</font> immediately when this skill is used.",
+      "video": ""
+    },
+    {
+      "id": 3030,
+      "name": "Mountain Shocker",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_fa5511e292c6b516b1b258b13ab0f883.png",
+      "cooldown_cost": "CD: 60   Mana Cost: 150",
+      "tags": [],
+      "description": "Yi Sun-shin summons a turtle ship and gains sight of the whole map for 2s. The turtle ship lasts for up to 15s, during which Yi Sun-shin gains 70% burst Movement Speed (decays to 20% over 2s).\nWhen cast again, Yi Sun-shin commands the turtle ship to ram toward the target area, dealing 160<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and stunning enemy units in the central area for 0.8s. Then Yi Sun-shin commands the naval fleet to launch 3 waves of cannon shots on a larger area, each dealing 160<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and slowing the enemies by 30%.\nYi Sun-shin gains <font color=\"a6aafb\">Weapon Mastery</font> effect immediately when this skill is used.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 70,
+    "ability": [
+      40,
+      90,
+      40,
+      70
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.017074,
+        "ban_rate": 0.149238,
+        "win_rate": 0.514691
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, start with Yi Sun-shin's Ultimate, then use his enhanced 1st Skill to send his Turtle Ship into the enemy to stun them. Follow up with ranged Basic Attacks, then use his 1st Skill to get close and perform 2 enhanced Basic Attacks. Tap his 2nd Skill to perform another slash, and secure the kill with 2 more enhanced Basic Attacks."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Yi Sun-shin should use his enhanced Basic Attacks from a distance, then close in with his 1st Skill and slash the enemy with two enhanced Basic Attacks. Follow up with a slash from his 2nd Skill and finish with 2 more enhanced Basic Attacks."
+    }
+  ]
+}

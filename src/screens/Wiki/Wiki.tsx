@@ -1,67 +1,95 @@
-import { useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import {
   Search,
   Filter,
   ChevronLeft,
-  Heart,
+  ArrowUp,
   Share2,
   Calendar,
   Bell,
   RefreshCw,
+  Shield,
+  Sword,
+  Sparkles,
+  BarChart3,
 } from "lucide-react";
-import { Hero, HeroDetailedInfo } from "../../types";
-import { useHeroes, useHeroDetail } from "../../hooks/useWikiData";
-
-// ─────────────────────────────────────────────
-// Static mock data (events/news – not yet API-driven)
-// ─────────────────────────────────────────────
+import { Hero, WikiHeroDetailStat, WikiHeroRecord } from "../../types";
+import { useHeroes } from "../../hooks/useWikiData";
 
 const MOCK_EVENTS = [
   { id: 1, title: "515 eParty", date: "May 15 - May 31", image: "https://picsum.photos/seed/event1/800/400", type: "In-Game" },
-  { id: 2, title: "MSC 2026",   date: "June 10 - June 20", image: "https://picsum.photos/seed/event2/800/400", type: "Esports" },
+  { id: 2, title: "MSC 2026", date: "June 10 - June 20", image: "https://picsum.photos/seed/event2/800/400", type: "Esports" },
 ];
 
 const MOCK_NEWS = [
-  { id: 1, title: "Patch 1.8.88 Notes",            date: "2 hours ago", image: "https://picsum.photos/seed/news1/400/400", summary: "New hero Suyou arrives, plus massive equipment adjustments." },
-  { id: 2, title: "New Skin: Tigreal 'Lightborn'",  date: "1 day ago",   image: "https://picsum.photos/seed/news2/400/400", summary: "The defender of the Moniyan Empire gets a shiny new look."  },
-  { id: 3, title: "Season 32 Ending Soon",          date: "3 days ago",  image: "https://picsum.photos/seed/news3/400/400", summary: "Push your rank before the season ends to claim exclusive rewards." },
+  { id: 1, title: "Patch 1.8.88 Notes", date: "2 hours ago", image: "https://picsum.photos/seed/news1/400/400", summary: "New hero Suyou arrives, plus massive equipment adjustments." },
+  { id: 2, title: "New Skin: Tigreal 'Lightborn'", date: "1 day ago", image: "https://picsum.photos/seed/news2/400/400", summary: "The defender of the Moniyan Empire gets a shiny new look." },
+  { id: 3, title: "Season 32 Ending Soon", date: "3 days ago", image: "https://picsum.photos/seed/news3/400/400", summary: "Push your rank before the season ends to claim exclusive rewards." },
 ];
 
-// ─────────────────────────────────────────────
-// Role badge colours
-// ─────────────────────────────────────────────
-
 const ROLE_COLORS: Record<string, string> = {
-  Tank:     "bg-blue-100   text-blue-800   dark:bg-blue-900   dark:text-blue-200",
-  Fighter:  "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
-  Mage:     "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
-  Marksman: "bg-green-100  text-green-800  dark:bg-green-900  dark:text-green-200",
-  Assassin: "bg-red-100    text-red-800    dark:bg-red-900    dark:text-red-200",
-  Support:  "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
+  Tank: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
+  Fighter: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
+  Mage: "bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-900 dark:text-fuchsia-200",
+  Marksman: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
+  Assassin: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
+  Support: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
 };
 
-// ─────────────────────────────────────────────
-// Hero card skeleton
-// ─────────────────────────────────────────────
+const WIKI_CATEGORIES = ["All", "Heroes", "Event", "News"] as const;
+const HERO_ROLES = ["All Roles", "Tank", "Fighter", "Mage", "Marksman", "Assassin", "Support"] as const;
+const HERO_DETAIL_SECTIONS = ["skills", "stats", "lore", "combos"] as const;
+
+type WikiCategory = (typeof WIKI_CATEGORIES)[number];
+type HeroRoleFilter = (typeof HERO_ROLES)[number];
+type HeroSection = (typeof HERO_DETAIL_SECTIONS)[number];
 
 function HeroCardSkeleton() {
-  return (
-    <div className="relative h-40 rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-700 animate-pulse" />
-  );
+  return <div className="relative h-36 sm:h-40 rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-700 animate-pulse" />;
 }
 
-// ─────────────────────────────────────────────
-// Main Wiki tab
-// ─────────────────────────────────────────────
+function parseWikiPath(pathname: string): { category: WikiCategory; heroSlug: string | null } {
+  const cleanPath = pathname.split("?")[0];
+  const segments = cleanPath.replace(/^\/wiki\/?/, "").split("/").filter(Boolean);
+  const first = segments[0];
+  const second = segments[1];
+
+  if (!first) return { category: "All", heroSlug: null };
+  if (first === "heroes") return { category: "Heroes", heroSlug: second ?? null };
+  if (first === "event") return { category: "Event", heroSlug: null };
+  if (first === "news") return { category: "News", heroSlug: null };
+  return { category: "All", heroSlug: null };
+}
+
+function stripHtml(input: string) {
+  return input.replace(/<[^>]*>/g, "").replace(/\n{3,}/g, "\n\n").trim();
+}
+
+function formatPercent(value: number | null | undefined) {
+  if (value == null || Number.isNaN(value)) return "N/A";
+  return `${(value * 100).toFixed(2)}%`;
+}
+
+function getCategoryPath(category: WikiCategory): string {
+  if (category === "All") return "/wiki";
+  if (category === "Heroes") return "/wiki/heroes";
+  if (category === "Event") return "/wiki/event";
+  return "/wiki/news";
+}
 
 export default function WikiTab() {
-  const [view, setView] = useState<"home" | "hero">("home");
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [activeRole, setActiveRole] = useState("All Roles");
-  const [selectedHero, setSelectedHero] = useState<Hero | null>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const { category, heroSlug } = useMemo(() => parseWikiPath(location.pathname), [location.pathname]);
 
   const {
     heroes,
+    heroRecords,
     resolvedImages,
     isLoading,
     isRefreshing,
@@ -70,26 +98,93 @@ export default function WikiTab() {
     refresh,
   } = useHeroes();
 
+  const roleParam = searchParams.get("role");
+  const activeRole: HeroRoleFilter =
+    HERO_ROLES.find((role) => role === roleParam) ?? "All Roles";
+  const normalizedSearch = searchQuery.trim().toLowerCase();
+  const isSearchEnabled = category !== "All";
+  const isHeroSearchActive = category === "Heroes";
+  const isEventSearchActive = category === "Event";
+  const isNewsSearchActive = category === "News";
+  const searchPlaceholder =
+    category === "Heroes"
+      ? "Search heroes..."
+      : category === "Event"
+        ? "Search events..."
+        : category === "News"
+          ? "Search news..."
+          : "Search is disabled on All tab";
+
   const hasNewVersion = Boolean(cacheVersion && cacheVersion !== dataVersion);
 
-  if (view === "hero" && selectedHero) {
+  const selectedRecord = useMemo(
+    () => heroRecords.find((hero) => hero.slug === heroSlug) ?? null,
+    [heroRecords, heroSlug],
+  );
+
+  const selectedHeroCard = useMemo(
+    () => heroes.find((hero) => hero.slug === heroSlug) ?? null,
+    [heroes, heroSlug],
+  );
+
+  useEffect(() => {
+    setSearchQuery("");
+  }, [category]);
+
+  const filteredHeroes =
+    (activeRole === "All Roles"
+      ? heroes
+      : heroes.filter((hero) => hero.role === activeRole)).filter((hero) => {
+      if (!isHeroSearchActive || !normalizedSearch) return true;
+      return hero.name.toLowerCase().includes(normalizedSearch);
+    });
+
+  const visibleHeroes =
+    category === "All"
+      ? filteredHeroes.slice(0, 4)
+      : filteredHeroes;
+
+  const filteredEvents =
+    isEventSearchActive && normalizedSearch
+      ? MOCK_EVENTS.filter((event) => event.title.toLowerCase().includes(normalizedSearch))
+      : MOCK_EVENTS;
+
+  const filteredNews =
+    isNewsSearchActive && normalizedSearch
+      ? MOCK_NEWS.filter((news) => news.title.toLowerCase().includes(normalizedSearch))
+      : MOCK_NEWS;
+
+  const scrollToTop = () => {
+    scrollContainerRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  if (heroSlug) {
+    if (!selectedRecord || !selectedHeroCard) {
+      return (
+        <div className="h-full flex flex-col items-center justify-center gap-4 p-6 text-center">
+          <p className="text-sm text-gray-500 dark:text-gray-400">Không tìm thấy hero cho deeplink này.</p>
+          <button
+            onClick={() => navigate("/wiki/heroes")}
+            className="px-4 py-2 rounded-lg bg-primary text-white text-sm font-medium"
+          >
+            Quay lại Heroes
+          </button>
+        </div>
+      );
+    }
+
     return (
       <HeroDetail
-        hero={selectedHero}
-        resolvedListImage={resolvedImages[selectedHero.id]}
-        onBack={() => setView("home")}
+        hero={selectedHeroCard}
+        record={selectedRecord}
+        resolvedListImage={resolvedImages[selectedHeroCard.id]}
+        isRefreshing={isRefreshing}
       />
     );
   }
 
-  const filteredHeroes =
-    activeRole === "All Roles"
-      ? heroes
-      : heroes.filter((h) => h.role === activeRole);
-
   return (
-    <div className="flex flex-col h-full bg-bg-light dark:bg-bg-dark">
-      {/* Header */}
+    <div className="relative flex flex-col h-full bg-bg-light dark:bg-bg-dark">
       <div className="bg-white dark:bg-gray-900 px-4 pt-3 pb-2 sticky top-0 z-10 shadow-sm">
         <div className="flex justify-between items-center mb-2">
           <div className="flex items-center">
@@ -103,20 +198,24 @@ export default function WikiTab() {
           </button>
         </div>
 
-        <div className="relative">
-          <Search className="absolute left-3 top-2 text-gray-400" size={16} />
-          <input
-            type="text"
-            placeholder="Search heroes, events, news..."
-            className="w-full bg-gray-100 dark:bg-gray-800 rounded-xl py-1.5 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary dark:text-white"
-          />
-        </div>
+        {isSearchEnabled && (
+          <div className="relative">
+            <Search className="absolute left-3 top-2 text-gray-400" size={16} />
+            <input
+              type="text"
+              placeholder={searchPlaceholder}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-gray-100 dark:bg-gray-800 rounded-xl py-1.5 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary dark:text-white"
+            />
+          </div>
+        )}
       </div>
 
       {hasNewVersion && (
         <div className="mx-4 mt-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-700 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-300">
           <div className="flex items-center gap-2">
-            <span>Có phiên bản dữ liệu mới (v{dataVersion}).</span>
+            <span>Có phiên bản dữ liệu mới ({dataVersion}).</span>
             <button
               onClick={refresh}
               disabled={isRefreshing}
@@ -129,60 +228,47 @@ export default function WikiTab() {
         </div>
       )}
 
-      <div className="flex-1 overflow-y-auto">
-        {/* Category Chips */}
+      <div
+        ref={scrollContainerRef}
+        onScroll={(event) => {
+          setShowScrollTop(event.currentTarget.scrollTop > 220);
+        }}
+        className="flex-1 overflow-y-auto"
+      >
         <div className="px-4 py-3 overflow-x-auto whitespace-nowrap hide-scrollbar flex space-x-2">
-          {["All", "Heroes", "Event", "News"].map((cat) => (
+          {WIKI_CATEGORIES.map((item) => (
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
+              key={item}
+              onClick={() => navigate(getCategoryPath(item))}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 active:scale-95 ${
-                activeCategory === cat
+                category === item
                   ? "bg-primary text-white hover:bg-primary/90 shadow-md"
                   : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
               }`}
             >
-              {cat}
+              {item}
             </button>
           ))}
         </div>
 
         <div className="px-4 pb-6 space-y-8 mt-2">
-          {/* ── News / Featured ─────────────────────────────────── */}
-          {(activeCategory === "All" || activeCategory === "News") && (
+          {(category === "All" || category === "News") && (
             <div>
-              {activeCategory === "All" && (
-                <h2 className="text-lg font-bold mb-3 dark:text-white">Featured</h2>
-              )}
-
+              {category === "All" && <h2 className="text-lg font-bold mb-3 dark:text-white">Featured</h2>}
               <div className="relative h-40 rounded-2xl overflow-hidden shadow-md mb-4 cursor-pointer group">
-                <img
-                  src="https://picsum.photos/seed/featured/800/400"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  alt="Featured"
-                />
+                <img src="https://picsum.photos/seed/featured/800/400" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" alt="Featured" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4">
-                  <span className="bg-accent text-primary text-xs font-bold px-2 py-1 rounded w-max mb-1">
-                    NEW HERO
-                  </span>
+                  <span className="bg-accent text-primary text-xs font-bold px-2 py-1 rounded w-max mb-1">NEW HERO</span>
                   <h3 className="text-white font-game text-2xl font-bold">Suyou</h3>
                   <p className="text-gray-300 text-sm">The Masked Immortal</p>
                 </div>
               </div>
-
-              {activeCategory === "News" && (
+              {category === "News" && (
                 <div className="space-y-3">
-                  {MOCK_NEWS.map((news) => (
-                    <div
-                      key={news.id}
-                      className="flex bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 active:scale-[0.98] transition-transform cursor-pointer group"
-                    >
+                  {filteredNews.map((news) => (
+                    <div key={news.id} className="flex bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700">
                       <div className="w-28 h-28 shrink-0 overflow-hidden">
-                        <img
-                          src={news.image}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                          alt={news.title}
-                        />
+                        <img src={news.image} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" alt={news.title} />
                       </div>
                       <div className="p-3 flex flex-col justify-between flex-1">
                         <div>
@@ -193,39 +279,33 @@ export default function WikiTab() {
                       </div>
                     </div>
                   ))}
+                  {filteredNews.length === 0 && (
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      Không có news phù hợp với từ khóa tìm kiếm.
+                    </p>
+                  )}
                 </div>
               )}
             </div>
           )}
 
-          {/* ── Events ──────────────────────────────────────────── */}
-          {(activeCategory === "All" || activeCategory === "Event") && (
+          {(category === "All" || category === "Event") && (
             <div>
               <div className="flex justify-between items-center mb-3">
                 <h2 className="text-lg font-bold dark:text-white">
-                  {activeCategory === "All" ? "Upcoming Events" : "Events"}
+                  {category === "All" ? "Upcoming Events" : "Events"}
                 </h2>
-                {activeCategory === "All" && (
-                  <button
-                    onClick={() => setActiveCategory("Event")}
-                    className="text-primary dark:text-accent text-sm font-medium"
-                  >
+                {category === "All" && (
+                  <button onClick={() => navigate("/wiki/event")} className="text-primary dark:text-accent text-sm font-medium">
                     See All
                   </button>
                 )}
               </div>
               <div className="space-y-4">
-                {MOCK_EVENTS.map((event) => (
-                  <div
-                    key={event.id}
-                    className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer active:scale-[0.98] transition-transform group"
-                  >
+                {filteredEvents.map((event) => (
+                  <div key={event.id} className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700">
                     <div className="h-32 relative overflow-hidden">
-                      <img
-                        src={event.image}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                        alt={event.title}
-                      />
+                      <img src={event.image} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" alt={event.title} />
                       <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-lg flex items-center">
                         <Calendar size={12} className="mr-1" /> {event.date}
                       </div>
@@ -235,43 +315,49 @@ export default function WikiTab() {
                         <h3 className="font-bold text-sm dark:text-white">{event.title}</h3>
                         <span className="text-xs text-primary dark:text-accent font-medium">{event.type}</span>
                       </div>
-                      <button className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                      <button className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300">
                         <Bell size={16} />
                       </button>
                     </div>
                   </div>
                 ))}
+                {category === "Event" && filteredEvents.length === 0 && (
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    Không có event phù hợp với từ khóa tìm kiếm.
+                  </p>
+                )}
               </div>
             </div>
           )}
 
-          {/* ── Heroes ──────────────────────────────────────────── */}
-          {(activeCategory === "All" || activeCategory === "Heroes") && (
+          {(category === "All" || category === "Heroes") && (
             <div>
               <div className="flex justify-between items-center mb-3">
                 <h2 className="text-lg font-bold dark:text-white">
-                  {activeCategory === "All" ? "Popular Heroes" : "All Heroes"}
+                  {category === "All" ? "Popular Heroes" : "All Heroes"}
                 </h2>
-                {activeCategory === "All" ? (
-                  <button
-                    onClick={() => setActiveCategory("Heroes")}
-                    className="text-primary dark:text-accent text-sm font-medium"
-                  >
+                {category === "All" ? (
+                  <button onClick={() => navigate("/wiki/heroes")} className="text-primary dark:text-accent text-sm font-medium">
                     See All
                   </button>
                 ) : (
                   <button className="text-gray-500 flex items-center text-sm">
-                    <Filter size={14} className="mr-1" /> Sort
+                    <Filter size={14} className="mr-1" /> Role
                   </button>
                 )}
               </div>
 
-              {activeCategory === "Heroes" && (
+              {category === "Heroes" && (
                 <div className="flex overflow-x-auto hide-scrollbar space-x-2 mb-4 pb-1">
-                  {["All Roles", "Tank", "Fighter", "Mage", "Marksman", "Assassin", "Support"].map((role) => (
+                  {HERO_ROLES.map((role) => (
                     <button
                       key={role}
-                      onClick={() => setActiveRole(role)}
+                      onClick={() => {
+                        const next = new URLSearchParams(searchParams);
+                        if (role === "All Roles") next.delete("role");
+                        else next.set("role", role);
+                        setSearchParams(next);
+                      }}
                       className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all duration-200 hover:scale-105 active:scale-95 ${
                         activeRole === role
                           ? "bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-900 shadow-md"
@@ -284,36 +370,41 @@ export default function WikiTab() {
                 </div>
               )}
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 {isLoading
                   ? Array.from({ length: 4 }).map((_, i) => <HeroCardSkeleton key={i} />)
-                  : (activeCategory === "All" ? filteredHeroes.slice(0, 4) : filteredHeroes).map((hero) => {
-                      const heroImageSrc = resolvedImages[hero.id] ?? hero.image;
-                      return (
-                        <div key={hero.id}>
-                          <HeroCard
-                            hero={hero}
-                            imageSrc={heroImageSrc}
-                            onClick={() => {
-                              setSelectedHero(hero);
-                              setView("hero");
-                            }}
-                          />
-                        </div>
-                      );
-                    })}
+                  : visibleHeroes.map((hero) => (
+                      <div key={hero.id}>
+                        <HeroCard
+                          hero={hero}
+                          imageSrc={resolvedImages[hero.id] ?? hero.image}
+                          onClick={() => navigate(`/wiki/heroes/${hero.slug}?section=skills`)}
+                        />
+                      </div>
+                    ))}
               </div>
+              {category === "Heroes" && !isLoading && visibleHeroes.length === 0 && (
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">
+                  Không có hero phù hợp với từ khóa tìm kiếm.
+                </p>
+              )}
             </div>
           )}
         </div>
       </div>
+
+      <button
+        onClick={scrollToTop}
+        aria-label="Scroll to top"
+        className={`absolute right-4 bottom-24 z-20 w-9 h-9 rounded-full shadow-md border border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 text-gray-700 dark:text-gray-200 flex items-center justify-center transition-all duration-200 ${
+          showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
+        }`}
+      >
+        <ArrowUp size={16} />
+      </button>
     </div>
   );
 }
-
-// ─────────────────────────────────────────────
-// Hero card
-// ─────────────────────────────────────────────
 
 function HeroCard({
   hero,
@@ -322,22 +413,13 @@ function HeroCard({
 }: {
   hero: Hero;
   imageSrc: string;
-  onClick: () => void;
+  onClick: () => void | Promise<void>;
 }) {
   return (
-    <div
-      className="relative h-40 rounded-xl overflow-hidden shadow-sm cursor-pointer active:scale-95 transition-transform group"
-      onClick={onClick}
-    >
-      <img
-        src={imageSrc}
-        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-        alt={hero.name}
-      />
+    <div className="relative h-36 sm:h-40 rounded-xl overflow-hidden shadow-sm cursor-pointer active:scale-95 transition-transform group" onClick={onClick}>
+      <img src={imageSrc} className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]" alt={hero.name} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
-        <h3 className="font-bold text-white font-game text-lg leading-tight drop-shadow-md">
-          {hero.name}
-        </h3>
+        <h3 className="font-bold text-white font-game text-base leading-tight drop-shadow-md">{hero.name}</h3>
         <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider mt-1 w-max shadow-sm ${ROLE_COLORS[hero.role]}`}>
           {hero.role}
         </span>
@@ -346,49 +428,34 @@ function HeroCard({
   );
 }
 
-// ─────────────────────────────────────────────
-// Hero detail screen
-// ─────────────────────────────────────────────
-
 function HeroDetail({
   hero,
+  record,
   resolvedListImage,
-  onBack,
+  isRefreshing,
 }: {
   hero: Hero;
+  record: WikiHeroRecord;
   resolvedListImage?: string;
-  onBack: () => void;
+  isRefreshing: boolean;
 }) {
-  const [activeTab, setActiveTab] = useState("skills");
-  const { detail, resolvedImages, isLoading, isRefreshing } = useHeroDetail(hero.id);
-
-  // Show loading skeleton while fetching
-  if (isLoading || !detail) {
-    return (
-      <div className="flex flex-col h-full bg-bg-light dark:bg-bg-dark items-center justify-center gap-4 p-8">
-        <div className="w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-700 animate-pulse" />
-        <p className="text-sm text-gray-500 dark:text-gray-400 animate-pulse">
-          Đang tải thông tin tướng…
-        </p>
-      </div>
-    );
-  }
-
-  const heroImage = resolvedListImage ?? hero.image;
-
-  const resolveSkillIcon = (icon: string) => resolvedImages[icon] ?? icon;
-  const resolveSkinIcon  = (icon: string) => resolvedImages[icon] ?? icon;
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sectionParam = searchParams.get("section");
+  const section: HeroSection = HERO_DETAIL_SECTIONS.find((item) => item === sectionParam) ?? "skills";
+  const detailStats: WikiHeroDetailStat | null = record.stats?.detail_stats?.[0] ?? null;
+  const winRate = detailStats?.win_rate ?? null;
+  const heroImage = resolvedListImage ?? (record.portrait || hero.image);
 
   return (
     <div className="flex flex-col h-full bg-bg-light dark:bg-bg-dark overflow-y-auto">
-      {/* Hero Banner */}
       <div className="relative h-72 shrink-0">
         <img src={heroImage} className="w-full h-full object-cover" alt={hero.name} />
         <div className="absolute inset-0 bg-gradient-to-t from-bg-light dark:from-bg-dark via-black/20 to-black/40" />
 
         <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center pt-6">
           <button
-            onClick={onBack}
+            onClick={() => navigate("/wiki/heroes")}
             className="w-10 h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center text-white"
           >
             <ChevronLeft size={24} />
@@ -400,41 +467,41 @@ function HeroDetail({
               </span>
             )}
             <button className="w-10 h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center text-white">
-              <Heart size={20} />
-            </button>
-            <button className="w-10 h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center text-white">
               <Share2 size={20} />
             </button>
           </div>
         </div>
 
         <div className="absolute bottom-4 left-4 right-4">
-          <h1 className="text-4xl font-game font-bold text-white mb-1">{detail.hero_info.name}</h1>
-          <p className="text-gray-300 text-sm mb-3 italic">"{detail.hero_info.title}"</p>
+          <h1 className="text-4xl font-game font-bold text-white mb-1">{record.name}</h1>
+          <p className="text-gray-300 text-sm mb-3 italic">{record.specialty.join(" • ")}</p>
           <div className="flex flex-wrap gap-2">
-            {detail.hero_info.role.map((r) => (
-              <span key={r} className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${ROLE_COLORS[r] || "bg-gray-100 text-gray-800"}`}>
-                {r}
+            {record.role.map((role) => (
+              <span key={role} className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${ROLE_COLORS[role] || "bg-gray-100 text-gray-800"}`}>
+                {role}
               </span>
             ))}
-            {detail.hero_info.lane.map((l) => (
-              <span key={l} className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-black/50 text-white backdrop-blur-sm">
-                {l}
+            {record.lane.map((lane) => (
+              <span key={lane} className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-black/50 text-white backdrop-blur-sm">
+                {lane}
               </span>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Tabs */}
       <div className="bg-white dark:bg-gray-900 sticky top-0 z-10 border-b border-gray-200 dark:border-gray-800">
         <div className="flex overflow-x-auto hide-scrollbar">
-          {["Skills", "Stats", "Lore", "Skins", "Quotes"].map((tab) => (
+          {HERO_DETAIL_SECTIONS.map((tab) => (
             <button
               key={tab}
-              onClick={() => setActiveTab(tab.toLowerCase())}
-              className={`flex-1 min-w-[80px] py-4 text-sm font-medium text-center border-b-2 transition-colors ${
-                activeTab === tab.toLowerCase()
+              onClick={() => {
+                const next = new URLSearchParams(searchParams);
+                next.set("section", tab);
+                setSearchParams(next);
+              }}
+              className={`flex-1 min-w-[80px] py-4 text-sm font-medium text-center border-b-2 transition-colors capitalize ${
+                section === tab
                   ? "border-primary text-primary dark:border-accent dark:text-accent"
                   : "border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
               }`}
@@ -445,37 +512,26 @@ function HeroDetail({
         </div>
       </div>
 
-      {/* Content */}
-      <div className="p-4">
-        {/* ── Skills ── */}
-        {activeTab === "skills" && (
-          <div className="space-y-4">
-            {[
-              { category: "Passive", ...detail.skills.passive },
-              { category: "Skill 1", ...detail.skills.skill_1 },
-              { category: "Skill 2", ...detail.skills.skill_2 },
-              { category: "Ultimate", ...detail.skills.ultimate },
-            ].map((skill, i) => (
-              <div key={i} className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-lg mr-4 shrink-0 overflow-hidden">
-                    <img src={resolveSkillIcon(skill.icon)} alt="Skill" className="w-full h-full object-cover" />
-                  </div>
-                  <div>
-                    <div className="flex items-center mb-1 flex-wrap gap-2">
+      <div className="p-4 space-y-4">
+        {section === "skills" && (
+          <div className="space-y-3">
+            {record.skill.map((skill, idx) => (
+              <div key={skill.id} className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                <div className="flex items-start gap-3">
+                  <img src={skill.icon} alt={skill.name} className="w-12 h-12 rounded-lg object-cover shrink-0" />
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <h3 className="font-bold text-gray-900 dark:text-white">{skill.name}</h3>
                       <span className="text-[10px] uppercase tracking-wider bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-0.5 rounded">
-                        {skill.category}
+                        {idx === 0 ? "Passive" : idx === 3 ? "Ultimate" : `Skill ${idx}`}
                       </span>
                     </div>
-                    <div className="flex flex-wrap gap-1 mb-2">
-                      {skill.type?.map((t: string) => (
-                        <span key={t} className="text-[10px] uppercase tracking-wider bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-100 dark:border-blue-800">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{skill.description}</p>
+                    {skill.cooldown_cost && (
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{skill.cooldown_cost}</p>
+                    )}
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 whitespace-pre-line">
+                      {stripHtml(skill.description)}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -483,91 +539,65 @@ function HeroDetail({
           </div>
         )}
 
-        {/* ── Stats ── */}
-        {activeTab === "stats" && (
+        {section === "stats" && (
           <div className="space-y-4">
-            <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-              <h3 className="font-bold text-lg mb-4 dark:text-white">Attributes</h3>
-              <div className="grid grid-cols-2 gap-y-4 gap-x-6">
-                <StatRow label="HP"               value={detail.attributes.hp} />
-                <StatRow label="Mana"             value={detail.attributes.mana} />
-                <StatRow label="Physical Attack"  value={detail.attributes.physical_attack} />
-                <StatRow label="Magic Defense"    value={detail.attributes.magic_defense} />
-                <StatRow label="Physical Defense" value={detail.attributes.physical_defense} />
-                <StatRow label="Movement Speed"   value={detail.attributes.movement_speed} />
-                <StatRow label="Attack Speed"     value={detail.attributes.attack_speed} />
-                <StatRow label="HP Regen"         value={detail.attributes.hp_regen} />
-                <StatRow label="Mana Regen"       value={detail.attributes.mana_regen} />
-              </div>
-            </div>
-            <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-              <h3 className="font-bold text-lg mb-4 dark:text-white">Hero Info</h3>
+            <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+              <h3 className="font-bold text-lg mb-4 dark:text-white">Ability DNA</h3>
               <div className="space-y-3">
-                <InfoRow label="Specialty" value={detail.hero_info.specialty.join(", ")} />
-                <InfoRow label="Resource"  value={detail.hero_info.resource} />
-                <InfoRow label="Price"     value={`${detail.hero_info.price.battle_points} BP / ${detail.hero_info.price.tickets} Tickets`} />
+                <AbilityRow icon={<Shield size={14} />} label="Durability" value={record.stats.ability?.[0] ?? 0} color="from-cyan-500 to-blue-500" />
+                <AbilityRow icon={<Sword size={14} />} label="Offense" value={record.stats.ability?.[1] ?? 0} color="from-red-500 to-orange-500" />
+                <AbilityRow icon={<Sparkles size={14} />} label="Skill Effects" value={record.stats.ability?.[2] ?? 0} color="from-indigo-500 to-fuchsia-500" />
+                <AbilityRow icon={<BarChart3 size={14} />} label="Difficulty" value={record.stats.ability?.[3] ?? record.stats.difficulty ?? 0} color="from-amber-500 to-yellow-500" />
               </div>
             </div>
-          </div>
-        )}
 
-        {/* ── Lore ── */}
-        {activeTab === "lore" && (
-          <div className="space-y-4">
-            <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-              <h3 className="font-bold text-lg mb-2 dark:text-white">Background Story</h3>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">
-                  Region: {detail.background_story.region}
-                </span>
-                <span className="text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">
-                  Affiliation: {detail.background_story.affiliation.join(", ")}
-                </span>
-              </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                {detail.background_story.summary}
-              </p>
-            </div>
-          </div>
-        )}
-
-        {/* ── Skins ── */}
-        {activeTab === "skins" && (
-          <div className="grid grid-cols-2 gap-4">
-            {detail.skins.map((skin, i) => (
-              <div key={i} className="relative h-48 rounded-xl overflow-hidden shadow-sm group">
-                <img
-                  src={resolveSkinIcon(skin.icon)}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  alt={skin.name}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-3 text-center">
-                  <h3 className="font-bold text-sm text-white drop-shadow-md">{skin.name}</h3>
+            <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+              <h3 className="font-bold text-lg mb-4 dark:text-white">Meta Snapshot</h3>
+              <div className="grid grid-cols-[auto,1fr] gap-4 items-center">
+                <div
+                  className="w-20 h-20 rounded-full flex items-center justify-center text-xs font-bold text-gray-800 dark:text-white"
+                  style={{
+                    background: `conic-gradient(#10b981 0% ${Math.max(0, Math.min(100, (winRate ?? 0) * 100))}%, #e5e7eb ${Math.max(0, Math.min(100, (winRate ?? 0) * 100))}% 100%)`,
+                  }}
+                >
+                  <span className="w-14 h-14 bg-white dark:bg-gray-900 rounded-full flex items-center justify-center">
+                    {formatPercent(winRate)}
+                  </span>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <InfoLine label="Appearance Rate" value={formatPercent(detailStats?.appearance_rate)} />
+                  <InfoLine label="Ban Rate" value={formatPercent(detailStats?.ban_rate)} />
+                  <InfoLine label="Rank" value={record.stats.hero_rate?.[0]?.rank ?? "N/A"} />
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         )}
 
-        {/* ── Quotes ── */}
-        {activeTab === "quotes" && (
+        {section === "lore" && (
           <div className="space-y-4">
             <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-              <h3 className="font-bold text-sm text-gray-500 uppercase tracking-wider mb-2">Hero Select</h3>
-              <p className="text-lg font-medium italic dark:text-white">"{detail.quotes.select}"</p>
+              <h3 className="font-bold text-lg mb-3 dark:text-white">Story</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{record.lore.story || "Chưa có dữ liệu."}</p>
+              {record.lore.tale && (
+                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mt-3">{record.lore.tale}</p>
+              )}
             </div>
             <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-              <h3 className="font-bold text-sm text-gray-500 uppercase tracking-wider mb-2">Movement</h3>
-              <ul className="space-y-3">
-                {detail.quotes.movement.map((quote, i) => (
-                  <li key={i} className="text-md italic dark:text-gray-300">"{quote}"</li>
-                ))}
-              </ul>
+              <h3 className="font-bold text-sm text-gray-500 uppercase tracking-wider mb-2">Select Quote</h3>
+              <p className="text-lg font-medium italic dark:text-white">"{record.quote.select || "..."}"</p>
             </div>
-            <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-              <h3 className="font-bold text-sm text-gray-500 uppercase tracking-wider mb-2">Ultimate</h3>
-              <p className="text-lg font-medium italic dark:text-white text-red-500">"{detail.quotes.ultimate}"</p>
-            </div>
+          </div>
+        )}
+
+        {section === "combos" && (
+          <div className="space-y-3">
+            {record.skill_combo.map((combo, idx) => (
+              <div key={`${combo.title}-${idx}`} className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+                <h3 className="font-bold dark:text-white">{combo.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">{combo.description}</p>
+              </div>
+            ))}
           </div>
         )}
       </div>
@@ -575,24 +605,39 @@ function HeroDetail({
   );
 }
 
-// ─────────────────────────────────────────────
-// Reusable sub-components
-// ─────────────────────────────────────────────
-
-function StatRow({ label, value }: { label: string; value: string | number }) {
+function AbilityRow({
+  icon,
+  label,
+  value,
+  color,
+}: {
+  icon: ReactNode;
+  label: string;
+  value: number;
+  color: string;
+}) {
+  const clamped = Math.max(0, Math.min(100, value));
   return (
-    <div className="flex flex-col">
-      <span className="text-xs text-gray-500 dark:text-gray-400 mb-1">{label}</span>
-      <span className="font-mono font-medium dark:text-white">{value}</span>
+    <div>
+      <div className="flex items-center justify-between text-xs mb-1 text-gray-600 dark:text-gray-300">
+        <span className="inline-flex items-center gap-1.5">
+          {icon}
+          {label}
+        </span>
+        <span className="font-semibold">{clamped}</span>
+      </div>
+      <div className="h-2 rounded-full bg-gray-100 dark:bg-gray-700 overflow-hidden">
+        <div className={`h-full bg-gradient-to-r ${color}`} style={{ width: `${clamped}%` }} />
+      </div>
     </div>
   );
 }
 
-function InfoRow({ label, value }: { label: string; value: string }) {
+function InfoLine({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
-      <span className="text-sm text-gray-500 dark:text-gray-400">{label}</span>
-      <span className="text-sm font-medium dark:text-white text-right">{value}</span>
+    <div className="flex justify-between gap-3 border-b border-gray-100 dark:border-gray-700 pb-2 last:border-0 last:pb-0">
+      <span className="text-gray-500 dark:text-gray-400">{label}</span>
+      <span className="font-medium dark:text-white">{value}</span>
     </div>
   );
 }

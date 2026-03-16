@@ -1,0 +1,103 @@
+{
+  "id": 9,
+  "name": "Akai",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_28f223447f0174336ff0922d364d81d3.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_7ed2c59361619204e6e2134e2452bd8e.png",
+  "role": [
+    "Tank"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Guard",
+    "Crowd Control"
+  ],
+  "lore": {
+    "story": "The almighty panda hero of Stream Valley.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 940,
+      "name": "Tai Chi",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_889b0e22757b7f4bfbc2cfa4e6b39d98.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Akai gains a 25<font color=\"26e407\"> (+5% Total HP)</font> shield for 4s on each skill cast and marks enemy heroes and Creeps hit by his skills.\n\nAkai's Basic Attacks deal 25<font color=\"26e407\"> (+5% Total HP)</font> extra <font color=\"fb1f1f\">Physical Damage</font> to marked enemies.",
+      "video": ""
+    },
+    {
+      "id": 910,
+      "name": "Headbutt",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4c47ec169528dd5f35ee0792fd26fcf8.png",
+      "cooldown_cost": "CD: 11   Mana Cost: 50",
+      "tags": [],
+      "description": "Akai charges in the target direction, dealing 300<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the way. If Akai hits an enemy hero during this process, he'll knock them airborne for 0.5s and be able to roll in the Joystick's direction once.\n\nAkai can cast <font color=\"a6aafb\">Headbutt</font> during <font color=\"a6aafb\">Heavy Spin</font> to quickly adjust his position.",
+      "video": ""
+    },
+    {
+      "id": 920,
+      "name": "Body Slam",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_57c97caeff255d9d646d4c9b3d100211.png",
+      "cooldown_cost": "CD: 7   Mana Cost: 50",
+      "tags": [],
+      "description": "Akai smashes the ground with his body, dealing 270<font color=\"26e407\"> (+6% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies and slowing them by 45% for 2s.",
+      "video": ""
+    },
+    {
+      "id": 930,
+      "name": "Heavy Spin",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_31701b6b54bacf44d29317ab6ba86f64.png",
+      "cooldown_cost": "CD: 55   Mana Cost: 120",
+      "tags": [],
+      "description": "Akai removes all debuffs on him and spins for 4s, gaining Slow Immunity while continuously dealing 100<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies and knocking them back. Enemy heroes knocked back will knock back other heroes they collide with during the process.\n\nAkai also gradually increases his Movement Speed by 70% over the duration. This skill can only be interrupted by Suppression.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 30,
+    "ability": [
+      90,
+      30,
+      90,
+      30
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.004944,
+        "ban_rate": 0.012276,
+        "win_rate": 0.509242
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Akai should use his 1st Skill to knock back the enemy, and roll into the enemy formation. Then use his Ultimate to disrupt the enemy formation, and continue to deal damage with his 2nd Skill after his Ultimate ends."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Akai should use his 1st Skill to knock back the enemy, and slow them down with his 2nd Skill, then spam his Basic Attack to deal damage."
+    }
+  ]
+}

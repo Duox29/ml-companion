@@ -1,0 +1,103 @@
+{
+  "id": 43,
+  "name": "Irithel",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a7c51b517dbce49dac4e537bd4ab4f87.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a1faeef3e2187f0938c2eeff4a7bf962.png",
+  "role": [
+    "Marksman"
+  ],
+  "lane": [
+    "Gold Lane"
+  ],
+  "specialty": [
+    "Finisher",
+    "Burst"
+  ],
+  "lore": {
+    "story": "The forest hunter with a smilodon.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 4340,
+      "name": "Jungle Heart",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d8e68f781ed32a436758208dbf747a45.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Irithel and Leo's immaculate teamwork allows her to shoot while moving. Each Basic Attack will shoot 2 crossbow bolt(s) (but takes longer to refill) that deal <font color=\"fba51f\"> (+55% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> per bolt (inherits a portion of Attack Effects).\nMoving will build up <font color=\"a6aafb\">Jungle Heart</font>, up to a maximum of 10 units, and cause the next Basic Attack to unleash 1 additional bolt(s).",
+      "video": ""
+    },
+    {
+      "id": 4310,
+      "name": "Strafe",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_51bc3b36a4cad27cf0e2d7f503960d98.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Irithel launches a volley of arrows on the target area, dealing 330<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies within and reducing their Physical Defense by 15 for 3s.",
+      "video": ""
+    },
+    {
+      "id": 4320,
+      "name": "Force of The Queen",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2eabb70e4105cb1db25da5b26d8cbff4.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Leo lets out a piercing roar, dealing 200<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies and slowing them by 40% for 2s.",
+      "video": ""
+    },
+    {
+      "id": 4330,
+      "name": "Heavy Crossbow",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3ea4c434b6e7b2d253dc3da2a9940b66.png",
+      "cooldown_cost": "CD: 30",
+      "tags": [],
+      "description": "Irithel orders Leo to leap in the target direction and empowers her crossbow for 10s. For the duration, she gains 30 Movement Speed and her Basic Attacks shoot enhanced crossbow bolts, dealing 100<font color=\"fba51f\"> (+65% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the target and nearby units. <font color=\"a6aafb\">Jungle Heart</font> also accumulates faster for the duration.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      10,
+      80,
+      10,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.004413,
+        "ban_rate": 0.005137,
+        "win_rate": 0.524829
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Irithel's Ultimate at the start to enhance her Basic Attacks, then use her 1st Skill to reduce the enemies' Defense and use her Basic Attacks to hit multiple enemies. Use her 2nd Skill to slow enemies and prevent them from getting close."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Irithel should maintain distance from the enemy and use her 1st Skill to reduce their Defense. Kite the enemy with Basic Attacks to chip away their HP. If the enemy tries to close in, use her 2nd Skill to maintain distance and continue firing Basic Attacks. When the time is right, use her Ultimate to enhance her Basic Attacks and finish off the enemy."
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "id": 98,
+  "name": "Khaleed",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_540a6a9d343842674ce002082366ec9d.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9f6754dc95d5afbacfae441ae43b6051.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Roam",
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Damage",
+    "Regen"
+  ],
+  "lore": {
+    "story": "A sand-walking intrepid Clan leader.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 9840,
+      "name": "Sand Walk",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_de65492aeccc8a5738aa42de8a33141e.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Khaleed accumulates <font color=\"a6aafb\">Desert Power</font> while moving. After <font color=\"a6aafb\">Desert Power</font> is fully charged, he will glide on sand, increasing Movement Speed by 35%, making his next Basic Attack deal 50<font color=\"fba51f\"> (+140% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the target (cannot Crit), and reducing the target's Movement Speed by 40% for 1.5s.",
+      "video": ""
+    },
+    {
+      "id": 9810,
+      "name": "Desert Tornado",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4d923b809f919ef60ae354ec162cc853.png",
+      "cooldown_cost": "CD: 6.5",
+      "tags": [],
+      "description": "Khaleed whirls his scimitar, dealing 200<font color=\"fba51f\"> (+140% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in the area and pulling them toward him. This skill can be used up to 3 time(s) in a row.\n\nThis skill deals 50% damage to Minions and Creeps.",
+      "video": ""
+    },
+    {
+      "id": 9820,
+      "name": "Quicksand Guard",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d70b9b7d9c0de2d528e8f86bcebe9093.png",
+      "cooldown_cost": "CD: 22",
+      "tags": [],
+      "description": "Khaleed protects himself with the power of the quicksand, restoring 60 plus 5% of his lost HP and 10 <font color=\"a6aafb\">Desert Power</font> every 0.5s, reducing damage taken by 25% for up to 4s.\n\nWhile channeling, quicksand appears under his feet, slowing the enemy by 60%.\nThis skill is a Focused Cast. Any other controls will interrupt this skill.",
+      "video": ""
+    },
+    {
+      "id": 9830,
+      "name": "Raging Sandstorm",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_af48a3f5f3aaf4ea2f41f018fc51e92a.png",
+      "cooldown_cost": "CD: 46",
+      "tags": [],
+      "description": "Khaleed rides the sandstorm and charges toward a designated location, dealing 100<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the way and knocking them toward his destination. Khaleed is immune to control effects during this process.\n\nUpon reaching the destination, Khaleed will smash the ground, dealing 450<font color=\"fba51f\"> (+160% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in the area and stunning them for 1s, and fully charge his <font color=\"a6aafb\">Desert Power</font>.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      80,
+      50,
+      50,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.002817,
+        "ban_rate": 0.002992,
+        "win_rate": 0.533157
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, move around to fill up Khaleed's Desert Power first, then hit the opponent with the enhanced Basic Attack to slow them and follow up with 3 hits from his 1st Skill. This should fill up his Desert Power again, allowing for another enhanced Basic Attack."
+    },
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Khaleed's Ultimate to initiate, then hit a target with his enhanced Basic Attack and continue the attack with his 1st Skill. Once Desert Power is full again, use another Basic Attack. Then use Khaleed's 2nd Skill to recover HP and reduce incoming damage."
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "id": 69,
+  "name": "Hanzo",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_d2d28d2fcb060726fa27553920ca1a33.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_eabfca6f5eec4128626dba78d6aecc81.png",
+  "role": [
+    "Assassin"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Poke",
+    "Burst"
+  ],
+  "lore": {
+    "story": "Genius ninja in the Shadow Sect who is at the crossroads.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 6940,
+      "name": "Ame no Habakiri",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_ac365435698ba11d4cea185ab07f4f01.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Damage dealt by Hanzo's Basic Attacks and skills inflicts a stack of <font color=\"a6aafb\">Dark Ninjutsu</font> on the target, up to 5 stacks. <font color=\"a6aafb\">Ninjutsu: Demon Feast</font> can only be cast on targets with full stacks of <font color=\"a6aafb\">Dark Ninjutsu</font>.",
+      "video": ""
+    },
+    {
+      "id": 6910,
+      "name": "Ninjutsu: Demon Feast",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_816e14aed8c099fb8cfa6053ca0666e5.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "The skill can only be used on targets with max stacks of <font color=\"a6aafb\">Dark Ninjutsu</font>. When targeting a creep, Hanzo will immediately devour it and digest it over a period of time to recover 20% HP.\nWhen targeting the Turtle, Lord, or enemy heroes, he deals 600<font color=\"fba51f\"> (+120% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>, recovers 10% HP, and reduces this skill's cooldown by 60%.",
+      "video": ""
+    },
+    {
+      "id": 6920,
+      "name": "Ninjutsu: Dark Mist",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_83f7dbd47c58fba79f634a31f88e0ffe.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Hanzo dashes in the target direction, leaving <font color=\"a6aafb\">dark mist</font> in front that deals 90<font color=\"fba51f\"> (+45% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in the area every 0.5s, up to 5 times (this damage counts as Basic Attack damage but cannot Crit).\nThe <font color=\"a6aafb\">dark mist</font> slows enemies in the area by 40% and grants Hanzo 20% Movement Speed.",
+      "video": ""
+    },
+    {
+      "id": 6930,
+      "name": "Kinjutsu: Pinnacle Ninja",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_12b3b6f378728e25a1ccf0952c9f84bf.png",
+      "cooldown_cost": "CD: 24",
+      "tags": [],
+      "description": "Hanzo charges into battle as <font color=\"a6aafb\">Hanekage</font>, consuming 170 Energy per second. He gains 20 Energy when a nearby non-hero unit dies and 200 Energy if it's a hero. He gains 15 Energy when attacking a hero, and 45 Energy when attacking the Turtle or the Lord. When Energy runs out, Hanzo's body will be slowly drawn to <font color=\"a6aafb\">Hanekage</font>'s position.\n\nWhile in <font color=\"a6aafb\">Hanekage</font> form, Hanzo's body is invincible, while <font color=\"a6aafb\">Hanekage</font> ignores obstacles and gains 50% Movement Speed and 30% Attack Speed.\n\n<font color=\"a6aafb\">Use Again or Upon Death</font>: <font color=\"a6aafb\">Hanekage</font> returns to Hanzo's body, recovering 16% HP and becoming untargetable during the return. If <font color=\"a6aafb\">Hanekage</font> is killed, Hanzo will be slowed by 50% and revealed for 6s.",
+      "video": ""
+    },
+    {
+      "id": 6940,
+      "name": "Ame no Habakiri",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_ac365435698ba11d4cea185ab07f4f01.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Damage dealt by Hanzo's Basic Attacks and skills inflicts a stack of <font color=\"a6aafb\">Dark Ninjutsu</font> on the target, up to 5 stacks. <font color=\"a6aafb\">Ninjutsu: Demon Feast</font> can only be cast on targets with full stacks of <font color=\"a6aafb\">Dark Ninjutsu</font>.",
+      "video": ""
+    },
+    {
+      "id": 69100,
+      "name": "Forbidden Ninjutsu: Soul Snatch",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_74eb2011217392bd06c2dc2cf9434731.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Hanekage dashes to an enemy hero, dealing 300<font color=\"fba51f\"> (+60% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the target and its surrounding units after a brief delay. Each stack of <font color=\"a6aafb\">Dark Ninjutsu</font> on the target increases the damage by 20% (surrounding units are not affected by this bonus). When the target has max stacks of <font color=\"a6aafb\">Dark Ninjutsu</font>, it deals additional damage equal to 15<font color=\"fba51f\"> (+2% Extra Physical Attack)</font>% of the target's Max HP (this damage ignores 30% of the target's Physical Defense) and recovers 20% HP for Hanzo.",
+      "video": ""
+    },
+    {
+      "id": 69200,
+      "name": "Forbidden Ninjutsu: Black Mist",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_2e6bdaf0784cffb7c0a636b77dce95e7.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Hanekage dashes in the target direction, briefly knocking enemies in his path airborne for 0.4s and leaving <font color=\"a6aafb\">dark mist</font> in the area he passes through (recovers 200 Energy when hitting an enemy hero). The mist deals 135<font color=\"fba51f\"> (+45% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in the area every 0.5s, up to 5 times (this damage counts as Basic Attack damage but cannot Crit).\nThe <font color=\"a6aafb\">dark mist</font> slows enemies in the area by 40%.",
+      "video": ""
+    },
+    {
+      "id": 69300,
+      "name": "Ninjutsu Flee: Return",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_47/100_d84a015788767e56209e80d5ee64ca8a.png",
+      "cooldown_cost": "CD: 1",
+      "tags": [],
+      "description": "Hanekage returns to Hanzo's body and exits the Hanekage form.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 70,
+    "ability": [
+      70,
+      80,
+      20,
+      70
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.004478,
+        "ban_rate": 0.078467,
+        "win_rate": 0.511968
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Hanzo should activate his Ultimate from a safe position and engage as Hanekage. Use his 2nd Skill to dash in and knock enemies Airborne, then use his Black Mist and Basic Attacks to quickly stack his Passive and use his 1st Skill for maximum damage."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "When ganking, Hanzo can use his 2nd Skill to close the distance, then stack his Passive with Basic Attacks and unleash his 1st Skill at max stacks for hefty damage. In teamfights, Hanzo should activate his Ultimate from a safe position and engage as Hanekage. Use his 2nd Skill to dash in and knock enemies Airborne, then use his Black Mist and Basic Attacks to quickly stack his Passive and use his 1st Skill for maximum damage."
+    }
+  ]
+}

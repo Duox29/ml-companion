@@ -1,0 +1,101 @@
+{
+  "id": 2,
+  "name": "Balmond",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_18_2/100_df9a6990b1946d045e4d3a46c90725cf.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_80be8a6ffd65666746a218bdae1648a0.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [],
+  "specialty": [
+    "Damage",
+    "Regen"
+  ],
+  "lore": {
+    "story": "One day, the Orcs will break free from their shackles.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 240,
+      "name": "Bloodthirst",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a9aa00dcaf998c9636e1dbb874a225c5.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Balmond recovers 5% Max HP after killing a Minion or Creep, and 20% Max HP after killing a hero.",
+      "video": ""
+    },
+    {
+      "id": 210,
+      "name": "Soul Lock",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8bfe9cffa391a97995c46977e95d4be8.png",
+      "cooldown_cost": "CD: 8",
+      "tags": [],
+      "description": "Balmond charges in the target direction for a set distance or until he hits an enemy hero, dealing 150<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the way. The enemy hero hit will be knocked back slightly, and will have their Movement Speed reduced by 40% and Physical Defense reduced by 40% for 3s.",
+      "video": ""
+    },
+    {
+      "id": 220,
+      "name": "Cyclone Sweep",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5120ddf10175a28628b37ddb846df631.png",
+      "cooldown_cost": "CD: 6",
+      "tags": [],
+      "description": "Balmond gains 15% Movement Speed that decays over time and spins with his axe for 3s, dealing 25<font color=\"26e407\"> (+2% Extra Max HP)</font> <font color=\"fba51f\"> (+25% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> per hit to nearby enemies up to 14 times. Each subsequent hit on the same enemy will deal 8.5% increased damage (up to 68%).\n\nThe Physical Attack bonus portion of the damage can Crit.",
+      "video": ""
+    },
+    {
+      "id": 230,
+      "name": "Lethal Counter",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0a7365234448da509cb88a0baf2b92dd.png",
+      "cooldown_cost": "CD: 34",
+      "tags": [],
+      "description": "Balmond unleashes a huge strike in the target direction (this skill can only be interrupted by Suppression), dealing <font color=\"ffe63c\">True Damage</font> equal to 150<font color=\"fba51f\"> (+70% Total Physical Attack)</font> plus 30% of the target's lost HP.\n\nThis skill only deals up to 1000 damage to non-hero units.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 10,
+    "ability": [
+      80,
+      30,
+      20,
+      10
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.003425,
+        "ban_rate": 0.002655,
+        "win_rate": 0.430554
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "Balmond can close in on the enemy with Soul Lock, follow up with Cyclone Sweep for continuous damage, then cast his Ultimate to finish off low HP enemies."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Balmond can close in on the enemy with Soul Lock, follow up with Cyclone Sweep for continuous damage, then cast his Ultimate to finish off low HP enemies."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": 66,
+  "name": "Vale",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_2a7a8d1531a1c4f8524880413535348d.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6045061856a83522959d160c3a9e70b7.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Burst",
+    "Crowd Control"
+  ],
+  "lore": {
+    "story": "The heir to Wind Fort, a wind mage.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 6640,
+      "name": "Windtalk",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0cc954742ae3f2acd7c50523c5d34172.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Vale gains 1 stack of <font color=\"a6aafb\">Windtalk</font> each time he gets a kill or an assist that increases his Movement Speed by 8. This effect can stack up to 10 times.",
+      "video": ""
+    },
+    {
+      "id": 6610,
+      "name": "Wind Blade",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1dbf6315ad50ccd40b818a1c5ec0a3b4.png",
+      "cooldown_cost": "CD: 6   Mana Cost: 60",
+      "tags": [],
+      "description": "Vale unleashes two wind blades toward the left and right of a target area, each dealing 250<font color=\"62f8fe\"> (+80% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit.",
+      "video": ""
+    },
+    {
+      "id": 6620,
+      "name": "Windblow",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_181d88da995a75cdfe00db1c0fd73d3d.png",
+      "cooldown_cost": "CD: 12   Mana Cost: 70",
+      "tags": [],
+      "description": "Vale sends a whirlwind in the target direction, dealing 350<font color=\"62f8fe\"> (+100% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit and knocking them airborne for 0.8s (each enemy can only be knocked airborne 1 time). When the whirlwind reaches its destination, it will remain for 1.6s while continuously dealing a total of 150<font color=\"62f8fe\"> (+30% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in range.",
+      "video": ""
+    },
+    {
+      "id": 6630,
+      "name": "Windstorm",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9d37de1a3a365be9dab282f2fdbd9265.png",
+      "cooldown_cost": "CD: 36   Mana Cost: 120",
+      "tags": [],
+      "description": "Vale summons a windstorm at the target location, dealing a total of 150<font color=\"62f8fe\"> (+30% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in the area and slowing them by 20% while continuously pulling them into its center. After 1s, the windstorm will explode, dealing 900<font color=\"62f8fe\"> (+240% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>.\n\nThe remaining whirlwinds will also be pulled into the center.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 20,
+    "ability": [
+      20,
+      100,
+      70,
+      20
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.006018,
+        "ban_rate": 0.005453,
+        "win_rate": 0.506347
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Vale's 2nd Skill to knock a line of enemies airborne, then follow up with his Ultimate and 1st Skill for a devastating combo."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Vale's 2nd Skill to knock the opponent airborne, then follow up with his 1st Skill for damage."
+    }
+  ]
+}

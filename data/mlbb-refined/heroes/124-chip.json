@@ -1,0 +1,113 @@
+{
+  "id": 124,
+  "name": "Chip",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_79224d297f14377ad2eda8543432330d.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_264d149bf047331fc3eb6d7d886b38d1.png",
+  "role": [
+    "Support",
+    "Tank"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Support",
+    "Crowd Control"
+  ],
+  "lore": {
+    "story": "A carefree, genetically enhanced fox that wields advanced portal technology.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 12440,
+      "name": "Snack Time!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_87767306b09462d012792603a99a862c.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Chip starts eating potato chips once every 2s when out of combat, regenerating HP equal to 300 plus 45% of lost HP after finishing a whole bag (requires 4 bites). After eating a bag of chips, Chip will be full and cannot eat again for 5s. (The bite count will be saved if he enters combat before finishing a whole bag.)",
+      "video": ""
+    },
+    {
+      "id": 12410,
+      "name": "Crash Course",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c987058022e063daaea8fc776031d91b.png",
+      "cooldown_cost": "CD: 5.5   Mana Cost: 40",
+      "tags": [],
+      "description": "Chip rams his hovercraft into the ground, dealing <font color=\"7f62fe\">Magic Damage</font> equal to 100 plus 4% of the target's Max HP and applying <font color=\"a6aafb\">Chip's Mark</font> on enemy units hit. Chip gains a 300<font color=\"62f8fe\"> (+60% Total Magic Power)</font> Shield upon hitting an enemy hero, which increases by 40% for each additional enemy hero hit. Chip's next Basic Attack will become ranged and also hit all nearby enemies with <font color=\"a6aafb\">Chip's Mark</font>, detonating the mark to deal 150<font color=\"62f8fe\"> (+30% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and stun each target for 0.6s.",
+      "video": ""
+    },
+    {
+      "id": 12420,
+      "name": "Overtime",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d13538864552a2e6091a969c80c08b5d.png",
+      "cooldown_cost": "CD: 13   Mana Cost: 75",
+      "tags": [],
+      "description": "Chip rushes for 2s, gaining up to 65% extra Movement Speed, after which he maintains the max speed for 2s.\n\nChip's next Basic Attack will cause him to charge at the enemy, dealing 200<font color=\"62f8fe\"> (+30% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and knocking them back slightly.",
+      "video": ""
+    },
+    {
+      "id": 12430,
+      "name": "Shortcut",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9ac68239747eb8bf2f056394e35d8712.png",
+      "cooldown_cost": "CD: 70   Mana Cost: 110",
+      "tags": [],
+      "description": "Chip drops the <font color=\"a6aafb\">Main Portal</font> on an enemy hero, dealing 200<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and briefly slowing them by 25%. The Main Portal deals 2 times the damage and immobilizes them for 1s after a delay. Meanwhile, he creates <font color=\"a6aafb\">Connecting Portals</font> near allied heroes 10 units away and behind the allied Base. The <font color=\"a6aafb\">Main Portal</font> and <font color=\"a6aafb\">Connecting Portals</font> last up to 15s.\n<font color=\"a6aafb\">Connecting Portal</font>: Heroes (on both teams) can teleport from <font color=\"a6aafb\">Connecting Portals</font> to the <font color=\"a6aafb\">Main Portal</font>, and allied heroes gain Burst Movement Speed for 1.5s and a 500 shield.\n<font color=\"a6aafb\">Main Portal</font>: The Main Portal inherits 70% of Chip's attributes. Heroes can stand on the <font color=\"a6aafb\">Main Portal</font> for 2s to return to the <font color=\"a6aafb\">Connecting Portal</font> they came from. Casting skills or launching Basic Attacks will reset the stand time.",
+      "video": ""
+    },
+    {
+      "id": 12485,
+      "name": "Why Walk?",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_33723975930c8cfa06f2dcdab4964fb7.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Chip has 4 fixed <font color=\"a6aafb\">Beacons</font> on the map when the battle starts. Use this skill to teleport to any other <font color=\"a6aafb\">Beacon</font>. (This skill cannot be used in combat.)",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 60,
+    "ability": [
+      80,
+      20,
+      60,
+      60
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.000888,
+        "ban_rate": 0.010026,
+        "win_rate": 0.467196
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Chip's 2nd Skill preemptively to build up speed, then hit a target with his Basic Attack and deploy the Main Portal with his Ultimate. Follow up with his 1st Skill on the enemy and another Basic Attack to stun them while the Main Portal's delayed effect slows them, and continue the fight as allies portal in."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "When ganking, use Chip's 2nd Skill to quickly get behind the target and knock them into your team with the enhanced Basic Attack, then follow up with his 1st Skill and another Basic Attack to stun them."
+    }
+  ]
+}

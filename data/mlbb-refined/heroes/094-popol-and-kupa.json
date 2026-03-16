@@ -1,0 +1,158 @@
+{
+  "id": 94,
+  "name": "Popol and Kupa",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1acbb23b9a50f412104047a60eb18808.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_08f8fb30b35d029e172e0ed9be3be09d.png",
+  "role": [
+    "Marksman"
+  ],
+  "lane": [
+    "Jungle",
+    "Gold Lane"
+  ],
+  "specialty": [
+    "Push",
+    "Burst"
+  ],
+  "lore": {
+    "story": "Boy and an Icefield Wolf, partners who understand each other well.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 9450,
+      "name": "We Are Friends",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ae294efaf8078fdb791495649aac563d.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Kupa recovers 10% Max HP per second after not taking damage for 5s. When Kupa is killed, Popol can <font color=\"a6aafb\">Pray</font> for 3s to bring Kupa back to the battlefield. Cooldown: 30s.\nEvery 3 consecutive attacks from Kupa will enhance Popol's next Basic Attack to deal <font color=\"fba51f\"> (+220% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. Kupa has 2500<font color=\"fba51f\"> (+1200% Total Physical Attack)</font> Max HP and inherits 100% of Popol's other attributes and passive equipment effects (excluding Jungling and Roaming equipment effects).\nKupa deals an additional 120% damage against Creeps.",
+      "video": ""
+    },
+    {
+      "id": 9410,
+      "name": "Bite 'em, Kupa!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e643949b1a1f58f30614b08b446a3f85.png",
+      "cooldown_cost": "CD: 7   Mana Cost: 50",
+      "tags": [],
+      "description": "Popol throws a spear at the target enemy, dealing 80<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> while simultaneously commanding Kupa to lunge at the target, dealing an additional 70<font color=\"fba51f\"> (+75% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. Kupa will continue to attack the target for 3s.\n<font color=\"a6aafb\">Alpha Wolf Form</font>: Kupa stuns the enemy for 1s and bites them 3 times in quick succession.",
+      "video": ""
+    },
+    {
+      "id": 9420,
+      "name": "Kupa, Help!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ccfd9569e5240ea46584ec0b1db669e8.png",
+      "cooldown_cost": "CD: 5.5   Mana Cost: 80",
+      "tags": [],
+      "description": "Popol summons Kupa back to his side, gaining a 240<font color=\"fba51f\"> (+200% Extra Physical Attack)</font> shield while dealing 240<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies and slowing them by 35% for 0.5s. Kupa will then assist Popol to attack nearby enemies for 3s.\n<font color=\"a6aafb\">Alpha Wolf Form</font>: Kupa darts back to Popol, knocking nearby enemies airborne for 0.2s. The shield and damage are increased to 125%.",
+      "video": ""
+    },
+    {
+      "id": 9430,
+      "name": "Popol's Surprise",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8e90afefec90b007f23efd1d8a89f0dd.png",
+      "cooldown_cost": "CD: 1.5   Mana Cost: 60",
+      "tags": [],
+      "description": "Popol sets a trap at the target location that will detonate after a short delay once triggered, dealing 70<font color=\"62f8fe\"> (+20% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the enemy that steps on it, immobilizing them for 1s, and creating a frost zone for 4s. Enemies in the frost zone will have their Movement Speed reduced by 20%.\nPopol gains a trap charge every 22s (up to 3). Up to 3 traps can exist at the same time on the battlefield, each lasting up to 60s.",
+      "video": ""
+    },
+    {
+      "id": 9440,
+      "name": "We Are Angry!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_247d588d97c1dffa73391a55002ed308.png",
+      "cooldown_cost": "CD: 38   Mana Cost: 100",
+      "tags": [],
+      "description": "Popol and Kupa enter the Enraged state for 12s, gaining 15% extra Movement Speed and increasing their Attack Speed to 1.3 times.\nKupa turns into <font color=\"a6aafb\">Alpha Wolf Form</font>, gaining 1500 extra Max HP, fully restoring its HP, while <font color=\"a6aafb\">enhancing</font> its other skills.",
+      "video": ""
+    },
+    {
+      "id": 9450,
+      "name": "We Are Friends",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ae294efaf8078fdb791495649aac563d.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Kupa recovers 10% Max HP per second after not taking damage for 5s. When Kupa is killed, Popol can <font color=\"a6aafb\">Pray</font> for 3s to bring Kupa back to the battlefield. Cooldown: 30s.\nEvery 3 consecutive attacks from Kupa will enhance Popol's next Basic Attack to deal <font color=\"fba51f\"> (+220% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. Kupa has 2500<font color=\"fba51f\"> (+1200% Total Physical Attack)</font> Max HP and inherits 100% of Popol's other attributes and passive equipment effects (excluding Jungling and Roaming equipment effects).\nKupa deals an additional 120% damage against Creeps.",
+      "video": ""
+    },
+    {
+      "id": 9413,
+      "name": "Bite 'em, Kupa!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bdd55dca8cccb8db6059ed36a7bf4150.png",
+      "cooldown_cost": "CD: 7   Mana Cost: 50",
+      "tags": [],
+      "description": "Popol throws a spear at the target enemy, dealing 80<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> while simultaneously commanding Kupa to lunge at the target, dealing an additional 70<font color=\"fba51f\"> (+75% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. Kupa will continue to attack the target for 3s.\n<font color=\"a6aafb\">Alpha Wolf Form</font>: Kupa stuns the enemy for 1s and bites them 3 times in quick succession.",
+      "video": ""
+    },
+    {
+      "id": 9423,
+      "name": "Kupa, Help!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_041619eeff63fa6b8ec5bee9c3af5591.png",
+      "cooldown_cost": "CD: 5.5   Mana Cost: 80",
+      "tags": [],
+      "description": "Popol summons Kupa back to his side, gaining a 240<font color=\"fba51f\"> (+200% Extra Physical Attack)</font> shield while dealing 240<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies and slowing them by 35% for 0.5s. Kupa will then assist Popol to attack nearby enemies for 3s.\n<font color=\"a6aafb\">Alpha Wolf Form</font>: Kupa darts back to Popol, knocking nearby enemies airborne for 0.2s. The shield and damage are increased to 125%.",
+      "video": ""
+    },
+    {
+      "id": 9430,
+      "name": "Popol's Surprise",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8e90afefec90b007f23efd1d8a89f0dd.png",
+      "cooldown_cost": "CD: 1.5   Mana Cost: 60",
+      "tags": [],
+      "description": "Popol sets a trap at the target location that will detonate after a short delay once triggered, dealing 70<font color=\"62f8fe\"> (+20% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the enemy that steps on it, immobilizing them for 1s, and creating a frost zone for 4s. Enemies in the frost zone will have their Movement Speed reduced by 20%.\nPopol gains a trap charge every 22s (up to 3). Up to 3 traps can exist at the same time on the battlefield, each lasting up to 60s.",
+      "video": ""
+    },
+    {
+      "id": 9440,
+      "name": "We Are Angry!",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_247d588d97c1dffa73391a55002ed308.png",
+      "cooldown_cost": "CD: 38   Mana Cost: 100",
+      "tags": [],
+      "description": "Popol and Kupa enter the Enraged state for 12s, gaining 15% extra Movement Speed and increasing their Attack Speed to 1.3 times.\nKupa turns into <font color=\"a6aafb\">Alpha Wolf Form</font>, gaining 1500 extra Max HP, fully restoring its HP, while <font color=\"a6aafb\">enhancing</font> its other skills.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      30,
+      70,
+      70,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.002723,
+        "ban_rate": 0.002976,
+        "win_rate": 0.52839
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, boost Attack Speed with their Ultimate\r\nand control enemies with the enhanced 1st Skill for heavy damage. When enemies are close, use the enhanced 2nd Skill for protection."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, poke enemies with the 1st Skill\r\nand get more Attack Speed with their Ultimate when enemies are low on HP. Then control and kill the enemies with the enhanced 1st Skill."
+    }
+  ]
+}

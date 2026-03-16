@@ -1,88 +1,147 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Hero, HeroDetailedInfo } from '../types';
-import {
-  checkCacheStatus,
-  getCachedHeroesList,
-  setCachedHeroesList,
-  getCachedHeroDetail,
-  setCachedHeroDetail,
-  markCacheAsCurrent,
-  APP_DATA_VERSION,
-} from '../services/cacheService';
+import { Capacitor } from '@capacitor/core';
+import heroesBundleJson from '../data/wiki/heroes.bundle.json';
+import { api } from '../services/api';
+import { storage, AUTH_KEYS } from '../services/storage';
 import { getCachedImage, getOrCacheImage, preCacheImages } from '../services/imageCache';
+import { Hero, HeroRole, HeroesBundle, WikiHeroRecord } from '../types';
 
-// ─────────────────────────────────────────────
-// Mock data – replace with real API calls
-// ─────────────────────────────────────────────
-// In production these would be:
-//   const res = await api.get('/heroes');
-//   return res.data;
+const WIKI_KEYS = {
+  VERSION: 'wiki_heroes_bundle_version',
+  BUNDLE: 'wiki_heroes_bundle_payload',
+} as const;
 
-const REMOTE_HEROES: Hero[] = [
-  { id: '1', name: 'Tigreal', role: 'Tank',      image: 'https://picsum.photos/seed/tigreal/400/400' },
-  { id: '2', name: 'Alucard', role: 'Fighter',   image: 'https://picsum.photos/seed/alucard/400/400' },
-  { id: '3', name: 'Nana',    role: 'Mage',      image: 'https://picsum.photos/seed/nana/400/400' },
-  { id: '4', name: 'Miya',    role: 'Marksman',  image: 'https://picsum.photos/seed/miya/400/400' },
-  { id: '5', name: 'Saber',   role: 'Assassin',  image: 'https://picsum.photos/seed/saber/400/400' },
-  { id: '6', name: 'Estes',   role: 'Support',   image: 'https://picsum.photos/seed/estes/400/400' },
-  { id: '7', name: 'Chou',    role: 'Fighter',   image: 'https://picsum.photos/seed/chou/400/400' },
-  { id: '8', name: 'Gusion',  role: 'Assassin',  image: 'https://picsum.photos/seed/gusion/400/400' },
-];
+const VALID_ROLES: HeroRole[] = ['Tank', 'Fighter', 'Mage', 'Marksman', 'Assassin', 'Support'];
+const LOCAL_BUNDLE = heroesBundleJson as HeroesBundle;
+const API_BASE_URL = (import.meta.env.VITE_API_URL ?? 'http://localhost:8080').replace(/\/+$/, '');
 
-async function fetchHeroesFromApi(): Promise<Hero[]> {
-  // Simulate network delay
-  await new Promise((r) => setTimeout(r, 600));
-  return REMOTE_HEROES;
+function isCrossOriginApi(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    return new URL(API_BASE_URL, window.location.origin).origin !== window.location.origin;
+  } catch {
+    return false;
+  }
 }
 
-async function fetchHeroDetailFromApi(_heroId: string): Promise<HeroDetailedInfo> {
-  await new Promise((r) => setTimeout(r, 400));
-  // In production: return (await api.get(`/heroes/${heroId}`)).data
+function canAttemptRemoteWikiSync(): boolean {
+  const override = import.meta.env.VITE_ENABLE_REMOTE_WIKI_SYNC;
+  if (override === 'true') return true;
+  if (override === 'false') return false;
+  if (Capacitor.getPlatform() !== 'web') return true;
+  return !isCrossOriginApi();
+}
+
+function isHeroRole(value: string): value is HeroRole {
+  return VALID_ROLES.includes(value as HeroRole);
+}
+
+function normalizeHeroRecord(raw: WikiHeroRecord): WikiHeroRecord {
+  const roles = Array.isArray(raw.role) ? raw.role.filter(isHeroRole) : [];
+  const slug = raw.slug || String(raw.name).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
   return {
-    hero_info: {
-      name: 'Tigreal', title: 'Warrior of Dawn',
-      role: ['Tank', 'Support'], specialty: ['Crowd Control', 'Initiator'],
-      lane: ['Roaming'], price: { battle_points: 6500, tickets: 299 }, resource: 'Mana',
-    },
-    attributes: {
-      movement_speed: 260, physical_attack: 112, magic_defense: 15,
-      physical_defense: 25, hp: 2890, mana: 450, attack_speed: 0.826,
-      hp_regen: 42, mana_regen: 12,
-    },
-    skills: {
-      passive:  { name: 'Fearless',       icon: 'https://picsum.photos/seed/tigreal_passive/100/100', type: ['Buff', 'Defense'], description: 'Tigreal nhận một tầng cộng dồn Fearless mỗi khi sử dụng kỹ năng hoặc nhận sát thương từ đòn đánh thường. Sau khi tích đủ 4 tầng, Tigreal sẽ hóa giải hoàn toàn sát thương từ đòn đánh thường tiếp theo.' },
-      skill_1:  { name: 'Attack Wave',    icon: 'https://picsum.photos/seed/tigreal_s1/100/100',      type: ['AoE', 'Slow'],    description: 'Tigreal đập mạnh xuống đất, tạo ra 3 làn sóng xung kích theo hướng chỉ định. Mỗi làn sóng gây sát thương vật lý và làm chậm kẻ địch 30% trong 1.5 giây.' },
-      skill_2:  { name: 'Sacred Hammer', icon: 'https://picsum.photos/seed/tigreal_s2/100/100',      type: ['Charge', 'CC'],   description: 'Tigreal lướt về phía trước, đẩy lùi tất cả kẻ địch trên đường đi. Sau đó có thể tái kích hoạt để hất tung kẻ địch lên không trung trong 1 giây.' },
-      ultimate: { name: 'Implosion',      icon: 'https://picsum.photos/seed/tigreal_ult/100/100',     type: ['CC', 'AoE'],      description: 'Tigreal hút tất cả kẻ địch xung quanh vào bản thân và gây choáng chúng trong 1.5 giây, đồng thời gây sát thương vật lý.' },
-    },
-    background_story: {
-      region: 'Moniyan Empire', affiliation: ["Light's Order (Commander)"],
-      summary: 'Tigreal là vị tướng tài ba nhất của Đế chế Moniyan, lãnh đạo Đội kỵ sĩ Ánh sáng. Ông được biết đến với lòng quả cảm tuyệt đối và sự trung thành với chính nghĩa.',
-    },
-    skins: [
-      { name: 'Warrior of Dawn (Default)', icon: 'https://picsum.photos/seed/tigreal_skin_default/200/400' },
-      { name: 'Dark Guardian (Elite)',      icon: 'https://picsum.photos/seed/tigreal_skin_dark_guardian/200/400' },
-      { name: 'Fallen Guard (Elite)',       icon: 'https://picsum.photos/seed/tigreal_skin_fallen_guard/200/400' },
-      { name: 'Wyrmslayer (Season 10)',     icon: 'https://picsum.photos/seed/tigreal_skin_wyrmslayer/200/400' },
-      { name: 'Lightborn - Defender',       icon: 'https://picsum.photos/seed/tigreal_skin_lightborn/200/400' },
-      { name: 'Gold Baron (Special)',        icon: 'https://picsum.photos/seed/tigreal_skin_gold_baron/200/400' },
-      { name: 'Galactic Marshal (Starlight)',icon: 'https://picsum.photos/seed/tigreal_skin_galactic_marshal/200/400' },
-    ],
-    quotes: {
-      select: 'I stand for the empire!',
-      movement: ['A true hero has come to help.', 'A real man never hides in the bush.', 'We are the shield of the people.', 'March on! Sound the horn of victory!'],
-      ultimate: 'Suffer my hammer!',
-    },
+    ...raw,
+    id: String(raw.id),
+    slug,
+    role: roles.length ? roles : ['Fighter'],
+    lane: Array.isArray(raw.lane) ? raw.lane : [],
+    specialty: Array.isArray(raw.specialty) ? raw.specialty : [],
+    skill: Array.isArray(raw.skill) ? raw.skill : [],
+    skin: Array.isArray(raw.skin) ? raw.skin : [],
+    skill_combo: Array.isArray(raw.skill_combo) ? raw.skill_combo : [],
   };
 }
 
-// ─────────────────────────────────────────────
-// Heroes list hook
-// ─────────────────────────────────────────────
+function normalizeBundle(input: HeroesBundle): HeroesBundle {
+  const heroes = Array.isArray(input.heroes) ? input.heroes.map(normalizeHeroRecord) : [];
+  return {
+    version: input.version || LOCAL_BUNDLE.version,
+    generatedAt: input.generatedAt || new Date().toISOString(),
+    total: heroes.length,
+    heroes,
+  };
+}
+
+function toHeroCard(hero: WikiHeroRecord): Hero {
+  return {
+    id: hero.id,
+    slug: hero.slug,
+    name: hero.name,
+    role: hero.role[0] ?? 'Fighter',
+    image: hero.portrait || hero.icon,
+  };
+}
+
+async function getCachedBundle(): Promise<HeroesBundle | null> {
+  const raw = await storage.get(WIKI_KEYS.BUNDLE);
+  if (!raw) return null;
+  try {
+    return normalizeBundle(JSON.parse(raw));
+  } catch {
+    return null;
+  }
+}
+
+async function setCachedBundle(bundle: HeroesBundle): Promise<void> {
+  await Promise.all([
+    storage.set(WIKI_KEYS.BUNDLE, JSON.stringify(bundle)),
+    storage.set(WIKI_KEYS.VERSION, bundle.version),
+  ]);
+}
+
+async function fetchRemoteVersion(): Promise<string | null> {
+  const endpoints = ['/wiki/heroes/version', '/mlbb/wiki/heroes/version', '/heroes/version'];
+  for (const endpoint of endpoints) {
+    try {
+      const { data } = await api.get(endpoint);
+      const payload = data?.data ?? data;
+      const version =
+        payload?.version ??
+        payload?.dataVersion ??
+        (typeof payload === 'string' ? payload : null);
+      if (version) return String(version);
+    } catch {
+      // Keep local data if backend endpoint is not available.
+    }
+  }
+  return null;
+}
+
+async function fetchRemoteBundle(): Promise<HeroesBundle | null> {
+  const endpoints = ['/wiki/heroes/bundle', '/mlbb/wiki/heroes/bundle', '/heroes/bundle'];
+  for (const endpoint of endpoints) {
+    try {
+      const { data } = await api.get(endpoint);
+      const payload = data?.data ?? data;
+      if (payload && Array.isArray(payload.heroes)) {
+        return normalizeBundle(payload as HeroesBundle);
+      }
+    } catch {
+      // Keep local data if backend endpoint is not available.
+    }
+  }
+  return null;
+}
+
+async function resolveHeroImages(
+  heroes: Hero[],
+  forceNetwork: boolean,
+): Promise<Record<string, string>> {
+  const entries = await Promise.all(
+    heroes.map(async (hero) => {
+      const src = forceNetwork
+        ? await getOrCacheImage(hero.image)
+        : (await getCachedImage(hero.image)) ?? hero.image;
+      return [hero.id, src] as [string, string];
+    }),
+  );
+  return Object.fromEntries(entries);
+}
 
 export interface UseHeroesResult {
   heroes: Hero[];
-  resolvedImages: Record<string, string>; // heroId → src (cached base64 or URL)
+  heroRecords: WikiHeroRecord[];
+  resolvedImages: Record<string, string>;
   isLoading: boolean;
   isRefreshing: boolean;
   cacheVersion: string | null;
@@ -92,98 +151,119 @@ export interface UseHeroesResult {
 
 export function useHeroes(): UseHeroesResult {
   const [heroes, setHeroes] = useState<Hero[]>([]);
+  const [heroRecords, setHeroRecords] = useState<WikiHeroRecord[]>([]);
   const [resolvedImages, setResolvedImages] = useState<Record<string, string>>({});
   const [isLoading, setIsLoading] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [cacheVersion, setCacheVersion] = useState<string | null>(null);
+  const [dataVersion, setDataVersion] = useState<string>(LOCAL_BUNDLE.version);
   const [refreshTick, setRefreshTick] = useState(0);
 
-  const refresh = useCallback(() => setRefreshTick((t) => t + 1), []);
+  const refresh = useCallback(() => setRefreshTick((tick) => tick + 1), []);
 
   useEffect(() => {
     let cancelled = false;
+    const forceRefresh = refreshTick > 0;
+
+    async function applyBundle(bundle: HeroesBundle, forceImageNetwork: boolean) {
+      const list = bundle.heroes.map(toHeroCard);
+      if (!cancelled) {
+        setHeroRecords(bundle.heroes);
+        setHeroes(list);
+      }
+
+      const urls = list.map((item) => item.image).filter(Boolean);
+      if (urls.length) preCacheImages(urls).catch(() => undefined);
+
+      const images = await resolveHeroImages(list, forceImageNetwork);
+      if (!cancelled) setResolvedImages(images);
+    }
 
     async function load() {
-      // 1. Check cache version
-      const status = await checkCacheStatus();
-      if (!cancelled) setCacheVersion(status.cachedVersion);
+      if (!cancelled && forceRefresh) setIsRefreshing(true);
 
-      if (status.isCacheValid) {
-        // ── Cache hit ──────────────────────────────────────────────
-        const cached = await getCachedHeroesList<Hero[]>();
-        if (cached && !cancelled) {
-          setHeroes(cached);
-          setIsLoading(false);
-          // Resolve images from cache (non-blocking)
-          resolveImages(cached, false).then((imgs) => {
-            if (!cancelled) setResolvedImages(imgs);
-          });
-          return;
+      const cachedVersionValue = await storage.get(WIKI_KEYS.VERSION);
+      const hasAccessToken = Boolean(await storage.get(AUTH_KEYS.ACCESS_TOKEN));
+      const canUseRemoteSync = hasAccessToken && canAttemptRemoteWikiSync();
+      let activeBundle = await getCachedBundle();
+
+      // First pull: fetch from backend, then cache locally.
+      if (!activeBundle) {
+        if (!cancelled) setIsRefreshing(true);
+        const remoteFirst = canUseRemoteSync ? await fetchRemoteBundle() : null;
+        if (remoteFirst) {
+          activeBundle = remoteFirst;
+          await setCachedBundle(remoteFirst);
+        } else {
+          activeBundle = normalizeBundle(LOCAL_BUNDLE);
+          await setCachedBundle(activeBundle);
         }
       }
 
-      // ── Cache miss or version mismatch – fetch from network ─────
-      if (!cancelled) setIsRefreshing(true);
-      try {
-        const fresh = await fetchHeroesFromApi();
-        if (cancelled) return;
+      if (!cancelled) {
+        setCacheVersion(cachedVersionValue ?? activeBundle.version);
+        setDataVersion(activeBundle.version);
+      }
 
-        setHeroes(fresh);
-        await setCachedHeroesList(fresh);
-        await markCacheAsCurrent();
-        setCacheVersion(APP_DATA_VERSION);
+      await applyBundle(activeBundle, false);
 
-        // Cache images in the background
-        const urls = fresh.map((h) => h.image);
-        preCacheImages(urls).then(() => {
-          if (!cancelled) resolveImages(fresh, true).then((imgs) => setResolvedImages(imgs));
-        });
-      } catch (err) {
-        console.error('[useHeroes] Fetch failed, trying stale cache:', err);
-        // Graceful degradation: serve stale cache
-        const stale = await getCachedHeroesList<Hero[]>();
-        if (stale && !cancelled) {
-          setHeroes(stale);
-          resolveImages(stale, false).then((imgs) => {
-            if (!cancelled) setResolvedImages(imgs);
-          });
+      const remoteVersion = canUseRemoteSync ? await fetchRemoteVersion() : null;
+      if (!cancelled && remoteVersion) {
+        setDataVersion(remoteVersion);
+      }
+
+      const localVersion = cachedVersionValue ?? activeBundle.version;
+      const needUpdate =
+        canUseRemoteSync &&
+        (forceRefresh || (Boolean(remoteVersion) && remoteVersion !== localVersion));
+
+      if (needUpdate) {
+        if (!cancelled) setIsRefreshing(true);
+        const remoteBundle = await fetchRemoteBundle();
+        if (remoteBundle) {
+          activeBundle = remoteBundle;
+          await setCachedBundle(activeBundle);
+          if (!cancelled) {
+            setCacheVersion(activeBundle.version);
+            setDataVersion(activeBundle.version);
+          }
+          await applyBundle(activeBundle, true);
         }
-      } finally {
-        if (!cancelled) {
-          setIsLoading(false);
-          setIsRefreshing(false);
-        }
+      }
+
+      if (!cancelled) {
+        setIsLoading(false);
+        setIsRefreshing(false);
       }
     }
 
     load();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [refreshTick]);
 
   return {
     heroes,
+    heroRecords,
     resolvedImages,
     isLoading,
     isRefreshing,
     cacheVersion,
-    dataVersion: APP_DATA_VERSION,
+    dataVersion,
     refresh,
   };
 }
 
-// ─────────────────────────────────────────────
-// Hero detail hook
-// ─────────────────────────────────────────────
-
 export interface UseHeroDetailResult {
-  detail: HeroDetailedInfo | null;
-  resolvedImages: Record<string, string>; // imageUrl → src
+  detail: WikiHeroRecord | null;
+  resolvedImages: Record<string, string>;
   isLoading: boolean;
   isRefreshing: boolean;
 }
 
 export function useHeroDetail(heroId: string | null): UseHeroDetailResult {
-  const [detail, setDetail] = useState<HeroDetailedInfo | null>(null);
+  const [detail, setDetail] = useState<WikiHeroRecord | null>(null);
   const [resolvedImages, setResolvedImages] = useState<Record<string, string>>({});
   const [isLoading, setIsLoading] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -194,89 +274,32 @@ export function useHeroDetail(heroId: string | null): UseHeroDetailResult {
 
     async function load() {
       setIsLoading(true);
+      const bundle = (await getCachedBundle()) ?? normalizeBundle(LOCAL_BUNDLE);
+      const hero = bundle.heroes.find((item) => item.id === heroId) ?? null;
+      if (!cancelled) setDetail(hero);
 
-      // 1. Check cache
-      const status = await checkCacheStatus();
-      if (status.isCacheValid) {
-        const cached = await getCachedHeroDetail<HeroDetailedInfo>(heroId);
-        if (cached && !cancelled) {
-          setDetail(cached);
-          setIsLoading(false);
-          resolveDetailImages(cached).then((imgs) => {
-            if (!cancelled) setResolvedImages(imgs);
-          });
-          return;
+      if (hero) {
+        const imageUrls = [hero.icon, hero.portrait, ...hero.skill.map((s) => s.icon)].filter(Boolean);
+        setIsRefreshing(true);
+        const entries = await Promise.all(
+          imageUrls.map(async (url) => [url, await getOrCacheImage(url)] as [string, string]),
+        );
+        if (!cancelled) {
+          setResolvedImages(Object.fromEntries(entries));
         }
       }
 
-      // 2. Fetch
-      if (!cancelled) setIsRefreshing(true);
-      try {
-        const fresh = await fetchHeroDetailFromApi(heroId);
-        if (cancelled) return;
-
-        setDetail(fresh);
-        await setCachedHeroDetail(heroId, fresh);
-
-        resolveDetailImages(fresh).then((imgs) => {
-          if (!cancelled) setResolvedImages(imgs);
-        });
-      } catch (err) {
-        console.error('[useHeroDetail] Fetch failed, trying stale cache:', err);
-        const stale = await getCachedHeroDetail<HeroDetailedInfo>(heroId);
-        if (stale && !cancelled) {
-          setDetail(stale);
-          resolveDetailImages(stale).then((imgs) => {
-            if (!cancelled) setResolvedImages(imgs);
-          });
-        }
-      } finally {
-        if (!cancelled) {
-          setIsLoading(false);
-          setIsRefreshing(false);
-        }
+      if (!cancelled) {
+        setIsLoading(false);
+        setIsRefreshing(false);
       }
     }
 
     load();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [heroId]);
 
   return { detail, resolvedImages, isLoading, isRefreshing };
-}
-
-// ─────────────────────────────────────────────
-// Internal image resolution helpers
-// ─────────────────────────────────────────────
-
-async function resolveImages(
-  heroes: Hero[],
-  forceNetwork: boolean,
-): Promise<Record<string, string>> {
-  const entries = await Promise.all(
-    heroes.map(async (h) => {
-      const src = forceNetwork
-        ? await getOrCacheImage(h.image)
-        : (await getCachedImage(h.image)) ?? h.image;
-      return [h.id, src] as [string, string];
-    }),
-  );
-  return Object.fromEntries(entries);
-}
-
-async function resolveDetailImages(
-  detail: HeroDetailedInfo,
-): Promise<Record<string, string>> {
-  const urls: string[] = [
-    detail.skills.passive.icon,
-    detail.skills.skill_1.icon,
-    detail.skills.skill_2.icon,
-    detail.skills.ultimate.icon,
-    ...detail.skins.map((s) => s.icon),
-  ];
-
-  const entries = await Promise.all(
-    urls.map(async (url) => [url, await getOrCacheImage(url)] as [string, string]),
-  );
-  return Object.fromEntries(entries);
 }

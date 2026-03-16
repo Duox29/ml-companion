@@ -395,7 +395,7 @@ function ChatRoom({
               if (prev !== null) return prev;
               return connected
                 ? null
-                : "Realtime disconnected. You can still send by API.";
+                : "Realtime disconnected.";
             });
           },
           onError: (error) => {

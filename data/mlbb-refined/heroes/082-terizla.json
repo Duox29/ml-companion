@@ -1,0 +1,104 @@
+{
+  "id": 82,
+  "name": "Terizla",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c4bb270c28c7be663f57e993b0d6d3d8.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_7fe813b1c6b84e6fb234d0428c0c7cd7.png",
+  "role": [
+    "Fighter",
+    "Tank"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Burst",
+    "Crowd Control"
+  ],
+  "lore": {
+    "story": "Once an eccentric master smith, but now an avenger siding with the Abyss.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 8240,
+      "name": "Body of Smith",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b08818fe1736239ae3be7cf2d2dabf08.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Terizla gains 1% extra Damage Reduction (up to 20 (+1*Hero Level)%) for every 2.5% HP lost.\nHe cannot gain extra Attack Speed and will convert every 1% extra Attack Speed he's supposed to receive into 1 extra Physical Attack.",
+      "video": ""
+    },
+    {
+      "id": 8210,
+      "name": "Revenge Strike",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_75648daf275c81c11c68d0dc99ded14a.png",
+      "cooldown_cost": "CD: 8.5   Mana Cost: 75",
+      "tags": [],
+      "description": "Terizla cracks the ground with his hammer and the fissure will spread out, dealing 300<font color=\"fba51f\"> (+80% Extra Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. After the fissure hits the first target, it will drill into the target and slow them by 15%. At the same time, Terizla's Movement Speed will be increased by 15% for 3.5s. The fissure on target will then explode, dealing 300<font color=\"fba51f\"> (+80% Extra Physical Attack)</font> plus 20% of the enemy's lost HP <font color=\"fb1f1f\">Physical Damage</font>.",
+      "video": ""
+    },
+    {
+      "id": 8220,
+      "name": "Execution Strike",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0edb37acc50cca6239a839bdb96fea5c.png",
+      "cooldown_cost": "CD: 9   Mana Cost: 25",
+      "tags": [],
+      "description": "Terizla swings his hammer in a fan-shaped area ahead. This skill can be cast up to 3 times. The first two attacks deal 90<font color=\"fba51f\"> (+135% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> each, while the third deals 225<font color=\"fba51f\"> (+220% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. Enemies hit will also be slowed by 20% for 1.25s (the Slowing Effect can stack).\nDeals only 80% damage to Minions.",
+      "video": ""
+    },
+    {
+      "id": 8230,
+      "name": "Penalty Zone",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_da9efd3bc3382173ceef6d14503894a2.png",
+      "cooldown_cost": "CD: 50   Mana Cost: 100",
+      "tags": [],
+      "description": "Terizla jumps to the designated area, dealing 300<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and knocking enemies airborne for 0.6s. He then summons Scaffold and slows enemies by 25%. Scaffold will send out a hook at enemy heroes in range and pull them several times while dealing 150<font color=\"fba51f\"> (+30% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> each time.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 20,
+    "ability": [
+      90,
+      30,
+      40,
+      20
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.003864,
+        "ban_rate": 0.003051,
+        "win_rate": 0.506511
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Terizla can open with his Ultimate and his 1st Skill to control the enemy team, then use his 2nd Skill to repeatedly hit the targets pulled by the Scaffold."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Terizla can use his 1st Skill to slow the enemy, then his 2nd Skill to repeatedly deal damage to them."
+    }
+  ]
+}

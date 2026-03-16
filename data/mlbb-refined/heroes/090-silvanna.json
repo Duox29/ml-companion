@@ -1,0 +1,103 @@
+{
+  "id": 90,
+  "name": "Silvanna",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5e7b297af7c6e32a420b897aa4998071.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1582f0613b6c03e1f4f147a3da23d70a.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Initiator",
+    "Magic Damage"
+  ],
+  "lore": {
+    "story": "Princess of the Moniyan Empire and queen regent.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 9040,
+      "name": "Knightess' Resolve",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8a659e353c870bc077564afaaf4d8c2c.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Silvanna's Basic Attacks deal 25<font color=\"fba51f\"> (+45% Total Physical Attack)</font> <font color=\"62f8fe\">(+75% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>.\nSilvanna's attacks apply a mark on enemy heroes for 5s on hit, each mark reducing their Physical & Magic Defense by 3-6 (up to 5 stacks).\nSilvanna's skills and Basic Attacks deal 30% extra damage to enemy heroes with the max number of marks.",
+      "video": ""
+    },
+    {
+      "id": 9010,
+      "name": "Cometic Lance",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_dbeca4aa319bdc1e24af7f53f6e6f8b9.png",
+      "cooldown_cost": "CD: 11   Mana Cost: 70",
+      "tags": [],
+      "description": "Silvanna dashes forward. Upon reaching the max range or hitting a non-Minion enemy, she swings her lance, dealing 250<font color=\"62f8fe\"> (+100% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to nearby enemies and stunning them for 1s.",
+      "video": ""
+    },
+    {
+      "id": 9020,
+      "name": "Spiral Strangling",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e72b0d82cfd40062ad9bb1485232b91f.png",
+      "cooldown_cost": "CD: 5   Mana Cost: 35",
+      "tags": [],
+      "description": "Silvanna thrusts her lance in the target direction and spins it 6 times while gaining a 350<font color=\"62f8fe\"> (+150% Total Magic Power)</font> shield. Each spin deals 165<font color=\"62f8fe\"> (+45% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and slightly pulls targets toward the center. Silvanna spins 1 additional time for every 50% of extra Attack Speed she possesses.\n\nThe skill deals only 50% damage against Minions.\n\n<font color=\"a6aafb\">Spiral Strangling</font> counts as a Basic Attack but cannot Crit.",
+      "video": ""
+    },
+    {
+      "id": 9030,
+      "name": "Imperial Justice",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ef133226f4bc7ef8b815463980daa1a6.png",
+      "cooldown_cost": "CD: 52   Mana Cost: 130",
+      "tags": [],
+      "description": "Silvanna leaps to the target location and creates a Circle of Light upon landing, dealing 350<font color=\"62f8fe\"> (+110% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in the area, slowing them by 40% for 1.5s, and restraining the closest enemy hero to the area for 3.5s. (This skill cannot be interrupted.)\n\nSilvanna gains 100% Attack Speed and 40% Lifesteal when in the Circle.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 20,
+    "ability": [
+      50,
+      40,
+      70,
+      20
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.011216,
+        "ban_rate": 0.005172,
+        "win_rate": 0.527422
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights,\r\nSilvanna can control back-row enemies with her [ULTIMATE]\r\nand then stun them with her [1st Skill].\r\nFinally, she can deal damage with her [2nd Skill] and Basic Attacks."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Silvanna can poke enemies with her [2nd Skill]\r\nand use her 1st Skill to close the distance once they're low on HP.\r\nThen, she can control them and finish them off with her [ULTIMATE]."
+    }
+  ]
+}

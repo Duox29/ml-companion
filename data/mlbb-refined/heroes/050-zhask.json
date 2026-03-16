@@ -1,0 +1,112 @@
+{
+  "id": 50,
+  "name": "Zhask",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d8f170087cb2d5b71bb22a0a4664a927.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d023ab101f269f45930140b8317a23d0.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Chase",
+    "Damage"
+  ],
+  "lore": {
+    "story": "King of the Swarm who disrupts the balance of the universe.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 5050,
+      "name": "Decimation",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c917fad570226db1fe802ef590ce37dc.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Upon death, Zhask summons a frenzied <font color=\"a6aafb\">Nightmaric Spawn</font> on the spot, which gradually loses HP over time until death.",
+      "video": ""
+    },
+    {
+      "id": 5010,
+      "name": "Nightmaric Spawn",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4d3d9495ced41a0034c6ae2f3c8abb23.png",
+      "cooldown_cost": "CD: 13   Mana Cost: 60",
+      "tags": [],
+      "description": "Zhask summons a <font color=\"a6aafb\">Nightmaric Spawn</font> that inherits 55% of his Attributes (HP, Hybrid Defense, and Magic Power). <font color=\"a6aafb\">Nightmaric Spawn</font> will automatically attack nearby enemies by firing a <font color=\"a6aafb\">Death Ray</font> at the target, dealing 55 (+<font color=\"26e407\">20% extra Attack Speed</font>) (+<font color=\"62f8fe\">20% Magic Power</font>) <font color=\"7f62fe\">Magic Damage</font> and slowing them by up to 30%. If Zhask is too far away from <font color=\"a6aafb\">Nightmaric Spawn</font>, it will disappear.\n<font color=\"a6aafb\">Death Ray</font> is considered as a Basic Attack but cannot Crit.\n<font color=\"a6aafb\">Fusion Enhanced</font>: The damage of <font color=\"a6aafb\">Nightmaric Spawn</font> is increased to 180%, and it can be repositioned.",
+      "video": ""
+    },
+    {
+      "id": 5020,
+      "name": "Mind Eater",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4738fbff79c44b4aa3bd2bd943840032.png",
+      "cooldown_cost": "CD: 8   Mana Cost: 50",
+      "tags": [],
+      "description": "Zhask fires a penetrating mental missile in the designated direction, dealing 300<font color=\"62f8fe\"> (+100% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>. Afterward, <font color=\"a6aafb\">Nightmaric Spawn</font> will attack enemies hit by <font color=\"a6aafb\">Mind Eater</font> for 120<font color=\"62f8fe\"> (+80% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and stun them for 0.5s. \n\n<font color=\"a6aafb\">Fusion Enhanced</font>: Increases the damage dealt by <font color=\"a6aafb\">Mind Eater</font> by 540<font color=\"62f8fe\"> (+180% Total Magic Power)</font>.",
+      "video": ""
+    },
+    {
+      "id": 5030,
+      "name": "Hive Clones",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_47dcb2a530907fafc065d9363e941bae.png",
+      "cooldown_cost": "CD: 10   Mana Cost: 60",
+      "tags": [],
+      "description": "Zhask releases a swarm of <font color=\"a6aafb\">Hive Clones</font> in the targeted direction. The clones will explode and deal 55<font color=\"62f8fe\"> (+18% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies on contact, reducing their Movement Speed by 80% for 1s. \nIf <font color=\"a6aafb\">Hive Clones</font> find no target, they will burrow into the ground and ambush enemies passing by.\n<font color=\"a6aafb\">Fusion Enhanced</font>: Zhask releases several swarms of <font color=\"a6aafb\">Hive Clones</font>.\nSubsequent damage dealt to the same target decays to 20%.",
+      "video": ""
+    },
+    {
+      "id": 5040,
+      "name": "Dominator's Descent",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3174faca2ab0b0d6c0dd9d1af22f47df.png",
+      "cooldown_cost": "CD: 48   Mana Cost: 120",
+      "tags": [],
+      "description": "Zhask selects a designated position to summon <font color=\"a6aafb\">Nightmaric Spawn</font> and fuses with it. Nightmaric Spawn can inherit 100% of his attributes and get extra of them. His skills are enhanced during the fusion period.\n\n<font color=\"a6aafb\">Use Again</font>: Zhask immediately gets off <font color=\"a6aafb\">Nightmaric Spawn</font> and loses enhancement.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      10,
+      100,
+      40,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.003023,
+        "ban_rate": 0.003209,
+        "win_rate": 0.526352
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Zhask should start by summoning his Nightmaric Spawn in a suitable location and use his Ultimate to fuse with it, then unleash his enhanced 2nd and 3rd Skill to stun and damage enemies, and follow up with Basic Attacks. If the enemy tries to flee, use his enhanced 1st Skill to blink toward them."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Zhask should start with his 1st Skill to summon a Nightmaric Spawn next to the enemy and follow up with his 2nd Skill to stun the target, then use his 3rd Skill for more damage."
+    }
+  ]
+}

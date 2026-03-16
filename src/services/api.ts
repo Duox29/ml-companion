@@ -8,7 +8,7 @@ import { storage, AUTH_KEYS } from './storage';
 //   Development : VITE_API_URL=http://localhost:8080
 //   Production  : VITE_API_URL=https://api.your-domain.com
 // ─────────────────────────────────────────────────────────────────────────────
-const BASE_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:8080';
+const BASE_URL = (import.meta.env.VITE_API_URL ?? 'http://localhost:8080').replace(/\/+$/, '');
 
 if (import.meta.env.DEV) {
   console.info(`[API] Backend URL imported`);
@@ -184,6 +184,12 @@ api.interceptors.response.use(
 
     // Some backends return 403 for expired access token, not only 401.
     if ((status === 401 || status === 403) && !shouldSkipRefresh) {
+      const refreshToken = await storage.get(AUTH_KEYS.REFRESH_TOKEN);
+      if (!refreshToken) {
+        // Guest/anonymous session: do not force logout screen.
+        return Promise.reject(error);
+      }
+
       originalRequest._retry = true;
 
       try {

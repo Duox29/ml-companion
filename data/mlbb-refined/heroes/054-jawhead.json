@@ -1,0 +1,101 @@
+{
+  "id": 54,
+  "name": "Jawhead",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bd87c30b6c7de6ae3b5aa56162c48c8b.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6761b204394f78d20d60c8bd707a28b2.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [],
+  "specialty": [
+    "Charge",
+    "Burst"
+  ],
+  "lore": {
+    "story": "Intelligent robot used to protect little Ailee.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 5440,
+      "name": "Mecha Suppression",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_be1d9f5cde5273770efe9549f6d374e0.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Each time Jawhead deals damage to an enemy hero or a Creep, he inflicts a stack of Mecha Suppression on them for 3s (up to 6 stacks). Each stack of Mecha Suppression increases all damage dealt to the target by 2% (limited to 50% for Creeps).",
+      "video": ""
+    },
+    {
+      "id": 5410,
+      "name": "Smart Missiles",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_24e71b01ad4b25441dc2874018c16771.png",
+      "cooldown_cost": "CD: 5   Mana Cost: 60",
+      "tags": [],
+      "description": "Jawhead launches up to 12 missiles at random nearby enemies over 5s, each missile dealing 135<font color=\"fba51f\"> (+30% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the enemy hit.",
+      "video": ""
+    },
+    {
+      "id": 5420,
+      "name": "Ejector",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b8e015be6d7c3f44d07c7821c86d340e.png",
+      "cooldown_cost": "CD: 15   Mana Cost: 80",
+      "tags": [],
+      "description": "Jawhead gains 30% Movement Speed and a 500<font color=\"fba51f\"> (+100% Total Physical Attack)</font> shield for 5s.\n\n<font color=\"a6aafb\">Use Again</font>: Jawhead flings the nearest unit (prioritizes heroes) to the target location, dealing 300<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in the area and stunning them for 0.5s. Can be used on allied heroes and they will not take damage.",
+      "video": ""
+    },
+    {
+      "id": 5430,
+      "name": "Unstoppable Force",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b206f68d351dbf04a3e211903b345985.png",
+      "cooldown_cost": "CD: 35   Mana Cost: 120",
+      "tags": [],
+      "description": "Jawhead charges into the target enemy hero, dealing 350<font color=\"fba51f\"> (+150% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and briefly stunning them. Enemies around the target are knocked back and dealt the same amount of damage. Jawhead is immune to control effects during the charge.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      60,
+      30,
+      60,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.00402,
+        "ban_rate": 0.003215,
+        "win_rate": 0.486285
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Jawhead's 2nd Skill for the Movement Speed and start up his 1st Skill then immediately charge into a target using his Ultimate. Finally, use his 2nd Skill to toss the enemy back."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Jawhead's 2nd Skill to get close to the enemy, then follow up with his 1st Skill and Basic Attacks to deal continuous damage. When the enemy tries to run, use his 2nd Skill again to toss them back."
+    }
+  ]
+}

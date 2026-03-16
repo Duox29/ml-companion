@@ -1,0 +1,105 @@
+{
+  "id": 42,
+  "name": "Harley",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3aa6964c07a70f9b125da447f320e1ac.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3197492c35e6a2918d9196e4989cfda9.png",
+  "role": [
+    "Assassin",
+    "Mage"
+  ],
+  "lane": [
+    "Jungle",
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Burst",
+    "Poke"
+  ],
+  "lore": {
+    "story": "The young mage whose powers awakened once thrust into danger and who now arrives at the Magic Academy to study.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 4240,
+      "name": "Magic Master",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3e9d943a0869ad60139cba7c8d3a3f0f.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Harley's mastery of magic allows his Basic Attacks and skills to reduce the enemy's Magic Defense by 2 and increase his Attack Speed by 5%-10% (scales with hero level) for 3s on hit. This effect stacks up to 10 times.\nHarley's Basic Attacks deal 60<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"62f8fe\">(+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>.",
+      "video": ""
+    },
+    {
+      "id": 4210,
+      "name": "Poker Trick",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_b585f6e1f81d05d3fe3461082ce1805b.png",
+      "cooldown_cost": "CD: 6   Mana Cost: 55",
+      "tags": [],
+      "description": "Harley throws 3 waves of cards, 3 cards per wave. Each card deals 130<font color=\"62f8fe\"> (+25% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies.\nAfter the same target is hit 3 time(s), the damage will decay to 50% on subsequent hits.",
+      "video": ""
+    },
+    {
+      "id": 4220,
+      "name": "Space Escape",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_700b842bae382a89c330491ee17ccd3b.png",
+      "cooldown_cost": "CD: 8   Mana Cost: 75",
+      "tags": [],
+      "description": "Harley blinks in the designated direction, leaving a magic hat at his starting location. His Movement Speed increases by 60% for 2s, then rapidly decays to normal over 4s.\n\n<font color=\"a6aafb\">Use Again</font>: Return to the hat's location.",
+      "video": ""
+    },
+    {
+      "id": 4230,
+      "name": "Deadly Magic",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0057a5d751c27f6e56d3f105e27e989b.png",
+      "cooldown_cost": "CD: 36   Mana Cost: 120",
+      "tags": [],
+      "description": "Harley casts a magic ring of fire at an enemy hero, dealing 200<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and a 40% slow effect that decays to 15% after 1.5s. The ring will stay around the target, during which Harley can hit the ring to damage the target. The ring will explode after 4s, dealing <font color=\"7f62fe\">Magic Damage</font> equal to 200<font color=\"62f8fe\"> (+50% Total Magic Power)</font> plus 30% of the damage taken by the target while the ring was active.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 60,
+    "ability": [
+      30,
+      90,
+      10,
+      60
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.009821,
+        "ban_rate": 0.019769,
+        "win_rate": 0.503089
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Harley's 2nd Skill to find a good position to land his Ultimate. Then cast his Ultimate at the target, and follow up with his 1st Skill before moving back to safety with his 2nd Skill."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, first use Harley's 2nd Skill to get a good angle to cast his 1st Skill, and follow up with Basic Attacks. Then use his 2nd Skill again to get back to safety."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": 19,
+  "name": "Minotaur",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3ecd2c0843df7ec85044dafff6bf4553.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1d1c6132b7cb0a2031972d45029967db.png",
+  "role": [
+    "Tank",
+    "Support"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Crowd Control"
+  ],
+  "lore": {
+    "story": "Minoan prince determined to restore his homeland.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 1940,
+      "name": "Rage Incarnate",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4296561c81f79f3960c72c6d707a2f86.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "After casting a skill, Minotaur gains <font color=\"a6aafb\">Motivation</font>, recovering HP equal to 5 (+1*Hero Level)% of damage taken from enemy heroes for 3s.\n\n<font color=\"a6aafb\">Enraged State</font>: <font color=\"a6aafb\">Motivation</font> HP recovery is increased to 200%.",
+      "video": ""
+    },
+    {
+      "id": 1910,
+      "name": "Despair Stomp",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a902b3f75e08b180503d02796804baae.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "Minotaur jumps to the target location, dealing 280<font color=\"fba51f\"> (+60% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in the area and briefly knocking them airborne. Enemies hit will also be slowed by 40% while Minotaur enhances his Basic Attacks to deal <font color=\"26e407\"> (+3% Total HP)</font> extra <font color=\"fb1f1f\">Physical Damage</font> for 2s.\n\n<font color=\"a6aafb\">Enraged</font>: Increases the AOE range and the damage dealt by <font color=\"26e407\"> (+3% Total HP)</font> <font color=\"fb1f1f\">Physical Damage</font>.",
+      "video": ""
+    },
+    {
+      "id": 1920,
+      "name": "Motivation Roar",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_72ead6458b2fd5fa001d4cc594ee37a8.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Minotaur heals himself and the nearby ally with the lowest HP, recovering 220<font color=\"62f8fe\"> (+60% Total Magic Power)</font> HP for both of them and healing himself for an additional 8% of his lost HP.\n\n<font color=\"a6aafb\">Enraged</font>: Minotaur heals himself and all nearby allied heroes.",
+      "video": ""
+    },
+    {
+      "id": 1930,
+      "name": "Minoan Fury",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8b1d72b921c47c7dcb68a25c4289412a.png",
+      "cooldown_cost": "CD: 60",
+      "tags": [],
+      "description": "Minotaur enters <font color=\"a6aafb\">Enraged</font> state and smashes the ground 3 times. The first 2 hits deal 180<font color=\"fba51f\"> (+85% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies and slow them by 60%, while the final hit deals 200<font color=\"ffe63c\"> (+85% Total Physical Attack)</font> <font color=\"ffe63c\">True Damage</font> and knocks targets airborne for 0.8s. Minotaur is immune to control effects during this attack.\n\nThe <font color=\"a6aafb\">Enraged</font> state lasts 12s and enhances Minotaur's skills for the duration.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      100,
+      10,
+      80,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.004777,
+        "ban_rate": 0.026101,
+        "win_rate": 0.537374
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Minotaur's 1st Skill to jump in and knock enemies airborne, then use his Ultimate to keep them CC'd and enter Enraged state. Use his 1st Skill to knock enemies airborne again and continue with Basic Attacks. Use his 2nd Skill when he or his team needs healing."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Minotaur's 1st Skill to knock the enemy airborne and reduce their Defense, then deal damage with his enhanced Basic Attacks. Use his 2nd Skill to heal him and his teammate to come out ahead in the trade."
+    }
+  ]
+}

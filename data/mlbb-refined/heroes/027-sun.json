@@ -1,0 +1,113 @@
+{
+  "id": 27,
+  "name": "Sun",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_117b5cdcc13232157075ce7b7f6177e9.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_da4cfb603eab2b975aa8f7630881e3a9.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Exp Lane",
+    "Jungle"
+  ],
+  "specialty": [
+    "Push",
+    "Damage"
+  ],
+  "lore": {
+    "story": "The immortal Monkey King, resolute and unyielding like the mountain that bore him.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 2740,
+      "name": "Simian God",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6d93eddf722334375d384ee8965f95f7.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Enemies hit by Sun and his Doppelgangers will have their Physical Defense reduced by 5% (stacks up to 6 times). Sun recovers HP equal to 75 plus 25% of the Doppelganger's Physical Attack each time a Doppelganger deals damage.\nSun and his Doppelgangers' Basic Attacks deal 50 extra damage to Creeps.",
+      "video": ""
+    },
+    {
+      "id": 2710,
+      "name": "Endless Variety",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0d813a2495b9950a4a57fb9e750212ba.png",
+      "cooldown_cost": "CD: 10   Mana Cost: 70",
+      "tags": [],
+      "description": "Sun hurls his <font color=\"a6aafb\">Golden Staff</font> in the target direction, dealing 200<font color=\"fba51f\"> (+40% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in its path. Upon hitting an enemy hero or Creep, or reaching the maximum range, the <font color=\"a6aafb\">Golden Staff</font> morphs into a Doppelganger that lasts 5s and inherits 40% of Sun's attributes (and a portion of his Attack Effects).\n\n<font color=\"a6aafb\">Endless Variety</font> and <font color=\"a6aafb\">Swift Exchange</font> are learned and upgraded together and share the same cooldown.",
+      "video": ""
+    },
+    {
+      "id": 2750,
+      "name": "Swift Exchange",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_7afa1977abd09809a0cfacccfd2f5cfd.png",
+      "cooldown_cost": "CD: 10   Mana Cost: 70",
+      "tags": [],
+      "description": "Sun hurls his <font color=\"a6aafb\">Golden Staff</font> in the target direction, dealing 200<font color=\"fba51f\"> (+40% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in its path.\nHe conjures a Doppelganger at his location that lasts 5s and inherits 40% of his attributes (and a portion of Attack Effects). Meanwhile, Sun conceals himself and moves with the <font color=\"a6aafb\">Golden Staff</font>.",
+      "video": ""
+    },
+    {
+      "id": 2720,
+      "name": "Instantaneous Move",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_871502bcbd804479198c0374db30dd5a.png",
+      "cooldown_cost": "CD: 6   Mana Cost: 40",
+      "tags": [],
+      "description": "Sun commands his Doppelgangers to strike at the target enemy with him, dealing 270<font color=\"fba51f\"> (+40% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and slowing the target and enemies behind them by 20% (can be stacked) for 1.5s. This counts as Basic Attack damage and can trigger Attack Effects but cannot Crit.",
+      "video": ""
+    },
+    {
+      "id": 2730,
+      "name": "Clone Techniques",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_18d2d2e16311dff12a1a8518fc823e4d.png",
+      "cooldown_cost": "CD: 36",
+      "tags": [],
+      "description": "Sun summons a Doppelganger that lasts 8s and inherits 70% of his attributes and a portion of his Attack Effects. The Doppelganger takes increased damage.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 30,
+    "ability": [
+      50,
+      50,
+      10,
+      30
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.016983,
+        "ban_rate": 0.079455,
+        "win_rate": 0.525171
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Sun can start with his Ultimate to summon a Doppelganger, and approach the enemy with his 2nd Skill. Finally, he can use his 2nd Skill and Basic Attacks to deal damage."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Use Sun's 1st Skill to chip away at enemies, and close the distance once they're low on HP with his 2nd Skill. Then use his 3rd Skill to deal a burst of damage with his Dopplegangers. Sun can start with his Ultimate to summon a Doppleganger, then Blink on the enemy with his 2nd Skill, and finally use his 3rd Skill and Basic Attacks finish them off."
+    }
+  ]
+}

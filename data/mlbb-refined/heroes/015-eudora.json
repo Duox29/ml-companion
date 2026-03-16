@@ -1,0 +1,103 @@
+{
+  "id": 15,
+  "name": "Eudora",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_2_1_42/100_87b2a655b254c136dce8976e21935a80.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_86c82f8ea9c76bfb38f5fa83320928e6.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Control",
+    "Burst"
+  ],
+  "lore": {
+    "story": "The elven mage who commands lightning at her fingertips to pierce prejudice and illuminate the path forward.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 1540,
+      "name": "Superconductor",
+      "icon": "",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Eudora's skills inflict <font color=\"a6aafb\">Superconductor</font> for 3s on hit and can trigger additional effects against enemies affected by <font color=\"a6aafb\">Superconductor</font>.",
+      "video": ""
+    },
+    {
+      "id": 1510,
+      "name": "Forked Lightning",
+      "icon": "",
+      "cooldown_cost": "CD: 5   Mana Cost: 60",
+      "tags": [],
+      "description": "Eudora deals 275<font color=\"62f8fe\"> (+100% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in a fan-shaped area.\n\nEnemies affected by <font color=\"a6aafb\">Superconductor</font> will take 200% extra <font color=\"7f62fe\">Magic Damage</font> after a short delay.",
+      "video": ""
+    },
+    {
+      "id": 1520,
+      "name": "Ball Lightning",
+      "icon": "",
+      "cooldown_cost": "CD: 11   Mana Cost: 80",
+      "tags": [],
+      "description": "Eudora hurls an orb of lightning at the target enemy, dealing 1 <font color=\"7f62fe\">Magic Damage</font>, stunning them for 300<font color=\"62f8fe\"> (+50% Total Magic Power)</font>s, and reducing their Magic Defense by 1.8 for 10s.\n\nIf the enemy is affected by <font color=\"a6aafb\">Superconductor</font>, the lightning orb will bounce to up to  nearby enemies (prioritizes enemy heroes), dealing  <font color=\"7f62fe\">Magic Damage</font> and stunning them for s.",
+      "video": ""
+    },
+    {
+      "id": 1530,
+      "name": "Thunder’s Wrath",
+      "icon": "",
+      "cooldown_cost": "CD: 32   Mana Cost: 130",
+      "tags": [],
+      "description": "Eudora calls down a blast of lightning on the target enemy, dealing 600<font color=\"62f8fe\"> (+160% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font>.\n\nIf the enemy is affected by <font color=\"a6aafb\">Superconductor</font>, dark clouds appear over their head and unleash an additional lightning strike on the area after 300<font color=\"62f8fe\"> (+100% Total Magic Power)</font>s, dealing 330<font color=\"62f8fe\"> (+110% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies within and  <font color=\"7f62fe\">Magic Damage</font> to nearby enemies.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 10,
+    "ability": [
+      10,
+      80,
+      80,
+      10
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.007733,
+        "ban_rate": 0.034934,
+        "win_rate": 0.486029
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Eudora's 1st Skill to apply Superconductor to enemy heroes, then cast 2nd Skill on the right target for an AOE stun, and follow up with her Ultimate for a massive burst to the stunned heroes. Finally, use her 1st Skill again to finish off the enemy."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "During the laning phase, start with Eudora's 2nd Skill to stun the enemy hero and apply Superconductor, then follow with her Ultimate, and center it over the enemy for massive damage. Finish with her 1st Skill to link with the enemy and finish them off."
+    }
+  ]
+}

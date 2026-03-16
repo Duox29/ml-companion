@@ -1,0 +1,104 @@
+{
+  "id": 73,
+  "name": "Harith",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d228a823b477fdf6c458c829c2e62bcf.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1b798782cb64820af74f9365dbbf4689.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Gold Lane",
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Chase",
+    "Damage"
+  ],
+  "lore": {
+    "story": "Leonin boy who came to the Moniyan Empire from Azrya.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 7340,
+      "name": "Key Insight",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f5ef9a005278e374f023e9279989be02.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Harith gains insight from his Key. He gains 7% Hybrid Lifesteal for each nearby enemy hero, stacking up to 35%.",
+      "video": ""
+    },
+    {
+      "id": 7310,
+      "name": "Synchro Fission",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5f23c4399892794ed73e58a29352273c.png",
+      "cooldown_cost": "CD: 5   Mana Cost: 50",
+      "tags": [],
+      "description": "Harith creates a phantom of himself in a distant location. Harith and his phantom will then release <font color=\"a6aafb\">Synchro Fission</font> toward each other, dealing 165<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to all enemy units on the path. When the 2 energy waves collide, an explosion occurs, dealing 495<font color=\"62f8fe\"> (+180% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to all enemies in the explosion area.",
+      "video": ""
+    },
+    {
+      "id": 7320,
+      "name": "Chrono Dash",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1a0db4fd70a127b1733a6fc10261d4c5.png",
+      "cooldown_cost": "CD: 9.3   Mana Cost: 40",
+      "tags": [],
+      "description": "Harith dashes towards the target direction, gaining a 120<font color=\"62f8fe\"> (+120% Total Magic Power)</font> shield and enhancing his next Basic Attack. Harith's enhanced Basic Attack deals 200<font color=\"fba51f\"> (+100% Total Physical Attack)</font><font color=\"62f8fe\">(+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and slows enemies by 40%. Hitting an enemy with Harith's enhanced Basic Attack reduces the cooldown of <font color=\"a6aafb\">Chrono Dash</font> by 3s. This shield can stack up to 3 times.\n\nThe enhanced Basic Attack only deals 50<font color=\"fba51f\"> (+100% Total Physical Attack)</font><font color=\"62f8fe\">(+100% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to Turrets.",
+      "video": ""
+    },
+    {
+      "id": 7330,
+      "name": "Zaman Force",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_47c6f8c53a894420ae9c8ae05a81fa47.png",
+      "cooldown_cost": "CD: 40   Mana Cost: 120",
+      "tags": [],
+      "description": "Harith uses his Key to summon the Zaman Force. When the multidimensional rift appears, the cooldown of <font color=\"a6aafb\">Chrono Dash</font> is reduced by 4s. The rift initially slows enemy heroes in the area by 50%, and will continuously slow enemy heroes by 15% afterwards.\nIf Harith comes into contact with the rift using <font color=\"a6aafb\">Chrono Dash</font>, he will absorb the energy within and reduce the cooldown of <font color=\"a6aafb\">Synchro Fission</font> by 1s and <font color=\"a6aafb\">Chrono Dash</font> by 3s.\nHarith gains 15% Resilience while on the rift.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      40,
+      50,
+      10,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.00174,
+        "ban_rate": 0.001173,
+        "win_rate": 0.474065
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, first use Harith's 2nd Skill to get close to the enemy,\r\nthen follow up with the Ultimate, and start spamming his 1st and 2nd Skill.\r\nDashing through the Ultimate not only reduces his skill cooldowns, but also allows Harith to get multiple enhanced Basic Attacks from his 2nd Skill."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, approach the enemy with Harith's 2nd Skill, hit them with an enhanced Basic Attack, then use his 1st Skill to chip away their HP."
+    }
+  ]
+}

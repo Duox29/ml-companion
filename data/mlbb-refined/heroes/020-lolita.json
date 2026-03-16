@@ -1,0 +1,104 @@
+{
+  "id": 20,
+  "name": "Lolita",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_474cea36a4bfdc7bf7d94530853a99b2.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c58952634f940136c125ba17aad8376e.png",
+  "role": [
+    "Support",
+    "Tank"
+  ],
+  "lane": [
+    "Roam"
+  ],
+  "specialty": [
+    "Guard",
+    "Crowd Control"
+  ],
+  "lore": {
+    "story": "Member of the Eruditio Rangers and protector of the Leviathan workshop.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 2040,
+      "name": "Noumenon Energy Core",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8c26e0d0018fb46934ec1e079ddbe695.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Every 3s, the Noumenon Energy Core grants a 20<font color=\"26e407\"> (+2.5% Total HP)</font> <font color=\"62f8fe\">(+20% Total Magic Power)</font> shield to Lolita and nearby allied heroes, and an extra shield after a skill or the Ultimate is cast. This shield can stack up to 3 times and lasts 30s.",
+      "video": ""
+    },
+    {
+      "id": 2010,
+      "name": "Power Charge",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e1554a16e239a56ab24a59ed06542a07.png",
+      "cooldown_cost": "CD: 10   Mana Cost: 70",
+      "tags": [],
+      "description": "Lolita dashes in the target direction. Her next Basic Attack within 4s will perform a short dash to the target, dealing 400<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and stunning them for 0.5s. This damage is doubled against Minions.",
+      "video": ""
+    },
+    {
+      "id": 2020,
+      "name": "Guardian's Reflection",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c667899aa7f531fa5b199327be638d54.png",
+      "cooldown_cost": "CD: 15   Mana Cost: 90",
+      "tags": [],
+      "description": "Lolita raises her shield and reflects all incoming ranged Basic Attacks and <font color=\"a6aafb\">Projectiles</font> in the direction of the shield for 3s. The shield will break after taking 1000<font color=\"26e407\"> (+15% Total HP)</font> damage.\n\nThe damage and effects from the Unique Passives of an attacker's equipment will not apply to the shield and will not be reflected. This skill can be interrupted by high level control effects.",
+      "video": ""
+    },
+    {
+      "id": 2030,
+      "name": "Noumenon Blast",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_139bfe9c5e5ab063c0988222a5a3c456.png",
+      "cooldown_cost": "CD: 55   Mana Cost: 100",
+      "tags": [],
+      "description": "Lolita begins charging for 2s while slowing enemies in a fan-shaped area by 60%. When the charging is complete or is stopped, Lolita slams her hammer on the ground, dealing up to 600<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in the area and stunning them for up to 2s (the damage and stun duration are based on the charge time).\n\n<font color=\"a6aafb\">Use Again</font>: Lolita immediately stops charging and slams her hammer on the ground.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      100,
+      10,
+      90,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.001265,
+        "ban_rate": 0.007093,
+        "win_rate": 0.568965
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Lolita's 2nd Skill to reflect ranged attacks, followed by her 1st Skill to charge into enemies' midst, then use her enhanced Basic Attack to stun the target and deal damage. Follow up with her Ultimate for more damage and CC, and finish off the enemy with your team."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Lolita's 1st Skill and enhanced Basic Attack to stun the enemy, then use her 2nd Skill to reflect ranged attacks."
+    }
+  ]
+}

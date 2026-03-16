@@ -1,0 +1,103 @@
+{
+  "id": 33,
+  "name": "Cyclops",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_68da456f9c01b2f88d29ee320db181ed.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_70d3453531870386192d20dd91aa882c.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Damage",
+    "Control"
+  ],
+  "lore": {
+    "story": "A celestial traveler in the universe.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 3340,
+      "name": "Starlit Hourglass",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f7b43d6e79d4116016d639302e00ebc4.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Each time Cyclops hits an enemy with his skills, all his skill cooldowns are reduced by 0.5s.",
+      "video": ""
+    },
+    {
+      "id": 3310,
+      "name": "Stardust Shock",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c79390698655479c4999a82b9d84a932.png",
+      "cooldown_cost": "CD: 7.5   Mana Cost: 50",
+      "tags": [],
+      "description": "Cyclops casts two Stardust Disks in the target direction, each dealing 240<font color=\"62f8fe\"> (+60% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies in its path.",
+      "video": ""
+    },
+    {
+      "id": 3320,
+      "name": "Planets Attack",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8702dc193a729d21627b4c37d21dd671.png",
+      "cooldown_cost": "CD: 14   Mana Cost: 60",
+      "tags": [],
+      "description": "Cyclops conjures Starlit Spheres around himself while gaining 50% Movement Speed that decays over 2s. The spheres will automatically seek and attack nearby enemies (prioritizes enemy heroes), exploding on collision and dealing 200<font color=\"62f8fe\"> (+55% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the enemy. Enemies hit by multiple spheres will take reduced damage after the first hit.",
+      "video": ""
+    },
+    {
+      "id": 3330,
+      "name": "Star Power Lockdown",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9e7801c3fa4c06fdcc7383f3b9eb8b44.png",
+      "cooldown_cost": "CD: 26   Mana Cost: 60",
+      "tags": [],
+      "description": "Cyclops creates a Planetary Sphere and sends it after the target enemy hero or Creep, dealing 500<font color=\"62f8fe\"> (+120% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> and immobilizing them for 0.75-1.5s (increases with travel distance).",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 60,
+    "ability": [
+      30,
+      100,
+      70,
+      60
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.009842,
+        "ban_rate": 0.001971,
+        "win_rate": 0.514873
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Cyclops should control the target enemy with his Ultimate, close in with his 2nd Skill, then finish off the target with his 1st Skill."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "Cyclops can use his 2nd Skill to close in on enemy heroes then hit them with both his 1st Skill and the spheres summoned by his 2nd Skill. This combo is very effective against enemy heroes."
+    }
+  ]
+}

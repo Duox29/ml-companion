@@ -1,0 +1,247 @@
+{
+  "id": 105,
+  "name": "Beatrix",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4687eca874feec9017b448a0b9110d65.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_564a14b35d0f172bdd7b3d04b33a1d68.png",
+  "role": [
+    "Marksman"
+  ],
+  "lane": [
+    "Gold Lane"
+  ],
+  "specialty": [
+    "Finisher",
+    "Damage"
+  ],
+  "lore": {
+    "story": "A confident inventor girl.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 10580,
+      "name": "Mechanical Genius",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a9d8911fcabb7aa02f885dac6cb376dc.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Her extraordinary talent in the field of mechanics allowed Beatrix to produce 4 weapon(s) of truly awe-inspiring firepower.\n<font color=\"a6aafb\">Renner</font> Basic Attack - Longshot: Fire a powerful shot in the enemy's current direction, dealing <font color=\"fba51f\"> (+365% Total Physical Attack)</font> -<font color=\"fba51f\"> (+400% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the first target hit (this shot can be dodged, and blocked by others). Deals 75% damage to Creeps.<font color=\"a6aafb\">Bennett</font> Basic Attack - Area Bombing: Bombard an area, dealing <font color=\"fba51f\"> (+230% Total Physical Attack)</font> -<font color=\"fba51f\"> (+300% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to all enemies in range and slowing them by 40% for 0.5s. Deals 75% damage to Creeps.<font color=\"a6aafb\">Wesker</font> Basic Attack - Proximity Advantage: Fire 5 shots at the target, each dealing <font color=\"fba51f\"> (+178% Total Physical Attack)</font> -<font color=\"fba51f\"> (+220% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> (inherits a portion of Attack Effects). Damage dealt to targets hit multiple times will decay to 25%. Deals 75% damage to Creeps.<font color=\"a6aafb\">Nibiru</font> Basic Attack - Rapid Fire: Let loose a volley of 4 shots at the target, each shot dealing <font color=\"fba51f\"> (+51% Total Physical Attack)</font> -<font color=\"fba51f\"> (+65% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> (inherits a portion of Attack Effects). Deals 75% damage to Creeps.\nBeatrix cannot Crit, and converts every 1% Crit Chance gained into 2 Physical Attack.",
+      "video": ""
+    },
+    {
+      "id": 2010510,
+      "name": "Masterful Gunner",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c59bfdb82953c1b910fda97509962795.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Beatrix can carry 2 weapons at once, and increase her <font color=\"fba51f\">Physical Attack</font> by 5.\n<font color=\"a6aafb\">Active</font>: Beatrix takes 0.5s to swap her primary weapon with the secondary she has slung over her back, gaining an all-new way to attack and Ultimate.",
+      "video": ""
+    },
+    {
+      "id": 2010520,
+      "name": "Tactical Reposition",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bb64cd50d3e37c9d8343716b796fb2cb.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Beatrix rolls forward while fully reloading her current weapon.",
+      "video": ""
+    },
+    {
+      "id": 2010530,
+      "name": "Renner's Apathy",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5e6d76b308e486186c5e68846cdf4782.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Beatrix calmly sets up <font color=\"a6aafb\">Renner</font> on the battlefield and takes aim. When releasing the skill, she deals 700<font color=\"fba51f\"> (+280% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the first enemy hit.\n\nBeatrix can aim for up to 8s, and she can cancel it early to reduce the cooldown by 50%.\n\nThis shot can penetrate Minions and only deals 75% damage to non-hero units.",
+      "video": ""
+    },
+    {
+      "id": 2010580,
+      "name": "Need Backup",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_10504a1a930e1e7c7de2f4f80dfdb0bd.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Having escaped battle for 3s, Beatrix can call for her butler Morgan to provide her with a backup weapons crate.\nBeatrix must then choose two from the crate to serve as her primary and secondary weapons.\nHer weapon selection is interrupted if she commits any action or is controlled during this period.",
+      "video": ""
+    },
+    {
+      "id": 2010500,
+      "name": "Mechanical Genius",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1a7e0cc6769d764c3b40a02247f0f7c3.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Her extraordinary talent in the field of mechanics allowed Beatrix to produce 4 weapon(s) of truly awe-inspiring firepower.\n<font color=\"a6aafb\">Bennett</font> Basic Attack - Area Bombing: Bombard an area, dealing <font color=\"fba51f\"> (+230% Total Physical Attack)</font> -<font color=\"fba51f\"> (+300% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to all enemies in range and slowing them by 40% for 0.5s (deals 75% damage to Creeps).\nBeatrix cannot Crit, and converts every 1% Crit Chance gained into 2 Physical Attack.",
+      "video": ""
+    },
+    {
+      "id": 2010510,
+      "name": "Masterful Gunner",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c59bfdb82953c1b910fda97509962795.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Beatrix can carry 2 weapons at once, and increase her <font color=\"fba51f\">Physical Attack</font> by 5.\n<font color=\"a6aafb\">Active</font>: Beatrix takes 0.5s to swap her primary weapon with the secondary she has slung over her back, gaining an all-new way to attack and Ultimate.",
+      "video": ""
+    },
+    {
+      "id": 2010521,
+      "name": "Tactical Reposition",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bb64cd50d3e37c9d8343716b796fb2cb.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Beatrix leaps nimbly forward, and fully reloads her current weapon.",
+      "video": ""
+    },
+    {
+      "id": 2010550,
+      "name": "Bennett's Rage",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0cafa22d656d6a2c14cf5259d91762fa.png",
+      "cooldown_cost": "CD: 40",
+      "tags": [],
+      "description": "Beatrix focuses her rage and has <font color=\"a6aafb\">Bennett</font> rain down a bombardment on the target area 5 time(s). Each bombardment slows enemies by 40% and deals 580<font color=\"fba51f\"> (+225% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> (this damage decays to 20% when hitting the same target multiple times), lasting 1s.\n\nThis skill only deals 75% damage to non-hero units.",
+      "video": ""
+    },
+    {
+      "id": 2010580,
+      "name": "Need Backup",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_10504a1a930e1e7c7de2f4f80dfdb0bd.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Having escaped battle for 3s, Beatrix can call for her butler Morgan to provide her with a backup weapons crate.\nBeatrix must then choose two from the crate to serve as her primary and secondary weapons.\nHer weapon selection is interrupted if she commits any action or is controlled during this period.",
+      "video": ""
+    },
+    {
+      "id": 2010501,
+      "name": "Mechanical Genius",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a679bfbc5660f8d0a99c60c30a8a8b97.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Her extraordinary talent in the field of mechanics allowed Beatrix to produce 4 weapon(s) of truly awe-inspiring firepower.\n<font color=\"a6aafb\">Wesker</font> Basic Attack - Proximity Advantage: Fire 5 shots at the target, each dealing <font color=\"fba51f\"> (+178% Total Physical Attack)</font> -<font color=\"fba51f\"> (+220% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> (inherits a portion of Attack Effects). Damage dealt to targets hit multiple times will decay to 25%. Deals 75% damage to Creeps.\nBeatrix cannot Crit, and converts every 1% Crit Chance gained into 2 Physical Attack.",
+      "video": ""
+    },
+    {
+      "id": 2010510,
+      "name": "Masterful Gunner",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c59bfdb82953c1b910fda97509962795.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Beatrix can carry 2 weapons at once, and increase her <font color=\"fba51f\">Physical Attack</font> by 5.\n<font color=\"a6aafb\">Active</font>: Beatrix takes 0.5s to swap her primary weapon with the secondary she has slung over her back, gaining an all-new way to attack and Ultimate.",
+      "video": ""
+    },
+    {
+      "id": 2010522,
+      "name": "Tactical Reposition",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bb64cd50d3e37c9d8343716b796fb2cb.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Beatrix rolls ahead sideways, and fully reloads her current weapon.",
+      "video": ""
+    },
+    {
+      "id": 2010560,
+      "name": "Wesker's Elation",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_884ac3de4fc2cdbe0dc506e62b9bb4f0.png",
+      "cooldown_cost": "CD: 20",
+      "tags": [],
+      "description": "Beatrix raises <font color=\"a6aafb\">Wesker</font> and fires off ultra bullets that deal 350<font color=\"fba51f\"> (+155% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> each time they hit an enemy (the damage of subsequent hits on the same enemy will decay to 25%).\n\nThis skill only deals 75% damage to non-hero units.",
+      "video": ""
+    },
+    {
+      "id": 2010580,
+      "name": "Need Backup",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_10504a1a930e1e7c7de2f4f80dfdb0bd.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Having escaped battle for 3s, Beatrix can call for her butler Morgan to provide her with a backup weapons crate.\nBeatrix must then choose two from the crate to serve as her primary and secondary weapons.\nHer weapon selection is interrupted if she commits any action or is controlled during this period.",
+      "video": ""
+    },
+    {
+      "id": 2010502,
+      "name": "Mechanical Genius",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e7d8fd33d2b89799aa46629090802b70.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Her extraordinary talent in the field of mechanics allowed Beatrix to produce 4 weapon(s) of truly awe-inspiring firepower.\n<font color=\"a6aafb\">Nibiru</font> Basic Attack - Rapid Fire: Let loose a volley of 4 shots at the target, each shot dealing <font color=\"fba51f\"> (+51% Total Physical Attack)</font> -<font color=\"fba51f\"> (+65% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> (inherits a portion of Attack Effects). Deals 75% damage to Creeps.\nBeatrix cannot Crit, and converts every 1% Crit Chance gained into 2 Physical Attack.",
+      "video": ""
+    },
+    {
+      "id": 2010510,
+      "name": "Masterful Gunner",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c59bfdb82953c1b910fda97509962795.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Beatrix can carry 2 weapons at once, and increase her <font color=\"fba51f\">Physical Attack</font> by 5.\n<font color=\"a6aafb\">Active</font>: Beatrix takes 0.5s to swap her primary weapon with the secondary she has slung over her back, gaining an all-new way to attack and Ultimate.",
+      "video": ""
+    },
+    {
+      "id": 2010523,
+      "name": "Tactical Reposition",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bb64cd50d3e37c9d8343716b796fb2cb.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Beatrix slides forward, and fully reloads her current weapon.",
+      "video": ""
+    },
+    {
+      "id": 2010570,
+      "name": "Nibiru's Passion",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_c3b4d741305b9662e5295a0425b2a1a7.png",
+      "cooldown_cost": "CD: 40",
+      "tags": [],
+      "description": "Beatrix unleashes 10 volleys of bullets using <font color=\"a6aafb\">Nibiru</font>, each dealing 130<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.\n\nThis skill only deals 75% damage to non-hero units.",
+      "video": ""
+    },
+    {
+      "id": 2010580,
+      "name": "Need Backup",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_10504a1a930e1e7c7de2f4f80dfdb0bd.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Having escaped battle for 3s, Beatrix can call for her butler Morgan to provide her with a backup weapons crate.\nBeatrix must then choose two from the crate to serve as her primary and secondary weapons.\nHer weapon selection is interrupted if she commits any action or is controlled during this period.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 70,
+    "ability": [
+      30,
+      80,
+      10,
+      70
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.005914,
+        "ban_rate": 0.003498,
+        "win_rate": 0.493813
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "For teamfights, we recommend using Bennett as Beatrix's primary weapon and Nibiru as her secondary weapon. During a teamfight, Beatrix can use Bennett's Ultimate to strike the enemy team. Then she can use her 1st Skill to switch to Nibiru, and cast Nibiru's Ultimate to attack the enemy. She can finish off the enemy heroes with her Basic Attacks and her 2nd Skill."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, we recommend using Renner as Beatrix's primary weapon and Wesker as her secondary weapon. She can use Renner's ranged Basic Attack to poke the enemy, and her 2nd Skill to reload and fire again. She can then switch to Wesker to finish off the target enemy."
+    }
+  ]
+}

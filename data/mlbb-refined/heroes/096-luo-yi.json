@@ -1,0 +1,103 @@
+{
+  "id": 96,
+  "name": "Luo Yi",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_103541726507f5ce102689f04fe215e8.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e8f1e6dd0d7864b66bda10ef65242dd6.png",
+  "role": [
+    "Mage"
+  ],
+  "lane": [
+    "Mid Lane"
+  ],
+  "specialty": [
+    "Support",
+    "Crowd Control"
+  ],
+  "lore": {
+    "story": "Seeking to revive an ancient past, she is the sole being who has mastered the secrets of Yin and Yang.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 9650,
+      "name": "Duality",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_55ccda55cadbf28d972b7878c6ed14fe.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Luo Yi's skills can create <font color=\"a6aafb\">Sigils of Yin/Yang</font> on the battlefield. Each Sigil lasts up to 6s.\nSigils of opposite attributes will trigger <font color=\"a6aafb\">Yin-Yang Reaction</font> when they are within a certain distance, dealing 300 (+25*Hero Level) <font color=\"62f8fe\">(+190% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the marked enemies, stunning them for 0.3s, and pulling them toward each other.\nEach time Luo Yi applies a new Sigil to a marked enemy, she gains a 300 (+10*Hero Level) <font color=\"62f8fe\">(+150% Total Magic Power)</font> shield (up to 3 stacks) and 50% extra Movement Speed that decays over 2s.",
+      "video": ""
+    },
+    {
+      "id": 9620,
+      "name": "Dispersion",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_05fb5366ff51181b744efcf51bc51dde.png",
+      "cooldown_cost": "CD: 1.2   Mana Cost: 50",
+      "tags": [],
+      "description": "Luo Yi casts the energy of <font color=\"a6aafb\">Yin/Yang</font> in the target direction, dealing 285<font color=\"62f8fe\"> (+135% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to the first enemy hit and those behind them in a fan-shaped area. Enemy heroes hit are marked with a <font color=\"a6aafb\">Sigil of Yin/Yang</font>.\nLuo Yi stores up to 4 <font color=\"a6aafb\">Dispersion</font> charges and gains 1 charge every 8s. She also immediately gains 1 charge each time <font color=\"a6aafb\">Yin-Yang Reaction</font> is triggered.\nThe state of this skill changes on each cast.",
+      "video": ""
+    },
+    {
+      "id": 9630,
+      "name": "Rotation",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4e2479753eebe2d5bb68a2bc5875f74d.png",
+      "cooldown_cost": "CD: 12   Mana Cost: 75",
+      "tags": [],
+      "description": "Luo Yi summons <font color=\"a6aafb\">Fire of Yang/Aqua of Yin</font> at the target location, dealing 250<font color=\"62f8fe\"> (+50% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> to enemies hit and slowing them by 60% for 0.5s.\n<font color=\"a6aafb\">Fire of Yan/Aqua of Yin</font> then remains at the location for 6s, dealing 50<font color=\"62f8fe\"> (+10% Total Magic Power)</font> <font color=\"7f62fe\">Magic Damage</font> every 0.7s to nearby enemies. It can also trigger <font color=\"a6aafb\">Yin-Yang Reaction</font> with Sigils of opposite attributes.\nThe state of this skill changes on each cast.",
+      "video": ""
+    },
+    {
+      "id": 9640,
+      "name": "Diversion",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_acb1a21a98666b2902d41370b8a18a77.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Luo Yi creates a Teleport Circle around herself and marks the target location (within 28 units) as its destination. After a 3s delay, allied heroes (including herself) within the Circle will be teleported to the location.\n\n<font color=\"a6aafb\">Passive</font>: Luo Yi's Cooldown Reduction is increased by 6%.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      20,
+      100,
+      40,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.002306,
+        "ban_rate": 0.00142,
+        "win_rate": 0.491559
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Luo Yi's 1st Skill to mark the enemy with a Yin/Yang Sigil and use it again on another nearby enemy to apply the opposite Sigil and trigger a Yin-Yang Reaction. Then repeat the process. If there is only one enemy, use Luo Yi's 2nd Skill to trigger Yin-Yang Reactions."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Luo Yi's 1st Skill to mark the enemy with a Yin/Yang Sigil, then use her 2nd Skill to summon Fire of Yang or Aqua of Yin in range of the target to trigger a Yin-Yang Reaction."
+    }
+  ]
+}

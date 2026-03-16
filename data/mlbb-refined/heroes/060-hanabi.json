@@ -1,0 +1,103 @@
+{
+  "id": 60,
+  "name": "Hanabi",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8a9c1966feb34e85d7bdcc1ed01ffb5d.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_aa86eb7d1c6db212d6cfd3921a8dfab2.png",
+  "role": [
+    "Marksman"
+  ],
+  "lane": [
+    "Gold Lane"
+  ],
+  "specialty": [
+    "Finisher",
+    "Damage"
+  ],
+  "lore": {
+    "story": "Leader of the Scarlet Sect, in the Scarlet Shadow of the Cadia Riverlands.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 6040,
+      "name": "Ninjutsu: Petal Barrage",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_062555a0aac422ba461293262f8092e0.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Hanabi's Basic Attacks and skills will launch Petal Blades after hitting a target, dealing 30% damage, and bouncing up to 4 times to nearby enemies. Bounces from her Basic Attacks inherit her Attack Effects.",
+      "video": ""
+    },
+    {
+      "id": 6010,
+      "name": "Ninjutsu: Equinox",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_6a2d89d1131e3a9a8f7df3b3fc9503c2.png",
+      "cooldown_cost": "CD: 15   Mana Cost: 35",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: The secret Ninjutsu of the Scarlet Shadow makes Hanabi immune to control effects when she has a shield from any source.\n\n<font color=\"a6aafb\">Active</font>: Hanabi gains a 300<font color=\"fba51f\"> (+40% Total Physical Attack)</font> shield for 5s. When the shield is active, Hanabi gains 20% Movement Speed and 25% Attack Speed, and 20% of her damage dealt to enemy heroes will be added to this shield (only adds 10% of the damage dealt to non-hero units). This shield cannot exceed 50% of Hanabi's max HP.",
+      "video": ""
+    },
+    {
+      "id": 6020,
+      "name": "Ninjutsu: Soul Scroll",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9cf15eea1a094676d6b4dafd87bc2adf.png",
+      "cooldown_cost": "CD: 8   Mana Cost: 35",
+      "tags": [],
+      "description": "Hanabi fires the energy Kunai in the targeted direction, dealing 350<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the way and reducing their Movement Speed by 60% for 1s. Enemy units hit will also be marked, allowing Hanabi's next Bounce Damage from Basic Attacks to deal 30<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> on them with no damage decay.",
+      "video": ""
+    },
+    {
+      "id": 6030,
+      "name": "Forbidden Jutsu: Higanbana",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_7d52b73b23ce9feabf62c1dd40fce331.png",
+      "cooldown_cost": "CD: 40   Mana Cost: 120",
+      "tags": [],
+      "description": "Hanabi throws Higanbana in the targeted direction, dealing 300<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the first enemy hero hit and immobilizing them for 0.8s. After 1s, Higanbana will bloom at the location of the first hit, dealing 300<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies. Subsequent hits on the same target decay to 30% damage.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 10,
+    "ability": [
+      20,
+      70,
+      80,
+      10
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.037337,
+        "ban_rate": 0.087316,
+        "win_rate": 0.529501
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, start with Hanabi's 2nd Skill to slow the enemies, then follow up with her Ultimate to immobilize them and let loose with Basic Attacks. During this time, use her 1st Skill accordingly for more damage and survivability, and keep up the damage with her bouncing Basic Attacks."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Hanabi's 2nd Skill to poke the enemy and mark them, and continue to chip away their HP with Basic Attack bounces before using her 1st Skill and engaging them head-on."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": 79,
+  "name": "Granger",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_22/100_a7729262d5b4abdc34ae5181e964c235.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f44e2457fb0f3539937c6a181e5dcbc4.png",
+  "role": [
+    "Marksman"
+  ],
+  "lane": [
+    "Gold Lane"
+  ],
+  "specialty": [
+    "Burst",
+    "Finisher"
+  ],
+  "lore": {
+    "story": "A mysterious demon hunter that operates outside the conventions of the Church of Light. Always seen with a violin case in hand, he hunts down demons with his two soul-devouring weapons.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 7940,
+      "name": "Capriccio",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_22/100_bc047a2c81d46bab9fbb33613806eb2d.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Granger's unique Demon Hunting <font color=\"a6aafb\">Gun</font> and <font color=\"a6aafb\">Cannon</font> are powered by Demonic Energy. Both his weapons start with 800 max Energy. His <font color=\"a6aafb\">Gun</font> restores 8% Energy per second while his <font color=\"a6aafb\">Cannon</font> restores 2% Energy per second. Killing a Minion / Creep permanently increases their max Energy by 6 / 6, and instantly restores their Energy by 5% / 5%, respectively. Each kill or assist on an enemy hero permanently increases both weapons' max Energy by 12 and instantly restores 10% Energy.\n\nEvery 1% Cooldown Reduction converts to 2 Physical Attack. Demonic Energy costs are not affected by Energy Cost Reduction.",
+      "video": ""
+    },
+    {
+      "id": 7910,
+      "name": "Rhapsody",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_22/100_4d4dbe5a7f0b4f112e719be3024cf8b0.png",
+      "cooldown_cost": "CD: 0.3",
+      "tags": [],
+      "description": "Granger rapidly fires 6 shot(s) with his <font color=\"a6aafb\">Gun</font>, with each shot dealing 60<font color=\"fba51f\"> (+45% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and consuming 70 <font color=\"a6aafb\">Gun</font> Energy. The last shot is guaranteed to Crit. While firing, Granger's Movement Speed is increased by 10%.\n\nGranger stops firing when he runs out of Energy, or when the skill is cast again. <font color=\"a6aafb\">Rhapsody</font> has no cooldown and can be cast once his <font color=\"a6aafb\">Gun</font> Energy is over 420.",
+      "video": ""
+    },
+    {
+      "id": 7920,
+      "name": "Rondo",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_22/100_a33c876aa83af3bed09b1e6a8d16f638.png",
+      "cooldown_cost": "CD: 12",
+      "tags": [],
+      "description": "Granger uses his Demon Hunter agility to dash in the target direction, instantly restoring 15% Energy for his <font color=\"a6aafb\">Gun</font>.\n\n<font color=\"a6aafb\">Rondo</font> can be cast while channeling <font color=\"a6aafb\">Rhapsody</font>. Each time <font color=\"a6aafb\">Rhapsody</font> hits an enemy, <font color=\"a6aafb\">Rondo's</font> Cooldown is reduced by 0.5s.",
+      "video": ""
+    },
+    {
+      "id": 7930,
+      "name": "Death Sonata",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_22/100_228164a926a169586aec6f69aa68a128.png",
+      "cooldown_cost": "CD: 0.6   Energy Cost: 250",
+      "tags": [],
+      "description": "Granger fires his <font color=\"a6aafb\">Cannon</font> in the target direction, dealing 150<font color=\"fba51f\"> (+110% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the first enemy hero hit and other targets in the blast radius. Targets hit will be briefly slowed. Granger can roll in the Joystick's direction after each shot.\n<font color=\"a6aafb\">Death Sonata</font> can be cast while firing <font color=\"a6aafb\">Rhapsody</font>. <font color=\"a6aafb\">Death Sonata</font> has a brief cooldown and consumes 250 of Granger's <font color=\"a6aafb\">Cannon</font> Energy per shot.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 40,
+    "ability": [
+      30,
+      70,
+      10,
+      40
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.018115,
+        "ban_rate": 0.036159,
+        "win_rate": 0.438446
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Granger's 1st Skill to poke the enemy. When his energy gets low, use his 2nd Skill to replenish it and continue to poke with his 1st Skill."
+    },
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Granger's Ultimate to poke from a safe distance and continue the attack with his 1st Skill. When the 1st Skill ends, use his Ultimate again for more damage and to reposition. If enemies get close, use his 2nd Skill to create distance and continue dealing damage with his 1st Skill."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": 84,
+  "name": "Ling",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_017bade52b9fc94bbc12615de6d75c08.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_563f09baf8ad4675dace2f94af6436de.png",
+  "role": [
+    "Assassin"
+  ],
+  "lane": [
+    "Jungle"
+  ],
+  "specialty": [
+    "Chase",
+    "Burst"
+  ],
+  "lore": {
+    "story": "A graceful, free-soaring Finch and the Oriental Fighter who inherited the Vermilion Bird's power.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 8440,
+      "name": "Cloud Walker",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_c6e3165a768cb3fa557a83c287b9f459.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Ling's superb Lightness Skill allows him to leap among walls. He gains 4 extra Lightness Points per second when he's on a wall and 5 extra Lightness Points each time he deals damage.\n\nLing gains 1.6 times Crit Chance from all sources but only has 140% Crit Damage.",
+      "video": ""
+    },
+    {
+      "id": 8410,
+      "name": "Finch Poise",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_aacda39b0b019760c392c77045c7aa9a.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "<font color=\"a6aafb\">Passive</font>: Ling's Crit Chance is permanently increased by 2.5%.\n\n<font color=\"a6aafb\">Active</font>: Ling casts his Lightness Skill, leaping onto the designated wall, entering <font color=\"a6aafb\">half-stealth</font> state, restoring Lightness Points more quickly and gaining 30% Movement Speed. If Ling receives damage, he will leave the <font color=\"a6aafb\">half-stealth</font> state. If he is controlled, he will fall onto the ground and be slowed by 30% for 2s. When using this skill to jump from a wall to another, it will reset the Cooldown and refresh the <font color=\"a6aafb\">half-stealth</font> state.",
+      "video": ""
+    },
+    {
+      "id": 8420,
+      "name": "Defiant Sword",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_c212eef502f9086513e0d8b5ad0ef8bb.png",
+      "cooldown_cost": "CD: 2.5   Energy Cost: 35",
+      "tags": [],
+      "description": "Ling charges in the target direction and stabs nearby enemies, dealing them 300<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.\nIf Ling casts this skill when he's on the wall (no energy cost), he'll dash to the target location on the ground, dealing 300<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in the area and slowing them by 30% for 1.5s. \n<font color=\"a6aafb\">Defiant Sword</font> is regarded as Basic Attack.",
+      "video": ""
+    },
+    {
+      "id": 8430,
+      "name": "Tempest of Blades",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_f720a952a87a4873288aae54457aff7c.png",
+      "cooldown_cost": "CD: 52",
+      "tags": [],
+      "description": "Ling leaps into the air, becoming invincible and gaining 10% extra Movement Speed for 1.5s. He ignores obstacles when in the air. He then lands on the ground, dealing 250<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in the area and slowing them by 40% for 1.5s, knocking those in the center airborne for 1s, and creating a Sword Field for 8s.\n\nFour <font color=\"a6aafb\">Tempest of Blades</font> will also appear on the edge of the Sword Field. Ling can touch them to reduce the cooldown of <font color=\"a6aafb\">Finch Poise</font> by 4s, reset the cooldown of <font color=\"a6aafb\">Defiant Sword</font>, and gain 25 Lightness Points.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 70,
+    "ability": [
+      50,
+      60,
+      30,
+      70
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.002285,
+        "ban_rate": 0.002232,
+        "win_rate": 0.480239
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, Ling should move onto the wall with his 1st Skill, then use his 2nd Skill to land on enemy back-row heroes. Once landed, Ling should attack the target heroes with his Basic Attacks, and then cast his Ultimate to avoid incoming damage. He should then follow his targets when in the air to deal damage and knock them airborne. He can then dash with his 2nd Skill between the Tempest Blades to reset its cooldown and restore Lightness Points."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, Ling should use his 1st Skill to leap onto the wall, and strike down with his 2nd Skill to deal damage to the target enemy and slow them. Follow up with Ling's Basic Attacks and his 2nd Skill to chase down the enemy hero."
+    }
+  ]
+}

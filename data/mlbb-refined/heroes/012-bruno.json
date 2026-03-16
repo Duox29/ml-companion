@@ -1,0 +1,103 @@
+{
+  "id": 12,
+  "name": "Bruno",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ff39deb9c6afec3d977fdbe9d86f78cb.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_890739c136c183bc1a128867baf2a357.png",
+  "role": [
+    "Marksman"
+  ],
+  "lane": [
+    "Gold Lane"
+  ],
+  "specialty": [
+    "Finisher",
+    "Burst"
+  ],
+  "lore": {
+    "story": "The captain of the Eruditio Rangers that protects the city with his amazing football skills.",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 1240,
+      "name": "Mecha Legs",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0850ac06412b0171aef0eba541581199.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Bruno gains 2.5% extra Crit Chance each time he deals damage with his skills (up to 8 stacks).\n\nBruno has higher Physical Attack but only gains 80% extra Attack Speed from all sources.",
+      "video": ""
+    },
+    {
+      "id": 1210,
+      "name": "Volley Shot",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_65a5b817dc5f53e082caa8c1def5a9ef.png",
+      "cooldown_cost": "CD: 10   Mana Cost: 50",
+      "tags": [],
+      "description": "Bruno kicks a Powerball on his next Basic Attack, dealing 100<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to the target, slowing them by 30%, and speeding up by 30% for 0.5s.\n\nThe Powerball then bounces back toward Bruno and lands on the ground. He or allied heroes can retrieve the Powerball for another attack and reduce the cooldown of <font color=\"a6aafb\">Flying Tackle</font> by 1s.",
+      "video": ""
+    },
+    {
+      "id": 1220,
+      "name": "Flying Tackle",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_02cfbd7b97612b6aedb46d84a3186ce4.png",
+      "cooldown_cost": "CD: 7   Mana Cost: 60",
+      "tags": [],
+      "description": "Bruno makes a slide tackle in the target direction, dealing 140<font color=\"fba51f\"> (+40% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in his path and stunning them for 0.5s.\n\nIf the Powerball is bouncing back, Bruno also draws the Powerball toward him.",
+      "video": ""
+    },
+    {
+      "id": 1230,
+      "name": "Worldie",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0d4558404b2096ecbce8394de5ced030.png",
+      "cooldown_cost": "CD: 38   Mana Cost: 140",
+      "tags": [],
+      "description": "Bruno kicks his Energy Ball at the target enemy hero, dealing 250<font color=\"fba51f\"> (+83% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and knocking them back. The Energy Ball then bounces between nearby enemies up to 10 times, each time dealing 150<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>. Each hit also reduces the enemy's Physical Defense by 4% for 8s (up to 3 stacks).",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      20,
+      60,
+      20,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.001721,
+        "ban_rate": 0.001781,
+        "win_rate": 0.500697
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, start with Bruno's 1st Skill to get a Powerball and try to get in as much damage as possible. Look for enemies that are close together to use his Ultimate on, then use his Basic Attacks and 2nd Skill to secure the kill or retreat from danger."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Bruno's 1st Skill to get a Powerball, and start attacking the enemy while picking up the ball. When the target is low, stun them with his 2nd Skill and finish them off with Basic Attacks."
+    }
+  ]
+}

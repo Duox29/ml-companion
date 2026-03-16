@@ -1,0 +1,139 @@
+{
+  "id": 37,
+  "name": "Lapu-Lapu",
+  "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_28036c4584c914c5aad4d2feeafb2452.png",
+  "portrait": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_585b7071cf12473e2b27a0121f6192c0.png",
+  "role": [
+    "Fighter"
+  ],
+  "lane": [
+    "Exp Lane"
+  ],
+  "specialty": [
+    "Chase",
+    "Burst"
+  ],
+  "lore": {
+    "story": "Hero who defends the Vonetis Islands from outsiders",
+    "tale": ""
+  },
+  "skill": [
+    {
+      "id": 3740,
+      "name": "Homeland Defender",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_49ec4c6534f7d54b1b490a966bcb431f.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Lapu-Lapu accumulates 10 <font color=\"a6aafb\">Bravery Blessing</font> each time he deals damage (halved for damage dealt to non-hero units). When <font color=\"a6aafb\">Bravery Blessing</font> is full, Lapu-Lapu's next <font color=\"a6aafb\">Basic Attack</font> will make him dash toward the target, dealing <font color=\"fba51f\"> (+150% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> (cannot Crit) and granting him a shield that absorbs 250 (+65*Hero Level) damage for 2.5s.",
+      "video": ""
+    },
+    {
+      "id": 3710,
+      "name": "Justice Blades",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e7cb2f98d19635f68bcf1c9a322daf6a.png",
+      "cooldown_cost": "CD: 6",
+      "tags": [],
+      "description": "Lapu-Lapu releases two boomerangs in the target direction, each boomerang dealing 140<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit on its way out and back.\n\nEnemies hit by both boomerangs take 50% damage from the second hit.",
+      "video": ""
+    },
+    {
+      "id": 3720,
+      "name": "Jungle Warrior",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_24322baddfd959a497671ec25ebe91a7.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Lapu-Lapu dashes in the target direction, dealing 100<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies along the way.",
+      "video": ""
+    },
+    {
+      "id": 3730,
+      "name": "Bravest Fighter",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_a7b0ba6060cb97e213bbb75c24404a2f.png",
+      "cooldown_cost": "CD: 30",
+      "tags": [],
+      "description": "Lapu-Lapu leaps to the target location while combining his twin blades into one, dealing 300<font color=\"fba51f\"> (+80% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies upon landing and slowing them by 60% for 1s. (This skill cannot be interrupted.)\nLapu-Lapu gains 3 times the <font color=\"a6aafb\">Bravery Blessing</font> from this skill and skills in transformed state.\nFor the next 10s, Lapu-Lapu enters <font color=\"a6aafb\">Great Sword</font> stance and gains enhanced skills, 30 extra Physical & Magic Defense, and his Basic Attack damage is increased to 120%.",
+      "video": ""
+    },
+    {
+      "id": 3740,
+      "name": "Homeland Defender",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_49ec4c6534f7d54b1b490a966bcb431f.png",
+      "cooldown_cost": "",
+      "tags": [],
+      "description": "Lapu-Lapu accumulates 10 <font color=\"a6aafb\">Bravery Blessing</font> each time he deals damage (halved for damage dealt to non-hero units). When <font color=\"a6aafb\">Bravery Blessing</font> is full, Lapu-Lapu's next <font color=\"a6aafb\">Basic Attack</font> will make him dash toward the target, dealing <font color=\"fba51f\"> (+150% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> (cannot Crit) and granting him a shield that absorbs 250 (+65*Hero Level) damage for 2.5s.",
+      "video": ""
+    },
+    {
+      "id": 3712,
+      "name": "Land Shaker",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_314a8fc8ae1bed40e359345d5f4d31a0.png",
+      "cooldown_cost": "CD: 10",
+      "tags": [],
+      "description": "Lapu-Lapu channels for 0.7s, slowing enemies in the target direction by 60%. He then slams his heavy sword to the ground, dealing 250<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies hit and stunning them for 1s. (This skill can only be interrupted by Suppression.)",
+      "video": ""
+    },
+    {
+      "id": 3723,
+      "name": "Storm Sword",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d09db3b0fb47d66e6ce2c80371141c68.png",
+      "cooldown_cost": "CD: 6",
+      "tags": [],
+      "description": "Lapu-Lapu whirls his heavy sword, dealing 250<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to nearby enemies.\n\nWhen hitting an enemy hero, Lapu-Lapu gains 20% Damage Reduction, plus an additional 8% for each extra enemy hero hit, lasting 3s.",
+      "video": ""
+    },
+    {
+      "id": 3731,
+      "name": "Raging Slash",
+      "icon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_77042b1a4020eef7c59fc51ac080a91c.png",
+      "cooldown_cost": "CD: 40",
+      "tags": [],
+      "description": "Lapu-Lapu swings his heavy sword 3 times. The first two attacks deal 345<font color=\"fba51f\"> (+160% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> each, while the third deals 440<font color=\"fba51f\"> (+210% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> to enemies in a large area.\n\nLapu-Lapu gains Control Immunity during this process and can change his attack direction and move a short distance on each attack.",
+      "video": ""
+    }
+  ],
+  "stats": {
+    "difficulty": 50,
+    "ability": [
+      80,
+      40,
+      40,
+      50
+    ],
+    "hero_rate": [
+      {
+        "rank": "8",
+        "camp_type": "1",
+        "match_type": "1",
+        "win_rate": null
+      }
+    ],
+    "detail_stats": [
+      {
+        "rank": "101",
+        "camp_type": "1",
+        "match_type": "1",
+        "appearance_rate": 0.006101,
+        "ban_rate": 0.010363,
+        "win_rate": 0.500272
+      }
+    ]
+  },
+  "skin": [],
+  "quote": {
+    "select": "",
+    "movement": [],
+    "ultimate": ""
+  },
+  "skill_combo": [
+    {
+      "skill_id": null,
+      "title": "TEAMFIGHT COMBOS",
+      "description": "In teamfights, use Lapu-Lapu's 1st Skill to wear down the enemies' HP, then follow up with his 2nd Skill to get close and use his Ultimate to initiate. While in Great Sword stance, use his Ultimate again for high burst damage, then use his 2nd Skill to gain Damage Reduction,\r\nand finally CC the enemy with his 1st Skill."
+    },
+    {
+      "skill_id": null,
+      "title": "LANING COMBOS",
+      "description": "In the laning phase, use Lapu-Lapu's 1st Skill to poke enemies. When Bravery Blessing is full, use his 2nd Skill and enhanced Basic Attacks."
+    }
+  ]
+}
