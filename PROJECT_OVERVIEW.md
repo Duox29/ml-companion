@@ -37,6 +37,8 @@ ml-companion-frontend/
 ### Luồng root
 - `App.tsx`
   - Restore session từ storage.
+  - Nếu chưa hoàn tất onboarding (`app_onboarding_version !== v2`) thì luôn vào `AuthFlow` để chạy intro/onboarding, kể cả khi đang ở route Wiki.
+  - Nếu đã hoàn tất onboarding: chưa auth nhưng ở route Wiki có thể vào app ở chế độ guest.
   - Nếu chưa auth và không ở route Wiki thì vào `AuthFlow`.
   - Còn lại vào `MainApp`.
 

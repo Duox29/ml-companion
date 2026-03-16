@@ -10,6 +10,7 @@ export default function App() {
   const location = useLocation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isGuest, setIsGuest] = useState(false);
+  const [hasCompletedOnboarding, setHasCompletedOnboarding] = useState(false);
   const [authInitialStep, setAuthInitialStep] = useState<"splash" | "login" | "register">("splash");
   const [isBootstrapping, setIsBootstrapping] = useState(true);
 
@@ -43,8 +44,9 @@ export default function App() {
           return;
         }
 
-        const hasCompletedOnboarding = onboardingVersion === ONBOARDING_VERSION;
-        setAuthInitialStep(hasCompletedOnboarding ? "login" : "splash");
+        const onboardingCompleted = onboardingVersion === ONBOARDING_VERSION;
+        setHasCompletedOnboarding(onboardingCompleted);
+        setAuthInitialStep(onboardingCompleted ? "login" : "splash");
 
         if (accessToken && userData) {
           setIsGuest(false);
@@ -55,6 +57,13 @@ export default function App() {
         if (guestMode === "true") {
           setIsGuest(true);
           setIsAuthenticated(true);
+          return;
+        }
+
+        if (!onboardingCompleted) {
+          // Force intro/auth flow on first open, including wiki route.
+          setIsGuest(false);
+          setIsAuthenticated(false);
           return;
         }
 
@@ -101,6 +110,7 @@ export default function App() {
       storage.set(APP_KEYS.ONBOARDING_VERSION, ONBOARDING_VERSION),
     ]);
     await storage.set(AUTH_KEYS.GUEST_MODE, guest ? "true" : "false");
+    setHasCompletedOnboarding(true);
     setIsGuest(guest);
     setIsAuthenticated(true);
   };
@@ -123,6 +133,7 @@ export default function App() {
       storage.set(APP_KEYS.ONBOARDING_DONE, "true"),
       storage.set(APP_KEYS.ONBOARDING_VERSION, ONBOARDING_VERSION),
     ]);
+    setHasCompletedOnboarding(true);
     setIsAuthenticated(false);
     setIsGuest(false);
     setAuthInitialStep(step);
@@ -141,7 +152,7 @@ export default function App() {
 
   const isWikiRoute =
     location.pathname === "/" || location.pathname.startsWith("/wiki");
-  const shouldShowAuthFlow = !isAuthenticated && !isWikiRoute;
+  const shouldShowAuthFlow = !isAuthenticated && (!isWikiRoute || !hasCompletedOnboarding);
   const effectiveGuest = isGuest || !isAuthenticated;
 
   return (
