@@ -174,6 +174,9 @@ Ghi chú verify backend:
 
 - Axios interceptor tự gắn Bearer token và tự refresh token khi gặp 401/403.
 - Nếu refresh thất bại, app phát event `auth:logout` để đưa người dùng về trạng thái guest.
+- `MainApp` có gesture native cho Android:
+  - Hardware `BACK` gọi điều hướng `navigate(-1)` để quay về route trước đó khi có history.
+  - Swipe ngang trái/phải trên vùng nội dung để chuyển tab kế bên theo thứ tự `Wiki <-> Community <-> Chat <-> Inbox <-> Profile`.
 - Một số endpoint đã được chuẩn bị trong code nhưng chưa có luồng UI dùng thực tế (`/auth/forgot-password`, `/auth/reset-password`).
 - `src/contexts/AuthContext.tsx` có comment `api.get('/auth/me')`, nhưng đây chỉ là comment và không có request runtime.
 - Wiki News/Event detail dùng rich content renderer:
