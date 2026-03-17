@@ -1,5 +1,6 @@
-import { ChangeEvent, FormEvent, Fragment, useEffect, useMemo, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, Fragment, UIEvent, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Capacitor } from "@capacitor/core";
 import {
   Hash,
   Users,
@@ -30,6 +31,9 @@ import {
 const ASSET_TOKEN_REGEX = /(\[img\](.*?)\[\/img\]|:[a-z0-9_+-]+:)/gi;
 const INLINE_IMAGE_DATA_REGEX = /\[img\]\s*data:image\/[a-zA-Z0-9.+-]+;base64,[\s\S]*?\[\/img\]/i;
 const MAX_INLINE_IMAGE_MESSAGE_LENGTH = 800_000;
+const CHANNEL_MESSAGES_PAGE_SIZE = 50;
+const LOAD_MORE_SCROLL_THRESHOLD_PX = 120;
+const IS_WEB_PLATFORM = Capacitor.getPlatform() === "web";
 
 async function compressImageFile(file: File): Promise<string> {
   const image = await new Promise<HTMLImageElement>((resolve, reject) => {
@@ -309,6 +313,9 @@ function ChatRoom({
   const [messages, setMessages] = useState<ChannelMessage[]>([]);
   const [input, setInput] = useState("");
   const [isLoadingMessages, setIsLoadingMessages] = useState(false);
+  const [isLoadingMoreMessages, setIsLoadingMoreMessages] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [hasMoreMessages, setHasMoreMessages] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [messagesError, setMessagesError] = useState<string | null>(null);
   const [isSocketConnected, setIsSocketConnected] = useState(false);
@@ -319,6 +326,14 @@ function ChatRoom({
   const [pendingImageDataUrl, setPendingImageDataUrl] = useState<string | null>(null);
   const subscriptionRef = useRef<{ unsubscribe: () => void } | null>(null);
   const imageInputRef = useRef<HTMLInputElement | null>(null);
+  const messageInputRef = useRef<HTMLInputElement | null>(null);
+  const messagesContainerRef = useRef<HTMLDivElement | null>(null);
+
+  const focusMessageInput = () => {
+    const inputElement = messageInputRef.current;
+    if (!inputElement) return;
+    inputElement.focus({ preventScroll: true });
+  };
 
   const allAssets = useMemo(() => mergeChatAssets(customAssets), [customAssets]);
   const emojiAssets = useMemo(
@@ -345,16 +360,21 @@ function ChatRoom({
         setIsSocketConnected(false);
         setInitialConnectionNotice(null);
         setPendingImageDataUrl(null);
+        setCurrentPage(1);
+        setHasMoreMessages(false);
+        setIsLoadingMoreMessages(false);
 
         const [channels, page] = await Promise.all([
           fetchGlobalChannels(),
-          fetchGlobalChannelMessages(channelId, 1, 50),
+          fetchGlobalChannelMessages(channelId, 1, CHANNEL_MESSAGES_PAGE_SIZE),
         ]);
 
         if (!isMounted) return;
 
         setChannel(channels.find((c) => c.id === channelId) ?? null);
         setMessages(Array.isArray(page.data) ? page.data : []);
+        setCurrentPage(page.page || 1);
+        setHasMoreMessages(Boolean(page.hasNext));
 
         subscriptionRef.current?.unsubscribe();
         const nextSubscription = await subscribeToGlobalChannel(channelId, {
@@ -393,6 +413,18 @@ function ChatRoom({
         }
 
         subscriptionRef.current = nextSubscription;
+        requestAnimationFrame(() => {
+          const container = messagesContainerRef.current;
+          if (!container) return;
+          container.scrollTop = 0;
+        });
+
+        if (IS_WEB_PLATFORM) {
+          setTimeout(() => {
+            if (!isMounted) return;
+            focusMessageInput();
+          }, 0);
+        }
       } catch (error) {
         console.error("Failed to load channel messages:", error);
         if (isMounted) {
@@ -413,6 +445,63 @@ function ChatRoom({
       subscriptionRef.current = null;
     };
   }, [channelId]);
+
+  const loadOlderMessages = async () => {
+    if (isLoadingMessages || isLoadingMoreMessages || !hasMoreMessages) {
+      return;
+    }
+
+    const container = messagesContainerRef.current;
+    const previousScrollHeight = container?.scrollHeight ?? 0;
+    const previousScrollTop = container?.scrollTop ?? 0;
+    const targetPage = currentPage + 1;
+
+    try {
+      setIsLoadingMoreMessages(true);
+      setMessagesError(null);
+      const page = await fetchGlobalChannelMessages(
+        channelId,
+        targetPage,
+        CHANNEL_MESSAGES_PAGE_SIZE
+      );
+
+      setMessages((prev) => {
+        const deduped = new Map<string, ChannelMessage>();
+        [...prev, ...(Array.isArray(page.data) ? page.data : [])].forEach((item) => {
+          if (!deduped.has(item.id)) {
+            deduped.set(item.id, item);
+          }
+        });
+        return Array.from(deduped.values());
+      });
+
+      setCurrentPage(page.page || targetPage);
+      setHasMoreMessages(Boolean(page.hasNext));
+
+      requestAnimationFrame(() => {
+        const updatedContainer = messagesContainerRef.current;
+        if (!updatedContainer) return;
+        const heightDelta = updatedContainer.scrollHeight - previousScrollHeight;
+        updatedContainer.scrollTop = previousScrollTop + Math.max(0, heightDelta);
+      });
+    } catch (error) {
+      console.error("Failed to load older channel messages:", error);
+      setMessagesError("Could not load older messages. Please try again.");
+    } finally {
+      setIsLoadingMoreMessages(false);
+    }
+  };
+
+  const handleMessagesScroll = (event: UIEvent<HTMLDivElement>) => {
+    const container = event.currentTarget;
+    const scrollableHeight = container.scrollHeight - container.clientHeight;
+    const isNearTop =
+      container.scrollTop >= Math.max(0, scrollableHeight - LOAD_MORE_SCROLL_THRESHOLD_PX);
+
+    if (isNearTop) {
+      void loadOlderMessages();
+    }
+  };
 
   useEffect(() => {
     let isMounted = true;
@@ -449,6 +538,8 @@ function ChatRoom({
   const onSubmit = async (event: FormEvent) => {
     event.preventDefault();
     const textContent = input.trim();
+    const draftInput = input;
+    const draftImage = pendingImageDataUrl;
     const content = pendingImageDataUrl
       ? `${textContent}${textContent ? " " : ""}[img]${pendingImageDataUrl}[/img]`
       : textContent;
@@ -464,6 +555,11 @@ function ChatRoom({
         return;
       }
 
+      // Clear draft immediately to keep typing flow smooth while request is in-flight.
+      setInput("");
+      setPendingImageDataUrl(null);
+      focusMessageInput();
+
       const created = await sendGlobalChannelMessage(channelId, content);
       setMessages((prev) => {
         const next = [created, ...prev];
@@ -473,14 +569,14 @@ function ChatRoom({
         }
         return Array.from(deduped.values());
       });
-
-      setInput("");
-      setPendingImageDataUrl(null);
     } catch (error) {
       console.error("Failed to send message:", error);
       setMessagesError("Failed to send message. Please try again.");
+      setInput(draftInput);
+      setPendingImageDataUrl(draftImage);
     } finally {
       setIsSending(false);
+      requestAnimationFrame(() => focusMessageInput());
     }
   };
 
@@ -578,7 +674,13 @@ function ChatRoom({
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 flex flex-col-reverse">
+      <div
+        ref={messagesContainerRef}
+        onScroll={handleMessagesScroll}
+        className="flex-1 overflow-y-auto p-4 space-y-4 flex flex-col-reverse"
+      >
+
+
         {initialConnectionNotice && (
           <div className="text-center text-[11px] text-gray-400">{initialConnectionNotice}</div>
         )}
@@ -721,12 +823,12 @@ function ChatRoom({
             <ImageIcon size={20} />
           </button>
           <input
+            ref={messageInputRef}
             type="text"
             value={input}
             onChange={(event) => setInput(event.target.value)}
             placeholder={`Message #${channel?.name ?? channelId}...`}
             className="flex-1 min-w-0 bg-transparent border-none focus:outline-none text-sm dark:text-white"
-            disabled={isSending}
           />
           <button
             type="button"
@@ -753,6 +855,11 @@ function ChatRoom({
           <button
             type="submit"
             disabled={isSending || (!input.trim() && !pendingImageDataUrl)}
+            onPointerDown={(event) => {
+              if (!IS_WEB_PLATFORM) {
+                event.preventDefault();
+              }
+            }}
             className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white shrink-0 disabled:opacity-60"
           >
             <Send size={14} className="ml-0.5" />

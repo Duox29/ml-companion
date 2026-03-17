@@ -17,6 +17,7 @@ import { storage, AUTH_KEYS, APP_KEYS } from "../../services/storage";
 const ONBOARDING_VERSION = "v2";
 const MAX_USERNAME_LENGTH = 30;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const LOGIN_POPUP_MIN_MS = 1000;
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 const GOOGLE_GSI_SCRIPT_SRC = "https://accounts.google.com/gsi/client";
 const IS_NATIVE_ANDROID = Capacitor.getPlatform() === "android";
@@ -242,17 +243,35 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isGoogleReady, setIsGoogleReady] = useState(false);
-  const [googleButtonWidth, setGoogleButtonWidth] = useState(0);
+  const [googleButtonWidth, setGoogleButtonWidth] = useState<number | null>(null);
+  const googleButtonContainerRef = useRef<HTMLDivElement | null>(null);
   const googleButtonRef = useRef<HTMLDivElement | null>(null);
 
   const persistAuth = async (accessToken: string, refreshToken: string, user: unknown) => {
     await storage.set(AUTH_KEYS.ACCESS_TOKEN, accessToken);
     await storage.set(AUTH_KEYS.REFRESH_TOKEN, refreshToken);
     await storage.set(AUTH_KEYS.USER_DATA, JSON.stringify(user));
-    onLogin(false);
+  };
+
+  const withLoginPopup = async (task: () => Promise<void>) => {
+    const startedAt = Date.now();
+    setLoading(true);
+    try {
+      await task();
+    } finally {
+      const elapsed = Date.now() - startedAt;
+      if (elapsed < LOGIN_POPUP_MIN_MS) {
+        await new Promise((resolve) => setTimeout(resolve, LOGIN_POPUP_MIN_MS - elapsed));
+      }
+      setLoading(false);
+    }
   };
 
   const handleGoogleCredential = async (credentialResponse: GoogleCredentialResponse) => {
+    if (loading) {
+      return;
+    }
+
     const credential = credentialResponse?.credential;
     if (!credential) {
       setError("Google sign-in failed. Missing credential.");
@@ -260,13 +279,13 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
     }
 
     try {
-      setLoading(true);
       setError(null);
-      await loginWithGoogleIdToken(credential);
+      await withLoginPopup(async () => {
+        await loginWithGoogleIdToken(credential);
+      });
+      onLogin(false);
     } catch (err: any) {
       setError(err.response?.data?.message || "Google login failed.");
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -282,23 +301,27 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
       return;
     }
 
+    if (loading) {
+      return;
+    }
+
     try {
-      setLoading(true);
       setError(null);
-      const loginResponse = await SocialLogin.login({
-        provider: "google",
-        options: {},
+      await withLoginPopup(async () => {
+        const loginResponse = await SocialLogin.login({
+          provider: "google",
+          options: {},
+        });
+
+        if (loginResponse.result.responseType !== "online" || !loginResponse.result.idToken) {
+          throw new Error("Google login did not return an ID token.");
+        }
+
+        await loginWithGoogleIdToken(loginResponse.result.idToken);
       });
-
-      if (loginResponse.result.responseType !== "online" || !loginResponse.result.idToken) {
-        throw new Error("Google login did not return an ID token.");
-      }
-
-      await loginWithGoogleIdToken(loginResponse.result.idToken);
+      onLogin(false);
     } catch (err: any) {
       setError(err?.message || "Google login failed.");
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -335,38 +358,50 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
   }, []);
 
   useEffect(() => {
-    if (!GOOGLE_CLIENT_ID || IS_NATIVE_ANDROID || !googleButtonRef.current) {
+    if (!GOOGLE_CLIENT_ID || IS_NATIVE_ANDROID || !googleButtonContainerRef.current) {
       return;
     }
 
-    const updateGoogleButtonWidth = () => {
-      const containerWidth = Math.floor(googleButtonRef.current?.getBoundingClientRect().width || 0);
+    const measureGoogleButtonWidth = () => {
+      const containerWidth = Math.floor(
+        googleButtonContainerRef.current?.getBoundingClientRect().width || 0
+      );
+
       if (!containerWidth) {
         return;
       }
 
-      const nextWidth = Math.max(240, Math.min(containerWidth, 420));
-      setGoogleButtonWidth((prev) => (prev === nextWidth ? prev : nextWidth));
+      // Keep the GIS click target synced with the real container width.
+      const nextWidth = Math.max(160, containerWidth);
+      setGoogleButtonWidth((prev) => {
+        if (prev === null) {
+          return nextWidth;
+        }
+        return Math.abs(prev - nextWidth) >= 1 ? nextWidth : prev;
+      });
     };
 
-    updateGoogleButtonWidth();
+    const frameId = window.requestAnimationFrame(measureGoogleButtonWidth);
     const resizeObserver =
       typeof ResizeObserver !== "undefined"
-        ? new ResizeObserver(updateGoogleButtonWidth)
+        ? new ResizeObserver(measureGoogleButtonWidth)
         : null;
-    if (resizeObserver) {
-      resizeObserver.observe(googleButtonRef.current);
+
+    if (resizeObserver && googleButtonContainerRef.current) {
+      resizeObserver.observe(googleButtonContainerRef.current);
     }
-    window.addEventListener("resize", updateGoogleButtonWidth);
+
+    window.addEventListener("resize", measureGoogleButtonWidth);
 
     return () => {
+      window.cancelAnimationFrame(frameId);
       resizeObserver?.disconnect();
-      window.removeEventListener("resize", updateGoogleButtonWidth);
+      window.removeEventListener("resize", measureGoogleButtonWidth);
     };
   }, []);
 
   useEffect(() => {
-    if (!GOOGLE_CLIENT_ID || IS_NATIVE_ANDROID) {
+    if (!GOOGLE_CLIENT_ID || IS_NATIVE_ANDROID || !googleButtonWidth) {
       return;
     }
 
@@ -386,12 +421,30 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
       });
 
       googleButtonRef.current.innerHTML = "";
+      const isDark = document.documentElement.classList.contains("dark");
       window.google.accounts.id.renderButton(googleButtonRef.current, {
-        theme: "outline",
+        theme: isDark ? "filled_black" : "outline",
         size: "large",
-        shape: "pill",
-        width: googleButtonWidth || 320,
+        shape: "rectangular",
+        width: googleButtonWidth,
       });
+
+      // GSI injects nested wrappers; enforce centering to prevent left offsets.
+      googleButtonRef.current.style.display = "flex";
+      googleButtonRef.current.style.justifyContent = "center";
+      googleButtonRef.current.style.width = "100%";
+
+      const injectedWrapper = googleButtonRef.current.firstElementChild as HTMLElement | null;
+      if (injectedWrapper) {
+        injectedWrapper.style.width = "100%";
+        injectedWrapper.style.maxWidth = "100%";
+      }
+
+      const injectedInner = injectedWrapper?.firstElementChild as HTMLElement | null;
+      if (injectedInner) {
+        injectedInner.style.width = "100%";
+        injectedInner.style.maxWidth = "100%";
+      }
 
       setIsGoogleReady(true);
     };
@@ -422,31 +475,35 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
   }, [googleButtonWidth]);
 
   const handleLogin = async () => {
+    if (loading) {
+      return;
+    }
+
     if (!identifier || !password) {
       setError("Please fill in all fields");
       return;
     }
 
     try {
-      setLoading(true);
       setError(null);
       // Backend supports login via username or email
       const reqData = identifier.includes("@") 
         ? { email: identifier, password } 
         : { username: identifier, password };
-        
-      const response = await api.post("/auth/login", reqData);
-      const { accessToken, refreshToken, user } = response.data.data;
-      await persistAuth(accessToken, refreshToken, user);
+
+      await withLoginPopup(async () => {
+        const response = await api.post("/auth/login", reqData);
+        const { accessToken, refreshToken, user } = response.data.data;
+        await persistAuth(accessToken, refreshToken, user);
+      });
+      onLogin(false);
     } catch (err: any) {
       setError(err.response?.data?.message || "Login failed. Check your credentials.");
-    } finally {
-      setLoading(false);
     }
   };
 
   return (
-    <div className="flex h-full min-h-0 flex-col bg-bg-light dark:bg-bg-dark pt-safe pb-safe">
+    <div className="relative flex h-full min-h-0 flex-col bg-bg-light dark:bg-bg-dark pt-safe pb-safe">
       <div className="flex-1 min-h-0 flex flex-col justify-center max-w-md w-full mx-auto px-6 py-4 overflow-y-auto">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-primary text-white rounded-xl mx-auto flex items-center justify-center mb-4 shadow-lg">
@@ -548,8 +605,13 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
                   Continue with Google
                 </button>
               ) : (
-                <div className="w-full">
-                  <div ref={googleButtonRef} className="w-full min-h-10" />
+                <div
+                  ref={googleButtonContainerRef}
+                  className={`relative w-full min-h-[44px] ${
+                    loading || !isGoogleReady ? "opacity-70 pointer-events-none" : ""
+                  }`}
+                >
+                  <div ref={googleButtonRef} className="w-full" />
                 </div>
               )
             ) : (
@@ -559,7 +621,11 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
             )}
             {GOOGLE_CLIENT_ID && !isGoogleReady && (
               <div className="text-center text-xs text-gray-500">
-                {IS_NATIVE_ANDROID ? "Initializing native Google sign-in..." : "Loading Google sign-in..."}
+                {IS_NATIVE_ANDROID
+                  ? "Initializing native Google sign-in..."
+                  : !googleButtonWidth
+                    ? "Preparing Google sign-in..."
+                    : "Loading Google sign-in..."}
               </div>
             )}
           </div>
@@ -583,6 +649,16 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
           </button>
         </div>
       </div>
+      {loading && (
+        <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/40 backdrop-blur-[1px]">
+          <div className="flex min-w-44 flex-col items-center rounded-xl bg-white px-6 py-5 shadow-xl dark:bg-gray-800">
+            <div className="mb-3 h-8 w-8 animate-spin rounded-full border-4 border-primary/30 border-t-primary" />
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+              Signing in...
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

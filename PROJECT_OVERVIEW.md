@@ -10,7 +10,7 @@ ml-companion-frontend/
 |- scripts/                    # Script crawl/refine/bundle dữ liệu hero
 |- src/
 |  |- components/              # UI components dùng chung (vd: PrivateRoute)
-|  |- contexts/                # React context (AuthContext)
+|  |- contexts/                # React context
 |  |- data/wiki/               # Dữ liệu hero bundle local
 |  |- hooks/                   # Custom hooks (useWikiData)
 |  |- screens/                 # Các màn hình chính của app
@@ -29,6 +29,7 @@ ml-companion-frontend/
 |- capacitor.config.ts         # Capacitor config
 |- vite.config.ts              # Vite config
 |- ARCHITECTURE.md             # Tài liệu kiến trúc hiện có
+|- PROJECT_OVERVIEW.md         # Tài liệu tổng quan dự án
 |- README.md
 ```
 
@@ -37,10 +38,9 @@ ml-companion-frontend/
 ### Luồng root
 - `App.tsx`
   - Restore session từ storage.
-  - Nếu chưa hoàn tất onboarding (`app_onboarding_version !== v2`) thì luôn vào `AuthFlow` để chạy intro/onboarding, kể cả khi đang ở route Wiki.
-  - Nếu đã hoàn tất onboarding: chưa auth nhưng ở route Wiki có thể vào app ở chế độ guest.
-  - Nếu chưa auth và không ở route Wiki thì vào `AuthFlow`.
-  - Còn lại vào `MainApp`.
+  - Nếu chưa hoàn tất onboarding (`app_onboarding_version !== v2`) thì luôn vào `AuthFlow`.
+  - Nếu đã onboarding xong: chưa auth vẫn có thể vào app ở chế độ guest.
+  - Nếu gặp invalidate token (event `auth:logout`), app chuyển về anonymous mode.
 
 ### Tabs trong MainApp
 - `/wiki/*` -> `WikiTab`
@@ -56,23 +56,38 @@ ml-companion-frontend/
 - `Auth`
   - Step nội bộ: `splash`, `onboarding`, `login`, `register`, `forgot`.
   - Không dùng route riêng, hiển thị theo state của `App.tsx`.
+  - Login:
+    - Web: Google Identity Services button (`/auth/google`).
+    - Native Android: `@capgo/capacitor-social-login` -> lấy `idToken` -> `/auth/google`.
+  - Register đã gọi API thật (`/auth/register`).
+  - Forgot password hiện chỉ có UI, chưa gọi API runtime.
 - `Wiki`
   - `/wiki` (All)
   - `/wiki/heroes`
   - `/wiki/heroes/:slug?section=skills|stats|lore|combos`
   - `/wiki/event`
+  - `/wiki/event/:id`
   - `/wiki/news`
-  - News/Event detail render rich content theo format backend (`contentFormat`/`descriptionFormat`)
+  - `/wiki/news/:id`
+  - News/Event detail render rich content theo format backend (`contentFormat`/`descriptionFormat`).
+  - Heroes list có incremental loading theo lô.
 - `Community`
-  - Feed + create post UI (hiện tại mock, chưa gọi backend).
+  - Feed + create post UI hiện tại là mock data, chưa gọi backend posts APIs.
 - `Chat`
   - Channel list + chat room realtime (có gọi backend HTTP + WebSocket).
-  - Hỗ trợ deep link trực tiếp vào room qua route `/chat/:channelId`.
-  - Khi đang ở route channel detail, bottom navigation được ẩn để tránh chạm nhầm.
+  - Route detail `/chat/:channelId` để mở phòng trực tiếp.
+  - Khi đang ở channel detail, bottom navigation được ẩn.
+  - Trong room:
+    - Load 50 tin nhắn mới nhất (`page=1&limit=50`).
+    - Kéo lên để load thêm lịch sử (`page=2,3,...`).
+    - Gửi tin nhắn qua REST `POST /channels/{id}/messages`.
+    - Subscribe realtime qua STOMP `/topic/channels/{id}`.
+    - Có emoji/sticker tokens và hỗ trợ gửi ảnh (URL hoặc upload local, encode `[img]...[/img]`).
 - `Inbox`
-  - Danh sách chat + direct message UI (hiện tại mock, chưa gọi backend).
+  - Danh sách hội thoại + direct message UI hiện tại mock, chưa gọi backend.
 - `Profile`
-  - Profile + settings UI (logout local, chưa gọi backend profile APIs).
+  - Profile/settings UI hiện tại mock.
+  - Logout là local logout (xóa token/session local).
 
 ## 3) Endpoint frontend gọi backend
 
@@ -80,125 +95,102 @@ Base URL dùng chung:
 - `VITE_API_URL` (fallback: `http://localhost:8080`)
 
 ### 3.1 Auth
-
 - `POST /auth/login`
   - File: `src/screens/Auth/Auth.tsx`
   - Mục đích: đăng nhập bằng username/email + password.
-
 - `POST /auth/register`
   - File: `src/screens/Auth/Auth.tsx`
   - Mục đích: tạo tài khoản.
-
 - `POST /auth/google`
   - File: `src/screens/Auth/Auth.tsx`
-  - Mục đích: đăng nhập bằng Google ID token.
-
+  - Mục đích: đăng nhập bằng Google ID token (web + android native).
 - `POST /auth/refresh`
   - File: `src/services/api.ts`
-  - Mục đích: refresh access token khi token hết hạn.
+  - Mục đích: refresh access token khi access token hết hạn.
 
 Ghi chú:
-- `src/services/api.ts` có khai báo danh sách public auth endpoints:
+- `src/services/api.ts` khai báo public auth endpoints:
   - `/auth/login`, `/auth/register`, `/auth/google`, `/auth/refresh`, `/auth/forgot-password`, `/auth/reset-password`
-- Hiện tại UI `ForgotPassword` chưa gọi API thực tế (chưa gọi `/auth/forgot-password`).
+- Hiện tại UI Forgot Password chưa gọi API thực tế (`/auth/forgot-password`).
 
 ### 3.2 Global Chat (HTTP)
-
 - `GET /channels`
   - File: `src/services/globalChat.ts`
   - Hàm: `fetchGlobalChannels()`
   - Mục đích: lấy danh sách channel.
-
 - `GET /channels/:channelId/messages?page=&limit=`
   - File: `src/services/globalChat.ts`
   - Hàm: `fetchGlobalChannelMessages()`
   - Mục đích: lấy lịch sử message theo channel.
-
 - `POST /channels/:channelId/messages`
   - File: `src/services/globalChat.ts`
   - Hàm: `sendGlobalChannelMessage()`
   - Mục đích: gửi message qua REST.
 
 ### 3.3 Global Chat (WebSocket/STOMP)
-
-- Handshake URL: `/ws` (quy đổi từ http/https sang ws/wss theo `VITE_API_URL`)
+- Handshake URL: `/ws` (tự quy đổi http/https sang ws/wss theo `VITE_API_URL`)
   - File: `src/services/globalChat.ts`
-
 - Subscribe topic: `/topic/channels/:channelId`
   - File: `src/services/globalChat.ts`
-  - Dùng để nhận message realtime.
-
 - Publish destination: `/app/channels/:channelId/send`
   - File: `src/services/globalChat.ts`
-  - Hàm `sendGlobalChannelMessageRealtime()`.
+  - Hàm: `sendGlobalChannelMessageRealtime()`
 
 Ghi chú verify backend:
-- Backend hiện chỉ implement `@MessageMapping("/channels/{id}/send")`.
-- Chưa có endpoint realtime direct inbox (`/app/inbox/send`) trong source backend hiện tại.
+- Backend hiện implement `@MessageMapping("/channels/{id}/send")`.
+- Frontend Chat screen hiện gửi chủ yếu qua REST, đồng thời vẫn subscribe realtime để nhận broadcast.
 
-### 3.4 Wiki data sync
-
-- Version check (thử lần lượt endpoint backend hỗ trợ):
+### 3.4 Wiki data sync (Heroes)
+- Version check (thử lần lượt):
   - `GET /wiki/heroes/version`
   - `GET /mlbb/wiki/heroes/version`
   - File: `src/hooks/useWikiData.ts`
-
-- Bundle data (thử lần lượt endpoint backend hỗ trợ):
+- Bundle data (thử lần lượt):
   - `GET /wiki/heroes/bundle`
   - `GET /mlbb/wiki/heroes/bundle`
   - File: `src/hooks/useWikiData.ts`
 
-### 3.6 Wiki content APIs (News/Event)
-
+### 3.5 Wiki content APIs (News/Event)
 - `GET /wiki/news`, `GET /wiki/news/:id` (và alias `/mlbb/wiki/news*`)
   - File: `src/hooks/useWikiData.ts`
-  - Parse thêm field `contentFormat` (`MARKDOWN` | `PLAIN`) để render nội dung.
-
+  - Parse `contentFormat` (`MARKDOWN` | `PLAIN`) để render nội dung.
 - `GET /wiki/events`, `GET /wiki/events/:id` (và alias `/mlbb/wiki/events*`)
   - File: `src/hooks/useWikiData.ts`
-  - Parse thêm field `descriptionFormat` (`MARKDOWN` | `PLAIN`) để render nội dung.
+  - Parse `descriptionFormat` (`MARKDOWN` | `PLAIN`) để render nội dung.
 
-### 3.5 Image fallback proxy (Wiki)
-
+### 3.6 Image fallback proxy (Wiki)
 - `GET /wiki/heroes/image-fallback?url=<encoded-url>`
   - File: `src/services/imageCache.ts`
   - Mục đích: backend proxy trả base64 image khi frontend không fetch/caching trực tiếp được.
 
 ## 4) Mapping nhanh: screen -> backend
 
-- `Auth` -> gọi Auth APIs (`/auth/login`, `/auth/register`, `/auth/google`)
-- `Wiki` -> gọi Wiki sync APIs (version + bundle), image fallback proxy
-- `Chat` -> gọi Channels/Messages APIs + WebSocket STOMP
-- `Community` -> chưa gọi backend (mock data)
-- `Inbox` -> chưa gọi backend (mock data)
-- `Profile` -> chưa gọi backend profile (chủ yếu UI + local logout)
+- `Auth` -> Auth APIs (`/auth/login`, `/auth/register`, `/auth/google`, refresh trong interceptor)
+- `Wiki` -> Wiki heroes sync APIs, wiki news/event APIs, image fallback proxy
+- `Chat` -> Channels/Messages APIs + WebSocket STOMP
+- `Community` -> hiện chưa gọi backend (mock)
+- `Inbox` -> hiện chưa gọi backend (mock)
+- `Profile` -> hiện chưa gọi backend profile APIs (UI + local logout)
 
 ## 5) Ghi chú kỹ thuật
 
 - Axios interceptor tự gắn Bearer token và tự refresh token khi gặp 401/403.
-- Nếu refresh thất bại, app phát event `auth:logout` để đưa người dùng về trạng thái guest.
-- `MainApp` có gesture native cho Android:
-  - Hardware `BACK` gọi điều hướng `navigate(-1)` để quay về route trước đó khi có history.
-  - Swipe ngang trái/phải trên vùng nội dung để chuyển tab kế bên theo thứ tự `Wiki <-> Community <-> Chat <-> Inbox <-> Profile`.
-  - Chuyển tab có hiệu ứng transition mượt (fade + slide ngang nhẹ), có tôn trọng thiết lập `prefers-reduced-motion`.
-  - Hướng animation tab được tính đồng bộ theo tab index trước/sau (không phụ thuộc state async), giúp giữ chiều chuyển nhất quán khi đổi tab liên tiếp.
-- Luồng dữ liệu heroes của Wiki ưu tiên thời gian hiển thị `/wiki`:
-  - Ở `/wiki` chỉ render trước một tập nhỏ hero preview (không hydrate full 132 hero ngay).
-  - Parse/normalize full hero bundle chạy nền theo batch để giảm block main thread.
-  - Chỉ hydrate full heroes list khi user vào `/wiki/heroes` hoặc `/wiki/heroes/:slug`.
-  - Warm/cache ảnh hero theo mức ưu tiên (preview trước, full list sau khi vào màn Heroes).
-  - `/wiki/heroes` render danh sách theo lô (incremental) thay vì mount toàn bộ card cùng lúc để giảm giật khi scroll.
+- Nếu refresh thất bại, app phát event `auth:logout` để đưa người dùng về anonymous mode.
+- `MainApp` có gesture native Android:
+  - Hardware back button gọi `navigate(-1)` khi có history.
+  - Swipe ngang trái/phải trên vùng nội dung để chuyển tab liền kề.
+  - Chuyển tab có animation fade + slide, có tôn trọng `prefers-reduced-motion`.
+- Luồng dữ liệu Heroes của Wiki:
+  - Có local bundle fallback trong `src/data/wiki/heroes.bundle.json`.
+  - Ưu tiên render nhanh preview, parse full bundle theo chunk để tránh block UI.
+  - Chỉ eager full load khi vào khu vực heroes.
+  - Ảnh heroes có pre-cache theo mức ưu tiên.
 - Luồng dữ liệu Wiki News/Event có client cache:
-  - Cache danh sách `news/events` và cache detail theo `id` trong local storage.
-  - Ưu tiên render dữ liệu cache trước, sau đó refresh nền từ API và ghi đè cache (stale-while-revalidate).
-- Một số endpoint đã được chuẩn bị trong code nhưng chưa có luồng UI dùng thực tế (`/auth/forgot-password`, `/auth/reset-password`).
-- `src/contexts/AuthContext.tsx` có comment `api.get('/auth/me')`, nhưng đây chỉ là comment và không có request runtime.
-- Wiki News/Event detail dùng rich content renderer:
-  - Hỗ trợ hyperlink (`[text](url)` hoặc URL trực tiếp)
-  - Hỗ trợ image URL (dòng chứa URL ảnh hoặc markdown image `![alt](url)`)
-  - Hỗ trợ YouTube embed (dòng chứa YouTube URL)
-  - Hỗ trợ markdown block cơ bản: heading (`#`..`######`), list (`-`, `*`, `1.`), horizontal rule (`---`, `***`, `___`)
-  - Hỗ trợ markdown inline cơ bản: `**bold**`/`__bold__`, `*italic*`/`_italic_`, `` `inline code` ``
-- Ảnh header của `Latest News` và màn hình chi tiết `News/Event` dùng kiểu hiển thị `object-contain` trên nền blur + gradient để giữ ảnh theo chiều dọc và tránh cảm giác bị cắt khi ảnh ngang.
-- Card list `News` ưu tiên hiển thị `summary` (fallback sang excerpt từ `content` nếu thiếu summary).
-- Card list `Event` hiển thị excerpt dạng summary từ `description` đã clean markdown (API Event hiện chưa có field `summary` riêng).
+  - Cache list `news/events` và detail theo `id` trong local storage.
+  - Ưu tiên render cache trước, sau đó revalidate nền từ API.
+- Wiki detail dùng rich content renderer:
+  - Hỗ trợ markdown cơ bản, hyperlink, image URL, YouTube embed.
+- Chat room:
+  - Dùng `flex-col-reverse` để giữ UX kiểu chat mới nhất gần vùng input.
+  - Có infinite load lịch sử cũ dựa trên scroll threshold.
+  - Có bộ assets emoji/sticker tùy chỉnh từ service `chatAssets`.
