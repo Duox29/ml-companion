@@ -178,6 +178,16 @@ Ghi chú verify backend:
   - Hardware `BACK` gọi điều hướng `navigate(-1)` để quay về route trước đó khi có history.
   - Swipe ngang trái/phải trên vùng nội dung để chuyển tab kế bên theo thứ tự `Wiki <-> Community <-> Chat <-> Inbox <-> Profile`.
   - Chuyển tab có hiệu ứng transition mượt (fade + slide ngang nhẹ), có tôn trọng thiết lập `prefers-reduced-motion`.
+  - Hướng animation tab được tính đồng bộ theo tab index trước/sau (không phụ thuộc state async), giúp giữ chiều chuyển nhất quán khi đổi tab liên tiếp.
+- Luồng dữ liệu heroes của Wiki ưu tiên thời gian hiển thị `/wiki`:
+  - Ở `/wiki` chỉ render trước một tập nhỏ hero preview (không hydrate full 132 hero ngay).
+  - Parse/normalize full hero bundle chạy nền theo batch để giảm block main thread.
+  - Chỉ hydrate full heroes list khi user vào `/wiki/heroes` hoặc `/wiki/heroes/:slug`.
+  - Warm/cache ảnh hero theo mức ưu tiên (preview trước, full list sau khi vào màn Heroes).
+  - `/wiki/heroes` render danh sách theo lô (incremental) thay vì mount toàn bộ card cùng lúc để giảm giật khi scroll.
+- Luồng dữ liệu Wiki News/Event có client cache:
+  - Cache danh sách `news/events` và cache detail theo `id` trong local storage.
+  - Ưu tiên render dữ liệu cache trước, sau đó refresh nền từ API và ghi đè cache (stale-while-revalidate).
 - Một số endpoint đã được chuẩn bị trong code nhưng chưa có luồng UI dùng thực tế (`/auth/forgot-password`, `/auth/reset-password`).
 - `src/contexts/AuthContext.tsx` có comment `api.get('/auth/me')`, nhưng đây chỉ là comment và không có request runtime.
 - Wiki News/Event detail dùng rich content renderer:

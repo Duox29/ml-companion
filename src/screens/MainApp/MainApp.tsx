@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { Capacitor } from "@capacitor/core";
 import { App as CapacitorApp } from "@capacitor/app";
@@ -52,24 +52,25 @@ export default function MainApp({ isGuest, onLogout, onRequireAuth }: MainAppPro
   const shouldReduceMotion = useReducedMotion();
   const gestureAreaRef = useRef<HTMLDivElement>(null);
   const previousTabIndexRef = useRef(-1);
-  const [transitionDirection, setTransitionDirection] = useState(0);
 
   const activeTabIndex = MAIN_TABS.findIndex(
     (tab) =>
       location.pathname === tab.path ||
       location.pathname.startsWith(`${tab.path}/`),
   );
+  const previousTabIndex = previousTabIndexRef.current;
+  const transitionDirection =
+    activeTabIndex >= 0 &&
+    previousTabIndex >= 0 &&
+    activeTabIndex !== previousTabIndex
+      ? activeTabIndex > previousTabIndex
+        ? 1
+        : -1
+      : 0;
   const activeTabId = activeTabIndex >= 0 ? MAIN_TABS[activeTabIndex].id : undefined;
   const routeTransitionKey = activeTabId ?? location.pathname;
 
   useEffect(() => {
-    const previousIndex = previousTabIndexRef.current;
-    if (activeTabIndex >= 0 && previousIndex >= 0 && activeTabIndex !== previousIndex) {
-      setTransitionDirection(activeTabIndex > previousIndex ? 1 : -1);
-    } else {
-      setTransitionDirection(0);
-    }
-
     previousTabIndexRef.current = activeTabIndex;
   }, [activeTabIndex]);
 

@@ -1,4 +1,11 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import {
   Search,
@@ -17,29 +24,55 @@ import {
   MapPin,
   Clock3,
 } from "lucide-react";
-import { Hero, WikiEventItem, WikiHeroDetailStat, WikiHeroRecord, WikiNewsItem } from "../../types";
-import { useHeroes, useWikiContent, useWikiContentDetail } from "../../hooks/useWikiData";
-import { RichContentRenderer, richContentToPlainText } from "../../utils/richContent";
+import {
+  Hero,
+  WikiEventItem,
+  WikiHeroDetailStat,
+  WikiHeroRecord,
+  WikiNewsItem,
+} from "../../types";
+import {
+  useHeroes,
+  useWikiContent,
+  useWikiContentDetail,
+} from "../../hooks/useWikiData";
+import {
+  RichContentRenderer,
+  richContentToPlainText,
+} from "../../utils/richContent";
 
 const ROLE_COLORS: Record<string, string> = {
   Tank: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-  Fighter: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
+  Fighter:
+    "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
   Mage: "bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-900 dark:text-fuchsia-200",
   Marksman: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
   Assassin: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
-  Support: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
+  Support:
+    "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
 };
 
 const WIKI_CATEGORIES = ["All", "Heroes", "Event", "News"] as const;
-const HERO_ROLES = ["All Roles", "Tank", "Fighter", "Mage", "Marksman", "Assassin", "Support"] as const;
+const HERO_ROLES = [
+  "All Roles",
+  "Tank",
+  "Fighter",
+  "Mage",
+  "Marksman",
+  "Assassin",
+  "Support",
+] as const;
 const HERO_DETAIL_SECTIONS = ["skills", "stats", "lore", "combos"] as const;
+const HEROES_PAGE_SIZE = 24;
 
 type WikiCategory = (typeof WIKI_CATEGORIES)[number];
 type HeroRoleFilter = (typeof HERO_ROLES)[number];
 type HeroSection = (typeof HERO_DETAIL_SECTIONS)[number];
 
 function HeroCardSkeleton() {
-  return <div className="relative h-36 sm:h-40 rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-700 animate-pulse" />;
+  return (
+    <div className="relative h-36 sm:h-40 rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-700 animate-pulse" />
+  );
 }
 
 function parseWikiPath(pathname: string): {
@@ -48,19 +81,28 @@ function parseWikiPath(pathname: string): {
   contentId: string | null;
 } {
   const cleanPath = pathname.split("?")[0];
-  const segments = cleanPath.replace(/^\/wiki\/?/, "").split("/").filter(Boolean);
+  const segments = cleanPath
+    .replace(/^\/wiki\/?/, "")
+    .split("/")
+    .filter(Boolean);
   const first = segments[0];
   const second = segments[1];
 
   if (!first) return { category: "All", heroSlug: null, contentId: null };
-  if (first === "heroes") return { category: "Heroes", heroSlug: second ?? null, contentId: null };
-  if (first === "event" || first === "events") return { category: "Event", heroSlug: null, contentId: second ?? null };
-  if (first === "news") return { category: "News", heroSlug: null, contentId: second ?? null };
+  if (first === "heroes")
+    return { category: "Heroes", heroSlug: second ?? null, contentId: null };
+  if (first === "event" || first === "events")
+    return { category: "Event", heroSlug: null, contentId: second ?? null };
+  if (first === "news")
+    return { category: "News", heroSlug: null, contentId: second ?? null };
   return { category: "All", heroSlug: null, contentId: null };
 }
 
 function stripHtml(input: string) {
-  return input.replace(/<[^>]*>/g, "").replace(/\n{3,}/g, "\n\n").trim();
+  return input
+    .replace(/<[^>]*>/g, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
 }
 
 function formatRelativeTime(input: string | null | undefined) {
@@ -80,7 +122,10 @@ function formatRelativeTime(input: string | null | undefined) {
   for (const [unit, unitMs] of units) {
     if (Math.abs(diffMs) >= unitMs) {
       const value = Math.round(diffMs / unitMs);
-      return new Intl.RelativeTimeFormat("en", { numeric: "auto" }).format(value, unit);
+      return new Intl.RelativeTimeFormat("en", { numeric: "auto" }).format(
+        value,
+        unit,
+      );
     }
   }
 
@@ -119,22 +164,33 @@ function formatEventRange(event: WikiEventItem) {
   return "TBD";
 }
 
-function getNewsSummary(news: WikiNewsItem) {
+function getNewsSummary(news: WikiNewsItem, plainText?: string) {
   if (news.summary?.trim()) return news.summary.trim();
-  return richContentToPlainText(news.content, news.contentFormat).slice(0, 140) || "No summary available.";
+  const normalized =
+    plainText ?? richContentToPlainText(news.content, news.contentFormat);
+  return normalized.slice(0, 140) || "No summary available.";
 }
 
-function getNewsCardExcerpt(news: WikiNewsItem) {
+function getNewsCardExcerpt(news: WikiNewsItem, plainText?: string) {
   if (news.summary?.trim()) {
     return news.summary.trim().slice(0, 160);
   }
-  const fromContent = richContentToPlainText(news.content, news.contentFormat).slice(0, 160).trim();
+  const fromContent = (
+    plainText ?? richContentToPlainText(news.content, news.contentFormat)
+  )
+    .slice(0, 160)
+    .trim();
   return fromContent || "No summary available.";
 }
 
-function getEventCardExcerpt(event: WikiEventItem) {
+function getEventCardExcerpt(event: WikiEventItem, plainText?: string) {
   return (
-    richContentToPlainText(event.description, event.descriptionFormat).slice(0, 160).trim() ||
+    (
+      plainText ??
+      richContentToPlainText(event.description, event.descriptionFormat)
+    )
+      .slice(0, 160)
+      .trim() ||
     event.location ||
     "No description available."
   );
@@ -158,8 +214,15 @@ export default function WikiTab() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [visibleHeroCount, setVisibleHeroCount] = useState(HEROES_PAGE_SIZE);
+  const visibleHeroCountRef = useRef(HEROES_PAGE_SIZE);
+  const showScrollTopRef = useRef(false);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-  const { category, heroSlug, contentId } = useMemo(() => parseWikiPath(location.pathname), [location.pathname]);
+  const { category, heroSlug, contentId } = useMemo(
+    () => parseWikiPath(location.pathname),
+    [location.pathname],
+  );
+  const eagerFullHeroLoad = category === "Heroes" || Boolean(heroSlug);
 
   const {
     heroes,
@@ -170,7 +233,7 @@ export default function WikiTab() {
     cacheVersion,
     dataVersion,
     refresh,
-  } = useHeroes();
+  } = useHeroes({ eagerFullLoad: eagerFullHeroLoad });
   const {
     newsItems,
     eventItems,
@@ -178,7 +241,11 @@ export default function WikiTab() {
     isForbidden: isWikiContentForbidden,
   } = useWikiContent();
   const detailKind = contentId
-    ? (category === "News" ? "news" : category === "Event" ? "event" : null)
+    ? category === "News"
+      ? "news"
+      : category === "Event"
+        ? "event"
+        : null
     : null;
   const {
     newsDetail,
@@ -219,18 +286,42 @@ export default function WikiTab() {
     setSearchQuery("");
   }, [category]);
 
-  const filteredHeroes =
-    (activeRole === "All Roles"
-      ? heroes
-      : heroes.filter((hero) => hero.role === activeRole)).filter((hero) => {
-      if (!isHeroSearchActive || !normalizedSearch) return true;
-      return hero.name.toLowerCase().includes(normalizedSearch);
-    });
+  const filteredHeroes = useMemo(() => {
+    const roleFiltered =
+      activeRole === "All Roles"
+        ? heroes
+        : heroes.filter((hero) => hero.role === activeRole);
+    if (!isHeroSearchActive || !normalizedSearch) return roleFiltered;
+    return roleFiltered.filter((hero) =>
+      hero.name.toLowerCase().includes(normalizedSearch),
+    );
+  }, [activeRole, heroes, isHeroSearchActive, normalizedSearch]);
 
-  const visibleHeroes =
-    category === "All"
-      ? filteredHeroes.slice(0, 4)
-      : filteredHeroes;
+  useEffect(() => {
+    if (category !== "Heroes") return;
+    const nextCount = Math.min(HEROES_PAGE_SIZE, filteredHeroes.length);
+    visibleHeroCountRef.current = nextCount;
+    setVisibleHeroCount(nextCount);
+  }, [activeRole, category, filteredHeroes.length, normalizedSearch]);
+
+  const loadMoreHeroes = useCallback(() => {
+    if (category !== "Heroes") return;
+    setVisibleHeroCount((prev) => {
+      const nextCount = Math.min(prev + HEROES_PAGE_SIZE, filteredHeroes.length);
+      visibleHeroCountRef.current = nextCount;
+      return nextCount;
+    });
+  }, [category, filteredHeroes.length]);
+
+  const visibleHeroes = useMemo(
+    () =>
+      category === "All"
+        ? filteredHeroes.slice(0, 4)
+        : category === "Heroes"
+          ? filteredHeroes.slice(0, visibleHeroCount)
+          : filteredHeroes,
+    [category, filteredHeroes, visibleHeroCount],
+  );
 
   const visibleNewsPool = useMemo(() => {
     const published = newsItems.filter((news) => news.published);
@@ -242,38 +333,66 @@ export default function WikiTab() {
     return active.length > 0 ? active : eventItems;
   }, [eventItems]);
 
-  const filteredEvents =
-    isEventSearchActive && normalizedSearch
-      ? visibleEventsPool.filter((event) =>
-          [
-            event.title,
-            richContentToPlainText(event.description, event.descriptionFormat),
-            event.location ?? "",
-          ]
-            .join(" ")
-            .toLowerCase()
-            .includes(normalizedSearch),
-        )
-      : visibleEventsPool;
+  const eventPlainTextById = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const event of visibleEventsPool) {
+      map.set(
+        event.id,
+        richContentToPlainText(event.description, event.descriptionFormat),
+      );
+    }
+    return map;
+  }, [visibleEventsPool]);
 
-  const visibleEvents =
-    category === "All"
-      ? filteredEvents.slice(0, 2)
-      : filteredEvents;
+  const filteredEvents = useMemo(() => {
+    if (!isEventSearchActive || !normalizedSearch) return visibleEventsPool;
+    return visibleEventsPool.filter((event) =>
+      [
+        event.title,
+        eventPlainTextById.get(event.id) ?? "",
+        event.location ?? "",
+      ]
+        .join(" ")
+        .toLowerCase()
+        .includes(normalizedSearch),
+    );
+  }, [
+    eventPlainTextById,
+    isEventSearchActive,
+    normalizedSearch,
+    visibleEventsPool,
+  ]);
 
-  const filteredNews =
-    isNewsSearchActive && normalizedSearch
-      ? visibleNewsPool.filter((news) =>
-          [
-            news.title,
-            news.summary ?? "",
-            richContentToPlainText(news.content, news.contentFormat),
-          ]
-            .join(" ")
-            .toLowerCase()
-            .includes(normalizedSearch),
-        )
-      : visibleNewsPool;
+  const visibleEvents = useMemo(
+    () => (category === "All" ? filteredEvents.slice(0, 2) : filteredEvents),
+    [category, filteredEvents],
+  );
+
+  const newsPlainTextById = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const news of visibleNewsPool) {
+      map.set(
+        news.id,
+        richContentToPlainText(news.content, news.contentFormat),
+      );
+    }
+    return map;
+  }, [visibleNewsPool]);
+
+  const filteredNews = useMemo(() => {
+    if (!isNewsSearchActive || !normalizedSearch) return visibleNewsPool;
+    return visibleNewsPool.filter((news) =>
+      [news.title, news.summary ?? "", newsPlainTextById.get(news.id) ?? ""]
+        .join(" ")
+        .toLowerCase()
+        .includes(normalizedSearch),
+    );
+  }, [
+    isNewsSearchActive,
+    newsPlainTextById,
+    normalizedSearch,
+    visibleNewsPool,
+  ]);
 
   const featuredNews = filteredNews[0] ?? visibleNewsPool[0] ?? null;
 
@@ -285,7 +404,9 @@ export default function WikiTab() {
     if (!selectedRecord || !selectedHeroCard) {
       return (
         <div className="h-full flex flex-col items-center justify-center gap-4 p-6 text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-400">Không tìm thấy hero cho deeplink này.</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            Không tìm thấy hero cho deeplink này.
+          </p>
           <button
             onClick={() => navigate("/wiki/heroes")}
             className="px-4 py-2 rounded-lg bg-primary text-white text-sm font-medium"
@@ -308,12 +429,16 @@ export default function WikiTab() {
 
   if (contentId && category === "News") {
     if (isWikiContentDetailLoading) {
-      return <div className="h-full bg-gray-200 dark:bg-gray-700 animate-pulse" />;
+      return (
+        <div className="h-full bg-gray-200 dark:bg-gray-700 animate-pulse" />
+      );
     }
     if (!newsDetail) {
       return (
         <div className="h-full flex flex-col items-center justify-center gap-4 p-6 text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-400">Không tìm thấy news.</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            Không tìm thấy news.
+          </p>
           <button
             onClick={() => navigate("/wiki/news")}
             className="px-4 py-2 rounded-lg bg-primary text-white text-sm font-medium"
@@ -328,12 +453,16 @@ export default function WikiTab() {
 
   if (contentId && category === "Event") {
     if (isWikiContentDetailLoading) {
-      return <div className="h-full bg-gray-200 dark:bg-gray-700 animate-pulse" />;
+      return (
+        <div className="h-full bg-gray-200 dark:bg-gray-700 animate-pulse" />
+      );
     }
     if (!eventDetail) {
       return (
         <div className="h-full flex flex-col items-center justify-center gap-4 p-6 text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-400">Không tìm thấy event.</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            Không tìm thấy event.
+          </p>
           <button
             onClick={() => navigate("/wiki/event")}
             className="px-4 py-2 rounded-lg bg-primary text-white text-sm font-medium"
@@ -356,7 +485,10 @@ export default function WikiTab() {
             </div>
             <h1 className="text-lg font-bold dark:text-white">Wiki</h1>
           </div>
-          <button aria-label="Notifications" className="p-1.5 text-gray-600 dark:text-gray-300">
+          <button
+            aria-label="Notifications"
+            className="p-1.5 text-gray-600 dark:text-gray-300"
+          >
             <Bell size={20} />
           </button>
         </div>
@@ -378,13 +510,16 @@ export default function WikiTab() {
       {hasNewVersion && (
         <div className="mx-4 mt-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-700 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-300">
           <div className="flex items-center gap-2">
-            <span>Có phiên bản dữ liệu mới ({dataVersion}).</span>
+            <span>Có phiên bản dữ liệu mới.</span>
             <button
               onClick={refresh}
               disabled={isHeroesRefreshing}
               className="ml-auto inline-flex items-center gap-1 font-semibold text-amber-700 dark:text-amber-300 disabled:opacity-60"
             >
-              <RefreshCw size={11} className={isHeroesRefreshing ? "animate-spin" : ""} />
+              <RefreshCw
+                size={11}
+                className={isHeroesRefreshing ? "animate-spin" : ""}
+              />
               Cập nhật
             </button>
           </div>
@@ -394,7 +529,23 @@ export default function WikiTab() {
       <div
         ref={scrollContainerRef}
         onScroll={(event) => {
-          setShowScrollTop(event.currentTarget.scrollTop > 220);
+          const target = event.currentTarget;
+          const shouldShow = target.scrollTop > 220;
+          if (showScrollTopRef.current !== shouldShow) {
+            showScrollTopRef.current = shouldShow;
+            setShowScrollTop(shouldShow);
+          }
+
+          if (category === "Heroes" && !isHeroesLoading) {
+            const distanceToBottom =
+              target.scrollHeight - target.scrollTop - target.clientHeight;
+            if (
+              distanceToBottom < 300 &&
+              visibleHeroCountRef.current < filteredHeroes.length
+            ) {
+              loadMoreHeroes();
+            }
+          }
         }}
         className="flex-1 overflow-y-auto"
       >
@@ -417,9 +568,15 @@ export default function WikiTab() {
         <div className="px-4 pb-6 space-y-8 mt-2">
           {(category === "All" || category === "News") && (
             <div>
-              {category === "All" && <h2 className="text-lg font-bold mb-3 dark:text-white">Featured</h2>}
+              {category === "All" && (
+                <h2 className="text-lg font-bold mb-3 dark:text-white">
+                  Featured
+                </h2>
+              )}
               <div
-                onClick={() => featuredNews && navigate(`/wiki/news/${featuredNews.id}`)}
+                onClick={() =>
+                  featuredNews && navigate(`/wiki/news/${featuredNews.id}`)
+                }
                 className={`relative h-40 rounded-2xl overflow-hidden shadow-md mb-4 group ${
                   featuredNews ? "cursor-pointer" : ""
                 }`}
@@ -438,12 +595,19 @@ export default function WikiTab() {
                       <div className="w-full h-full bg-gradient-to-br from-slate-700 to-slate-900" />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4">
-                      <span className="bg-accent text-primary text-xs font-bold px-2 py-1 rounded w-max mb-1">LATEST NEWS</span>
+                      <span className="bg-accent text-primary text-xs font-bold px-2 py-1 rounded w-max mb-1">
+                        LATEST NEWS
+                      </span>
                       <h3 className="text-white font-game text-xl font-bold line-clamp-1">
                         {featuredNews?.title || "No news available"}
                       </h3>
                       <p className="text-gray-300 text-sm line-clamp-2">
-                        {featuredNews ? getNewsSummary(featuredNews) : "Không có dữ liệu News từ endpoint."}
+                        {featuredNews
+                          ? getNewsSummary(
+                              featuredNews,
+                              newsPlainTextById.get(featuredNews.id),
+                            )
+                          : "Không có dữ liệu."}
                       </p>
                     </div>
                   </>
@@ -461,42 +625,59 @@ export default function WikiTab() {
                       ))}
                     </div>
                   )}
-                  {!isWikiContentLoading && filteredNews.map((news) => (
-                    <div
-                      key={news.id}
-                      onClick={() => navigate(`/wiki/news/${news.id}`)}
-                      className="flex bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer"
-                    >
-                      <div className="w-28 h-28 shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-700">
-                        {news.imageUrl ? (
-                          <VerticalFitImage src={news.imageUrl} alt={news.title} />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center text-gray-400 dark:text-gray-500">
-                            <Bell size={18} />
-                          </div>
-                        )}
-                      </div>
-                      <div className="p-3 flex flex-col justify-between flex-1">
-                        <div>
-                          <h3 className="font-bold text-sm dark:text-white mb-1 leading-tight">{news.title}</h3>
-                          <p className="text-xs text-gray-500 line-clamp-2">{getNewsCardExcerpt(news)}</p>
+                  {!isWikiContentLoading &&
+                    filteredNews.map((news) => (
+                      <div
+                        key={news.id}
+                        onClick={() => navigate(`/wiki/news/${news.id}`)}
+                        className="flex bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer"
+                      >
+                        <div className="w-28 h-28 shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-700">
+                          {news.imageUrl ? (
+                            <VerticalFitImage
+                              src={news.imageUrl}
+                              alt={news.title}
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center text-gray-400 dark:text-gray-500">
+                              <Bell size={18} />
+                            </div>
+                          )}
                         </div>
-                        <span className="text-[10px] text-gray-400 font-medium">
-                          {formatRelativeTime(news.publishedAt ?? news.updatedAt ?? news.createdAt)}
-                        </span>
+                        <div className="p-3 flex flex-col justify-between flex-1">
+                          <div>
+                            <h3 className="font-bold text-sm dark:text-white mb-1 leading-tight">
+                              {news.title}
+                            </h3>
+                            <p className="text-xs text-gray-500 line-clamp-2">
+                              {getNewsCardExcerpt(
+                                news,
+                                newsPlainTextById.get(news.id),
+                              )}
+                            </p>
+                          </div>
+                          <span className="text-[10px] text-gray-400 font-medium">
+                            {formatRelativeTime(
+                              news.publishedAt ??
+                                news.updatedAt ??
+                                news.createdAt,
+                            )}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
                   {!isWikiContentLoading && filteredNews.length === 0 && (
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                       Không có news phù hợp với từ khóa tìm kiếm.
                     </p>
                   )}
-                  {!isWikiContentLoading && isWikiContentForbidden && filteredNews.length === 0 && (
-                    <p className="text-xs text-amber-600 dark:text-amber-300">
-                      Không có quyền truy cập endpoint nội dung Wiki.
-                    </p>
-                  )}
+                  {!isWikiContentLoading &&
+                    isWikiContentForbidden &&
+                    filteredNews.length === 0 && (
+                      <p className="text-xs text-amber-600 dark:text-amber-300">
+                        Không có quyền truy cập endpoint nội dung Wiki.
+                      </p>
+                    )}
                 </div>
               )}
             </div>
@@ -509,7 +690,10 @@ export default function WikiTab() {
                   {category === "All" ? "Upcoming Events" : "Events"}
                 </h2>
                 {category === "All" && (
-                  <button onClick={() => navigate("/wiki/event")} className="text-primary dark:text-accent text-sm font-medium">
+                  <button
+                    onClick={() => navigate("/wiki/event")}
+                    className="text-primary dark:text-accent text-sm font-medium"
+                  >
                     See All
                   </button>
                 )}
@@ -518,50 +702,70 @@ export default function WikiTab() {
                 {isWikiContentLoading && (
                   <div className="space-y-4">
                     {Array.from({ length: 2 }).map((_, idx) => (
-                      <div key={idx} className="h-48 rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse" />
+                      <div
+                        key={idx}
+                        className="h-48 rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+                      />
                     ))}
                   </div>
                 )}
-                {!isWikiContentLoading && visibleEvents.map((event) => (
-                  <div
-                    key={event.id}
-                    onClick={() => navigate(`/wiki/event/${event.id}`)}
-                    className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer"
-                  >
-                    <div className="h-32 relative overflow-hidden">
-                      {event.imageUrl ? (
-                        <VerticalFitImage src={event.imageUrl} alt={event.title} />
-                      ) : (
-                        <div className="w-full h-full bg-gradient-to-r from-slate-800 to-slate-700" />
-                      )}
-                      <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-lg flex items-center">
-                        <Calendar size={12} className="mr-1" /> {formatEventRange(event)}
+                {!isWikiContentLoading &&
+                  visibleEvents.map((event) => (
+                    <div
+                      key={event.id}
+                      onClick={() => navigate(`/wiki/event/${event.id}`)}
+                      className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer"
+                    >
+                      <div className="h-32 relative overflow-hidden">
+                        {event.imageUrl ? (
+                          <VerticalFitImage
+                            src={event.imageUrl}
+                            alt={event.title}
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-r from-slate-800 to-slate-700" />
+                        )}
+                        <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-lg flex items-center">
+                          <Calendar size={12} className="mr-1" />{" "}
+                          {formatEventRange(event)}
+                        </div>
+                      </div>
+                      <div className="p-3 flex justify-between items-start gap-3">
+                        <div className="min-w-0 flex-1">
+                          <h3 className="font-bold text-sm dark:text-white line-clamp-1">
+                            {event.title}
+                          </h3>
+                          <p className="text-xs text-gray-500 line-clamp-2 mt-1">
+                            {getEventCardExcerpt(
+                              event,
+                              eventPlainTextById.get(event.id),
+                            )}
+                          </p>
+                          <span className="text-xs text-primary dark:text-accent font-medium mt-1 inline-block">
+                            {event.location || "Event"}
+                          </span>
+                        </div>
+                        <button className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300">
+                          <Bell size={16} />
+                        </button>
                       </div>
                     </div>
-                    <div className="p-3 flex justify-between items-start gap-3">
-                      <div className="min-w-0 flex-1">
-                        <h3 className="font-bold text-sm dark:text-white line-clamp-1">{event.title}</h3>
-                        <p className="text-xs text-gray-500 line-clamp-2 mt-1">{getEventCardExcerpt(event)}</p>
-                        <span className="text-xs text-primary dark:text-accent font-medium mt-1 inline-block">
-                          {event.location || "Event"}
-                        </span>
-                      </div>
-                      <button className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300">
-                        <Bell size={16} />
-                      </button>
-                    </div>
-                  </div>
-                ))}
-                {category === "Event" && !isWikiContentLoading && visibleEvents.length === 0 && (
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Không có event phù hợp với từ khóa tìm kiếm.
-                  </p>
-                )}
-                {category === "Event" && !isWikiContentLoading && isWikiContentForbidden && visibleEvents.length === 0 && (
-                  <p className="text-xs text-amber-600 dark:text-amber-300">
-                    Không có quyền truy cập endpoint nội dung Wiki.
-                  </p>
-                )}
+                  ))}
+                {category === "Event" &&
+                  !isWikiContentLoading &&
+                  visibleEvents.length === 0 && (
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      Không có event phù hợp với từ khóa tìm kiếm.
+                    </p>
+                  )}
+                {category === "Event" &&
+                  !isWikiContentLoading &&
+                  isWikiContentForbidden &&
+                  visibleEvents.length === 0 && (
+                    <p className="text-xs text-amber-600 dark:text-amber-300">
+                      Không có quyền truy cập endpoint nội dung Wiki.
+                    </p>
+                  )}
               </div>
             </div>
           )}
@@ -573,7 +777,10 @@ export default function WikiTab() {
                   {category === "All" ? "Popular Heroes" : "All Heroes"}
                 </h2>
                 {category === "All" ? (
-                  <button onClick={() => navigate("/wiki/heroes")} className="text-primary dark:text-accent text-sm font-medium">
+                  <button
+                    onClick={() => navigate("/wiki/heroes")}
+                    className="text-primary dark:text-accent text-sm font-medium"
+                  >
                     See All
                   </button>
                 ) : (
@@ -608,22 +815,41 @@ export default function WikiTab() {
 
               <div className="grid grid-cols-2 gap-3">
                 {isHeroesLoading
-                  ? Array.from({ length: 4 }).map((_, i) => <HeroCardSkeleton key={i} />)
+                  ? Array.from({ length: 4 }).map((_, i) => (
+                      <HeroCardSkeleton key={i} />
+                    ))
                   : visibleHeroes.map((hero) => (
                       <div key={hero.id}>
                         <HeroCard
                           hero={hero}
                           imageSrc={resolvedImages[hero.id] ?? hero.image}
-                          onClick={() => navigate(`/wiki/heroes/${hero.slug}?section=skills`)}
+                          onClick={() =>
+                            navigate(`/wiki/heroes/${hero.slug}?section=skills`)
+                          }
                         />
                       </div>
                     ))}
               </div>
-              {category === "Heroes" && !isHeroesLoading && visibleHeroes.length === 0 && (
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">
-                  Không có hero phù hợp với từ khóa tìm kiếm.
-                </p>
-              )}
+              {category === "Heroes" &&
+                !isHeroesLoading &&
+                visibleHeroes.length === 0 && (
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">
+                    Không có hero phù hợp với từ khóa tìm kiếm.
+                  </p>
+                )}
+              {category === "Heroes" &&
+                !isHeroesLoading &&
+                visibleHeroes.length > 0 &&
+                visibleHeroes.length < filteredHeroes.length && (
+                  <div className="mt-4 flex justify-center">
+                    <button
+                      onClick={loadMoreHeroes}
+                      className="px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 text-sm font-medium border border-gray-200 dark:border-gray-700"
+                    >
+                      Tải thêm heroes ({visibleHeroes.length}/{filteredHeroes.length})
+                    </button>
+                  </div>
+                )}
             </div>
           )}
         </div>
@@ -633,7 +859,9 @@ export default function WikiTab() {
         onClick={scrollToTop}
         aria-label="Scroll to top"
         className={`absolute right-4 bottom-24 z-20 w-9 h-9 rounded-full shadow-md border border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 text-gray-700 dark:text-gray-200 flex items-center justify-center transition-all duration-200 ${
-          showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
+          showScrollTop
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-2 pointer-events-none"
         }`}
       >
         <ArrowUp size={16} />
@@ -652,11 +880,24 @@ function HeroCard({
   onClick: () => void | Promise<void>;
 }) {
   return (
-    <div className="relative h-36 sm:h-40 rounded-xl overflow-hidden shadow-sm cursor-pointer active:scale-95 transition-transform group" onClick={onClick}>
-      <img src={imageSrc} className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]" alt={hero.name} />
+    <div
+      className="relative h-36 sm:h-40 rounded-xl overflow-hidden shadow-sm cursor-pointer active:scale-95 transition-transform group"
+      onClick={onClick}
+    >
+      <img
+        src={imageSrc}
+        className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
+        alt={hero.name}
+        loading="lazy"
+        decoding="async"
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
-        <h3 className="font-bold text-white font-game text-base leading-tight drop-shadow-md">{hero.name}</h3>
-        <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider mt-1 w-max shadow-sm ${ROLE_COLORS[hero.role]}`}>
+        <h3 className="font-bold text-white font-game text-base leading-tight drop-shadow-md">
+          {hero.name}
+        </h3>
+        <span
+          className={`inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider mt-1 w-max shadow-sm ${ROLE_COLORS[hero.role]}`}
+        >
           {hero.role}
         </span>
       </div>
@@ -668,10 +909,12 @@ function VerticalFitImage({
   src,
   alt,
   imageClassName = "",
+  loading = "lazy",
 }: {
   src: string;
   alt: string;
   imageClassName?: string;
+  loading?: "eager" | "lazy";
 }) {
   return (
     <div className="relative z-0 w-full h-full overflow-hidden pointer-events-none">
@@ -680,6 +923,8 @@ function VerticalFitImage({
         alt=""
         aria-hidden="true"
         className="absolute inset-0 z-0 w-full h-full object-cover scale-110 blur-2xl opacity-55"
+        loading={loading}
+        decoding="async"
       />
       <div className="absolute inset-0 z-0 bg-gradient-to-r from-black/45 via-black/10 to-black/45" />
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/25 via-transparent to-black/30" />
@@ -687,6 +932,8 @@ function VerticalFitImage({
         src={src}
         className={`relative z-0 w-full h-full object-contain ${imageClassName}`}
         alt={alt}
+        loading={loading}
+        decoding="async"
       />
     </div>
   );
@@ -694,13 +941,19 @@ function VerticalFitImage({
 
 function NewsDetail({ news }: { news: WikiNewsItem }) {
   const navigate = useNavigate();
-  const displayTime = formatDateTime(news.publishedAt ?? news.updatedAt ?? news.createdAt);
+  const displayTime = formatDateTime(
+    news.publishedAt ?? news.updatedAt ?? news.createdAt,
+  );
 
   return (
     <div className="flex flex-col h-full bg-bg-light dark:bg-bg-dark overflow-y-auto">
       <div className="relative h-64 shrink-0">
         {news.imageUrl ? (
-          <VerticalFitImage src={news.imageUrl} alt={news.title} />
+          <VerticalFitImage
+            src={news.imageUrl}
+            alt={news.title}
+            loading="eager"
+          />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-slate-700 to-slate-900" />
         )}
@@ -717,7 +970,9 @@ function NewsDetail({ news }: { news: WikiNewsItem }) {
           </button>
         </div>
         <div className="absolute bottom-4 left-4 right-4">
-          <h1 className="text-2xl font-bold text-white leading-tight">{news.title}</h1>
+          <h1 className="text-2xl font-bold text-white leading-tight">
+            {news.title}
+          </h1>
           <p className="text-xs text-gray-300 mt-2">{displayTime}</p>
         </div>
       </div>
@@ -725,7 +980,9 @@ function NewsDetail({ news }: { news: WikiNewsItem }) {
       <div className="p-4 space-y-4">
         {news.summary && (
           <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
-            <p className="text-sm text-gray-700 dark:text-gray-200">{news.summary}</p>
+            <p className="text-sm text-gray-700 dark:text-gray-200">
+              {news.summary}
+            </p>
           </div>
         )}
         <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
@@ -757,7 +1014,11 @@ function EventDetail({ event }: { event: WikiEventItem }) {
     <div className="flex flex-col h-full bg-bg-light dark:bg-bg-dark overflow-y-auto">
       <div className="relative h-64 shrink-0">
         {event.imageUrl ? (
-          <VerticalFitImage src={event.imageUrl} alt={event.title} />
+          <VerticalFitImage
+            src={event.imageUrl}
+            alt={event.title}
+            loading="eager"
+          />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-slate-700 to-slate-900" />
         )}
@@ -774,7 +1035,9 @@ function EventDetail({ event }: { event: WikiEventItem }) {
           </button>
         </div>
         <div className="absolute bottom-4 left-4 right-4">
-          <h1 className="text-2xl font-bold text-white leading-tight">{event.title}</h1>
+          <h1 className="text-2xl font-bold text-white leading-tight">
+            {event.title}
+          </h1>
         </div>
       </div>
 
@@ -829,15 +1092,21 @@ function HeroDetail({
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const sectionParam = searchParams.get("section");
-  const section: HeroSection = HERO_DETAIL_SECTIONS.find((item) => item === sectionParam) ?? "skills";
-  const detailStats: WikiHeroDetailStat | null = record.stats?.detail_stats?.[0] ?? null;
+  const section: HeroSection =
+    HERO_DETAIL_SECTIONS.find((item) => item === sectionParam) ?? "skills";
+  const detailStats: WikiHeroDetailStat | null =
+    record.stats?.detail_stats?.[0] ?? null;
   const winRate = detailStats?.win_rate ?? null;
   const heroImage = resolvedListImage ?? (record.portrait || hero.image);
 
   return (
     <div className="flex flex-col h-full bg-bg-light dark:bg-bg-dark overflow-y-auto">
       <div className="relative h-72 shrink-0">
-        <img src={heroImage} className="w-full h-full object-cover" alt={hero.name} />
+        <img
+          src={heroImage}
+          className="w-full h-full object-cover"
+          alt={hero.name}
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-bg-light dark:from-bg-dark via-black/20 to-black/40" />
 
         <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center pt-6">
@@ -860,16 +1129,26 @@ function HeroDetail({
         </div>
 
         <div className="absolute bottom-4 left-4 right-4">
-          <h1 className="text-4xl font-game font-bold text-white mb-1">{record.name}</h1>
-          <p className="text-gray-300 text-sm mb-3 italic">{record.specialty.join(" • ")}</p>
+          <h1 className="text-4xl font-game font-bold text-white mb-1">
+            {record.name}
+          </h1>
+          <p className="text-gray-300 text-sm mb-3 italic">
+            {record.specialty.join(" • ")}
+          </p>
           <div className="flex flex-wrap gap-2">
             {record.role.map((role) => (
-              <span key={role} className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${ROLE_COLORS[role] || "bg-gray-100 text-gray-800"}`}>
+              <span
+                key={role}
+                className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${ROLE_COLORS[role] || "bg-gray-100 text-gray-800"}`}
+              >
                 {role}
               </span>
             ))}
             {record.lane.map((lane) => (
-              <span key={lane} className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-black/50 text-white backdrop-blur-sm">
+              <span
+                key={lane}
+                className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-black/50 text-white backdrop-blur-sm"
+              >
                 {lane}
               </span>
             ))}
@@ -903,18 +1182,33 @@ function HeroDetail({
         {section === "skills" && (
           <div className="space-y-3">
             {record.skill.map((skill, idx) => (
-              <div key={skill.id} className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <div
+                key={skill.id}
+                className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700"
+              >
                 <div className="flex items-start gap-3">
-                  <img src={skill.icon} alt={skill.name} className="w-12 h-12 rounded-lg object-cover shrink-0" />
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="w-12 h-12 rounded-lg object-cover shrink-0"
+                  />
                   <div className="min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <h3 className="font-bold text-gray-900 dark:text-white">{skill.name}</h3>
+                      <h3 className="font-bold text-gray-900 dark:text-white">
+                        {skill.name}
+                      </h3>
                       <span className="text-[10px] uppercase tracking-wider bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-0.5 rounded">
-                        {idx === 0 ? "Passive" : idx === 3 ? "Ultimate" : `Skill ${idx}`}
+                        {idx === 0
+                          ? "Passive"
+                          : idx === 3
+                            ? "Ultimate"
+                            : `Skill ${idx}`}
                       </span>
                     </div>
                     {skill.cooldown_cost && (
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{skill.cooldown_cost}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        {skill.cooldown_cost}
+                      </p>
                     )}
                     <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 whitespace-pre-line">
                       {stripHtml(skill.description)}
@@ -929,17 +1223,43 @@ function HeroDetail({
         {section === "stats" && (
           <div className="space-y-4">
             <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
-              <h3 className="font-bold text-lg mb-4 dark:text-white">Ability DNA</h3>
+              <h3 className="font-bold text-lg mb-4 dark:text-white">
+                Ability DNA
+              </h3>
               <div className="space-y-3">
-                <AbilityRow icon={<Shield size={14} />} label="Durability" value={record.stats.ability?.[0] ?? 0} color="from-cyan-500 to-blue-500" />
-                <AbilityRow icon={<Sword size={14} />} label="Offense" value={record.stats.ability?.[1] ?? 0} color="from-red-500 to-orange-500" />
-                <AbilityRow icon={<Sparkles size={14} />} label="Skill Effects" value={record.stats.ability?.[2] ?? 0} color="from-indigo-500 to-fuchsia-500" />
-                <AbilityRow icon={<BarChart3 size={14} />} label="Difficulty" value={record.stats.ability?.[3] ?? record.stats.difficulty ?? 0} color="from-amber-500 to-yellow-500" />
+                <AbilityRow
+                  icon={<Shield size={14} />}
+                  label="Durability"
+                  value={record.stats.ability?.[0] ?? 0}
+                  color="from-cyan-500 to-blue-500"
+                />
+                <AbilityRow
+                  icon={<Sword size={14} />}
+                  label="Offense"
+                  value={record.stats.ability?.[1] ?? 0}
+                  color="from-red-500 to-orange-500"
+                />
+                <AbilityRow
+                  icon={<Sparkles size={14} />}
+                  label="Skill Effects"
+                  value={record.stats.ability?.[2] ?? 0}
+                  color="from-indigo-500 to-fuchsia-500"
+                />
+                <AbilityRow
+                  icon={<BarChart3 size={14} />}
+                  label="Difficulty"
+                  value={
+                    record.stats.ability?.[3] ?? record.stats.difficulty ?? 0
+                  }
+                  color="from-amber-500 to-yellow-500"
+                />
               </div>
             </div>
 
             <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
-              <h3 className="font-bold text-lg mb-4 dark:text-white">Meta Snapshot</h3>
+              <h3 className="font-bold text-lg mb-4 dark:text-white">
+                Meta Snapshot
+              </h3>
               <div className="grid grid-cols-[auto,1fr] gap-4 items-center">
                 <div
                   className="w-20 h-20 rounded-full flex items-center justify-center text-xs font-bold text-gray-800 dark:text-white"
@@ -952,9 +1272,18 @@ function HeroDetail({
                   </span>
                 </div>
                 <div className="space-y-2 text-sm">
-                  <InfoLine label="Appearance Rate" value={formatPercent(detailStats?.appearance_rate)} />
-                  <InfoLine label="Ban Rate" value={formatPercent(detailStats?.ban_rate)} />
-                  <InfoLine label="Rank" value={record.stats.hero_rate?.[0]?.rank ?? "N/A"} />
+                  <InfoLine
+                    label="Appearance Rate"
+                    value={formatPercent(detailStats?.appearance_rate)}
+                  />
+                  <InfoLine
+                    label="Ban Rate"
+                    value={formatPercent(detailStats?.ban_rate)}
+                  />
+                  <InfoLine
+                    label="Rank"
+                    value={record.stats.hero_rate?.[0]?.rank ?? "N/A"}
+                  />
                 </div>
               </div>
             </div>
@@ -965,14 +1294,22 @@ function HeroDetail({
           <div className="space-y-4">
             <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
               <h3 className="font-bold text-lg mb-3 dark:text-white">Story</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{record.lore.story || "Chưa có dữ liệu."}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                {record.lore.story || "Chưa có dữ liệu."}
+              </p>
               {record.lore.tale && (
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mt-3">{record.lore.tale}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mt-3">
+                  {record.lore.tale}
+                </p>
               )}
             </div>
             <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-              <h3 className="font-bold text-sm text-gray-500 uppercase tracking-wider mb-2">Select Quote</h3>
-              <p className="text-lg font-medium italic dark:text-white">"{record.quote.select || "..."}"</p>
+              <h3 className="font-bold text-sm text-gray-500 uppercase tracking-wider mb-2">
+                Select Quote
+              </h3>
+              <p className="text-lg font-medium italic dark:text-white">
+                "{record.quote.select || "..."}"
+              </p>
             </div>
           </div>
         )}
@@ -980,9 +1317,14 @@ function HeroDetail({
         {section === "combos" && (
           <div className="space-y-3">
             {record.skill_combo.map((combo, idx) => (
-              <div key={`${combo.title}-${idx}`} className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+              <div
+                key={`${combo.title}-${idx}`}
+                className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700"
+              >
                 <h3 className="font-bold dark:text-white">{combo.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">{combo.description}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">
+                  {combo.description}
+                </p>
               </div>
             ))}
           </div>
@@ -1014,7 +1356,10 @@ function AbilityRow({
         <span className="font-semibold">{clamped}</span>
       </div>
       <div className="h-2 rounded-full bg-gray-100 dark:bg-gray-700 overflow-hidden">
-        <div className={`h-full bg-gradient-to-r ${color}`} style={{ width: `${clamped}%` }} />
+        <div
+          className={`h-full bg-gradient-to-r ${color}`}
+          style={{ width: `${clamped}%` }}
+        />
       </div>
     </div>
   );
