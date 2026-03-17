@@ -242,6 +242,7 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isGoogleReady, setIsGoogleReady] = useState(false);
+  const [googleButtonWidth, setGoogleButtonWidth] = useState(0);
   const googleButtonRef = useRef<HTMLDivElement | null>(null);
 
   const persistAuth = async (accessToken: string, refreshToken: string, user: unknown) => {
@@ -334,6 +335,37 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
   }, []);
 
   useEffect(() => {
+    if (!GOOGLE_CLIENT_ID || IS_NATIVE_ANDROID || !googleButtonRef.current) {
+      return;
+    }
+
+    const updateGoogleButtonWidth = () => {
+      const containerWidth = Math.floor(googleButtonRef.current?.getBoundingClientRect().width || 0);
+      if (!containerWidth) {
+        return;
+      }
+
+      const nextWidth = Math.max(240, Math.min(containerWidth, 420));
+      setGoogleButtonWidth((prev) => (prev === nextWidth ? prev : nextWidth));
+    };
+
+    updateGoogleButtonWidth();
+    const resizeObserver =
+      typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(updateGoogleButtonWidth)
+        : null;
+    if (resizeObserver) {
+      resizeObserver.observe(googleButtonRef.current);
+    }
+    window.addEventListener("resize", updateGoogleButtonWidth);
+
+    return () => {
+      resizeObserver?.disconnect();
+      window.removeEventListener("resize", updateGoogleButtonWidth);
+    };
+  }, []);
+
+  useEffect(() => {
     if (!GOOGLE_CLIENT_ID || IS_NATIVE_ANDROID) {
       return;
     }
@@ -358,7 +390,7 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
         theme: "outline",
         size: "large",
         shape: "pill",
-        width: 320,
+        width: googleButtonWidth || 320,
       });
 
       setIsGoogleReady(true);
@@ -387,7 +419,7 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
         script.onload = null;
       }
     };
-  }, []);
+  }, [googleButtonWidth]);
 
   const handleLogin = async () => {
     if (!identifier || !password) {
@@ -414,9 +446,9 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
   };
 
   return (
-    <div className="flex flex-col h-full p-6 bg-bg-light dark:bg-bg-dark overflow-y-auto">
-      <div className="flex-1 flex flex-col justify-center max-w-md w-full mx-auto">
-        <div className="text-center mb-10">
+    <div className="flex h-full min-h-0 flex-col bg-bg-light dark:bg-bg-dark pt-safe pb-safe">
+      <div className="flex-1 min-h-0 flex flex-col justify-center max-w-md w-full mx-auto px-6 py-4 overflow-y-auto">
+        <div className="text-center mb-8">
           <div className="w-16 h-16 bg-primary text-white rounded-xl mx-auto flex items-center justify-center mb-4 shadow-lg">
             <span className="text-2xl font-game font-bold">ML</span>
           </div>
@@ -489,12 +521,12 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
           <button
             onClick={handleLogin}
             disabled={loading}
-            className={`w-full text-white py-3.5 rounded-xl font-semibold shadow-md mt-6 ${loading ? 'bg-primary/70' : 'bg-primary'}`}
+            className={`w-full text-white py-3.5 rounded-xl font-semibold shadow-md mt-4 ${loading ? 'bg-primary/70' : 'bg-primary'}`}
           >
             {loading ? "Logging in..." : "Log In"}
           </button>
 
-          <div className="flex items-center my-6">
+          <div className="flex items-center my-5">
             <div className="flex-1 border-t border-gray-200 dark:border-gray-700"></div>
             <span className="px-4 text-gray-400 text-sm">OR</span>
             <div className="flex-1 border-t border-gray-200 dark:border-gray-700"></div>
@@ -516,8 +548,8 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
                   Continue with Google
                 </button>
               ) : (
-                <div className="w-full flex justify-center">
-                  <div ref={googleButtonRef} className="min-h-10" />
+                <div className="w-full">
+                  <div ref={googleButtonRef} className="w-full min-h-10" />
                 </div>
               )
             ) : (
@@ -533,7 +565,7 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
           </div>
         </div>
 
-        <div className="mt-8 text-center text-gray-600 dark:text-gray-400">
+        <div className="mt-6 text-center text-gray-600 dark:text-gray-400">
           Don't have an account?{" "}
           <button
             onClick={onRegister}
@@ -542,7 +574,7 @@ function Login({ onLogin, onRegister, onForgot, onGuest }: any) {
             Sign Up
           </button>
         </div>
-        <div className="mt-4 text-center">
+        <div className="mt-3 text-center">
           <button
             onClick={onGuest}
             className="text-gray-500 text-sm font-medium"

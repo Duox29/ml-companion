@@ -68,6 +68,7 @@ export default function MainApp({ isGuest, onLogout, onRequireAuth }: MainAppPro
         : -1
       : 0;
   const activeTabId = activeTabIndex >= 0 ? MAIN_TABS[activeTabIndex].id : undefined;
+  const isInChatChannel = !isGuest && location.pathname.startsWith("/chat/");
   const routeTransitionKey = activeTabId ?? location.pathname;
 
   useEffect(() => {
@@ -218,6 +219,10 @@ export default function MainApp({ isGuest, onLogout, onRequireAuth }: MainAppPro
                 element={<ChatTab isGuest={isGuest} onRequireAuth={onRequireAuth} />}
               />
               <Route
+                path="/chat/:channelId"
+                element={<ChatTab isGuest={isGuest} onRequireAuth={onRequireAuth} />}
+              />
+              <Route
                 path="/inbox"
                 element={<InboxTab isGuest={isGuest} onRequireAuth={onRequireAuth} />}
               />
@@ -238,33 +243,34 @@ export default function MainApp({ isGuest, onLogout, onRequireAuth }: MainAppPro
         </AnimatePresence>
       </div>
 
-      {/* Bottom Navigation */}
-      <div className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 pb-[max(env(safe-area-inset-bottom),8px)]">
-        <div className="flex justify-around items-center h-12 px-2">
-          {MAIN_TABS.map((tab) => {
-            const Icon = tab.icon;
-            const isActive = activeTabId === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => navigate(tab.path)}
-                className={`group flex flex-col items-center justify-center w-full h-full space-y-1 transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-800/50 active:scale-95 ${
-                  isActive
-                    ? "text-primary dark:text-accent"
-                    : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
-                }`}
-              >
-                <Icon
-                  size={24}
-                  className={`transition-transform duration-200 ${isActive ? "fill-current opacity-20 scale-110" : "group-hover:scale-110"}`}
-                  strokeWidth={isActive ? 2.5 : 2}
-                />
-                <span className="text-[10px] font-medium">{tab.label}</span>
-              </button>
-            );
-          })}
+      {!isInChatChannel && (
+        <div className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 pb-[max(env(safe-area-inset-bottom),8px)]">
+          <div className="flex justify-around items-center h-12 px-2">
+            {MAIN_TABS.map((tab) => {
+              const Icon = tab.icon;
+              const isActive = activeTabId === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => navigate(tab.path)}
+                  className={`group flex flex-col items-center justify-center w-full h-full space-y-1 transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-800/50 active:scale-95 ${
+                    isActive
+                      ? "text-primary dark:text-accent"
+                      : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+                  }`}
+                >
+                  <Icon
+                    size={24}
+                    className={`transition-transform duration-200 ${isActive ? "fill-current opacity-20 scale-110" : "group-hover:scale-110"}`}
+                    strokeWidth={isActive ? 2.5 : 2}
+                  />
+                  <span className="text-[10px] font-medium">{tab.label}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

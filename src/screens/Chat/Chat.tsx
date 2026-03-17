@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, Fragment, useEffect, useMemo, useRef, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   Hash,
   Users,
@@ -177,7 +178,16 @@ export default function ChatTab({
   isGuest: boolean;
   onRequireAuth: (step: "login" | "register") => void;
 }) {
-  const [activeChannel, setActiveChannel] = useState<string | null>(null);
+  const navigate = useNavigate();
+  const { channelId: rawChannelId } = useParams<{ channelId?: string }>();
+  const activeChannelId = useMemo(() => {
+    if (!rawChannelId) return null;
+    try {
+      return decodeURIComponent(rawChannelId);
+    } catch {
+      return rawChannelId;
+    }
+  }, [rawChannelId]);
   const [channels, setChannels] = useState<Channel[]>([]);
   const [isLoadingChannels, setIsLoadingChannels] = useState(false);
   const [channelsError, setChannelsError] = useState<string | null>(null);
@@ -222,9 +232,9 @@ export default function ChatTab({
     );
   }
 
-  if (activeChannel) {
+  if (activeChannelId) {
     return (
-      <ChatRoom channelId={activeChannel} onBack={() => setActiveChannel(null)} />
+      <ChatRoom channelId={activeChannelId} onBack={() => navigate("/chat")} />
     );
   }
 
@@ -266,7 +276,7 @@ export default function ChatTab({
           {channels.map((channel) => (
             <button
               key={channel.id}
-              onClick={() => setActiveChannel(channel.id)}
+              onClick={() => navigate(`/chat/${encodeURIComponent(channel.id)}`)}
               className="w-full bg-white dark:bg-gray-800 p-4 rounded-xl flex items-center justify-between border border-gray-100 dark:border-gray-700 active:scale-[0.98] transition-transform"
             >
               <div className="flex items-center">

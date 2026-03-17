@@ -45,7 +45,8 @@ ml-companion-frontend/
 ### Tabs trong MainApp
 - `/wiki/*` -> `WikiTab`
 - `/community` -> `CommunityTab`
-- `/chat` -> `ChatTab`
+- `/chat` -> `ChatTab` (channel list)
+- `/chat/:channelId` -> `ChatTab` (deep link trực tiếp vào channel)
 - `/inbox` -> `InboxTab`
 - `/profile` -> `ProfileTab`
 - `/` -> redirect `/wiki`
@@ -66,6 +67,8 @@ ml-companion-frontend/
   - Feed + create post UI (hiện tại mock, chưa gọi backend).
 - `Chat`
   - Channel list + chat room realtime (có gọi backend HTTP + WebSocket).
+  - Hỗ trợ deep link trực tiếp vào room qua route `/chat/:channelId`.
+  - Khi đang ở route channel detail, bottom navigation được ẩn để tránh chạm nhầm.
 - `Inbox`
   - Danh sách chat + direct message UI (hiện tại mock, chưa gọi backend).
 - `Profile`
